@@ -56,3 +56,18 @@ def proxy():
 
     return resp
 
+
+@app.route("/trivial", methods=['POST'])
+def trivial():
+    h = {key: value for key, value in request.headers}
+    resp_data = request.data
+
+    # do some trivial filling of the input by inserting the required fields
+
+    resp = Response()
+    for header_name, header_value in request.headers.items():
+        resp.headers[header_name] = header_value
+    resp.data = resp_data
+
+    return resp
+
