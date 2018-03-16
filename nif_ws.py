@@ -7,7 +7,7 @@ from time import time
 import re
     
 
-endpoint = "http://localhost:8181/spotlight"
+endpoint = "http://localhost:8080/spotlight"
 data_dir = "data/"
 no_classref = True
 
@@ -38,17 +38,19 @@ def proxy():
     if r.status_code == 200:
         for header_name, header_value in r.headers.items():
             resp.headers[header_name] = header_value
-        resp_data = remove_classref(r.content) if no_classref else r.content
+        
+        r_content = str(r.content, "utf-8")
+        resp_data = remove_classref(r_content) if no_classref else r_content
         resp.data = resp_data
 
         fid = str(time()).replace(".","")
         request_fpath = join(data_dir, fid + "-request.ttl") 
         with codecs.open(request_fpath, "w", "utf-8") as req:
-            req.write(request.data.decode("utf-8"))
+            req.write(str(request.data, "utf-8"))
 
         response_fpath = join(data_dir, fid + "-response.ttl") 
         with codecs.open(response_fpath, "w", "utf-8") as res:
-            res.write(resp_data.decode("utf-8"))
+            res.write(resp_data)
 
     else:
         log.info("Warning: server returned an error")
