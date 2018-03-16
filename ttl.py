@@ -1,0 +1,91 @@
+from collections import namedtuple
+from rdflib import URIRef, Graph
+import codecs
+
+
+A = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+PHRASE = "#Phrase"
+CONTEXT = "#Context"
+STRING = "#isString"
+ANCOR = "#anchorOf"
+BEG = "#beginIndex"
+END = "#endIndex"
+CLASS_URI = URIRef("http://www.w3.org/2005/11/its/rdf#taClassRef")
+LINK_URI = URIRef("http://www.w3.org/2005/11/its/rdf#taIdentRef")
+NONE_URI = URIRef("http://dbpedia.org/nonsense")
+
+Phrase = namedtuple('Phrase', ['text', 'beg', 'end', 'subj'])
+  
+
+def get_phrases(g):
+    """ Collect the context and phrases """
+    
+    context = ""
+    phrases = []
+    
+    for subj, pred, obj in g:
+        p = str(pred)
+        s = str(subj)
+        o = str(obj)
+
+        # catch the context 
+        if o.endswith(CONTEXT):
+            for pred_s, obj_s in g.predicate_objects(subj):
+                if pred_s.strip().endswith(STRING):
+                    context = obj_s
+                    print(obj_s)
+
+        # catch the phrases to disambiguate 
+        if o.endswith(PHRASE):
+            phrase = ""
+            end = -1
+            beg = -1
+            for pred_s, obj_s in g.predicate_objects(subj):
+                ps = pred_s.strip()
+                if ps.endswith(ANCOR): phrase = str(obj_s)
+                elif ps.endswith(BEG): beg = int(obj_s)
+                elif ps.endswith(END): end = int(obj_s)
+
+            if phrase == "" or beg == -1 or end == -1:
+                print("Warning: bad phrase", subj, pred, obj)
+            else:
+                phrases.append(Phrase(phrase, beg, end, subj))
+
+    return context, phrases
+
+
+def parse_d2kb_ttl(input_ttl):
+    g = Graph()
+    result = g.parse(data=input_ttl, format="n3")
+    context, phrases = get_phrases(g)
+
+    return g, context, phrases
+
+
+
+def add_nonsense_response(input_ttl):
+    graph, context, phrases = parse_d2kb_ttl(input_ttl)
+    
+    # add new triples that correspond to the links of the disambiguation links
+    print("# triples input:", len(graph))
+    for phrase in phrases:
+        graph.add( (phrase.subj, CLASS_URI, NONE_URI) )
+        graph.add( (phrase.subj, LINK_URI, NONE_URI) )
+    print("# triples output:", len(graph))
+
+    output_ttl = str(graph.serialize(format='n3', encoding="utf-8"), "utf-8")
+    
+    return output_ttl
+
+
+def remove_classref(text):
+    output = []
+    for line in text.split("\n"):
+        upd_line = re.sub(r"itsrdf:taClassRef     <[^;]*> ;",
+                          "itsrdf:taClassRef     <nonsense> ;",
+                          line)
+        output.append(upd_line)
+        
+    return "\n".join(output)
+
+

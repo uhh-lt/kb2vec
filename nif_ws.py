@@ -5,7 +5,7 @@ import codecs
 from os.path import join
 from time import time
 import re
-    
+from ttl import remove_classref, add_nonsense_response     
 
 endpoint = "http://localhost:8080/spotlight"
 data_dir = "data/"
@@ -17,16 +17,6 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger("nif_ws.py")
 
-
-def remove_classref(text):
-    output = []
-    for line in text.split("\n"):
-        upd_line = re.sub(r"itsrdf:taClassRef     <[^;]*> ;",
-                          "itsrdf:taClassRef     <nonsense> ;",
-                          line)
-        output.append(upd_line)
-        
-    return "\n".join(output)
 
 
 @app.route("/proxy", methods=['POST'])
@@ -62,9 +52,8 @@ def proxy():
 @app.route("/trivial", methods=['POST'])
 def trivial():
     h = {key: value for key, value in request.headers}
-    resp_data = request.data
-
-    # do some trivial filling of the input by inserting the required fields
+    
+    resp_data = add_nonsense_response(request.data)
 
     resp = Response()
     for header_name, header_value in request.headers.items():
