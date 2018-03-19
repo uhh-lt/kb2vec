@@ -5,12 +5,13 @@ import codecs
 from os.path import join
 from time import time
 import re
-from ttl import remove_classref, add_nonsense_response     
+from ttl import remove_classref, add_nonsense_response, DatasetBuilder
+
 
 endpoint = "http://localhost:8080/spotlight"
 data_dir = "data/"
 no_classref = False
-
+ds = DatasetBuilder(join(data_dir, "dataset.csv"))
 
 app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG)
@@ -42,7 +43,7 @@ def proxy():
         resp_data = remove_classref(r_content) if no_classref else r_content
         resp.data = resp_data
         save_data("proxy", request.data, resp_data)
-
+        ds.add_to_dataset(request.data)
     else:
         log.info("Warning: server returned an error")
         log.info(r)
@@ -61,6 +62,7 @@ def trivial():
         resp.headers[header_name] = header_value
     resp.data = resp_data
     save_data("trivial", request.data, resp_data)
-
+    ds.add_to_dataset(request.data)
+    
     return resp
 

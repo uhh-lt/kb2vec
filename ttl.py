@@ -16,7 +16,20 @@ LINK_URI = URIRef("http://www.w3.org/2005/11/its/rdf#taIdentRef")
 NONE_URI = URIRef("http://dbpedia.org/nonsense")
 
 Phrase = namedtuple('Phrase', ['text', 'beg', 'end', 'subj'])
-  
+
+class DatasetBuilder(object):
+    def __init__(self, dataset_fpath):
+        self._dataset_fpath = dataset_fpath
+        with codecs.open(self._dataset_fpath, "a", "utf-8") as ttl_f:
+            ttl_f.write("targets\tcontext\n")
+
+    def add_to_dataset(self, input_ttl):
+        graph, context, phrases = parse_d2kb_ttl(input_ttl)
+        with codecs.open(self._dataset_fpath, "a", "utf-8") as ttl_f:
+            phrases_str = ", ".join(p.text for p in phrases)
+            ttl_f.write("{}\t{}\n".format(phrases_str, context))
+
+ 
 
 def get_phrases(g):
     """ Collect the context and phrases """
@@ -34,7 +47,6 @@ def get_phrases(g):
             for pred_s, obj_s in g.predicate_objects(subj):
                 if pred_s.strip().endswith(STRING):
                     context = obj_s
-                    print(obj_s)
 
         # catch the phrases to disambiguate 
         if o.endswith(PHRASE):
@@ -61,8 +73,6 @@ def parse_d2kb_ttl(input_ttl):
     context, phrases = get_phrases(g)
 
     return g, context, phrases
-
-
 
 def add_nonsense_response(input_ttl):
     graph, context, phrases = parse_d2kb_ttl(input_ttl)
