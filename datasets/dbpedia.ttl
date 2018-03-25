@@ -1,0 +1,3316 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+@prefix itsrdf: <http://www.w3.org/2005/11/its/rdf#> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:sourceUrl <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp> ;
+	nif:isString "Worries over Internet privacy have spurred lawsuits, conspiracy theories and consumer anxiety as marketers and others invent new ways to track computer users on the Internet."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0#char=86,93>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0> ;
+	nif:anchorOf "anxiety"^^xsd:string ;
+	nif:beginIndex "86"^^xsd:long ;
+	nif:endIndex "93"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Anxiety> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0#char=53,72>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0> ;
+	nif:anchorOf "conspiracy theories"^^xsd:string ;
+	nif:beginIndex "53"^^xsd:long ;
+	nif:endIndex "72"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Conspiracy_theory> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0#char=77,85>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0> ;
+	nif:anchorOf "consumer"^^xsd:string ;
+	nif:beginIndex "77"^^xsd:long ;
+	nif:endIndex "85"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Consumer> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0#char=165,173>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0> ;
+	nif:anchorOf "Internet"^^xsd:string ;
+	nif:beginIndex "165"^^xsd:long ;
+	nif:endIndex "173"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Internet> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0#char=13,29>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0> ;
+	nif:anchorOf "Internet privacy"^^xsd:string ;
+	nif:beginIndex "13"^^xsd:long ;
+	nif:endIndex "29"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Internet_privacy> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0#char=43,51>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0> ;
+	nif:anchorOf "lawsuits"^^xsd:string ;
+	nif:beginIndex "43"^^xsd:long ;
+	nif:endIndex "51"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Lawsuit> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0#char=97,106>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0> ;
+	nif:anchorOf "marketers"^^xsd:string ;
+	nif:beginIndex "97"^^xsd:long ;
+	nif:endIndex "106"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Marketing> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0#char=143,157>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0> ;
+	nif:anchorOf "computer users"^^xsd:string ;
+	nif:beginIndex "143"^^xsd:long ;
+	nif:endIndex "157"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/User_(computing)> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0#char=0,7>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence0> ;
+	nif:anchorOf "Worries"^^xsd:string ;
+	nif:beginIndex "0"^^xsd:long ;
+	nif:endIndex "7"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Worry> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence1>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp> ;
+	nif:isString "But the alarmists have not seen anything yet."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence1#char=8,17>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence1> ;
+	nif:anchorOf "alarmists"^^xsd:string ;
+	nif:beginIndex "8"^^xsd:long ;
+	nif:endIndex "17"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Alarmism> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence2>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp> ;
+	nif:isString "In the next few years, a powerful new suite of capabilities will become available to Web developers that could give marketers and advertisers access to many more details about computer users’ online activities."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence2#char=130,141>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence2> ;
+	nif:anchorOf "advertisers"^^xsd:string ;
+	nif:beginIndex "130"^^xsd:long ;
+	nif:endIndex "141"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Advertising> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence2#char=116,125>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence2> ;
+	nif:anchorOf "marketers"^^xsd:string ;
+	nif:beginIndex "116"^^xsd:long ;
+	nif:endIndex "125"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Marketing> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence2#char=192,198>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence2> ;
+	nif:anchorOf "online"^^xsd:string ;
+	nif:beginIndex "192"^^xsd:long ;
+	nif:endIndex "198"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Online_and_offline> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence2#char=176,190>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence2> ;
+	nif:anchorOf "computer users"^^xsd:string ;
+	nif:beginIndex "176"^^xsd:long ;
+	nif:endIndex "190"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/User_(computing)> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence2#char=85,99>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence2> ;
+	nif:anchorOf "Web developers"^^xsd:string ;
+	nif:beginIndex "85"^^xsd:long ;
+	nif:endIndex "99"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Web_developer> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence2#char=16,21>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence2> ;
+	nif:anchorOf "years"^^xsd:string ;
+	nif:beginIndex "16"^^xsd:long ;
+	nif:endIndex "21"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Year> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence3>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp> ;
+	nif:isString "Nearly everyone who uses the Internet will face the privacy risks that come with those capabilities, which are an integral part of the Web language that will soon power the Internet: HTML 5."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence3#char=183,189>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence3> ;
+	nif:anchorOf "HTML 5"^^xsd:string ;
+	nif:beginIndex "183"^^xsd:long ;
+	nif:endIndex "189"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/HTML5> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence3#char=52,59>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence3> ;
+	nif:anchorOf "privacy"^^xsd:string ;
+	nif:beginIndex "52"^^xsd:long ;
+	nif:endIndex "59"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Information_privacy> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence3#char=29,37>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence3> ;
+	nif:anchorOf "Internet"^^xsd:string ;
+	nif:beginIndex "29"^^xsd:long ;
+	nif:endIndex "37"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Internet> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence3#char=173,181>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence3> ;
+	nif:anchorOf "Internet"^^xsd:string ;
+	nif:beginIndex "173"^^xsd:long ;
+	nif:endIndex "181"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Internet> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp> ;
+	nif:isString "The new Web code, the fifth version of Hypertext Markup Language used to create Web pages, is already in limited use, and it promises to usher in a new era of Internet browsing within the next few years."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4#char=152,155>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4> ;
+	nif:anchorOf "era"^^xsd:string ;
+	nif:beginIndex "152"^^xsd:long ;
+	nif:endIndex "155"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Era> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4#char=39,64>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4> ;
+	nif:anchorOf "Hypertext Markup Language"^^xsd:string ;
+	nif:beginIndex "39"^^xsd:long ;
+	nif:endIndex "64"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/HTML> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4#char=125,133>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4> ;
+	nif:anchorOf "promises"^^xsd:string ;
+	nif:beginIndex "125"^^xsd:long ;
+	nif:endIndex "133"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Promise> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4#char=12,16>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4> ;
+	nif:anchorOf "code"^^xsd:string ;
+	nif:beginIndex "12"^^xsd:long ;
+	nif:endIndex "16"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Source_code> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4#char=159,176>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4> ;
+	nif:anchorOf "Internet browsing"^^xsd:string ;
+	nif:beginIndex "159"^^xsd:long ;
+	nif:endIndex "176"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Web_browser> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4#char=80,89>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4> ;
+	nif:anchorOf "Web pages"^^xsd:string ;
+	nif:beginIndex "80"^^xsd:long ;
+	nif:endIndex "89"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Web_page> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4#char=8,11>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4> ;
+	nif:anchorOf "Web"^^xsd:string ;
+	nif:beginIndex "8"^^xsd:long ;
+	nif:endIndex "11"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/World_Wide_Web> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4#char=197,202>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence4> ;
+	nif:anchorOf "years"^^xsd:string ;
+	nif:beginIndex "197"^^xsd:long ;
+	nif:endIndex "202"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Year> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp> ;
+	nif:isString "It will make it easier for users to view multimedia content without downloading extra software; check e-mail offline; or find a favorite restaurant or shop on a smartphone."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5#char=86,94>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5> ;
+	nif:anchorOf "software"^^xsd:string ;
+	nif:beginIndex "86"^^xsd:long ;
+	nif:endIndex "94"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Computer_software> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5#char=52,59>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5> ;
+	nif:anchorOf "content"^^xsd:string ;
+	nif:beginIndex "52"^^xsd:long ;
+	nif:endIndex "59"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Content_(media)> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5#char=102,108>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5> ;
+	nif:anchorOf "e-mail"^^xsd:string ;
+	nif:beginIndex "102"^^xsd:long ;
+	nif:endIndex "108"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Email> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5#char=41,51>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5> ;
+	nif:anchorOf "multimedia"^^xsd:string ;
+	nif:beginIndex "41"^^xsd:long ;
+	nif:endIndex "51"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Multimedia> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5#char=109,116>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5> ;
+	nif:anchorOf "offline"^^xsd:string ;
+	nif:beginIndex "109"^^xsd:long ;
+	nif:endIndex "116"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Online_and_offline> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5#char=137,147>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5> ;
+	nif:anchorOf "restaurant"^^xsd:string ;
+	nif:beginIndex "137"^^xsd:long ;
+	nif:endIndex "147"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Restaurant> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5#char=161,171>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5> ;
+	nif:anchorOf "smartphone"^^xsd:string ;
+	nif:beginIndex "161"^^xsd:long ;
+	nif:endIndex "171"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Smartphone> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5#char=68,79>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5> ;
+	nif:anchorOf "downloading"^^xsd:string ;
+	nif:beginIndex "68"^^xsd:long ;
+	nif:endIndex "79"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Uploading_and_downloading> .
+
+<http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5#char=27,32>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/media/11privacy.html?_r=1&hp_sentence5> ;
+	nif:anchorOf "users"^^xsd:string ;
+	nif:beginIndex "27"^^xsd:long ;
+	nif:endIndex "32"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/User_(computing)> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:sourceUrl <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports> ;
+	nif:isString "The Nets dropped into Moscow on Sunday for a one-day visit meant to raise their profile in the home country of their new owner, the Russian billionaire Mikhail D. Prokhorov."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0#char=140,151>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0> ;
+	nif:anchorOf "billionaire"^^xsd:string ;
+	nif:beginIndex "140"^^xsd:long ;
+	nif:endIndex "151"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Billionaire> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0#char=100,107>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0> ;
+	nif:anchorOf "country"^^xsd:string ;
+	nif:beginIndex "100"^^xsd:long ;
+	nif:endIndex "107"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Country> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0#char=95,99>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0> ;
+	nif:anchorOf "home"^^xsd:string ;
+	nif:beginIndex "95"^^xsd:long ;
+	nif:endIndex "99"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Home> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0#char=152,172>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0> ;
+	nif:anchorOf "Mikhail D. Prokhorov"^^xsd:string ;
+	nif:beginIndex "152"^^xsd:long ;
+	nif:endIndex "172"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Mikhail_Prokhorov> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0#char=22,28>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0> ;
+	nif:anchorOf "Moscow"^^xsd:string ;
+	nif:beginIndex "22"^^xsd:long ;
+	nif:endIndex "28"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Moscow> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0#char=4,8>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0> ;
+	nif:anchorOf "Nets"^^xsd:string ;
+	nif:beginIndex "4"^^xsd:long ;
+	nif:endIndex "8"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/New_Jersey_Nets> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0#char=121,126>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0> ;
+	nif:anchorOf "owner"^^xsd:string ;
+	nif:beginIndex "121"^^xsd:long ;
+	nif:endIndex "126"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Ownership> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0#char=32,38>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence0> ;
+	nif:anchorOf "Sunday"^^xsd:string ;
+	nif:beginIndex "32"^^xsd:long ;
+	nif:endIndex "38"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Sunday> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports> ;
+	nif:isString "“Welcome to Russia,” Prokhorov said as he greeted his players during their first trip to a country he hopes will become a kind of second home for the team — as well as a source of wealthy sponsors."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1#char=21,30>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1> ;
+	nif:anchorOf "Prokhorov"^^xsd:string ;
+	nif:beginIndex "21"^^xsd:long ;
+	nif:endIndex "30"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Mikhail_Prokhorov> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1#char=91,98>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1> ;
+	nif:anchorOf "country"^^xsd:string ;
+	nif:beginIndex "91"^^xsd:long ;
+	nif:endIndex "98"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Country> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1#char=42,49>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1> ;
+	nif:anchorOf "greeted"^^xsd:string ;
+	nif:beginIndex "42"^^xsd:long ;
+	nif:endIndex "49"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Greeting> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1#char=137,141>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1> ;
+	nif:anchorOf "home"^^xsd:string ;
+	nif:beginIndex "137"^^xsd:long ;
+	nif:endIndex "141"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Home> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1#char=12,18>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1> ;
+	nif:anchorOf "Russia"^^xsd:string ;
+	nif:beginIndex "12"^^xsd:long ;
+	nif:endIndex "18"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Russia> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1#char=188,196>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1> ;
+	nif:anchorOf "sponsors"^^xsd:string ;
+	nif:beginIndex "188"^^xsd:long ;
+	nif:endIndex "196"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Sponsor_(commercial)> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1#char=54,61>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1> ;
+	nif:anchorOf "players"^^xsd:string ;
+	nif:beginIndex "54"^^xsd:long ;
+	nif:endIndex "61"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Sportsperson> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1#char=150,154>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1> ;
+	nif:anchorOf "team"^^xsd:string ;
+	nif:beginIndex "150"^^xsd:long ;
+	nif:endIndex "154"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Team> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1#char=180,187>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence1> ;
+	nif:anchorOf "wealthy"^^xsd:string ;
+	nif:beginIndex "180"^^xsd:long ;
+	nif:endIndex "187"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Wealth> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports> ;
+	nif:isString "The stay was just long enough for a little practice and an exhibition in which the Nets were interspersed on the court with top players from youth leagues across Russia — some as young as 8 years old — for a light-hearted game in the arena of CSKA Moscow, the professional Russian club Prokhorov once owned."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2#char=286,295>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2> ;
+	nif:anchorOf "Prokhorov"^^xsd:string ;
+	nif:beginIndex "286"^^xsd:long ;
+	nif:endIndex "295"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Mikhail_Prokhorov> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2#char=113,118>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2> ;
+	nif:anchorOf "court"^^xsd:string ;
+	nif:beginIndex "113"^^xsd:long ;
+	nif:endIndex "118"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Basketball_court> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2#char=234,254>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2> ;
+	nif:anchorOf "arena of CSKA Moscow"^^xsd:string ;
+	nif:beginIndex "234"^^xsd:long ;
+	nif:endIndex "254"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/CSKA_Universal_Sports_Hall> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2#char=59,69>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2> ;
+	nif:anchorOf "exhibition"^^xsd:string ;
+	nif:beginIndex "59"^^xsd:long ;
+	nif:endIndex "69"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Exhibition_game> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2#char=222,226>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2> ;
+	nif:anchorOf "game"^^xsd:string ;
+	nif:beginIndex "222"^^xsd:long ;
+	nif:endIndex "226"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Game> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2#char=83,87>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2> ;
+	nif:anchorOf "Nets"^^xsd:string ;
+	nif:beginIndex "83"^^xsd:long ;
+	nif:endIndex "87"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/New_Jersey_Nets> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2#char=43,51>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2> ;
+	nif:anchorOf "practice"^^xsd:string ;
+	nif:beginIndex "43"^^xsd:long ;
+	nif:endIndex "51"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Practice_(learning_method)> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2#char=162,168>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2> ;
+	nif:anchorOf "Russia"^^xsd:string ;
+	nif:beginIndex "162"^^xsd:long ;
+	nif:endIndex "168"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Russia> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2#char=281,285>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2> ;
+	nif:anchorOf "club"^^xsd:string ;
+	nif:beginIndex "281"^^xsd:long ;
+	nif:endIndex "285"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Sports_club> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2#char=128,135>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2> ;
+	nif:anchorOf "players"^^xsd:string ;
+	nif:beginIndex "128"^^xsd:long ;
+	nif:endIndex "135"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Sportsperson> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2#char=190,195>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence2> ;
+	nif:anchorOf "years"^^xsd:string ;
+	nif:beginIndex "190"^^xsd:long ;
+	nif:endIndex "195"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Year> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports> ;
+	nif:isString "Prokhorov said the visit would serve as a cornerstone for future interaction between players and coaches from the Nets and young Russians, with the aim of developing basketball in Russia, where the sport is a distant third in popularity behind soccer and hockey."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3#char=0,9>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3> ;
+	nif:anchorOf "Prokhorov"^^xsd:string ;
+	nif:beginIndex "0"^^xsd:long ;
+	nif:endIndex "9"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Mikhail_Prokhorov> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3#char=244,250>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3> ;
+	nif:anchorOf "soccer"^^xsd:string ;
+	nif:beginIndex "244"^^xsd:long ;
+	nif:endIndex "250"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Association_football> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3#char=166,176>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3> ;
+	nif:anchorOf "basketball"^^xsd:string ;
+	nif:beginIndex "166"^^xsd:long ;
+	nif:endIndex "176"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Basketball> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3#char=97,104>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3> ;
+	nif:anchorOf "coaches"^^xsd:string ;
+	nif:beginIndex "97"^^xsd:long ;
+	nif:endIndex "104"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Coach_(sport)> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3#char=58,64>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3> ;
+	nif:anchorOf "future"^^xsd:string ;
+	nif:beginIndex "58"^^xsd:long ;
+	nif:endIndex "64"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Future> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3#char=255,261>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3> ;
+	nif:anchorOf "hockey"^^xsd:string ;
+	nif:beginIndex "255"^^xsd:long ;
+	nif:endIndex "261"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Hockey> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3#char=65,76>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3> ;
+	nif:anchorOf "interaction"^^xsd:string ;
+	nif:beginIndex "65"^^xsd:long ;
+	nif:endIndex "76"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Interaction> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3#char=114,118>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3> ;
+	nif:anchorOf "Nets"^^xsd:string ;
+	nif:beginIndex "114"^^xsd:long ;
+	nif:endIndex "118"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/New_Jersey_Nets> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3#char=226,236>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3> ;
+	nif:anchorOf "popularity"^^xsd:string ;
+	nif:beginIndex "226"^^xsd:long ;
+	nif:endIndex "236"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Popularity> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3#char=180,186>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3> ;
+	nif:anchorOf "Russia"^^xsd:string ;
+	nif:beginIndex "180"^^xsd:long ;
+	nif:endIndex "186"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Russia> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3#char=129,137>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3> ;
+	nif:anchorOf "Russians"^^xsd:string ;
+	nif:beginIndex "129"^^xsd:long ;
+	nif:endIndex "137"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Russians> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3#char=198,203>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3> ;
+	nif:anchorOf "sport"^^xsd:string ;
+	nif:beginIndex "198"^^xsd:long ;
+	nif:endIndex "203"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Sport> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3#char=85,92>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence3> ;
+	nif:anchorOf "players"^^xsd:string ;
+	nif:beginIndex "85"^^xsd:long ;
+	nif:endIndex "92"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Sportsperson> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence4>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports> ;
+	nif:isString "If the Nets pick up a strong Russian fan base in the process, that would be nice, too, he said."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence4#char=37,40>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence4> ;
+	nif:anchorOf "fan"^^xsd:string ;
+	nif:beginIndex "37"^^xsd:long ;
+	nif:endIndex "40"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Fan_(person)> .
+
+<http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence4#char=7,11>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/sports/basketball/11nets.html?ref=sports_sentence4> ;
+	nif:anchorOf "Nets"^^xsd:string ;
+	nif:beginIndex "7"^^xsd:long ;
+	nif:endIndex "11"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/New_Jersey_Nets> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:sourceUrl <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence0>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general> ;
+	nif:isString "To the rites of middle-age passage, some families are adding another: buying marijuana for aging parents."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence0#char=77,86>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence0> ;
+	nif:anchorOf "marijuana"^^xsd:string ;
+	nif:beginIndex "77"^^xsd:long ;
+	nif:endIndex "86"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Cannabis_(drug)> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence0#char=41,49>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence0> ;
+	nif:anchorOf "families"^^xsd:string ;
+	nif:beginIndex "41"^^xsd:long ;
+	nif:endIndex "49"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Family> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence0#char=16,26>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence0> ;
+	nif:anchorOf "middle-age"^^xsd:string ;
+	nif:beginIndex "16"^^xsd:long ;
+	nif:endIndex "26"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Middle_age> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence0#char=97,104>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence0> ;
+	nif:anchorOf "parents"^^xsd:string ;
+	nif:beginIndex "97"^^xsd:long ;
+	nif:endIndex "104"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Parent> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence0#char=7,12>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence0> ;
+	nif:anchorOf "rites"^^xsd:string ;
+	nif:beginIndex "7"^^xsd:long ;
+	nif:endIndex "12"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Ritual> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence1>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general> ;
+	nif:isString "Bryan, 46, a writer who lives in Illinois, began supplying his parents about five years ago, after he told them about his own marijuana use."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence1#char=126,135>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence1> ;
+	nif:anchorOf "marijuana"^^xsd:string ;
+	nif:beginIndex "126"^^xsd:long ;
+	nif:endIndex "135"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Cannabis_(drug)> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence1#char=49,58>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence1> ;
+	nif:anchorOf "supplying"^^xsd:string ;
+	nif:beginIndex "49"^^xsd:long ;
+	nif:endIndex "58"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Illegal_drug_trade> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence1#char=33,41>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence1> ;
+	nif:anchorOf "Illinois"^^xsd:string ;
+	nif:beginIndex "33"^^xsd:long ;
+	nif:endIndex "41"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Illinois> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence1#char=63,70>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence1> ;
+	nif:anchorOf "parents"^^xsd:string ;
+	nif:beginIndex "63"^^xsd:long ;
+	nif:endIndex "70"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Parent> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence1#char=13,19>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence1> ;
+	nif:anchorOf "writer"^^xsd:string ;
+	nif:beginIndex "13"^^xsd:long ;
+	nif:endIndex "19"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Writer> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence1#char=82,87>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence1> ;
+	nif:anchorOf "years"^^xsd:string ;
+	nif:beginIndex "82"^^xsd:long ;
+	nif:endIndex "87"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Year> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence2>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general> ;
+	nif:isString "When he was growing up, he said, his parents were very strict about illegal drugs."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence2#char=37,44>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence2> ;
+	nif:anchorOf "parents"^^xsd:string ;
+	nif:beginIndex "37"^^xsd:long ;
+	nif:endIndex "44"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Parent> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence2#char=68,81>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence2> ;
+	nif:anchorOf "illegal drugs"^^xsd:string ;
+	nif:beginIndex "68"^^xsd:long ;
+	nif:endIndex "81"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Illegal_drug_trade> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence3>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general> ;
+	nif:isString "“We would have grounded him,” said his mother, who is 72."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence3#char=15,23>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence3> ;
+	nif:anchorOf "grounded"^^xsd:string ;
+	nif:beginIndex "15"^^xsd:long ;
+	nif:endIndex "23"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Grounding_(punishment)> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence3#char=39,45>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence3> ;
+	nif:anchorOf "mother"^^xsd:string ;
+	nif:beginIndex "39"^^xsd:long ;
+	nif:endIndex "45"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Mother> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence4>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general> ;
+	nif:isString "But with age and the growing acceptance of medical marijuana, his parents were curious."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence4#char=43,60>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence4> ;
+	nif:anchorOf "medical marijuana"^^xsd:string ;
+	nif:beginIndex "43"^^xsd:long ;
+	nif:endIndex "60"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Medical_cannabis> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence4#char=66,73>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence4> ;
+	nif:anchorOf "parents"^^xsd:string ;
+	nif:beginIndex "66"^^xsd:long ;
+	nif:endIndex "73"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Parent> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general> ;
+	nif:isString "His father had a heart ailment, his mother had dizzy spells and nausea, and both were worried about Alzheimer’s disease and cancer."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5#char=100,119>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5> ;
+	nif:anchorOf "Alzheimer’s disease"^^xsd:string ;
+	nif:beginIndex "100"^^xsd:long ;
+	nif:endIndex "119"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Alzheimer’s_disease> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5#char=124,130>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5> ;
+	nif:anchorOf "cancer"^^xsd:string ;
+	nif:beginIndex "124"^^xsd:long ;
+	nif:endIndex "130"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Cancer> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5#char=4,10>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5> ;
+	nif:anchorOf "father"^^xsd:string ;
+	nif:beginIndex "4"^^xsd:long ;
+	nif:endIndex "10"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Father> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5#char=17,30>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5> ;
+	nif:anchorOf "heart ailment"^^xsd:string ;
+	nif:beginIndex "17"^^xsd:long ;
+	nif:endIndex "30"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Heart_disease> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5#char=36,42>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5> ;
+	nif:anchorOf "mother"^^xsd:string ;
+	nif:beginIndex "36"^^xsd:long ;
+	nif:endIndex "42"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Mother> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5#char=64,70>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5> ;
+	nif:anchorOf "nausea"^^xsd:string ;
+	nif:beginIndex "64"^^xsd:long ;
+	nif:endIndex "70"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Nausea> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5#char=47,59>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence5> ;
+	nif:anchorOf "dizzy spells"^^xsd:string ;
+	nif:beginIndex "47"^^xsd:long ;
+	nif:endIndex "59"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Orthostatic_hypotension> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence6>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general> ;
+	nif:isString "They looked at some research and decided marijuana was worth a try."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence6#char=41,50>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence6> ;
+	nif:anchorOf "marijuana"^^xsd:string ;
+	nif:beginIndex "41"^^xsd:long ;
+	nif:endIndex "50"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Medical_cannabis> .
+
+<http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence6#char=20,28>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/us/10pot.html?src=me&ref=general_sentence6> ;
+	nif:anchorOf "research"^^xsd:string ;
+	nif:beginIndex "20"^^xsd:long ;
+	nif:endIndex "28"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Research> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:sourceUrl <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence0>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general> ;
+	nif:isString "Anyone driving the twists of Highway 1 between San Francisco and Los Angeles recently may have glimpsed a Toyota Prius with a curious funnel-like cylinder on the roof."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence0#char=29,38>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence0> ;
+	nif:anchorOf "Highway 1"^^xsd:string ;
+	nif:beginIndex "29"^^xsd:long ;
+	nif:endIndex "38"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/California_State_Route_1> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence0#char=7,14>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence0> ;
+	nif:anchorOf "driving"^^xsd:string ;
+	nif:beginIndex "7"^^xsd:long ;
+	nif:endIndex "14"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Driving> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence0#char=65,76>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence0> ;
+	nif:anchorOf "Los Angeles"^^xsd:string ;
+	nif:beginIndex "65"^^xsd:long ;
+	nif:endIndex "76"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Los_Angeles> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence0#char=162,166>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence0> ;
+	nif:anchorOf "roof"^^xsd:string ;
+	nif:beginIndex "162"^^xsd:long ;
+	nif:endIndex "166"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Roof> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence0#char=47,60>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence0> ;
+	nif:anchorOf "San Francisco"^^xsd:string ;
+	nif:beginIndex "47"^^xsd:long ;
+	nif:endIndex "60"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/San_Francisco> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence0#char=106,118>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence0> ;
+	nif:anchorOf "Toyota Prius"^^xsd:string ;
+	nif:beginIndex "106"^^xsd:long ;
+	nif:endIndex "118"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Toyota_Prius> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence1>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general> ;
+	nif:isString "Harder to notice was that the person at the wheel was not actually driving."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence1#char=67,74>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence1> ;
+	nif:anchorOf "driving"^^xsd:string ;
+	nif:beginIndex "67"^^xsd:long ;
+	nif:endIndex "74"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Driving> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence1#char=30,36>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence1> ;
+	nif:anchorOf "person"^^xsd:string ;
+	nif:beginIndex "30"^^xsd:long ;
+	nif:endIndex "36"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Person> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence1#char=44,49>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence1> ;
+	nif:anchorOf "wheel"^^xsd:string ;
+	nif:beginIndex "44"^^xsd:long ;
+	nif:endIndex "49"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Steering_wheel> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general> ;
+	nif:isString "The car is a project of Google, which has been working in secret but in plain view on vehicles that can drive themselves, using artificial-intelligence software that can sense anything near the car and mimic the decisions made by a human driver."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2#char=86,120>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2> ;
+	nif:anchorOf "vehicles that can drive themselves"^^xsd:string ;
+	nif:beginIndex "86"^^xsd:long ;
+	nif:endIndex "120"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Driverless_car> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2#char=128,151>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2> ;
+	nif:anchorOf "artificial-intelligence"^^xsd:string ;
+	nif:beginIndex "128"^^xsd:long ;
+	nif:endIndex "151"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Artificial_intelligence> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2#char=4,7>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2> ;
+	nif:anchorOf "car"^^xsd:string ;
+	nif:beginIndex "4"^^xsd:long ;
+	nif:endIndex "7"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Automobile> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2#char=194,197>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2> ;
+	nif:anchorOf "car"^^xsd:string ;
+	nif:beginIndex "194"^^xsd:long ;
+	nif:endIndex "197"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Automobile> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2#char=152,160>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2> ;
+	nif:anchorOf "software"^^xsd:string ;
+	nif:beginIndex "152"^^xsd:long ;
+	nif:endIndex "160"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Computer_software> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2#char=24,30>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2> ;
+	nif:anchorOf "Google"^^xsd:string ;
+	nif:beginIndex "24"^^xsd:long ;
+	nif:endIndex "30"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Google> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2#char=232,237>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2> ;
+	nif:anchorOf "human"^^xsd:string ;
+	nif:beginIndex "232"^^xsd:long ;
+	nif:endIndex "237"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Human> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2#char=13,20>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence2> ;
+	nif:anchorOf "project"^^xsd:string ;
+	nif:beginIndex "13"^^xsd:long ;
+	nif:endIndex "20"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Project> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general> ;
+	nif:isString "With someone behind the wheel to take control if something goes awry and a technician in the passenger seat to monitor the navigation system, seven test cars have driven 1,000 miles without human intervention and more than 140,000 miles with only occasional human control."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3#char=153,157>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3> ;
+	nif:anchorOf "cars"^^xsd:string ;
+	nif:beginIndex "153"^^xsd:long ;
+	nif:endIndex "157"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Automobile> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3#char=190,195>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3> ;
+	nif:anchorOf "human"^^xsd:string ;
+	nif:beginIndex "190"^^xsd:long ;
+	nif:endIndex "195"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Human> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3#char=258,263>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3> ;
+	nif:anchorOf "human"^^xsd:string ;
+	nif:beginIndex "258"^^xsd:long ;
+	nif:endIndex "263"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Human> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3#char=176,181>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3> ;
+	nif:anchorOf "miles"^^xsd:string ;
+	nif:beginIndex "176"^^xsd:long ;
+	nif:endIndex "181"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Mile> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3#char=231,236>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3> ;
+	nif:anchorOf "miles"^^xsd:string ;
+	nif:beginIndex "231"^^xsd:long ;
+	nif:endIndex "236"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Mile> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3#char=123,140>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3> ;
+	nif:anchorOf "navigation system"^^xsd:string ;
+	nif:beginIndex "123"^^xsd:long ;
+	nif:endIndex "140"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Navigation_system> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3#char=24,29>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3> ;
+	nif:anchorOf "wheel"^^xsd:string ;
+	nif:beginIndex "24"^^xsd:long ;
+	nif:endIndex "29"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Steering_wheel> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3#char=75,85>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence3> ;
+	nif:anchorOf "technician"^^xsd:string ;
+	nif:beginIndex "75"^^xsd:long ;
+	nif:endIndex "85"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Technician> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence4>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general> ;
+	nif:isString "One even drove itself down Lombard Street in San Francisco, one of the steepest and curviest streets in the nation."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence4#char=27,41>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence4> ;
+	nif:anchorOf "Lombard Street"^^xsd:string ;
+	nif:beginIndex "27"^^xsd:long ;
+	nif:endIndex "41"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Lombard_Street_(San_Francisco)> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence4#char=45,58>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence4> ;
+	nif:anchorOf "San Francisco"^^xsd:string ;
+	nif:beginIndex "45"^^xsd:long ;
+	nif:endIndex "58"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/San_Francisco> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence4#char=93,100>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence4> ;
+	nif:anchorOf "streets"^^xsd:string ;
+	nif:beginIndex "93"^^xsd:long ;
+	nif:endIndex "100"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Street> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence5>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general> ;
+	nif:isString "The only accident, engineers said, was when one Google car was rear-ended while stopped at a traffic light."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence5#char=9,17>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence5> ;
+	nif:anchorOf "accident"^^xsd:string ;
+	nif:beginIndex "9"^^xsd:long ;
+	nif:endIndex "17"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Accident> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence5#char=55,58>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence5> ;
+	nif:anchorOf "car"^^xsd:string ;
+	nif:beginIndex "55"^^xsd:long ;
+	nif:endIndex "58"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Automobile> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence5#char=19,28>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence5> ;
+	nif:anchorOf "engineers"^^xsd:string ;
+	nif:beginIndex "19"^^xsd:long ;
+	nif:endIndex "28"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Engineer> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence5#char=48,58>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence5> ;
+	nif:anchorOf "Google car"^^xsd:string ;
+	nif:beginIndex "48"^^xsd:long ;
+	nif:endIndex "58"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Google_driverless_car> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence5#char=63,73>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence5> ;
+	nif:anchorOf "rear-ended"^^xsd:string ;
+	nif:beginIndex "63"^^xsd:long ;
+	nif:endIndex "73"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Rear-end_collision> .
+
+<http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence5#char=93,106>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/science/10google.html?src=me&ref=general_sentence5> ;
+	nif:anchorOf "traffic light"^^xsd:string ;
+	nif:beginIndex "93"^^xsd:long ;
+	nif:endIndex "106"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Traffic_light> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:sourceUrl <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business> ;
+	nif:isString "At a private dinner on Friday at the Canadian Embassy, finance officials from seven world economic powers focused on the most vexing international economic problem facing the Obama administration."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0#char=37,45>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0> ;
+	nif:anchorOf "Canadian"^^xsd:string ;
+	nif:beginIndex "37"^^xsd:long ;
+	nif:endIndex "45"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Canadian> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0#char=13,19>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0> ;
+	nif:anchorOf "dinner"^^xsd:string ;
+	nif:beginIndex "13"^^xsd:long ;
+	nif:endIndex "19"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Dinner> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0#char=46,53>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0> ;
+	nif:anchorOf "Embassy"^^xsd:string ;
+	nif:beginIndex "46"^^xsd:long ;
+	nif:endIndex "53"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Diplomatic_mission> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0#char=90,98>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0> ;
+	nif:anchorOf "economic"^^xsd:string ;
+	nif:beginIndex "90"^^xsd:long ;
+	nif:endIndex "98"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Economy> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0#char=147,155>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0> ;
+	nif:anchorOf "economic"^^xsd:string ;
+	nif:beginIndex "147"^^xsd:long ;
+	nif:endIndex "155"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Economy> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0#char=23,29>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0> ;
+	nif:anchorOf "Friday"^^xsd:string ;
+	nif:beginIndex "23"^^xsd:long ;
+	nif:endIndex "29"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Friday> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0#char=133,146>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0> ;
+	nif:anchorOf "international"^^xsd:string ;
+	nif:beginIndex "133"^^xsd:long ;
+	nif:endIndex "146"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/International> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0#char=175,195>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0> ;
+	nif:anchorOf "Obama administration"^^xsd:string ;
+	nif:beginIndex "175"^^xsd:long ;
+	nif:endIndex "195"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Presidency_of_Barack_Obama> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0#char=156,163>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0> ;
+	nif:anchorOf "problem"^^xsd:string ;
+	nif:beginIndex "156"^^xsd:long ;
+	nif:endIndex "163"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Problem> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0#char=84,89>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence0> ;
+	nif:anchorOf "world"^^xsd:string ;
+	nif:beginIndex "84"^^xsd:long ;
+	nif:endIndex "89"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/World> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business> ;
+	nif:isString "Over seared scallops and beef tenderloin, Treasury Secretary Timothy F. Geithner urged his counterparts from Europe, Canada and Japan to help persuade China to let its currency, the renminbi, rise in value — a crucial element in redressing the trade imbalances that are threatening recovery around the world."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1#char=244,260>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1> ;
+	nif:anchorOf "trade imbalances"^^xsd:string ;
+	nif:beginIndex "244"^^xsd:long ;
+	nif:endIndex "260"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Balance_of_trade> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1#char=25,40>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1> ;
+	nif:anchorOf "beef tenderloin"^^xsd:string ;
+	nif:beginIndex "25"^^xsd:long ;
+	nif:endIndex "40"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Beef_tenderloin> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1#char=117,123>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1> ;
+	nif:anchorOf "Canada"^^xsd:string ;
+	nif:beginIndex "117"^^xsd:long ;
+	nif:endIndex "123"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Canada> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1#char=168,176>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1> ;
+	nif:anchorOf "currency"^^xsd:string ;
+	nif:beginIndex "168"^^xsd:long ;
+	nif:endIndex "176"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Currency> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1#char=109,115>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1> ;
+	nif:anchorOf "Europe"^^xsd:string ;
+	nif:beginIndex "109"^^xsd:long ;
+	nif:endIndex "115"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Europe> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1#char=128,133>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1> ;
+	nif:anchorOf "Japan"^^xsd:string ;
+	nif:beginIndex "128"^^xsd:long ;
+	nif:endIndex "133"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Japan> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1#char=151,156>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1> ;
+	nif:anchorOf "China"^^xsd:string ;
+	nif:beginIndex "151"^^xsd:long ;
+	nif:endIndex "156"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/People's_Republic_of_China> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1#char=182,190>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1> ;
+	nif:anchorOf "renminbi"^^xsd:string ;
+	nif:beginIndex "182"^^xsd:long ;
+	nif:endIndex "190"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Renminbi> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1#char=12,20>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1> ;
+	nif:anchorOf "scallops"^^xsd:string ;
+	nif:beginIndex "12"^^xsd:long ;
+	nif:endIndex "20"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Scallop> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1#char=61,80>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1> ;
+	nif:anchorOf "Timothy F. Geithner"^^xsd:string ;
+	nif:beginIndex "61"^^xsd:long ;
+	nif:endIndex "80"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Timothy_Geithner> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1#char=42,60>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1> ;
+	nif:anchorOf "Treasury Secretary"^^xsd:string ;
+	nif:beginIndex "42"^^xsd:long ;
+	nif:endIndex "60"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/United_States_Secretary_of_the_Treasury> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1#char=302,307>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence1> ;
+	nif:anchorOf "world"^^xsd:string ;
+	nif:beginIndex "302"^^xsd:long ;
+	nif:endIndex "307"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/World> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence2>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business> ;
+	nif:isString "But the next afternoon, the annual meetings of the International Monetary Fund ended with a tepid statement that made only fleeting and indirect references to the simmering currency tensions."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence2#char=28,78>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence2> ;
+	nif:anchorOf "annual meetings of the International Monetary Fund"^^xsd:string ;
+	nif:beginIndex "28"^^xsd:long ;
+	nif:endIndex "78"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Annual_Meetings_of_the_International_Monetary_Fund_and_the_World_Bank_Group> .
+
+<http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence2#char=173,181>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/business/economy/11currency.html?ref=business_sentence2> ;
+	nif:anchorOf "currency"^^xsd:string ;
+	nif:beginIndex "173"^^xsd:long ;
+	nif:endIndex "181"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Currency> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:sourceUrl <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence0>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts> ;
+	nif:isString "Boilerplate is safe box office, and we’ve gotten our share lately."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence0#char=20,30>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence0> ;
+	nif:anchorOf "box office"^^xsd:string ;
+	nif:beginIndex "20"^^xsd:long ;
+	nif:endIndex "30"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Box_office> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts> ;
+	nif:isString "So it’s great that the Guggenheim Museum is giving us the opposite in its major fall exhibition, “Chaos and Classicism: Art in France, Italy, and Germany, 1918-1936.” With its high percentage of unfamiliar names, the exhibition won’t pull crowds."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1#char=120,123>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1> ;
+	nif:anchorOf "Art"^^xsd:string ;
+	nif:beginIndex "120"^^xsd:long ;
+	nif:endIndex "123"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Art> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1#char=85,95>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1> ;
+	nif:anchorOf "exhibition"^^xsd:string ;
+	nif:beginIndex "85"^^xsd:long ;
+	nif:endIndex "95"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Art_exhibition> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1#char=217,227>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1> ;
+	nif:anchorOf "exhibition"^^xsd:string ;
+	nif:beginIndex "217"^^xsd:long ;
+	nif:endIndex "227"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Art_exhibition> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1#char=80,84>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1> ;
+	nif:anchorOf "fall"^^xsd:string ;
+	nif:beginIndex "80"^^xsd:long ;
+	nif:endIndex "84"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Autumn> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1#char=98,103>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1> ;
+	nif:anchorOf "Chaos"^^xsd:string ;
+	nif:beginIndex "98"^^xsd:long ;
+	nif:endIndex "103"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Chaos> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1#char=108,118>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1> ;
+	nif:anchorOf "Classicism"^^xsd:string ;
+	nif:beginIndex "108"^^xsd:long ;
+	nif:endIndex "118"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Classicism> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1#char=127,133>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1> ;
+	nif:anchorOf "France"^^xsd:string ;
+	nif:beginIndex "127"^^xsd:long ;
+	nif:endIndex "133"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/France> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1#char=146,153>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1> ;
+	nif:anchorOf "Germany"^^xsd:string ;
+	nif:beginIndex "146"^^xsd:long ;
+	nif:endIndex "153"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Germany> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1#char=135,140>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1> ;
+	nif:anchorOf "Italy"^^xsd:string ;
+	nif:beginIndex "135"^^xsd:long ;
+	nif:endIndex "140"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Italy> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1#char=206,211>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1> ;
+	nif:anchorOf "names"^^xsd:string ;
+	nif:beginIndex "206"^^xsd:long ;
+	nif:endIndex "211"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Name> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1#char=181,191>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1> ;
+	nif:anchorOf "percentage"^^xsd:string ;
+	nif:beginIndex "181"^^xsd:long ;
+	nif:endIndex "191"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Percentage> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1#char=23,40>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence1> ;
+	nif:anchorOf "Guggenheim Museum"^^xsd:string ;
+	nif:beginIndex "23"^^xsd:long ;
+	nif:endIndex "40"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Solomon_R._Guggenheim_Museum> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence2>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts> ;
+	nif:isString "Visitors with a stake in art-as-uplift will find the story it tells mystifying, if not perverse."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence3>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts> ;
+	nif:isString "I found the whole thing totally engrossing: a survey-style piece of investigative history with a bomb ticking away inside."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence3#char=82,89>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence3> ;
+	nif:anchorOf "history"^^xsd:string ;
+	nif:beginIndex "82"^^xsd:long ;
+	nif:endIndex "89"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/History> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence4>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts> ;
+	nif:isString "Its narrative goes something like this: After the exhausting nightmare of World War I, Europe’s early modernist vanguard backed away from disruptive experimental styles like Cubism and Futurism."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence4#char=174,180>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence4> ;
+	nif:anchorOf "Cubism"^^xsd:string ;
+	nif:beginIndex "174"^^xsd:long ;
+	nif:endIndex "180"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Cubism> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence4#char=185,193>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence4> ;
+	nif:anchorOf "Futurism"^^xsd:string ;
+	nif:beginIndex "185"^^xsd:long ;
+	nif:endIndex "193"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Futurism> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence4#char=102,111>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence4> ;
+	nif:anchorOf "modernist"^^xsd:string ;
+	nif:beginIndex "102"^^xsd:long ;
+	nif:endIndex "111"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Modernism> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence4#char=61,70>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence4> ;
+	nif:anchorOf "nightmare"^^xsd:string ;
+	nif:beginIndex "61"^^xsd:long ;
+	nif:endIndex "70"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Nightmare> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence4#char=74,85>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence4> ;
+	nif:anchorOf "World War I"^^xsd:string ;
+	nif:beginIndex "74"^^xsd:long ;
+	nif:endIndex "85"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/World_War_I> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence5>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts> ;
+	nif:isString "They retreated to traditional forms and looked back to an imagined classical past — ancient Greece, the Italian Renaissance — for images of wholeness and harmony."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence5#char=84,98>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence5> ;
+	nif:anchorOf "ancient Greece"^^xsd:string ;
+	nif:beginIndex "84"^^xsd:long ;
+	nif:endIndex "98"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Ancient_Greece> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence5#char=104,123>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence5> ;
+	nif:anchorOf "Italian Renaissance"^^xsd:string ;
+	nif:beginIndex "104"^^xsd:long ;
+	nif:endIndex "123"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Italian_Renaissance> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence5#char=18,29>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence5> ;
+	nif:anchorOf "traditional"^^xsd:string ;
+	nif:beginIndex "18"^^xsd:long ;
+	nif:endIndex "29"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Tradition> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence6>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts> ;
+	nif:isString "To some degree recuperative conservatism worked; it gave artists a way to keep moving when an old way seemed blocked."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence6#char=57,64>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence6> ;
+	nif:anchorOf "artists"^^xsd:string ;
+	nif:beginIndex "57"^^xsd:long ;
+	nif:endIndex "64"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Artist> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence6#char=28,40>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence6> ;
+	nif:anchorOf "conservatism"^^xsd:string ;
+	nif:beginIndex "28"^^xsd:long ;
+	nif:endIndex "40"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Conservatism> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence7>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts> ;
+	nif:isString "At the same time classicism as an ideology, with its emphasis on order, purity and exclusion, was being espoused by rising political figures intent on creating a new, lethally exclusionary social order."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence7#char=34,42>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence7> ;
+	nif:anchorOf "ideology"^^xsd:string ;
+	nif:beginIndex "34"^^xsd:long ;
+	nif:endIndex "42"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Ideology> .
+
+<http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence7#char=189,201>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence7> ;
+	nif:anchorOf "social order"^^xsd:string ;
+	nif:beginIndex "189"^^xsd:long ;
+	nif:endIndex "201"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Social_order> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:sourceUrl <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence0>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts> ;
+	nif:isString "Lil Wayne’s least interesting mode is fixation. Restless and free-associative, he’s best when bouncing from one idea to the next, sticking around just long enough to master it, then splitting before boredom or self-consciousness sets in."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence0#char=0,9>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence0> ;
+	nif:anchorOf "Lil Wayne"^^xsd:string ;
+	nif:beginIndex "0"^^xsd:long ;
+	nif:endIndex "9"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Lil_Wayne> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence0#char=199,206>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence0> ;
+	nif:anchorOf "boredom"^^xsd:string ;
+	nif:beginIndex "199"^^xsd:long ;
+	nif:endIndex "206"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Boredom> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence0#char=61,77>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence0> ;
+	nif:anchorOf "free-associative"^^xsd:string ;
+	nif:beginIndex "61"^^xsd:long ;
+	nif:endIndex "77"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Free_association_(psychology)> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence0#char=112,116>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence0> ;
+	nif:anchorOf "idea"^^xsd:string ;
+	nif:beginIndex "112"^^xsd:long ;
+	nif:endIndex "116"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Idea> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence0#char=210,228>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence0> ;
+	nif:anchorOf "self-consciousness"^^xsd:string ;
+	nif:beginIndex "210"^^xsd:long ;
+	nif:endIndex "228"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Self-consciousness> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts> ;
+	nif:isString "“Rebirth,” the last album he released before he began serving a one-year jail sentence at Rikers Island, was his quixotic attempt at a rap-rock album, an out-of-date idea that he treated like aggressive scientific research."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1#char=192,202>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1> ;
+	nif:anchorOf "aggressive"^^xsd:string ;
+	nif:beginIndex "192"^^xsd:long ;
+	nif:endIndex "202"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Aggression> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1#char=20,25>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1> ;
+	nif:anchorOf "album"^^xsd:string ;
+	nif:beginIndex "20"^^xsd:long ;
+	nif:endIndex "25"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Album> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1#char=144,149>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1> ;
+	nif:anchorOf "album"^^xsd:string ;
+	nif:beginIndex "144"^^xsd:long ;
+	nif:endIndex "149"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Album> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1#char=166,170>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1> ;
+	nif:anchorOf "idea"^^xsd:string ;
+	nif:beginIndex "166"^^xsd:long ;
+	nif:endIndex "170"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Idea> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1#char=73,77>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1> ;
+	nif:anchorOf "jail"^^xsd:string ;
+	nif:beginIndex "73"^^xsd:long ;
+	nif:endIndex "77"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Prison> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1#char=1,8>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence8> ;
+	nif:anchorOf "Rebirth"^^xsd:string ;
+	nif:beginIndex "1"^^xsd:long ;
+	nif:endIndex "8"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Rebirth_(Lil_Wayne_album)> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1#char=214,222>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1> ;
+	nif:anchorOf "research"^^xsd:string ;
+	nif:beginIndex "214"^^xsd:long ;
+	nif:endIndex "222"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Research> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1#char=90,103>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1> ;
+	nif:anchorOf "Rikers Island"^^xsd:string ;
+	nif:beginIndex "90"^^xsd:long ;
+	nif:endIndex "103"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Rikers_Island> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1#char=203,213>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1> ;
+	nif:anchorOf "scientific"^^xsd:string ;
+	nif:beginIndex "203"^^xsd:long ;
+	nif:endIndex "213"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Scientific_method> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1#char=78,86>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence1> ;
+	nif:anchorOf "sentence"^^xsd:string ;
+	nif:beginIndex "78"^^xsd:long ;
+	nif:endIndex "86"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Sentence_(law)> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence2>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts> ;
+	nif:isString "It failed less for its experimentation, which was spotty, than for the strenuousness with which he pursued it."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence2#char=23,38>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence2> ;
+	nif:anchorOf "experimentation"^^xsd:string ;
+	nif:beginIndex "23"^^xsd:long ;
+	nif:endIndex "38"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Experiment> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence3>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts> ;
+	nif:isString "From somewhere among those recording sessions, and those rumored to be slated for “Tha Carter IV,” his next album, came the songs found on “I Am Not a Human Being,” an uncentered collection of odds and ends meant to sate interest until Lil Wayne’s release from Rikers, which is expected to be early next month."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence3#char=236,245>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence3> ;
+	nif:anchorOf "Lil Wayne"^^xsd:string ;
+	nif:beginIndex "236"^^xsd:long ;
+	nif:endIndex "245"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Lil_Wayne> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence3#char=108,113>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence3> ;
+	nif:anchorOf "album"^^xsd:string ;
+	nif:beginIndex "108"^^xsd:long ;
+	nif:endIndex "113"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Album> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence3#char=140,162>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence3> ;
+	nif:anchorOf "I Am Not a Human Being"^^xsd:string ;
+	nif:beginIndex "140"^^xsd:long ;
+	nif:endIndex "162"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/I_Am_Not_a_Human_Being> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence3#char=304,309>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence3> ;
+	nif:anchorOf "month"^^xsd:string ;
+	nif:beginIndex "304"^^xsd:long ;
+	nif:endIndex "309"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Month> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence3#char=124,129>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence3> ;
+	nif:anchorOf "songs"^^xsd:string ;
+	nif:beginIndex "124"^^xsd:long ;
+	nif:endIndex "129"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Song> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence3#char=27,36>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence3> ;
+	nif:anchorOf "recording"^^xsd:string ;
+	nif:beginIndex "27"^^xsd:long ;
+	nif:endIndex "36"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Studio_recording> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence4>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts> ;
+	nif:isString "(He was jailed on a gun-possession charge.)"^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence4#char=35,41>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence4> ;
+	nif:anchorOf "charge"^^xsd:string ;
+	nif:beginIndex "35"^^xsd:long ;
+	nif:endIndex "41"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Criminal_charge> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence4#char=20,34>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence4> ;
+	nif:anchorOf "gun-possession"^^xsd:string ;
+	nif:beginIndex "20"^^xsd:long ;
+	nif:endIndex "34"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Gun_politics> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence4#char=8,12>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence4> ;
+	nif:anchorOf "jailed"^^xsd:string ;
+	nif:beginIndex "8"^^xsd:long ;
+	nif:endIndex "14"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Prison> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence5>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts> ;
+	nif:isString "In a sense it’s an improvement on “Rebirth,” even if a couple of the songs bear the scars of that period, particularly the Rick Rubinesque title track, and “Popular,” which has some of the new wave sizzle he was toying with."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence5#char=35,42>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence5> ;
+	nif:anchorOf "Rebirth"^^xsd:string ;
+	nif:beginIndex "35"^^xsd:long ;
+	nif:endIndex "42"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Rebirth_(Lil_Wayne_album)> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence5#char=84,89>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence5> ;
+	nif:anchorOf "scars"^^xsd:string ;
+	nif:beginIndex "84"^^xsd:long ;
+	nif:endIndex "89"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Scar> .
+
+<http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence5#char=69,74>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/11/arts/music/11choice.html?ref=arts_sentence5> ;
+	nif:anchorOf "songs"^^xsd:string ;
+	nif:beginIndex "71"^^xsd:long ;
+	nif:endIndex "76"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Song> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:sourceUrl <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence0>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel> ;
+	nif:isString "The short, bearded man in the tutu wanders onstage, an accordion strapped to his back like a rucksack."^^xsd:string .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence0#char=55,64>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence0> ;
+	nif:anchorOf "accordion"^^xsd:string ;
+	nif:beginIndex "55"^^xsd:long ;
+	nif:endIndex "64"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Accordion> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence0#char=93,101>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence0> ;
+	nif:anchorOf "rucksack"^^xsd:string ;
+	nif:beginIndex "93"^^xsd:long ;
+	nif:endIndex "101"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Backpack> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence0#char=30,34>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence0> ;
+	nif:anchorOf "tutu"^^xsd:string ;
+	nif:beginIndex "30"^^xsd:long ;
+	nif:endIndex "34"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Ballet_tutu> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence0#char=19,22>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence0> ;
+	nif:anchorOf "man"^^xsd:string ;
+	nif:beginIndex "19"^^xsd:long ;
+	nif:endIndex "22"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Man> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence1>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel> ;
+	nif:isString "A tall dancer feigns clumsiness with a slyly graceful gawkiness that would do Buster Keaton proud, stumbling around a ladder and a chair to the delight of the audience."^^xsd:string .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence1#char=159,167>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence1> ;
+	nif:anchorOf "audience"^^xsd:string ;
+	nif:beginIndex "159"^^xsd:long ;
+	nif:endIndex "167"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Audience> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence1#char=78,91>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence1> ;
+	nif:anchorOf "Buster Keaton"^^xsd:string ;
+	nif:beginIndex "78"^^xsd:long ;
+	nif:endIndex "91"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Buster_Keaton> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence1#char=131,136>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence1> ;
+	nif:anchorOf "chair"^^xsd:string ;
+	nif:beginIndex "131"^^xsd:long ;
+	nif:endIndex "136"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Chair> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence1#char=7,12>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence1> ;
+	nif:anchorOf "dance"^^xsd:string ;
+	nif:beginIndex "7"^^xsd:long ;
+	nif:endIndex "12"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Dance> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence1#char=118,124>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence1> ;
+	nif:anchorOf "ladder"^^xsd:string ;
+	nif:beginIndex "118"^^xsd:long ;
+	nif:endIndex "124"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Ladder> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel> ;
+	nif:isString "Sasha Waltz & Guests (pictured), named for its choreographer, is the house dance ensemble at Radialsystem V (Holzmarktstr, 33; radialsystem.de), a performance space that opened in 2006 in an old brick Gothic pumping station on the Spree River in Berlin."^^xsd:string .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2#char=180,184>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2> ;
+	nif:anchorOf "2006"^^xsd:string ;
+	nif:beginIndex "180"^^xsd:long ;
+	nif:endIndex "184"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/2006> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2#char=246,252>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2> ;
+	nif:anchorOf "Berlin"^^xsd:string ;
+	nif:beginIndex "246"^^xsd:long ;
+	nif:endIndex "252"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Berlin> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2#char=195,200>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2> ;
+	nif:anchorOf "brick"^^xsd:string ;
+	nif:beginIndex "195"^^xsd:long ;
+	nif:endIndex "200"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Brick> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2#char=47,60>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2> ;
+	nif:anchorOf "choreographer"^^xsd:string ;
+	nif:beginIndex "47"^^xsd:long ;
+	nif:endIndex "60"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Choreography> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2#char=75,80>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2> ;
+	nif:anchorOf "dance"^^xsd:string ;
+	nif:beginIndex "75"^^xsd:long ;
+	nif:endIndex "80"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Dance> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2#char=201,207>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2> ;
+	nif:anchorOf "Gothic"^^xsd:string ;
+	nif:beginIndex "201"^^xsd:long ;
+	nif:endIndex "207"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Gothic_architecture> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2#char=69,80>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2> ;
+	nif:anchorOf "house dance"^^xsd:string ;
+	nif:beginIndex "69"^^xsd:long ;
+	nif:endIndex "80"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/House_dance> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2#char=153,156>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2> ;
+	nif:anchorOf "man"^^xsd:string ;
+	nif:beginIndex "153"^^xsd:long ;
+	nif:endIndex "156"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Man> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2#char=147,158>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2> ;
+	nif:anchorOf "performance"^^xsd:string ;
+	nif:beginIndex "147"^^xsd:long ;
+	nif:endIndex "158"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Performance> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2#char=208,223>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2> ;
+	nif:anchorOf "pumping station"^^xsd:string ;
+	nif:beginIndex "208"^^xsd:long ;
+	nif:endIndex "223"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Pumping_station> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2#char=0,11>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2> ;
+	nif:anchorOf "Sasha Waltz"^^xsd:string ;
+	nif:beginIndex "0"^^xsd:long ;
+	nif:endIndex "11"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Sasha_Waltz> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2#char=231,236>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence2> ;
+	nif:anchorOf "Spree"^^xsd:string ;
+	nif:beginIndex "231"^^xsd:long ;
+	nif:endIndex "236"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Spree> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel> ;
+	nif:isString "Even though Berliners know about the dance troupe, visitors often miss its frequently sold-out performances in the towering space of the former machine hall and boiler room of the pumping station."^^xsd:string .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3#char=12,18>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3> ;
+	nif:anchorOf "Berlin"^^xsd:string ;
+	nif:beginIndex "12"^^xsd:long ;
+	nif:endIndex "18"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Berlin> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3#char=161,167>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3> ;
+	nif:anchorOf "boiler"^^xsd:string ;
+	nif:beginIndex "161"^^xsd:long ;
+	nif:endIndex "167"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Boiler> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3#char=37,49>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3> ;
+	nif:anchorOf "dance troupe"^^xsd:string ;
+	nif:beginIndex "37"^^xsd:long ;
+	nif:endIndex "49"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Dance_troupe> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3#char=152,156>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3> ;
+	nif:anchorOf "hall"^^xsd:string ;
+	nif:beginIndex "152"^^xsd:long ;
+	nif:endIndex "156"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Hall> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3#char=144,151>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3> ;
+	nif:anchorOf "machine"^^xsd:string ;
+	nif:beginIndex "144"^^xsd:long ;
+	nif:endIndex "151"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Machine> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3#char=101,104>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3> ;
+	nif:anchorOf "man"^^xsd:string ;
+	nif:beginIndex "101"^^xsd:long ;
+	nif:endIndex "104"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Man> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3#char=95,106>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3> ;
+	nif:anchorOf "performance"^^xsd:string ;
+	nif:beginIndex "95"^^xsd:long ;
+	nif:endIndex "106"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Performance> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3#char=180,195>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3> ;
+	nif:anchorOf "pumping station"^^xsd:string ;
+	nif:beginIndex "180"^^xsd:long ;
+	nif:endIndex "195"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Pumping_station> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3#char=168,172>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence3> ;
+	nif:anchorOf "room"^^xsd:string ;
+	nif:beginIndex "168"^^xsd:long ;
+	nif:endIndex "172"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Room> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence4>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel> ;
+	nif:isString "Radialsystem V, miles away from the German capital’s grand boulevard of Unter den Linden, is surrounded by a cluster of gritty nightclubs near the Ostbahnhof train station."^^xsd:string .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence4#char=147,157>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence4> ;
+	nif:anchorOf "Ostbahnhof"^^xsd:string ;
+	nif:beginIndex "147"^^xsd:long ;
+	nif:endIndex "157"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Berlin_Ostbahnhof> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence4#char=59,68>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence4> ;
+	nif:anchorOf "boulevard"^^xsd:string ;
+	nif:beginIndex "59"^^xsd:long ;
+	nif:endIndex "68"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Boulevard> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence4#char=36,52>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence4> ;
+	nif:anchorOf "German capital’s"^^xsd:string ;
+	nif:beginIndex "36"^^xsd:long ;
+	nif:endIndex "52"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Berlin> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence4#char=16,21>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence4> ;
+	nif:anchorOf "miles"^^xsd:string ;
+	nif:beginIndex "16"^^xsd:long ;
+	nif:endIndex "21"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Mile> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence4#char=127,137>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence4> ;
+	nif:anchorOf "nightclubs"^^xsd:string ;
+	nif:beginIndex "127"^^xsd:long ;
+	nif:endIndex "137"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Nightclub> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence4#char=72,88>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence4> ;
+	nif:anchorOf "Unter den Linden"^^xsd:string ;
+	nif:beginIndex "72"^^xsd:long ;
+	nif:endIndex "88"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Unter_den_Linden> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence5>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel> ;
+	nif:isString "During warmer months, a casual passer-by without a ticket to the night’s performance can enjoy a cappuccino with the dance aficionados on the waterfront terrace, but the main draw is the celebrated Ms. Waltz and her dancers, interlocked in twisted, shifting embraces."^^xsd:string .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence5#char=97,107>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence5> ;
+	nif:anchorOf "cappuccino"^^xsd:string ;
+	nif:beginIndex "97"^^xsd:long ;
+	nif:endIndex "107"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Cappuccino> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence5#char=117,122>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence5> ;
+	nif:anchorOf "dance"^^xsd:string ;
+	nif:beginIndex "117"^^xsd:long ;
+	nif:endIndex "122"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Dance> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence5#char=216,221>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence5> ;
+	nif:anchorOf "dance"^^xsd:string ;
+	nif:beginIndex "216"^^xsd:long ;
+	nif:endIndex "221"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Dance> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence5#char=14,20>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence5> ;
+	nif:anchorOf "months"^^xsd:string ;
+	nif:beginIndex "14"^^xsd:long ;
+	nif:endIndex "20"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Month> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence5#char=73,84>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence5> ;
+	nif:anchorOf "performance"^^xsd:string ;
+	nif:beginIndex "73"^^xsd:long ;
+	nif:endIndex "84"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Performance> .
+
+<http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence5#char=51,57>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/interactive/2010/10/10/travel/20101010-OFFBEATCULTURE-INTERACTIVE.html?ref=travel_sentence5> ;
+	nif:anchorOf "ticket"^^xsd:string ;
+	nif:beginIndex "51"^^xsd:long ;
+	nif:endIndex "57"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Ticket_(admission)> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:sourceUrl <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel> ;
+	nif:isString "“LIFE ON A LEAF,” a whimsical yellow house that sits in a wooded park at the edge of Turku in southern Finland, is a lopsided construction with a bright red, blue and green roof and a leaf-shaped floor plan."^^xsd:string .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0#char=158,162>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0> ;
+	nif:anchorOf "blue"^^xsd:string ;
+	nif:beginIndex "158"^^xsd:long ;
+	nif:endIndex "162"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Blue> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0#char=103,110>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0> ;
+	nif:anchorOf "Finland"^^xsd:string ;
+	nif:beginIndex "103"^^xsd:long ;
+	nif:endIndex "110"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Finland> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0#char=196,206>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0> ;
+	nif:anchorOf "floor plan"^^xsd:string ;
+	nif:beginIndex "196"^^xsd:long ;
+	nif:endIndex "206"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Floor_plan> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0#char=167,172>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0> ;
+	nif:anchorOf "green"^^xsd:string ;
+	nif:beginIndex "167"^^xsd:long ;
+	nif:endIndex "172"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Green> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0#char=37,42>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0> ;
+	nif:anchorOf "house"^^xsd:string ;
+	nif:beginIndex "37"^^xsd:long ;
+	nif:endIndex "42"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/House> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0#char=11,15>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0> ;
+	nif:anchorOf "LEAF"^^xsd:string ;
+	nif:beginIndex "11"^^xsd:long ;
+	nif:endIndex "15"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Leaf> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0#char=184,195>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0> ;
+	nif:anchorOf "leaf-shaped"^^xsd:string ;
+	nif:beginIndex "184"^^xsd:long ;
+	nif:endIndex "195"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Leaf_shape> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0#char=65,69>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0> ;
+	nif:anchorOf "park"^^xsd:string ;
+	nif:beginIndex "65"^^xsd:long ;
+	nif:endIndex "69"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Park> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0#char=153,156>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0> ;
+	nif:anchorOf "red"^^xsd:string ;
+	nif:beginIndex "153"^^xsd:long ;
+	nif:endIndex "156"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Red> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0#char=173,177>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0> ;
+	nif:anchorOf "roof"^^xsd:string ;
+	nif:beginIndex "173"^^xsd:long ;
+	nif:endIndex "177"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Roof> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0#char=85,90>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0> ;
+	nif:anchorOf "Turku"^^xsd:string ;
+	nif:beginIndex "85"^^xsd:long ;
+	nif:endIndex "90"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Turku> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0#char=30,36>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence0> ;
+	nif:anchorOf "yellow"^^xsd:string ;
+	nif:beginIndex "30"^^xsd:long ;
+	nif:endIndex "36"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Yellow> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel> ;
+	nif:isString "Inside, it’s even wackier: curved walls, windows in the shape of teardrops, and a catwalk with a tiny video screen embedded in the floor that shows an endless loop of antlike commuters rushing through Grand Central Terminal in New York."^^xsd:string .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1#char=175,184>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1> ;
+	nif:anchorOf "commuters"^^xsd:string ;
+	nif:beginIndex "175"^^xsd:long ;
+	nif:endIndex "184"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Commuting> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1#char=27,33>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1> ;
+	nif:anchorOf "curved"^^xsd:string ;
+	nif:beginIndex "27"^^xsd:long ;
+	nif:endIndex "33"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Curve> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1#char=65,74>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1> ;
+	nif:anchorOf "teardrops"^^xsd:string ;
+	nif:beginIndex "65"^^xsd:long ;
+	nif:endIndex "74"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Drop_(liquid)> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1#char=131,136>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1> ;
+	nif:anchorOf "floor"^^xsd:string ;
+	nif:beginIndex "131"^^xsd:long ;
+	nif:endIndex "136"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Floor> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1#char=201,223>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1> ;
+	nif:anchorOf "Grand Central Terminal"^^xsd:string ;
+	nif:beginIndex "201"^^xsd:long ;
+	nif:endIndex "223"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Grand_Central_Terminal> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1#char=227,235>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1> ;
+	nif:anchorOf "New York"^^xsd:string ;
+	nif:beginIndex "227"^^xsd:long ;
+	nif:endIndex "235"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/New_York_City> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1#char=82,89>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1> ;
+	nif:anchorOf "catwalk"^^xsd:string ;
+	nif:beginIndex "82"^^xsd:long ;
+	nif:endIndex "89"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Runway_(fashion)> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1#char=56,61>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1> ;
+	nif:anchorOf "shape"^^xsd:string ;
+	nif:beginIndex "56"^^xsd:long ;
+	nif:endIndex "61"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Shape> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1#char=102,107>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1> ;
+	nif:anchorOf "video"^^xsd:string ;
+	nif:beginIndex "102"^^xsd:long ;
+	nif:endIndex "107"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Video> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1#char=34,39>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1> ;
+	nif:anchorOf "walls"^^xsd:string ;
+	nif:beginIndex "34"^^xsd:long ;
+	nif:endIndex "39"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Wall> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1#char=41,48>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence1> ;
+	nif:anchorOf "windows"^^xsd:string ;
+	nif:beginIndex "41"^^xsd:long ;
+	nif:endIndex "48"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Window> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence2>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel> ;
+	nif:isString "On an unseasonably warm September morning I traveled to the Leaf house, which has become something of a local landmark, passing Turku’s harbor overlooked by pine-forested hills, then turning into a clearing in the woods."^^xsd:string .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence2#char=128,142>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence2> ;
+	nif:anchorOf "Turku’s harbor"^^xsd:string ;
+	nif:beginIndex "128"^^xsd:long ;
+	nif:endIndex "142"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Port_of_Turku> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence2#char=65,70>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence2> ;
+	nif:anchorOf "house"^^xsd:string ;
+	nif:beginIndex "65"^^xsd:long ;
+	nif:endIndex "70"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/House> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence2#char=110,118>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence2> ;
+	nif:anchorOf "landmark"^^xsd:string ;
+	nif:beginIndex "110"^^xsd:long ;
+	nif:endIndex "118"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Landmark> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence2#char=24,33>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence2> ;
+	nif:anchorOf "September"^^xsd:string ;
+	nif:beginIndex "24"^^xsd:long ;
+	nif:endIndex "33"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/September> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence2#char=128,133>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence2> ;
+	nif:anchorOf "Turku"^^xsd:string ;
+	nif:beginIndex "128"^^xsd:long ;
+	nif:endIndex "133"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Turku> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence2#char=214,219>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence2> ;
+	nif:anchorOf "woods"^^xsd:string ;
+	nif:beginIndex "214"^^xsd:long ;
+	nif:endIndex "219"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Woodland> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence3>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel> ;
+	nif:isString "Jan-Erik Andersson — the artist, sculptor and interior designer who, with contributions from 20 other artists, created the place, and gives tours to groups of visitors who make arrangements in advance — was waiting for me."^^xsd:string .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence3#char=25,31>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence3> ;
+	nif:anchorOf "artist"^^xsd:string ;
+	nif:beginIndex "25"^^xsd:long ;
+	nif:endIndex "31"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Artist> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence3#char=102,109>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence3> ;
+	nif:anchorOf "artists"^^xsd:string ;
+	nif:beginIndex "102"^^xsd:long ;
+	nif:endIndex "109"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Artist> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence3#char=46,63>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence3> ;
+	nif:anchorOf "interior designer"^^xsd:string ;
+	nif:beginIndex "46"^^xsd:long ;
+	nif:endIndex "63"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Interior_design> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence3#char=33,41>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence3> ;
+	nif:anchorOf "sculptor"^^xsd:string ;
+	nif:beginIndex "33"^^xsd:long ;
+	nif:endIndex "41"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Sculpture> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel> ;
+	nif:isString "On the front lawn we lingered in front of his work-in-progress: a fiberglass sauna shaped like a garlic clove, one of five Finnish bathhouses that will be on display in SaunaLab, an exhibition at Turku 2011, the coming yearlong culture festival."^^xsd:string .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4#char=123,141>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4> ;
+	nif:anchorOf "Finnish bathhouses"^^xsd:string ;
+	nif:beginIndex "123"^^xsd:long ;
+	nif:endIndex "141"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Finnish_sauna> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4#char=202,206>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4> ;
+	nif:anchorOf "2011"^^xsd:string ;
+	nif:beginIndex "202"^^xsd:long ;
+	nif:endIndex "206"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/2011> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4#char=228,235>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4> ;
+	nif:anchorOf "culture"^^xsd:string ;
+	nif:beginIndex "228"^^xsd:long ;
+	nif:endIndex "235"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Culture> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4#char=182,192>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4> ;
+	nif:anchorOf "exhibition"^^xsd:string ;
+	nif:beginIndex "182"^^xsd:long ;
+	nif:endIndex "192"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Exhibition> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4#char=236,244>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4> ;
+	nif:anchorOf "festival"^^xsd:string ;
+	nif:beginIndex "236"^^xsd:long ;
+	nif:endIndex "244"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Festival> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4#char=66,76>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4> ;
+	nif:anchorOf "fiberglass"^^xsd:string ;
+	nif:beginIndex "66"^^xsd:long ;
+	nif:endIndex "76"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Fiberglass> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4#char=77,82>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4> ;
+	nif:anchorOf "sauna"^^xsd:string ;
+	nif:beginIndex "77"^^xsd:long ;
+	nif:endIndex "82"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Sauna> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4#char=97,103>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4> ;
+	nif:anchorOf "garlic"^^xsd:string ;
+	nif:beginIndex "97"^^xsd:long ;
+	nif:endIndex "103"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Garlic> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4#char=135,141>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4> ;
+	nif:anchorOf "houses"^^xsd:string ;
+	nif:beginIndex "135"^^xsd:long ;
+	nif:endIndex "141"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/House> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4#char=26,29>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4> ;
+	nif:anchorOf "red"^^xsd:string ;
+	nif:beginIndex "26"^^xsd:long ;
+	nif:endIndex "29"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Red> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4#char=83,88>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4> ;
+	nif:anchorOf "shaped"^^xsd:string ;
+	nif:beginIndex "83"^^xsd:long ;
+	nif:endIndex "89"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Shape> .
+
+<http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4#char=196,201>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://travel.nytimes.com/2010/10/10/travel/10Turku.html?ref=travel_sentence4> ;
+	nif:anchorOf "Turku"^^xsd:string ;
+	nif:beginIndex "196"^^xsd:long ;
+	nif:endIndex "201"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Turku> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:sourceUrl <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence0>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style> ;
+	nif:isString "“IF you can’t say something good about someone, sit right here by me,” Alice Roosevelt Longworth, a self-proclaimed “hedonist,” used to say."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence0#char=71,96>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence0> ;
+	nif:anchorOf "Alice Roosevelt Longworth"^^xsd:string ;
+	nif:beginIndex "71"^^xsd:long ;
+	nif:endIndex "96"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Alice_Roosevelt_Longworth> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence0#char=117,125>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence0> ;
+	nif:anchorOf "hedonist"^^xsd:string ;
+	nif:beginIndex "117"^^xsd:long ;
+	nif:endIndex "125"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Hedonism> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence1>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style> ;
+	nif:isString "But it seems the greater pleasure comes from more temperate gossip."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence1#char=60,66>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence1> ;
+	nif:anchorOf "gossip"^^xsd:string ;
+	nif:beginIndex "60"^^xsd:long ;
+	nif:endIndex "66"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Gossip> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence2>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style> ;
+	nif:isString "New research finds that gossiping can be good for you — as long as you have something nice to say."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence2#char=24,33>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence2> ;
+	nif:anchorOf "gossiping"^^xsd:string ;
+	nif:beginIndex "24"^^xsd:long ;
+	nif:endIndex "33"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Gossip> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence2#char=4,12>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence2> ;
+	nif:anchorOf "research"^^xsd:string ;
+	nif:beginIndex "4"^^xsd:long ;
+	nif:endIndex "12"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Research> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence3>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style> ;
+	nif:isString "In a presentation in September, Jennifer Cole, a social psychologist, and Hannah Scrivener reported results from two related studies, both of which demonstrate that it’s in one’s self-interest to say “So-and-so’s second husband is adorable” rather than “She married that lout?”"^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence3#char=220,227>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence3> ;
+	nif:anchorOf "husband"^^xsd:string ;
+	nif:beginIndex "220"^^xsd:long ;
+	nif:endIndex "227"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Husband> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence3#char=5,17>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence3> ;
+	nif:anchorOf "presentation"^^xsd:string ;
+	nif:beginIndex "5"^^xsd:long ;
+	nif:endIndex "17"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Presentation> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence3#char=21,30>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence3> ;
+	nif:anchorOf "September"^^xsd:string ;
+	nif:beginIndex "21"^^xsd:long ;
+	nif:endIndex "30"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/September> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence3#char=49,68>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence3> ;
+	nif:anchorOf "social psychologist"^^xsd:string ;
+	nif:beginIndex "49"^^xsd:long ;
+	nif:endIndex "68"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Social_psychology> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style> ;
+	nif:isString "In the first study, intended to measure a person’s short-term emotional reaction to gossiping, 140 men and women, primarily undergraduates, were asked to talk about a fictional person either positively or negatively."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4#char=62,71>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4> ;
+	nif:anchorOf "emotional"^^xsd:string ;
+	nif:beginIndex "62"^^xsd:long ;
+	nif:endIndex "71"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Emotion> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4#char=167,176>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4> ;
+	nif:anchorOf "fictional"^^xsd:string ;
+	nif:beginIndex "167"^^xsd:long ;
+	nif:endIndex "176"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Fiction> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4#char=84,93>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4> ;
+	nif:anchorOf "gossiping"^^xsd:string ;
+	nif:beginIndex "84"^^xsd:long ;
+	nif:endIndex "93"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Gossip> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4#char=99,102>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4> ;
+	nif:anchorOf "men"^^xsd:string ;
+	nif:beginIndex "99"^^xsd:long ;
+	nif:endIndex "102"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Man> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4#char=42,48>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4> ;
+	nif:anchorOf "person"^^xsd:string ;
+	nif:beginIndex "42"^^xsd:long ;
+	nif:endIndex "48"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Person> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4#char=177,183>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4> ;
+	nif:anchorOf "person"^^xsd:string ;
+	nif:beginIndex "177"^^xsd:long ;
+	nif:endIndex "183"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Person> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4#char=51,61>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4> ;
+	nif:anchorOf "short-term"^^xsd:string ;
+	nif:beginIndex "51"^^xsd:long ;
+	nif:endIndex "61"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Term_(time)> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4#char=124,138>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4> ;
+	nif:anchorOf "undergraduates"^^xsd:string ;
+	nif:beginIndex "124"^^xsd:long ;
+	nif:endIndex "138"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Undergraduate_education> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4#char=107,112>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence4> ;
+	nif:anchorOf "women"^^xsd:string ;
+	nif:beginIndex "107"^^xsd:long ;
+	nif:endIndex "112"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Woman> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5>
+	a nif:String , nif:Context , nif:RFC5147String ;
+	nif:broaderContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style> ;
+	nif:isString "The second study, which looked into the long-term effects of gossiping on well-being, had 160 participants, mostly female undergrads, fill out questionnaires about their tendency to gossip, their self-esteem and their perceived social support."^^xsd:string .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5#char=115,121>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5> ;
+	nif:anchorOf "female"^^xsd:string ;
+	nif:beginIndex "115"^^xsd:long ;
+	nif:endIndex "121"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Female> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5#char=61,70>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5> ;
+	nif:anchorOf "gossiping"^^xsd:string ;
+	nif:beginIndex "61"^^xsd:long ;
+	nif:endIndex "70"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Gossip> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5#char=182,188>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5> ;
+	nif:anchorOf "gossip"^^xsd:string ;
+	nif:beginIndex "182"^^xsd:long ;
+	nif:endIndex "188"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Gossip> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5#char=143,157>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5> ;
+	nif:anchorOf "questionnaires"^^xsd:string ;
+	nif:beginIndex "143"^^xsd:long ;
+	nif:endIndex "157"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Questionnaire> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5#char=196,207>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5> ;
+	nif:anchorOf "self-esteem"^^xsd:string ;
+	nif:beginIndex "196"^^xsd:long ;
+	nif:endIndex "207"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Self-esteem> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5#char=228,242>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5> ;
+	nif:anchorOf "social support"^^xsd:string ;
+	nif:beginIndex "228"^^xsd:long ;
+	nif:endIndex "242"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Social_support> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5#char=40,49>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5> ;
+	nif:anchorOf "long-term"^^xsd:string ;
+	nif:beginIndex "40"^^xsd:long ;
+	nif:endIndex "49"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Term_(time)> .
+
+<http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5#char=122,132>
+	a nif:String , nif:RFC5147String ;
+	nif:referenceContext <http://www.nytimes.com/2010/10/10/fashion/10Studied.html?ref=style_sentence5> ;
+	nif:anchorOf "undergrads"^^xsd:string ;
+	nif:beginIndex "122"^^xsd:long ;
+	nif:endIndex "132"^^xsd:long ;
+	a nif:Phrase ;
+	itsrdf:taIdentRef <http://dbpedia.org/resource/Undergraduate_education> .
+
