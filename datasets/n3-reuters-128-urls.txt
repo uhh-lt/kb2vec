@@ -1,881 +1,879 @@
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Brazil> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Nippon_Telegraph_and_Telephone> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ally_Financial> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Saddam_Hussein> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Motorola_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Japan> ;
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Cocoa_Producers’_Alliance> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Public_Service_Company_of_Colorado> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/National_Transportation_Safety_Board> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/CBS_Corporation> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Morgan_Stanley> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/James_Baker> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Investment_Technology_Group> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/John_Dosher> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/PSC_Inc.> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Brazil> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Shelly%27s_Inc> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/South_carolina> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Advanced_Micro> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Huntsman_Corporation> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Tehran_Radio> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/GAF_Materials_Corporation> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Chevron_Corporation> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/DSM_(company)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Japan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Harcourt_(publisher)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuter> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Colorado_Public_Utilities_Commission> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/West_Germany> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Georgia_Power> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Meyer_Detective_Agency_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Integrated_Services_Digital_Network> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Ministry_of_Economics_and_Technology_(Germany)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Italy> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Tokyo> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ahvaz> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/CME_Group> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Southern_Company> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Córdoba_Province,_Argentina> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_Kingdom> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Brazil> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/John_S.R._Shad> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Stockholm> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States_Department_of_the_Treasury> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Thomson_McKinnon> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Georgia_Power> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Southmark_Corp> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Erskine_Resources_Ltd> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/AT%26T_Corporation> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/West_Point-Pepperell_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Shopsmith_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/John_Wineapple> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Sterling_investment_banking_group> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/WestPoint_Home> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Lawton_Chiles> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Nortel> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ministry_of_Finance_(Japan)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/CME_Group> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Paris_Club> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Bristol-Myers_Squibb> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/North_Carolina> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Baghdad> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/The_Reader's_Digest_Association> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Paul_Oreffice> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Integrated_Services_Digital_Network> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Pan_American_World_Airways> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Hambros_Bank> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Japan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Giovanni_Goria> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Georgia_Power> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Leonardo_Brito> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/International_Chamber_of_Commerce> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/French_Federation_of_Non-Ferrous_Metals> .
-itsrdf:taIdentRef
-      itsrdf:taIdentRef <http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Houston> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Interstate_Properties> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/IVB_Financial_Corp> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Córdoba_Province,_Argentina> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Lawton_Chiles> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Córdoba_Province,_Argentina> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Paine_Webber> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Avery_Dennison> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Iran> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/London_Metal_Exchange> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/The_Reynolds_and_Reynolds_Company> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Hong_Kong> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Pennzoil> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Madeira_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Robert_W_Scherer> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Tennessee> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Netherlands> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/DuPont> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Banque_de_France> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Asher_Edelman> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Seattle> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuters> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/London> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Digital_Communications_Associates_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuters> ;
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Montedison> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Pancontinental_Oil_Ltd> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuter> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Detroit> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Eileen_Gormley> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/New_Jersey> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ford_Motor_Company> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Reserve_System> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/W.B._Saunders_Co_of_Canada_Ltd> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Chevron_Corporation> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Burlington_Industries> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Japan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/G_H_Shintoh> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Integrated_Services_Digital_Network> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Noranda_(mining_company)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Japan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/IBM> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/U.S._District_Court> .
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Lohn_(Eschweiler)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Jimmy_Carter> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/William_West> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/AgrimontSPA> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Georgia_Power> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Formosa_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/New_York_Stock_Exchange> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/CCL_Industries> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Data_I/O> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Eileen_Gormley> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Michel_Dufour> .
-      itsrdf:taIdentRef aksw:notInWiki .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Merrill_Lynch> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Brazil> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/London> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Garo_H._Armen> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Philips> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Victorian_Corporate_Affairs_Commission> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/American_Midland_Corp> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Japan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Chaco_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Asahi_Shimbun> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/AgrimontSPA> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Poland> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Georgia_Public_Service_Commission> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/James_Ottinger> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/J._P._Morgan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Hackensack,_New_Jersey> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuter> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/National_Park,_New_Jersey> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Japan> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Sun_Refining_and_Marketing_Co> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Quebec> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Australia> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Larry_Taylor> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Boeing> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/AVX_Corporation> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Datron_Corp> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Japan> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Agrimont_Group> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Australia> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Samuel_J._Heyman> ;
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Cocoa_Producers’_Alliance> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/First_Boston> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Jimmy_Carter> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ronald_Reagan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ohio> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Coffin> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Belgium> ;
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Montedison> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Islamic_Republic_News_Agency> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Japan> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/AgrimontSPA> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Jerzy_Urban> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Pan_American_World_Airways> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Advanced_Voice_Technologies> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Holt,_Rinehart_and_Winston_Canada_Ltd> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Freeport-McMoRan> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Industrial_Valley_Title_Insurance_Co> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Joseph_DiGaicomo_Jr.> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Digital_Equipment_Corporation> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Colorado_Rural_Electric_Association> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/New_Jersey> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Asher_Edelman> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Department_of_Trade_and_Industry_(United_Kingdom)> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Synergen_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States_House_Appropriations_Subcommittee_on_Financial_Services_and_General_Government> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Drexel_Burnham_Lambert> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Rolls-Royce_plc> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_Kingdom> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/France> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Investment_Technology_Group> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Best_Buy> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Interstate_Properties> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Merck_%26_Co.> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Toronto_Stock_Exchange> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Paramus,_New_Jersey> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Thermo-Print_GmbH> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Europe> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Wedgestone_Realty_Investors_Trust> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Gerhard_Stoltenberg> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Entre_Ríos_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/DSM_(company)> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/CMS_Enhancements_Inc> .
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Montedison> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Honduras> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Mosaic_Systems_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/French_Development_Agency> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/AVX_Corporation> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Federal_Paperboard_Co_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Nashville,_Tennessee> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Investment_Technology_Group> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Datron_Corp> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Stuart_Weisbrod> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Washington> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/J._P._Morgan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Ministry_of_Economics_and_Technology_(Germany)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuter> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/U.S._Bancorp> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Cannon_Mills> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Japan> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Capital_Investigations_and_Protective_Agency> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Rolls-Royce_plc> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/La_Pampa_Province> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/John_Dosher> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Philips> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Córdoba_Province,_Argentina> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Robert_W_Scherer> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Gordon_Cain> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Public_Service_Company_of_Colorado> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/London> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Asher_Edelman> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Entourage_International_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/International_Paper> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Milan> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Makoto_Kuroda> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Reserve_System> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Victorian_Corporate_Affairs_Commission> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/James_C._Miller_III> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Getty_Oil> ;
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Montedison> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Shared_Network_Technologies_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Erskine_Resources_Ltd> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/London_Stock_Exchange> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Bristol-Myers_Squibb> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Reserve_System> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/CME_Group> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Burlington_Industries> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/CME_Group> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Boettcher_and_Co_Inc> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Advanced_Cardiovascular_Systems_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dow_Chemical_Company> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Amsterdam_Stock_Exchange> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/International_Monetary_Fund> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Pace_Consultants_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/CNA_Income_Shares_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/W.R._Grace> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Mir-Hossein_Mousavi> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Moody's_Investors_Service> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/John_East> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Bashaw_Leduc_Oil_and_Gas_Ltd> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Avondale_Mills> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/CME_Group> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/La_Pampa_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/W.R._Grace> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Rolls-Royce_plc> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Ferruzzi_Groups> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/J._P._Morgan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuter> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ronald_Reagan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Reserve_System> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/General_Electric_Company_plc> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Advanced_Voice_Technologies> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Salomon_Brothers> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Moody's_Investors_Service> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Burlington_Industries> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Samuel_Montagu_and_Sons_Ltd> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Avery_Dennison> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/French_Federation_of_Non-Ferrous_Metals> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Samuel_J._Heyman> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Mir-Hossein_Mousavi> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/INTEL_Corp_INTC> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Pemberton_Houston_Willoughby_Bell_Gouinlock_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/AVX_Corporation> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Trade_Commission> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/General_Electric_Company_plc> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Integrated_Services_Digital_Network> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Yankee_Cos_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Kiichi_Miyazawa> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Department_of_Trade_and_Industry_(United_Kingdom)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/London_International_Financial_Futures_and_Options_Exchange> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Prudential_Securities> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Prudential_Securities> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Paraná_(state)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/General_Electric_Company_plc> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Brazil> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Quebec> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Celanese> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuters> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Victorian_Corporate_Affairs_Commission> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States_Department_of_the_Treasury> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuter> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Holt,_Rinehart_and_Winston_Canada_Ltd> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/James_Baker> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Shearson> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Avnet> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Cartel_Security_Consultants_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Wayne,_New_Jersey> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Netherlands> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Atlantic_City,_New_Jersey> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Welsh,_Carson,_Anderson_%26_Stowe> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Rolls-Royce_plc> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Eastman_Kodak> ;
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Cornelis_van_der_Klugt> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Iraq> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/France> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States_Congress> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Jerzy_Urban> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Tokyo> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Drexel_Burnham_Lambert> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Amplicon_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Robert_W_Scherer> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/CMS_Enhancements_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Advanced_Micro> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Toronto-Dominion_Bank> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Pan_American_World_Airways> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Fox_Chase_Cancer_Center> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuters> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/John_R._Folkerth> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Osaka> ;
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Cornelis_van_der_Klugt> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Avco> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dillon,_Read_%26_Co.> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Giovanni_Goria> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Santa_Fe_Province> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Freeport-McMoRan_Oil_and_Gas_Royalty_Trust> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuter> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/International_Monetary_Fund> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Queensland> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textiles> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Industrial_Valley_Title_Insurance_Co> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Gulf_Coast_of_the_United_States> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Avco> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Jerzy_Urban> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Alex._Brown_%26_Sons> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Advanced_Voice_Technologies> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Honduras> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Onno_Ruding> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States_Senate> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Tunisia> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Certified_Security_Services_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/GAF_Materials_Corporation> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Franklin,_Tennessee> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Florida> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dean_Witter_Reynolds> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Supreme_Court_of_the_United_States> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Asher_Edelman> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Harcourt_Brace_Jovanovich_Canada_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ivory_Coast> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuters> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ronald_Reagan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Japan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Raytheon> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Paul_OKelly> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Montedisons_Agro-Industrial> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Reserve_System> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/John_S.R._Shad> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Burlington_Industries> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Deutsche_Bundesbank> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Philips> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Gianfranco_Ceroni> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/John_Durant> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Spain> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States_Senate_Committee_on_the_Budget> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Renato_Picco> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/GGFH_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States_Senate_Committee_on_the_Budget> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Reserve_System> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/James_C._Miller_III> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/James_Adams> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Asher_Edelman> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Sci-Med_Life_Systems_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Australian_Securities_Exchange> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/C.H._Masland> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Volkswagen_Group> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Lawton_Chiles> ;
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Montedison> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Providence,_Rhode_Island> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Northern_Telecom_LTd> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Chicago> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Sun_Co> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/John_Dosher> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ashland_Inc.> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Iran> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Georgia_Power> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Datron_Corp> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Datron_Corp> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Wedgestone_Advisory_Corp> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/John_S.R._Shad> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Reserve_System> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Brazil> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Fruehauf_Corporation> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Key_Tronic> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Christopher_Hogg> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/MCI_Communications> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/DSM_(company)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Oregon> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Freeport-McMoRan> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/William_Randol> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Florida> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Satoshi_Sumita> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Merrill_Lynch> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Standard_%26_Poor's> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Atari> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Prudential_Securities> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Steven_Rosenberg> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ohio> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/National_Cancer_Institute> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Volkswagen_Group> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Santa_Fe_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Stifel_Nicolaus> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuter> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/GAF_Materials_Corporation> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Les_Editions_HRW_Ltd> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Hanover_Insurance> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Tunisia> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Republic_Airlines> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/London_Metal_Exchange> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Avnet> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Picker_International_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Columbus,_Ohio> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dow_Chemical_Company> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Lloyds_Bank_of_Canada> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Italiana_Olii_e_Sifi> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Avnet> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Advanced_Micro_Devices_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/First_Boston> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Kentucky> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Edward_Johnson> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Highland_Superstores_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Santa_Fe_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Houston> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Union_Carbide> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/CME_Group> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Rio_Grande_do_Sul> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ashland_Inc.> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Manila> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/James_C._Miller_III> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Noranda_(mining_company)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Paris> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Toronto_Stock_Exchange> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/IBM> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States_House_Committee_on_the_Budget> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Corrientes_Province> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Le_Peep_Restaurants_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/William_West> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuters> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Luxembourg_Stock_Exchange> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Boeing> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/European_Commission> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Hambrecht_%26_Quist> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ronald_Reagan> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/National_Guardian_Corp> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/FleetBoston_Financial> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Western_Digital> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Leonardo_Brito> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Bertil_Nordin> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Food_and_Agriculture_Organization> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Moody's_Investors_Service> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission> ;
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Cocoa_Producers’_Alliance> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ronald_Reagan> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Michel_Dufour> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Avnet> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Shared_Network_Technologies_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Australian_Securities_Exchange> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/J._P._Morgan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/IBM> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Ministry_of_Transport,_Building_and_Urban_Development> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Cannon_Mills> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Brasília> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Paul_Oreffice> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Harcourt_(publisher)> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Tokyo_Stock_Exchange> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Braodway_Casinos_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/New_Jersey_Hospital_Association> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/American_Midland_Corp> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Helen_of_Troy_Limited> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Group_of_Five> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Thomas_Bell> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Ozaki_Trading_Co_Ltd> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Tokyo> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Investment_Canada> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/General_Electric_Company_plc> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/South_carolina> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Colorado_House_of_Representatives> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Federal_Realty_Investment_Trust> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Rolls-Royce_plc> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/France> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Lawton_Chiles> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/C.S.C._Security_Gaurd_Service> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Advanced_Micro> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Mir-Hossein_Mousavi> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Alex._Brown_%26_Sons> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Western_Digital> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Key_West> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Tehran_Radio> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/American_Telephone_and_Telegraph_Co> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Christopher_Hogg> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Ferruzzi_Groups> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Kidder,_Peabody_%26_Co.> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Office_of_Management_and_Budget> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/AT%26T_Corporation> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Ozaki_Trading_Co_Ltd> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Hambros_Bank> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Northwest_Airlines> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Larry_Taylor> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Zambia> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Leonardo_Brito> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/London> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Asher_Edelman> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Tunisia> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Western_Digital> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Lehman_Brothers> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Brazil> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Hoechst_AG> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Osaka> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Preston_corp> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/G_H_Shintoh> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ford_Motor_Company> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/GGFH_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Ozaki_Trading_Co_Ltd> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/G_H_Shintoh> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Advanced_Voice_Technologies> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Public_Service_Company_of_Colorado> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/G_H_Shintoh> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Noranda_(mining_company)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Murdochville,_Quebec> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Georgia_Power> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Burlington_Industries> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dillon,_Read_%26_Co.> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Supreme_Court_of_the_United_States> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Carnival_Cruise_Lines> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/West_Germany> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Standard_%26_Poor%27s> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Monsanto> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Cetus_Corporation> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Chaco_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/CCL_Industries> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Leonardo_Brito> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/J._Terence_Murray> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Basra> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Entourage_International_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Tradevest_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Boeing> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Basra> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ronald_Reagan> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/John_Dosher> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/William_Randol> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Republic_Airlines> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Vogtle_Electric_Generating_Plant> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Avco> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/ASARCO> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Iran> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/La_Pampa_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/New_Jersey> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Burns,_Pauli_and_Co_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Entourage_International_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Francis_Tombs,_Baron_Tombs> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Darlington_County,_South_Carolina> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Conoco> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_government_of_the_United_States> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States_Department_of_the_Treasury> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ministry_of_Agriculture_(Brazil)> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Michael_Smith> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Office_of_the_United_States_Trade_Representative> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Atlas_Consolidated_Mining_and_Development_Corp> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/DSM_(company)> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/AgrimontSPA> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Federal_Paperboard_Co_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/General_Motors> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Philadelphia> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Paul_Oreffice> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Compagnie_Française_d'Assurance_pour_le_Commerce_Extérieur> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Howard_Fromkin> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Australian_Securities_Exchange> ;
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Royal_Cosun> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Reserve_System> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Kidder,_Peabody_%26_Co.> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Noranda_(mining_company)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/G7> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Spear_Securities_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Cain_Chemical_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/OBrien-Kreitzberg> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Merck_%26_Co.> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Association_of_White_Metals> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/La_Pampa_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/The_Reynolds_and_Reynolds_Company> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/The_Reynolds_and_Reynolds_Company> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Noranda_(mining_company)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ronald_Reagan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/General_Electric_Company_plc> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Biotherapeutics_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuter> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Reserve_System> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Victorian_Corporate_Affairs_Commission> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Integrated_Services_Digital_Network> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Thermwood_Corporation> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/California> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/R._Foster_Winans> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/London> ;
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Montedison> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/FleetBoston_Financial> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/John_F._Sandner> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Volkswagen_Group> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Les_Hosking> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Bertil_Nordin> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Bashaw_Leduc_Oil_and_Gas_Ltd> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Houston> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Transportation_Communications_International_Union> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/International_Monetary_Fund> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Getty_Oil> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/E._F._Hutton_%26_Co.> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Donald_Trump> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Burlington_Industries> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/New_York> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ministry_of_International_Trade_and_Industry> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/The_Source_(online_service)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Stifel_Nicolaus> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Rockwell_International_ROK> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Edouard_Saouma> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Buenos_Aires> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Switzerland> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Eridania_SPA> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Teradyne> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Spear_Securities_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/South_Carolina> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/BorgWarner> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/James_C._Miller_III> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/New_Jersey> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/J._P._Morgan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Robin_Leigh-Pemberton,_Baron_Kingsdown> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Esky> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Immunex_Corp> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Public_Service_Company_of_Colorado> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/James_Ottinger> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Denmark> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Leo_Melamed> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Adelaide> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/WestPoint_Home> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Denver> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Gordon_Cain> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/J._P._Morgan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/National_Cancer_Institute> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/G7> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Banque_de_France> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/BBC> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Burlington_Industries> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Poland> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/GAF_Materials_Corporation> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Standard_%26_Poor's> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/West_Germany> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Federal_Paperboard_Co_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Burlington_Industries> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Eileen_Gormley> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Buenos_Aires_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/NASDAQ> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Tennessee> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Integrated_Services_Digital_Network> ;
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Montedison> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Netherlands> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Morgan_Stanley> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/James_C._Miller_III> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/London> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Toronto-Dominion_Bank> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Buenos_Aires_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dutch> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Edouard_Saouma> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Moody%27s_Investors_Service> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ministry_of_Finance_(Japan)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Burlington_Industries> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States_District_Court_for_the_Southern_District_of_Ohio> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/John_S.R._Shad> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Sub-Saharan_Africa> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Emeryville,_California> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Boeing> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Buenos_Aires_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Celanese> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Raymond_Savoie> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Asiavest_Pty_Ltd> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Burlington_Industries> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/London> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Datron_Corp> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Goldman_Sachs> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Japan> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Monobloc_U.S.A.> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Burlington_Industries> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ministry_of_Social_Affairs_and_Employment_(Netherlands)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Continental_Bank_of_Canada> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Vogtle_Electric_Generating_Plant> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Madeira_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Toronto-Dominion_Bank> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Wall_Street> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Atari> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Bristol-Myers_Squibb> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Georgia_Power> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Sci-Med_Life_Systems_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Far_East> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/A-T-E_Security_Group_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/North_Country_Media_Group> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ford_Motor_Company> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/The_Reader's_Digest_Association> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Moody's_Investors_Service> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Pennzoil> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/John_S.R._Shad> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/New_York_Stock_Exchange> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Drexel_Burnham_Lambert> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Spain> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Victorian_Corporate_Affairs_Commission> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Philips> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/International_Business_Machines_Corp_IBM> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Great_Lakes_Chemical_Corporation> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Celanese> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Houston> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_Kingdom> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/DuPont> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Volkswagen_Group> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Integrated_Services_Digital_Network> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Celanese> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/The_Wall_Street_Journal> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Tri-State_Generation_and_Transmission_Association> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/West_Germany> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Noranda_(mining_company)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Cannon_Mills> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Eastman_Kodak> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Harcourt_Brace_Jovanovich_Canada_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Lucky_Stores> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Philips> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Avco> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Eileen_Gormley> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Avondale_Mills> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuter> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Reuter> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Universal_Medical_Buildings_L_P> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Steven_Rosenberg> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Ghana> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/AutoSpa_corp> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Eberstadt_Fleming_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Nantucket_Industries_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Robert_W_Scherer> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Security_Services_of_America> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Custom_Security_Services> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Italy> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Johnson_Redbook> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Tehran_Radio> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Netherlands> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Volkswagen_Group> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Hanover_Insurance> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Fidelcor_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Datron_Corp> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Charles-Eugène_Marin> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Karl_Otto_Pöhl> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Édouard_Balladur> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Hoechst_AG> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Envases_Venezolanos> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Continental_Bank_of_Canada> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Terry_Hampton> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Emerson_Radio> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/The_Reynolds_and_Reynolds_Company> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Louisville,_Kentucky> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Prudential_Securities> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Sci-Med_Life_Systems_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Ponderosa_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Thermwood_Corporation> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States_Department_of_the_Treasury> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Cain_Chemical_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Celanese> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States_House_Committee_on_the_Budget> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dow_Chemical_Company> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/American_Midland_Corp> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Envases_Venezolanos> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/J._P._Morgan> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/West_Germany> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Kenneth_Kaunda> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/The_New_England_Journal_of_Medicine> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Donald_Trump> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Advanced_Voice_Technologies> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Getty_Oil> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Leo_Melamed> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Government_of_Canada> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Bruce_Smart> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/First_Boston> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Lawton_Chiles> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/John_S.R._Shad> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Michel_Dufour> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Hans_van_Liemt> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/International_Monetary_Fund> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/J._Terence_Murray> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Helen_of_Troy_Limited> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/AgrimontSPA> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Federal_Reserve_System> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Santa_Fe_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/United_States> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/ASARCO> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Wells_Fargo_Alarm_Services> .
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Cocoa_Producers’_Alliance> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Celltronics_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/CNA_Income_Shares_Inc> .
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Blocker_Energy_corp> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Salem,_Oregon> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/The_Reynolds_and_Reynolds_Company> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Noranda_(mining_company)> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Don_Bybee_and_Associates> .
-      itsrdf:taIdentRef <http://de.dbpedia.org/resource/Cocoa_Producers’_Alliance> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Misiones_Province> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/São_Paulo_(state)> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Hanover_Insurance> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dow_Chemical_Company> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Moody's_Investors_Service> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/GAF_Materials_Corporation> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Dominion_Textile> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/New_Jersey> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/South_carolina> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Ettore_dellIsola> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Japan_Airlines> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Myrtle_Beach,_South_Carolina> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Canada> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Fayetteville,_North_Carolina> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Government_of_the_United_Kingdom> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Asher_Edelman> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Foreign_Policy_Institute> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Atlantic_City,_New_Jersey> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Home_Intensive_Care_Inc> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Jacques_de_Larosière> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Garo_H._Armen> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Continental_Bank_of_Canada> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Hans_van_Liemt> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Volkswagen_Group> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Kentucky> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/North_carolina> ;
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Continental_Bank_of_Canada> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Association_of_White_Metals> .
-      itsrdf:taIdentRef <http://dbpedia.org/resource/Brazil> ;
-      itsrdf:taIdentRef <http://aksw.org/notInWiki/Alexanders_Inc> .
+http://dbpedia.org/resource/Brazil
+http://dbpedia.org/resource/Nippon_Telegraph_and_Telephone
+http://dbpedia.org/resource/Ally_Financial
+http://dbpedia.org/resource/Saddam_Hussein
+http://aksw.org/notInWiki/Motorola_Inc
+http://dbpedia.org/resource/Japan
+http://de.dbpedia.org/resource/Cocoa_Producers’_Alliance
+http://dbpedia.org/resource/Public_Service_Company_of_Colorado
+http://dbpedia.org/resource/National_Transportation_Safety_Board
+http://dbpedia.org/resource/CBS_Corporation
+http://dbpedia.org/resource/Morgan_Stanley
+http://dbpedia.org/resource/James_Baker
+http://dbpedia.org/resource/Investment_Technology_Group
+http://aksw.org/notInWiki/John_Dosher
+http://dbpedia.org/resource/United_States
+http://dbpedia.org/resource/PSC_Inc.
+http://dbpedia.org/resource/Brazil
+http://dbpedia.org/resource/Shelly%27s_Inc
+http://dbpedia.org/resource/South_carolina
+http://aksw.org/notInWiki/Advanced_Micro
+http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton
+http://dbpedia.org/resource/Huntsman_Corporation
+http://aksw.org/notInWiki/Tehran_Radio
+http://dbpedia.org/resource/GAF_Materials_Corporation
+http://dbpedia.org/resource/Chevron_Corporation
+http://dbpedia.org/resource/DSM_(company)
+http://dbpedia.org/resource/Japan
+http://dbpedia.org/resource/Harcourt_(publisher)
+http://dbpedia.org/resource/Reuter
+http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton
+http://dbpedia.org/resource/Colorado_Public_Utilities_Commission
+http://dbpedia.org/resource/West_Germany
+http://dbpedia.org/resource/Georgia_Power
+http://aksw.org/notInWiki/Meyer_Detective_Agency_Inc
+http://dbpedia.org/resource/Integrated_Services_Digital_Network
+http://dbpedia.org/resource/Federal_Ministry_of_Economics_and_Technology_(Germany)
+http://dbpedia.org/resource/Italy
+http://dbpedia.org/resource/Tokyo
+http://dbpedia.org/resource/Ahvaz
+http://dbpedia.org/resource/CME_Group
+http://dbpedia.org/resource/Southern_Company
+http://dbpedia.org/resource/Córdoba_Province,_Argentina
+http://dbpedia.org/resource/United_Kingdom
+http://dbpedia.org/resource/Brazil
+http://dbpedia.org/resource/John_S.R._Shad
+http://dbpedia.org/resource/Stockholm
+http://dbpedia.org/resource/United_States_Department_of_the_Treasury
+http://aksw.org/notInWiki/Thomson_McKinnon
+http://dbpedia.org/resource/Georgia_Power
+http://aksw.org/notInWiki/Southmark_Corp
+http://aksw.org/notInWiki/Erskine_Resources_Ltd
+http://dbpedia.org/resource/AT%26T_Corporation
+http://aksw.org/notInWiki/West_Point-Pepperell_Inc
+http://aksw.org/notInWiki/Shopsmith_Inc
+http://aksw.org/notInWiki/John_Wineapple
+http://aksw.org/notInWiki/Sterling_investment_banking_group
+http://dbpedia.org/resource/WestPoint_Home
+http://dbpedia.org/resource/Lawton_Chiles
+http://dbpedia.org/resource/Nortel
+http://dbpedia.org/resource/Ministry_of_Finance_(Japan)
+http://dbpedia.org/resource/CME_Group
+http://dbpedia.org/resource/Paris_Club
+http://dbpedia.org/resource/Bristol-Myers_Squibb
+http://dbpedia.org/resource/North_Carolina
+http://dbpedia.org/resource/Baghdad
+http://dbpedia.org/resource/The_Reader's_Digest_Association
+http://aksw.org/notInWiki/Paul_Oreffice
+http://dbpedia.org/resource/Integrated_Services_Digital_Network
+http://dbpedia.org/resource/Pan_American_World_Airways
+http://dbpedia.org/resource/Hambros_Bank
+http://dbpedia.org/resource/Japan
+http://dbpedia.org/resource/Giovanni_Goria
+http://dbpedia.org/resource/Georgia_Power
+http://aksw.org/notInWiki/Leonardo_Brito
+http://dbpedia.org/resource/International_Chamber_of_Commerce
+http://aksw.org/notInWiki/French_Federation_of_Non-Ferrous_Metals
+http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission
+http://dbpedia.org/resource/Houston
+http://aksw.org/notInWiki/Interstate_Properties
+http://aksw.org/notInWiki/IVB_Financial_Corp
+http://dbpedia.org/resource/Córdoba_Province,_Argentina
+http://dbpedia.org/resource/Lawton_Chiles
+http://dbpedia.org/resource/Córdoba_Province,_Argentina
+http://dbpedia.org/resource/Paine_Webber
+http://dbpedia.org/resource/Avery_Dennison
+http://dbpedia.org/resource/Iran
+http://dbpedia.org/resource/London_Metal_Exchange
+http://dbpedia.org/resource/The_Reynolds_and_Reynolds_Company
+http://dbpedia.org/resource/Hong_Kong
+http://dbpedia.org/resource/Pennzoil
+http://aksw.org/notInWiki/Madeira_Inc
+http://aksw.org/notInWiki/Robert_W_Scherer
+http://dbpedia.org/resource/Tennessee
+http://dbpedia.org/resource/Netherlands
+http://dbpedia.org/resource/DuPont
+http://dbpedia.org/resource/Banque_de_France
+http://dbpedia.org/resource/Asher_Edelman
+http://dbpedia.org/resource/Seattle
+http://dbpedia.org/resource/Reuters
+http://dbpedia.org/resource/London
+http://aksw.org/notInWiki/Digital_Communications_Associates_Inc
+http://dbpedia.org/resource/Reuters
+http://de.dbpedia.org/resource/Montedison
+http://aksw.org/notInWiki/Pancontinental_Oil_Ltd
+http://dbpedia.org/resource/Reuter
+http://dbpedia.org/resource/Detroit
+http://aksw.org/notInWiki/Eileen_Gormley
+http://dbpedia.org/resource/New_Jersey
+http://dbpedia.org/resource/Ford_Motor_Company
+http://dbpedia.org/resource/Federal_Reserve_System
+http://aksw.org/notInWiki/W.B._Saunders_Co_of_Canada_Ltd
+http://dbpedia.org/resource/Chevron_Corporation
+http://dbpedia.org/resource/Burlington_Industries
+http://dbpedia.org/resource/Japan
+http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission
+http://aksw.org/notInWiki/G_H_Shintoh
+http://dbpedia.org/resource/Integrated_Services_Digital_Network
+http://dbpedia.org/resource/Noranda_(mining_company)
+http://dbpedia.org/resource/Japan
+http://dbpedia.org/resource/IBM
+http://aksw.org/notInWiki/U.S._District_Court
+http://de.dbpedia.org/resource/Lohn_(Eschweiler)
+http://dbpedia.org/resource/Jimmy_Carter
+http://aksw.org/notInWiki/William_West
+http://aksw.org/notInWiki/AgrimontSPA
+http://dbpedia.org/resource/Georgia_Power
+http://dbpedia.org/resource/Formosa_Province
+http://dbpedia.org/resource/New_York_Stock_Exchange
+http://dbpedia.org/resource/CCL_Industries
+http://dbpedia.org/resource/Data_I/O
+http://aksw.org/notInWiki/Eileen_Gormley
+http://aksw.org/notInWiki/Michel_Dufour
+http://dbpedia.org/resource/Merrill_Lynch
+http://dbpedia.org/resource/Brazil
+http://dbpedia.org/resource/London
+http://dbpedia.org/resource/Garo_H._Armen
+http://dbpedia.org/resource/Philips
+http://aksw.org/notInWiki/Victorian_Corporate_Affairs_Commission
+http://aksw.org/notInWiki/American_Midland_Corp
+http://dbpedia.org/resource/Japan
+http://dbpedia.org/resource/Chaco_Province
+http://dbpedia.org/resource/Asahi_Shimbun
+http://aksw.org/notInWiki/AgrimontSPA
+http://dbpedia.org/resource/Dominion_Textile
+http://dbpedia.org/resource/Poland
+http://dbpedia.org/resource/Georgia_Public_Service_Commission
+http://aksw.org/notInWiki/James_Ottinger
+http://dbpedia.org/resource/J._P._Morgan
+http://dbpedia.org/resource/Hackensack,_New_Jersey
+http://dbpedia.org/resource/Reuter
+http://dbpedia.org/resource/National_Park,_New_Jersey
+http://dbpedia.org/resource/Japan
+http://aksw.org/notInWiki/Sun_Refining_and_Marketing_Co
+http://dbpedia.org/resource/Quebec
+http://dbpedia.org/resource/Australia
+http://aksw.org/notInWiki/Larry_Taylor
+http://dbpedia.org/resource/Boeing
+http://dbpedia.org/resource/AVX_Corporation
+http://aksw.org/notInWiki/Datron_Corp
+http://dbpedia.org/resource/Japan
+http://aksw.org/notInWiki/Agrimont_Group
+http://dbpedia.org/resource/Australia
+http://dbpedia.org/resource/Samuel_J._Heyman
+http://de.dbpedia.org/resource/Cocoa_Producers’_Alliance
+http://dbpedia.org/resource/First_Boston
+http://dbpedia.org/resource/Jimmy_Carter
+http://dbpedia.org/resource/Ronald_Reagan
+http://dbpedia.org/resource/Dominion_Textile
+http://dbpedia.org/resource/Ohio
+http://aksw.org/notInWiki/Coffin
+http://dbpedia.org/resource/Belgium
+http://de.dbpedia.org/resource/Montedison
+http://dbpedia.org/resource/Islamic_Republic_News_Agency
+http://dbpedia.org/resource/Japan
+http://aksw.org/notInWiki/AgrimontSPA
+http://aksw.org/notInWiki/Jerzy_Urban
+http://dbpedia.org/resource/Pan_American_World_Airways
+http://aksw.org/notInWiki/Advanced_Voice_Technologies
+http://aksw.org/notInWiki/Holt,_Rinehart_and_Winston_Canada_Ltd
+http://dbpedia.org/resource/Freeport-McMoRan
+http://aksw.org/notInWiki/Industrial_Valley_Title_Insurance_Co
+http://aksw.org/notInWiki/Joseph_DiGaicomo_Jr.
+http://dbpedia.org/resource/Digital_Equipment_Corporation
+http://aksw.org/notInWiki/Colorado_Rural_Electric_Association
+http://dbpedia.org/resource/New_Jersey
+http://dbpedia.org/resource/Dominion_Textile
+http://dbpedia.org/resource/Asher_Edelman
+http://dbpedia.org/resource/Department_of_Trade_and_Industry_(United_Kingdom)
+http://aksw.org/notInWiki/Synergen_Inc
+http://dbpedia.org/resource/United_States_House_Appropriations_Subcommittee_on_Financial_Services_and_General_Government
+http://dbpedia.org/resource/Drexel_Burnham_Lambert
+http://dbpedia.org/resource/Rolls-Royce_plc
+http://dbpedia.org/resource/United_Kingdom
+http://dbpedia.org/resource/France
+http://dbpedia.org/resource/Investment_Technology_Group
+http://dbpedia.org/resource/Best_Buy
+http://aksw.org/notInWiki/Interstate_Properties
+http://dbpedia.org/resource/Merck_%26_Co.
+http://dbpedia.org/resource/Toronto_Stock_Exchange
+http://dbpedia.org/resource/Paramus,_New_Jersey
+http://aksw.org/notInWiki/Thermo-Print_GmbH
+http://dbpedia.org/resource/Europe
+http://aksw.org/notInWiki/Wedgestone_Realty_Investors_Trust
+http://dbpedia.org/resource/Gerhard_Stoltenberg
+http://dbpedia.org/resource/Entre_Ríos_Province
+http://dbpedia.org/resource/DSM_(company)
+http://aksw.org/notInWiki/CMS_Enhancements_Inc
+http://de.dbpedia.org/resource/Montedison
+http://dbpedia.org/resource/Honduras
+http://aksw.org/notInWiki/Mosaic_Systems_Inc
+http://dbpedia.org/resource/French_Development_Agency
+http://dbpedia.org/resource/AVX_Corporation
+http://aksw.org/notInWiki/Federal_Paperboard_Co_Inc
+http://dbpedia.org/resource/Nashville,_Tennessee
+http://dbpedia.org/resource/Investment_Technology_Group
+http://aksw.org/notInWiki/Datron_Corp
+http://aksw.org/notInWiki/Stuart_Weisbrod
+http://dbpedia.org/resource/Dominion_Textile
+http://dbpedia.org/resource/Washington
+http://dbpedia.org/resource/J._P._Morgan
+http://dbpedia.org/resource/Dominion_Textile
+http://dbpedia.org/resource/Federal_Ministry_of_Economics_and_Technology_(Germany)
+http://dbpedia.org/resource/Reuter
+http://dbpedia.org/resource/U.S._Bancorp
+http://dbpedia.org/resource/Cannon_Mills
+http://dbpedia.org/resource/Dominion_Textile
+http://dbpedia.org/resource/Japan
+http://aksw.org/notInWiki/Capital_Investigations_and_Protective_Agency
+http://dbpedia.org/resource/Rolls-Royce_plc
+http://dbpedia.org/resource/La_Pampa_Province
+http://aksw.org/notInWiki/John_Dosher
+http://dbpedia.org/resource/Philips
+http://dbpedia.org/resource/Córdoba_Province,_Argentina
+http://aksw.org/notInWiki/Robert_W_Scherer
+http://aksw.org/notInWiki/Gordon_Cain
+http://dbpedia.org/resource/Public_Service_Company_of_Colorado
+http://dbpedia.org/resource/London
+http://dbpedia.org/resource/Asher_Edelman
+http://aksw.org/notInWiki/Entourage_International_Inc
+http://dbpedia.org/resource/International_Paper
+http://dbpedia.org/resource/Milan
+http://aksw.org/notInWiki/Makoto_Kuroda
+http://dbpedia.org/resource/Federal_Reserve_System
+http://aksw.org/notInWiki/Victorian_Corporate_Affairs_Commission
+http://dbpedia.org/resource/James_C._Miller_III
+http://dbpedia.org/resource/Getty_Oil
+http://de.dbpedia.org/resource/Montedison
+http://aksw.org/notInWiki/Shared_Network_Technologies_Inc
+http://aksw.org/notInWiki/Erskine_Resources_Ltd
+http://dbpedia.org/resource/London_Stock_Exchange
+http://dbpedia.org/resource/Bristol-Myers_Squibb
+http://dbpedia.org/resource/Federal_Reserve_System
+http://dbpedia.org/resource/CME_Group
+http://dbpedia.org/resource/Burlington_Industries
+http://dbpedia.org/resource/CME_Group
+http://dbpedia.org/resource/Boettcher_and_Co_Inc
+http://aksw.org/notInWiki/Advanced_Cardiovascular_Systems_Inc
+http://dbpedia.org/resource/Dow_Chemical_Company
+http://dbpedia.org/resource/Amsterdam_Stock_Exchange
+http://dbpedia.org/resource/International_Monetary_Fund
+http://aksw.org/notInWiki/Pace_Consultants_Inc
+http://aksw.org/notInWiki/CNA_Income_Shares_Inc
+http://dbpedia.org/resource/W.R._Grace
+http://dbpedia.org/resource/Mir-Hossein_Mousavi
+http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission
+http://dbpedia.org/resource/Moody's_Investors_Service
+http://dbpedia.org/resource/John_East
+http://aksw.org/notInWiki/Bashaw_Leduc_Oil_and_Gas_Ltd
+http://aksw.org/notInWiki/Avondale_Mills
+http://dbpedia.org/resource/CME_Group
+http://dbpedia.org/resource/La_Pampa_Province
+http://dbpedia.org/resource/W.R._Grace
+http://dbpedia.org/resource/Rolls-Royce_plc
+http://aksw.org/notInWiki/Ferruzzi_Groups
+http://dbpedia.org/resource/J._P._Morgan
+http://dbpedia.org/resource/Dominion_Textile
+http://dbpedia.org/resource/Reuter
+http://dbpedia.org/resource/Ronald_Reagan
+http://dbpedia.org/resource/Federal_Reserve_System
+http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission
+http://dbpedia.org/resource/General_Electric_Company_plc
+http://aksw.org/notInWiki/Advanced_Voice_Technologies
+http://dbpedia.org/resource/Salomon_Brothers
+http://dbpedia.org/resource/Moody's_Investors_Service
+http://dbpedia.org/resource/Burlington_Industries
+http://aksw.org/notInWiki/Samuel_Montagu_and_Sons_Ltd
+http://dbpedia.org/resource/Avery_Dennison
+http://aksw.org/notInWiki/French_Federation_of_Non-Ferrous_Metals
+http://dbpedia.org/resource/Samuel_J._Heyman
+http://dbpedia.org/resource/Mir-Hossein_Mousavi
+http://aksw.org/notInWiki/INTEL_Corp_INTC
+http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission
+http://aksw.org/notInWiki/Pemberton_Houston_Willoughby_Bell_Gouinlock_Inc
+http://dbpedia.org/resource/AVX_Corporation
+http://dbpedia.org/resource/Federal_Trade_Commission
+http://dbpedia.org/resource/General_Electric_Company_plc
+http://dbpedia.org/resource/Integrated_Services_Digital_Network
+http://aksw.org/notInWiki/Yankee_Cos_Inc
+http://dbpedia.org/resource/Kiichi_Miyazawa
+http://dbpedia.org/resource/Department_of_Trade_and_Industry_(United_Kingdom)
+http://dbpedia.org/resource/London_International_Financial_Futures_and_Options_Exchange
+http://dbpedia.org/resource/Prudential_Securities
+http://dbpedia.org/resource/Prudential_Securities
+http://dbpedia.org/resource/Paraná_(state)
+http://dbpedia.org/resource/General_Electric_Company_plc
+http://dbpedia.org/resource/Brazil
+http://dbpedia.org/resource/Quebec
+http://dbpedia.org/resource/Celanese
+http://dbpedia.org/resource/Reuters
+http://aksw.org/notInWiki/Victorian_Corporate_Affairs_Commission
+http://dbpedia.org/resource/United_States_Department_of_the_Treasury
+http://dbpedia.org/resource/Reuter
+http://aksw.org/notInWiki/Holt,_Rinehart_and_Winston_Canada_Ltd
+http://dbpedia.org/resource/James_Baker
+http://dbpedia.org/resource/Shearson
+http://dbpedia.org/resource/Avnet
+http://aksw.org/notInWiki/Cartel_Security_Consultants_Inc
+http://dbpedia.org/resource/Wayne,_New_Jersey
+http://dbpedia.org/resource/Netherlands
+http://dbpedia.org/resource/Atlantic_City,_New_Jersey
+http://dbpedia.org/resource/Welsh,_Carson,_Anderson_%26_Stowe
+http://dbpedia.org/resource/Rolls-Royce_plc
+http://dbpedia.org/resource/Eastman_Kodak
+http://de.dbpedia.org/resource/Cornelis_van_der_Klugt
+http://dbpedia.org/resource/Iraq
+http://dbpedia.org/resource/France
+http://dbpedia.org/resource/United_States_Congress
+http://aksw.org/notInWiki/Jerzy_Urban
+http://dbpedia.org/resource/Tokyo
+http://dbpedia.org/resource/Drexel_Burnham_Lambert
+http://aksw.org/notInWiki/Amplicon_Inc
+http://dbpedia.org/resource/Dominion_Textile
+http://aksw.org/notInWiki/Robert_W_Scherer
+http://aksw.org/notInWiki/CMS_Enhancements_Inc
+http://aksw.org/notInWiki/Advanced_Micro
+http://dbpedia.org/resource/Toronto-Dominion_Bank
+http://dbpedia.org/resource/Pan_American_World_Airways
+http://dbpedia.org/resource/Fox_Chase_Cancer_Center
+http://dbpedia.org/resource/Reuters
+http://aksw.org/notInWiki/John_R._Folkerth
+http://dbpedia.org/resource/Osaka
+http://de.dbpedia.org/resource/Cornelis_van_der_Klugt
+http://dbpedia.org/resource/Avco
+http://dbpedia.org/resource/Dillon,_Read_%26_Co.
+http://dbpedia.org/resource/United_States
+http://dbpedia.org/resource/Giovanni_Goria
+http://dbpedia.org/resource/Santa_Fe_Province
+http://aksw.org/notInWiki/Freeport-McMoRan_Oil_and_Gas_Royalty_Trust
+http://dbpedia.org/resource/Reuter
+http://dbpedia.org/resource/International_Monetary_Fund
+http://dbpedia.org/resource/Queensland
+http://dbpedia.org/resource/Dominion_Textiles
+http://aksw.org/notInWiki/Industrial_Valley_Title_Insurance_Co
+http://dbpedia.org/resource/Gulf_Coast_of_the_United_States
+http://dbpedia.org/resource/Avco
+http://aksw.org/notInWiki/Jerzy_Urban
+http://dbpedia.org/resource/Alex._Brown_%26_Sons
+http://aksw.org/notInWiki/Advanced_Voice_Technologies
+http://dbpedia.org/resource/Honduras
+http://dbpedia.org/resource/Onno_Ruding
+http://dbpedia.org/resource/United_States_Senate
+http://dbpedia.org/resource/Tunisia
+http://aksw.org/notInWiki/Certified_Security_Services_Inc
+http://dbpedia.org/resource/GAF_Materials_Corporation
+http://dbpedia.org/resource/Franklin,_Tennessee
+http://dbpedia.org/resource/Florida
+http://dbpedia.org/resource/Dean_Witter_Reynolds
+http://dbpedia.org/resource/Supreme_Court_of_the_United_States
+http://dbpedia.org/resource/Asher_Edelman
+http://aksw.org/notInWiki/Harcourt_Brace_Jovanovich_Canada_Inc
+http://dbpedia.org/resource/Ivory_Coast
+http://dbpedia.org/resource/Reuters
+http://dbpedia.org/resource/Ronald_Reagan
+http://dbpedia.org/resource/Japan
+http://dbpedia.org/resource/Raytheon
+http://aksw.org/notInWiki/Paul_OKelly
+http://aksw.org/notInWiki/Montedisons_Agro-Industrial
+http://dbpedia.org/resource/Federal_Reserve_System
+http://dbpedia.org/resource/John_S.R._Shad
+http://dbpedia.org/resource/Burlington_Industries
+http://dbpedia.org/resource/Deutsche_Bundesbank
+http://dbpedia.org/resource/Philips
+http://aksw.org/notInWiki/Gianfranco_Ceroni
+http://aksw.org/notInWiki/John_Durant
+http://dbpedia.org/resource/Spain
+http://dbpedia.org/resource/United_States_Senate_Committee_on_the_Budget
+http://aksw.org/notInWiki/Renato_Picco
+http://aksw.org/notInWiki/GGFH_Inc
+http://dbpedia.org/resource/United_States_Senate_Committee_on_the_Budget
+http://dbpedia.org/resource/Federal_Reserve_System
+http://dbpedia.org/resource/James_C._Miller_III
+http://aksw.org/notInWiki/James_Adams
+http://dbpedia.org/resource/Asher_Edelman
+http://aksw.org/notInWiki/Sci-Med_Life_Systems_Inc
+http://dbpedia.org/resource/Australian_Securities_Exchange
+http://aksw.org/notInWiki/C.H._Masland
+http://dbpedia.org/resource/Volkswagen_Group
+http://dbpedia.org/resource/Lawton_Chiles
+http://de.dbpedia.org/resource/Montedison
+http://dbpedia.org/resource/Providence,_Rhode_Island
+http://aksw.org/notInWiki/Northern_Telecom_LTd
+http://dbpedia.org/resource/Chicago
+http://aksw.org/notInWiki/Sun_Co
+http://aksw.org/notInWiki/John_Dosher
+http://dbpedia.org/resource/Ashland_Inc.
+http://dbpedia.org/resource/Iran
+http://dbpedia.org/resource/Georgia_Power
+http://aksw.org/notInWiki/Datron_Corp
+http://aksw.org/notInWiki/Datron_Corp
+http://aksw.org/notInWiki/Wedgestone_Advisory_Corp
+http://dbpedia.org/resource/John_S.R._Shad
+http://dbpedia.org/resource/Federal_Reserve_System
+http://dbpedia.org/resource/Brazil
+http://dbpedia.org/resource/Fruehauf_Corporation
+http://dbpedia.org/resource/Key_Tronic
+http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton
+http://aksw.org/notInWiki/Christopher_Hogg
+http://dbpedia.org/resource/MCI_Communications
+http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton
+http://dbpedia.org/resource/DSM_(company)
+http://dbpedia.org/resource/Oregon
+http://dbpedia.org/resource/Freeport-McMoRan
+http://aksw.org/notInWiki/William_Randol
+http://dbpedia.org/resource/Florida
+http://dbpedia.org/resource/Dominion_Textile
+http://dbpedia.org/resource/Satoshi_Sumita
+http://dbpedia.org/resource/Merrill_Lynch
+http://dbpedia.org/resource/Standard_%26_Poor's
+http://dbpedia.org/resource/Atari
+http://dbpedia.org/resource/Prudential_Securities
+http://dbpedia.org/resource/Steven_Rosenberg
+http://dbpedia.org/resource/Ohio
+http://dbpedia.org/resource/National_Cancer_Institute
+http://dbpedia.org/resource/Volkswagen_Group
+http://dbpedia.org/resource/Santa_Fe_Province
+http://dbpedia.org/resource/Stifel_Nicolaus
+http://dbpedia.org/resource/Reuter
+http://dbpedia.org/resource/GAF_Materials_Corporation
+http://aksw.org/notInWiki/Les_Editions_HRW_Ltd
+http://dbpedia.org/resource/Hanover_Insurance
+http://dbpedia.org/resource/Tunisia
+http://dbpedia.org/resource/Republic_Airlines
+http://dbpedia.org/resource/London_Metal_Exchange
+http://dbpedia.org/resource/Avnet
+http://aksw.org/notInWiki/Picker_International_Inc
+http://dbpedia.org/resource/Columbus,_Ohio
+http://dbpedia.org/resource/Dow_Chemical_Company
+http://dbpedia.org/resource/Lloyds_Bank_of_Canada
+http://dbpedia.org/resource/United_States
+http://aksw.org/notInWiki/Italiana_Olii_e_Sifi
+http://dbpedia.org/resource/Avnet
+http://aksw.org/notInWiki/Advanced_Micro_Devices_Inc
+http://dbpedia.org/resource/First_Boston
+http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton
+http://dbpedia.org/resource/Kentucky
+http://aksw.org/notInWiki/Edward_Johnson
+http://aksw.org/notInWiki/Highland_Superstores_Inc
+http://dbpedia.org/resource/Santa_Fe_Province
+http://dbpedia.org/resource/Houston
+http://dbpedia.org/resource/Union_Carbide
+http://dbpedia.org/resource/CME_Group
+http://dbpedia.org/resource/Rio_Grande_do_Sul
+http://dbpedia.org/resource/Ashland_Inc.
+http://dbpedia.org/resource/Manila
+http://dbpedia.org/resource/James_C._Miller_III
+http://dbpedia.org/resource/Noranda_(mining_company)
+http://dbpedia.org/resource/Paris
+http://dbpedia.org/resource/Toronto_Stock_Exchange
+http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission
+http://dbpedia.org/resource/IBM
+http://dbpedia.org/resource/United_States_House_Committee_on_the_Budget
+http://dbpedia.org/resource/Corrientes_Province
+http://aksw.org/notInWiki/Le_Peep_Restaurants_Inc
+http://aksw.org/notInWiki/William_West
+http://dbpedia.org/resource/Reuters
+http://dbpedia.org/resource/Luxembourg_Stock_Exchange
+http://dbpedia.org/resource/Boeing
+http://dbpedia.org/resource/United_States
+http://dbpedia.org/resource/European_Commission
+http://dbpedia.org/resource/Hambrecht_%26_Quist
+http://dbpedia.org/resource/Ronald_Reagan
+http://aksw.org/notInWiki/National_Guardian_Corp
+http://dbpedia.org/resource/FleetBoston_Financial
+http://dbpedia.org/resource/Western_Digital
+http://aksw.org/notInWiki/Leonardo_Brito
+http://aksw.org/notInWiki/Bertil_Nordin
+http://dbpedia.org/resource/Food_and_Agriculture_Organization
+http://dbpedia.org/resource/Moody's_Investors_Service
+http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission
+http://de.dbpedia.org/resource/Cocoa_Producers’_Alliance
+http://dbpedia.org/resource/Ronald_Reagan
+http://aksw.org/notInWiki/Michel_Dufour
+http://dbpedia.org/resource/Avnet
+http://aksw.org/notInWiki/Shared_Network_Technologies_Inc
+http://dbpedia.org/resource/Australian_Securities_Exchange
+http://dbpedia.org/resource/J._P._Morgan
+http://dbpedia.org/resource/IBM
+http://dbpedia.org/resource/Federal_Ministry_of_Transport,_Building_and_Urban_Development
+http://dbpedia.org/resource/Cannon_Mills
+http://dbpedia.org/resource/Brasília
+http://aksw.org/notInWiki/Paul_Oreffice
+http://dbpedia.org/resource/Harcourt_(publisher)
+http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton
+http://dbpedia.org/resource/Tokyo_Stock_Exchange
+http://aksw.org/notInWiki/Braodway_Casinos_Inc
+http://aksw.org/notInWiki/New_Jersey_Hospital_Association
+http://aksw.org/notInWiki/American_Midland_Corp
+http://dbpedia.org/resource/Helen_of_Troy_Limited
+http://dbpedia.org/resource/Group_of_Five
+http://aksw.org/notInWiki/Thomas_Bell
+http://aksw.org/notInWiki/Ozaki_Trading_Co_Ltd
+http://dbpedia.org/resource/Tokyo
+http://dbpedia.org/resource/Investment_Canada
+http://dbpedia.org/resource/General_Electric_Company_plc
+http://dbpedia.org/resource/South_carolina
+http://dbpedia.org/resource/Colorado_House_of_Representatives
+http://aksw.org/notInWiki/Federal_Realty_Investment_Trust
+http://dbpedia.org/resource/Rolls-Royce_plc
+http://dbpedia.org/resource/France
+http://dbpedia.org/resource/Lawton_Chiles
+http://aksw.org/notInWiki/C.S.C._Security_Gaurd_Service
+http://dbpedia.org/resource/United_States
+http://aksw.org/notInWiki/Advanced_Micro
+http://dbpedia.org/resource/Mir-Hossein_Mousavi
+http://dbpedia.org/resource/Alex._Brown_%26_Sons
+http://dbpedia.org/resource/Western_Digital
+http://dbpedia.org/resource/Key_West
+http://aksw.org/notInWiki/Tehran_Radio
+http://aksw.org/notInWiki/American_Telephone_and_Telegraph_Co
+http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission
+http://aksw.org/notInWiki/Christopher_Hogg
+http://aksw.org/notInWiki/Ferruzzi_Groups
+http://dbpedia.org/resource/Kidder,_Peabody_%26_Co.
+http://dbpedia.org/resource/Office_of_Management_and_Budget
+http://dbpedia.org/resource/AT%26T_Corporation
+http://aksw.org/notInWiki/Ozaki_Trading_Co_Ltd
+http://dbpedia.org/resource/Hambros_Bank
+http://dbpedia.org/resource/Northwest_Airlines
+http://aksw.org/notInWiki/Larry_Taylor
+http://dbpedia.org/resource/Zambia
+http://aksw.org/notInWiki/Leonardo_Brito
+http://dbpedia.org/resource/London
+http://dbpedia.org/resource/Asher_Edelman
+http://dbpedia.org/resource/Tunisia
+http://dbpedia.org/resource/Western_Digital
+http://dbpedia.org/resource/Lehman_Brothers
+http://dbpedia.org/resource/Brazil
+http://dbpedia.org/resource/Hoechst_AG
+http://dbpedia.org/resource/Osaka
+http://aksw.org/notInWiki/Preston_corp
+http://aksw.org/notInWiki/G_H_Shintoh
+http://dbpedia.org/resource/Ford_Motor_Company
+http://aksw.org/notInWiki/GGFH_Inc
+http://aksw.org/notInWiki/Ozaki_Trading_Co_Ltd
+http://aksw.org/notInWiki/G_H_Shintoh
+http://aksw.org/notInWiki/Advanced_Voice_Technologies
+http://dbpedia.org/resource/Public_Service_Company_of_Colorado
+http://aksw.org/notInWiki/G_H_Shintoh
+http://dbpedia.org/resource/Noranda_(mining_company)
+http://dbpedia.org/resource/Murdochville,_Quebec
+http://dbpedia.org/resource/Georgia_Power
+http://dbpedia.org/resource/Burlington_Industries
+http://dbpedia.org/resource/Dillon,_Read_%26_Co.
+http://dbpedia.org/resource/Supreme_Court_of_the_United_States
+http://dbpedia.org/resource/Carnival_Cruise_Lines
+http://dbpedia.org/resource/West_Germany
+http://dbpedia.org/resource/Standard_%26_Poor%27s
+http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission
+http://dbpedia.org/resource/Monsanto
+http://dbpedia.org/resource/Cetus_Corporation
+http://dbpedia.org/resource/Chaco_Province
+http://dbpedia.org/resource/CCL_Industries
+http://aksw.org/notInWiki/Leonardo_Brito
+http://aksw.org/notInWiki/J._Terence_Murray
+http://dbpedia.org/resource/Basra
+http://aksw.org/notInWiki/Entourage_International_Inc
+http://aksw.org/notInWiki/Tradevest_Inc
+http://dbpedia.org/resource/Boeing
+http://dbpedia.org/resource/Basra
+http://dbpedia.org/resource/Ronald_Reagan
+http://aksw.org/notInWiki/John_Dosher
+http://aksw.org/notInWiki/William_Randol
+http://dbpedia.org/resource/Republic_Airlines
+http://dbpedia.org/resource/Vogtle_Electric_Generating_Plant
+http://dbpedia.org/resource/Avco
+http://dbpedia.org/resource/ASARCO
+http://dbpedia.org/resource/Iran
+http://dbpedia.org/resource/La_Pampa_Province
+http://dbpedia.org/resource/New_Jersey
+http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission
+http://aksw.org/notInWiki/Burns,_Pauli_and_Co_Inc
+http://aksw.org/notInWiki/Entourage_International_Inc
+http://dbpedia.org/resource/Francis_Tombs,_Baron_Tombs
+http://dbpedia.org/resource/Darlington_County,_South_Carolina
+http://dbpedia.org/resource/Conoco
+http://dbpedia.org/resource/Federal_government_of_the_United_States
+http://dbpedia.org/resource/United_States_Department_of_the_Treasury
+http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton
+http://dbpedia.org/resource/Ministry_of_Agriculture_(Brazil)
+http://aksw.org/notInWiki/Michael_Smith
+http://dbpedia.org/resource/Office_of_the_United_States_Trade_Representative
+http://aksw.org/notInWiki/Atlas_Consolidated_Mining_and_Development_Corp
+http://dbpedia.org/resource/DSM_(company)
+http://aksw.org/notInWiki/AgrimontSPA
+http://aksw.org/notInWiki/Federal_Paperboard_Co_Inc
+http://dbpedia.org/resource/General_Motors
+http://dbpedia.org/resource/Philadelphia
+http://aksw.org/notInWiki/Paul_Oreffice
+http://dbpedia.org/resource/Compagnie_Française_d'Assurance_pour_le_Commerce_Extérieur
+http://aksw.org/notInWiki/Howard_Fromkin
+http://dbpedia.org/resource/Australian_Securities_Exchange
+http://de.dbpedia.org/resource/Royal_Cosun
+http://dbpedia.org/resource/Federal_Reserve_System
+http://dbpedia.org/resource/Kidder,_Peabody_%26_Co.
+http://dbpedia.org/resource/Noranda_(mining_company)
+http://dbpedia.org/resource/G7
+http://aksw.org/notInWiki/Spear_Securities_Inc
+http://aksw.org/notInWiki/Cain_Chemical_Inc
+http://dbpedia.org/resource/Dominion_Textile
+http://aksw.org/notInWiki/OBrien-Kreitzberg
+http://dbpedia.org/resource/Merck_%26_Co.
+http://aksw.org/notInWiki/Association_of_White_Metals
+http://dbpedia.org/resource/La_Pampa_Province
+http://dbpedia.org/resource/The_Reynolds_and_Reynolds_Company
+http://dbpedia.org/resource/The_Reynolds_and_Reynolds_Company
+http://dbpedia.org/resource/Noranda_(mining_company)
+http://dbpedia.org/resource/Ronald_Reagan
+http://dbpedia.org/resource/General_Electric_Company_plc
+http://aksw.org/notInWiki/Biotherapeutics_Inc
+http://dbpedia.org/resource/Reuter
+http://dbpedia.org/resource/Federal_Reserve_System
+http://aksw.org/notInWiki/Victorian_Corporate_Affairs_Commission
+http://dbpedia.org/resource/Integrated_Services_Digital_Network
+http://dbpedia.org/resource/Thermwood_Corporation
+http://dbpedia.org/resource/California
+http://dbpedia.org/resource/R._Foster_Winans
+http://dbpedia.org/resource/London
+http://de.dbpedia.org/resource/Montedison
+http://dbpedia.org/resource/FleetBoston_Financial
+http://dbpedia.org/resource/John_F._Sandner
+http://dbpedia.org/resource/Volkswagen_Group
+http://aksw.org/notInWiki/Les_Hosking
+http://aksw.org/notInWiki/Bertil_Nordin
+http://aksw.org/notInWiki/Bashaw_Leduc_Oil_and_Gas_Ltd
+http://dbpedia.org/resource/Houston
+http://dbpedia.org/resource/Transportation_Communications_International_Union
+http://dbpedia.org/resource/International_Monetary_Fund
+http://dbpedia.org/resource/Getty_Oil
+http://dbpedia.org/resource/E._F._Hutton_%26_Co.
+http://dbpedia.org/resource/Donald_Trump
+http://dbpedia.org/resource/Burlington_Industries
+http://dbpedia.org/resource/New_York
+http://dbpedia.org/resource/Ministry_of_International_Trade_and_Industry
+http://dbpedia.org/resource/The_Source_(online_service)
+http://dbpedia.org/resource/Stifel_Nicolaus
+http://aksw.org/notInWiki/Rockwell_International_ROK
+http://dbpedia.org/resource/Edouard_Saouma
+http://dbpedia.org/resource/Buenos_Aires
+http://dbpedia.org/resource/Switzerland
+http://aksw.org/notInWiki/Eridania_SPA
+http://dbpedia.org/resource/Teradyne
+http://aksw.org/notInWiki/Spear_Securities_Inc
+http://dbpedia.org/resource/South_Carolina
+http://dbpedia.org/resource/BorgWarner
+http://dbpedia.org/resource/James_C._Miller_III
+http://dbpedia.org/resource/New_Jersey
+http://dbpedia.org/resource/J._P._Morgan
+http://dbpedia.org/resource/Robin_Leigh-Pemberton,_Baron_Kingsdown
+http://dbpedia.org/resource/Esky
+http://aksw.org/notInWiki/Immunex_Corp
+http://dbpedia.org/resource/Public_Service_Company_of_Colorado
+http://aksw.org/notInWiki/James_Ottinger
+http://dbpedia.org/resource/Denmark
+http://dbpedia.org/resource/Leo_Melamed
+http://dbpedia.org/resource/Adelaide
+http://dbpedia.org/resource/WestPoint_Home
+http://dbpedia.org/resource/Denver
+http://aksw.org/notInWiki/Gordon_Cain
+http://dbpedia.org/resource/J._P._Morgan
+http://dbpedia.org/resource/National_Cancer_Institute
+http://dbpedia.org/resource/G7
+http://dbpedia.org/resource/Banque_de_France
+http://dbpedia.org/resource/BBC
+http://dbpedia.org/resource/Burlington_Industries
+http://dbpedia.org/resource/Poland
+http://dbpedia.org/resource/United_States
+http://dbpedia.org/resource/GAF_Materials_Corporation
+http://dbpedia.org/resource/Standard_%26_Poor's
+http://dbpedia.org/resource/West_Germany
+http://aksw.org/notInWiki/Federal_Paperboard_Co_Inc
+http://dbpedia.org/resource/Burlington_Industries
+http://aksw.org/notInWiki/Eileen_Gormley
+http://dbpedia.org/resource/Buenos_Aires_Province
+http://dbpedia.org/resource/NASDAQ
+http://dbpedia.org/resource/Tennessee
+http://dbpedia.org/resource/Integrated_Services_Digital_Network
+http://de.dbpedia.org/resource/Montedison
+http://dbpedia.org/resource/U.S._Securities_and_Exchange_Commission
+http://dbpedia.org/resource/Netherlands
+http://dbpedia.org/resource/Morgan_Stanley
+http://dbpedia.org/resource/James_C._Miller_III
+http://dbpedia.org/resource/London
+http://dbpedia.org/resource/Toronto-Dominion_Bank
+http://dbpedia.org/resource/Buenos_Aires_Province
+http://dbpedia.org/resource/Dutch
+http://dbpedia.org/resource/Edouard_Saouma
+http://dbpedia.org/resource/Moody%27s_Investors_Service
+http://dbpedia.org/resource/Ministry_of_Finance_(Japan)
+http://dbpedia.org/resource/Burlington_Industries
+http://dbpedia.org/resource/United_States_District_Court_for_the_Southern_District_of_Ohio
+http://dbpedia.org/resource/John_S.R._Shad
+http://dbpedia.org/resource/Sub-Saharan_Africa
+http://dbpedia.org/resource/Emeryville,_California
+http://dbpedia.org/resource/Dominion_Textile
+http://dbpedia.org/resource/Boeing
+http://dbpedia.org/resource/Buenos_Aires_Province
+http://dbpedia.org/resource/Celanese
+http://aksw.org/notInWiki/Raymond_Savoie
+http://aksw.org/notInWiki/Asiavest_Pty_Ltd
+http://dbpedia.org/resource/Burlington_Industries
+http://dbpedia.org/resource/London
+http://aksw.org/notInWiki/Datron_Corp
+http://dbpedia.org/resource/Goldman_Sachs
+http://dbpedia.org/resource/United_States
+http://dbpedia.org/resource/Japan
+http://aksw.org/notInWiki/Monobloc_U.S.A.
+http://dbpedia.org/resource/Burlington_Industries
+http://dbpedia.org/resource/Ministry_of_Social_Affairs_and_Employment_(Netherlands)
+http://dbpedia.org/resource/Continental_Bank_of_Canada
+http://dbpedia.org/resource/Vogtle_Electric_Generating_Plant
+http://aksw.org/notInWiki/Madeira_Inc
+http://dbpedia.org/resource/Toronto-Dominion_Bank
+http://dbpedia.org/resource/Wall_Street
+http://dbpedia.org/resource/Atari
+http://dbpedia.org/resource/Bristol-Myers_Squibb
+http://dbpedia.org/resource/Georgia_Power
+http://aksw.org/notInWiki/Sci-Med_Life_Systems_Inc
+http://dbpedia.org/resource/Far_East
+http://aksw.org/notInWiki/A-T-E_Security_Group_Inc
+http://dbpedia.org/resource/Dominion_Textile
+http://aksw.org/notInWiki/North_Country_Media_Group
+http://dbpedia.org/resource/Ford_Motor_Company
+http://dbpedia.org/resource/The_Reader's_Digest_Association
+http://dbpedia.org/resource/Moody's_Investors_Service
+http://dbpedia.org/resource/Pennzoil
+http://dbpedia.org/resource/John_S.R._Shad
+http://dbpedia.org/resource/New_York_Stock_Exchange
+http://dbpedia.org/resource/Drexel_Burnham_Lambert
+http://dbpedia.org/resource/Spain
+http://aksw.org/notInWiki/Victorian_Corporate_Affairs_Commission
+http://dbpedia.org/resource/Philips
+http://dbpedia.org/resource/Dominion_Textile
+http://aksw.org/notInWiki/International_Business_Machines_Corp_IBM
+http://dbpedia.org/resource/Great_Lakes_Chemical_Corporation
+http://dbpedia.org/resource/Celanese
+http://dbpedia.org/resource/Houston
+http://dbpedia.org/resource/United_Kingdom
+http://dbpedia.org/resource/DuPont
+http://dbpedia.org/resource/Volkswagen_Group
+http://dbpedia.org/resource/Integrated_Services_Digital_Network
+http://dbpedia.org/resource/Celanese
+http://dbpedia.org/resource/The_Wall_Street_Journal
+http://aksw.org/notInWiki/Tri-State_Generation_and_Transmission_Association
+http://dbpedia.org/resource/West_Germany
+http://dbpedia.org/resource/Noranda_(mining_company)
+http://dbpedia.org/resource/Dominion_Textile
+http://dbpedia.org/resource/Cannon_Mills
+http://dbpedia.org/resource/Eastman_Kodak
+http://aksw.org/notInWiki/Harcourt_Brace_Jovanovich_Canada_Inc
+http://dbpedia.org/resource/Lucky_Stores
+http://dbpedia.org/resource/Philips
+http://dbpedia.org/resource/Avco
+http://aksw.org/notInWiki/Eileen_Gormley
+http://aksw.org/notInWiki/Avondale_Mills
+http://dbpedia.org/resource/Reuter
+http://dbpedia.org/resource/Reuter
+http://aksw.org/notInWiki/Universal_Medical_Buildings_L_P
+http://dbpedia.org/resource/Steven_Rosenberg
+http://dbpedia.org/resource/Ghana
+http://aksw.org/notInWiki/AutoSpa_corp
+http://aksw.org/notInWiki/Eberstadt_Fleming_Inc
+http://aksw.org/notInWiki/Nantucket_Industries_Inc
+http://aksw.org/notInWiki/Robert_W_Scherer
+http://aksw.org/notInWiki/Security_Services_of_America
+http://aksw.org/notInWiki/Custom_Security_Services
+http://dbpedia.org/resource/Italy
+http://aksw.org/notInWiki/Johnson_Redbook
+http://aksw.org/notInWiki/Tehran_Radio
+http://dbpedia.org/resource/Netherlands
+http://dbpedia.org/resource/Volkswagen_Group
+http://dbpedia.org/resource/Hanover_Insurance
+http://dbpedia.org/resource/United_States
+http://aksw.org/notInWiki/Fidelcor_Inc
+http://aksw.org/notInWiki/Datron_Corp
+http://dbpedia.org/resource/Charles-Eugène_Marin
+http://dbpedia.org/resource/Karl_Otto_Pöhl
+http://dbpedia.org/resource/Édouard_Balladur
+http://dbpedia.org/resource/Hoechst_AG
+http://dbpedia.org/resource/Envases_Venezolanos
+http://dbpedia.org/resource/Continental_Bank_of_Canada
+http://aksw.org/notInWiki/Terry_Hampton
+http://dbpedia.org/resource/Emerson_Radio
+http://dbpedia.org/resource/The_Reynolds_and_Reynolds_Company
+http://dbpedia.org/resource/Louisville,_Kentucky
+http://dbpedia.org/resource/Prudential_Securities
+http://aksw.org/notInWiki/Sci-Med_Life_Systems_Inc
+http://aksw.org/notInWiki/Ponderosa_Inc
+http://dbpedia.org/resource/Thermwood_Corporation
+http://dbpedia.org/resource/United_States_Department_of_the_Treasury
+http://aksw.org/notInWiki/Cain_Chemical_Inc
+http://dbpedia.org/resource/Celanese
+http://dbpedia.org/resource/United_States_House_Committee_on_the_Budget
+http://dbpedia.org/resource/Dow_Chemical_Company
+http://aksw.org/notInWiki/American_Midland_Corp
+http://dbpedia.org/resource/Envases_Venezolanos
+http://dbpedia.org/resource/J._P._Morgan
+http://dbpedia.org/resource/West_Germany
+http://dbpedia.org/resource/Kenneth_Kaunda
+http://dbpedia.org/resource/The_New_England_Journal_of_Medicine
+http://dbpedia.org/resource/Donald_Trump
+http://aksw.org/notInWiki/Advanced_Voice_Technologies
+http://dbpedia.org/resource/Getty_Oil
+http://aksw.org/notInWiki/Union_Rural_Electric_Association_of_Brighton
+http://dbpedia.org/resource/Leo_Melamed
+http://dbpedia.org/resource/Government_of_Canada
+http://aksw.org/notInWiki/Bruce_Smart
+http://dbpedia.org/resource/First_Boston
+http://dbpedia.org/resource/Lawton_Chiles
+http://dbpedia.org/resource/John_S.R._Shad
+http://aksw.org/notInWiki/Michel_Dufour
+http://aksw.org/notInWiki/Hans_van_Liemt
+http://dbpedia.org/resource/International_Monetary_Fund
+http://aksw.org/notInWiki/J._Terence_Murray
+http://dbpedia.org/resource/Helen_of_Troy_Limited
+http://aksw.org/notInWiki/AgrimontSPA
+http://dbpedia.org/resource/Federal_Reserve_System
+http://dbpedia.org/resource/Santa_Fe_Province
+http://dbpedia.org/resource/United_States
+http://dbpedia.org/resource/ASARCO
+http://aksw.org/notInWiki/Wells_Fargo_Alarm_Services
+http://de.dbpedia.org/resource/Cocoa_Producers’_Alliance
+http://aksw.org/notInWiki/Celltronics_Inc
+http://aksw.org/notInWiki/CNA_Income_Shares_Inc
+http://aksw.org/notInWiki/Blocker_Energy_corp
+http://dbpedia.org/resource/Salem,_Oregon
+http://dbpedia.org/resource/The_Reynolds_and_Reynolds_Company
+http://dbpedia.org/resource/Noranda_(mining_company)
+http://aksw.org/notInWiki/Don_Bybee_and_Associates
+http://de.dbpedia.org/resource/Cocoa_Producers’_Alliance
+http://dbpedia.org/resource/Misiones_Province
+http://dbpedia.org/resource/São_Paulo_(state)
+http://dbpedia.org/resource/Hanover_Insurance
+http://dbpedia.org/resource/Dow_Chemical_Company
+http://dbpedia.org/resource/Moody's_Investors_Service
+http://dbpedia.org/resource/GAF_Materials_Corporation
+http://dbpedia.org/resource/Dominion_Textile
+http://dbpedia.org/resource/New_Jersey
+http://dbpedia.org/resource/South_carolina
+http://aksw.org/notInWiki/Ettore_dellIsola
+http://dbpedia.org/resource/Japan_Airlines
+http://dbpedia.org/resource/Myrtle_Beach,_South_Carolina
+http://dbpedia.org/resource/Canada
+http://dbpedia.org/resource/Fayetteville,_North_Carolina
+http://dbpedia.org/resource/Government_of_the_United_Kingdom
+http://dbpedia.org/resource/Asher_Edelman
+http://aksw.org/notInWiki/Foreign_Policy_Institute
+http://dbpedia.org/resource/Atlantic_City,_New_Jersey
+http://aksw.org/notInWiki/Home_Intensive_Care_Inc
+http://dbpedia.org/resource/Jacques_de_Larosière
+http://dbpedia.org/resource/Garo_H._Armen
+http://dbpedia.org/resource/Continental_Bank_of_Canada
+http://aksw.org/notInWiki/Hans_van_Liemt
+http://dbpedia.org/resource/Volkswagen_Group
+http://dbpedia.org/resource/Kentucky
+http://dbpedia.org/resource/North_carolina
+http://dbpedia.org/resource/Continental_Bank_of_Canada
+http://aksw.org/notInWiki/Association_of_White_Metals
+http://dbpedia.org/resource/Brazil
+http://aksw.org/notInWiki/Alexanders_Inc
