@@ -1,3 +1,10 @@
+# Data files
+*.json
+*.csv
+*.txt
+*.ttl
+*.out
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
