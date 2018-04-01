@@ -2,7 +2,7 @@ import requests
 from pprint import pprint
 import json 
 import codecs
-
+import grequests 
 
 endpoint_diffbot = "http://kg.diffbot.com/kg/dql_endpoint"
  
@@ -39,9 +39,29 @@ def dbpedia2wikipedia(url, to_en=True):
     return new_url
 
 
+token = None
 def get_token():
-    with open("../.diffbot-token", "r") as f:
-        return f.read().strip()
+    global token    
+    if token:
+        return token
+    else:
+        with open("../dbt", "r") as f:
+            token = f.read().strip()
+            return token
+
+
+def make_queries(queries, parallel=32):    
+    rs = []
+    for query in queries:
+        data = {
+            "token": get_token(),
+            "query": query,
+            "type": "query"}
+
+        rs.append(grequests.get(endpoint_diffbot, params=data))
+    
+    return grequests.map(rs, size=parallel)
+
 
 
 def make_query(query):
@@ -63,5 +83,4 @@ def save2json(output_fpath, r):
 def query_and_save(query, output_fpath):
     r = make_query(query)
     save2json(output_fpath, r)
-    
-   
+
