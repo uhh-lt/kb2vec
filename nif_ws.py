@@ -66,3 +66,19 @@ def trivial():
     
     return resp
 
+
+@app.route("/mfs", methods=['POST'])
+def mfs():
+    h = {key: value for key, value in request.headers}
+    
+    resp_data = mfs(request.data)
+
+    resp = Response()
+    for header_name, header_value in request.headers.items():
+        resp.headers[header_name] = header_value
+    resp.data = resp_data
+    save_data("mfs", request.data, resp_data)
+    ds.add_to_dataset(request.data)
+    
+    return resp
+

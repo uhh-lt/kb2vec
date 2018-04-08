@@ -26,7 +26,7 @@ def dbpedia2wikipedia(url, to_en=True):
     
     url = url.replace("https://", "")
     url = url.replace("http://", "")
-    
+
     if to_en:
         wiki_domain = "en.wikipedia.org/wiki/"
     else:

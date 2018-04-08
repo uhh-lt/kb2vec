@@ -30,7 +30,6 @@ class DatasetBuilder(object):
             ttl_f.write("{}\t{}\n".format(phrases_str, context))
 
  
-
 def get_phrases(g):
     """ Collect the context and phrases """
     
@@ -74,6 +73,7 @@ def parse_d2kb_ttl(input_ttl):
 
     return g, context, phrases
 
+
 def add_nonsense_response(input_ttl):
     graph, context, phrases = parse_d2kb_ttl(input_ttl)
     
@@ -86,6 +86,23 @@ def add_nonsense_response(input_ttl):
 
     output_ttl = str(graph.serialize(format='n3', encoding="utf-8"), "utf-8")
     
+    return output_ttl
+
+
+def mfs(input_ttl):
+    graph, context, phrases = parse_d2kb_ttl(input_ttl)
+    
+    # add new triples that correspond to the links of the disambiguation links
+    print("# triples input:", len(graph))
+    for phrase in phrases:
+        # get candidate wikipedia links from the Diffbot KB
+
+        # save the results
+        graph.add( (phrase.subj, CLASS_URI, NONE_URI) )
+        graph.add( (phrase.subj, LINK_URI, NONE_URI) )
+    print("# triples output:", len(graph))
+
+    output_ttl = str(graph.serialize(format='n3', encoding="utf-8"), "utf-8")
     return output_ttl
 
 
