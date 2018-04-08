@@ -1,6 +1,7 @@
 from pandas import read_csv
 from glob import glob 
 import re
+from traceback import format_exc
 
 
 def dataset_stat(dataset_fpath):
