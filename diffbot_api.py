@@ -3,6 +3,8 @@ from pprint import pprint
 import json 
 import codecs
 import grequests 
+from sqlitedict import SqliteDict
+
 
 endpoint_diffbot = "http://kg.diffbot.com/kg/dql_endpoint"
  
@@ -21,6 +23,30 @@ EL_POL_ENTITY_TYPES = ["AdministrativeArea", "Corporation", "EducationalInstitut
                    "Landmark", "LocalBusiness", "Organization", 
                    "Person", "Place", "Product"]
 
+CACHED_QUERY_DB = "diffbot-query-cache.sqlite"
+
+
+class CachedQuery(object):
+    def __init__(self, cache_fpath=CACHED_QUERY_DB):
+        self._cache = SqliteDict(cache_fpath, autocommit=True)
+        
+    def __del__(self):
+        try:
+            self._cache.close()
+        except:
+            print("Warning: trying to close a closed cache.")
+            
+    def make_query(self, query):
+        if query in self._cache:
+            return self._cache[query]
+        else:
+            response = make_query(query)
+            self._cache[query] = make_query(query)
+            return response
+        
+    def close(self):
+        self._cache.close()
+        
 
 def dbpedia2wikipedia(url, to_en=True):
     

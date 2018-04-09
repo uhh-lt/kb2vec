@@ -1,3 +1,4 @@
+wikidata
 sqlitedict
 Flask
 requests
