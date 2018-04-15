@@ -49,7 +49,8 @@ class CachedQuery(object):
         
 
 def dbpedia2wikipedia(url, to_en=True):
-    
+    """ Convert a dbpedia to wikipedia url. """
+
     url = url.replace("https://", "")
     url = url.replace("http://", "")
 
