@@ -49,7 +49,7 @@ class URIConverter(object):
 
         if article_name is None:
             if verbose: print("Warning: cannot convert to DBpedia URI '{}'".format(wikipedia_uri))
-            return None
+            return ""
         else:
             return DBPEDIA_PREFIX + article_name                
 
@@ -90,6 +90,6 @@ class URIConverter(object):
             return self.wikipedia2dbpedia(wikipedia_uri)
         else:
             if verbose: print("Warning: cannot extract DBpedia URI from a Wikidata URI")
-            return None
+            return ""
 
 

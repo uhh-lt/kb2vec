@@ -2,7 +2,7 @@ import re
 from collections import namedtuple
 from rdflib import URIRef, Graph
 import codecs
-
+from candidate import Phrase
 
 A = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
 PHRASE = "#Phrase"
@@ -15,7 +15,6 @@ CLASS_URI = URIRef("http://www.w3.org/2005/11/its/rdf#taClassRef")
 LINK_URI = URIRef("http://www.w3.org/2005/11/its/rdf#taIdentRef")
 NONE_URI = URIRef("http://dbpedia.org/nonsense")
 
-Phrase = namedtuple('Phrase', ['text', 'beg', 'end', 'subj'])
 
 class DatasetBuilder(object):
     def __init__(self, dataset_fpath):

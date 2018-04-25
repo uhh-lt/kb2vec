@@ -1,3 +1,5 @@
+from math import log
+
 
 def longest_common_substring(s1, s2):
     m = [[0] * (1 + len(s2)) for i in range(1 + len(s1))]
