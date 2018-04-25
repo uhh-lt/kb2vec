@@ -1,6 +1,7 @@
 from glob import glob
 from os.path import join 
-from diffbot_api import dbpedia2wikipedia, make_query
+from diffbot_api import make_query
+from utils import dbpedia2wikipedia
 from traceback import format_exc
 import json
 

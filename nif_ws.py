@@ -6,6 +6,7 @@ from os.path import join
 from time import time
 import re
 from ttl import remove_classref, add_nonsense_response, DatasetBuilder
+from linkers.baseline import BaselineLinker
 
 
 endpoint = "http://localhost:8080/spotlight"

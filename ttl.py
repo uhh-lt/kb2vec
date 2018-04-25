@@ -4,6 +4,7 @@ from rdflib import URIRef, Graph
 import codecs
 from candidate import Phrase
 
+
 A = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
 PHRASE = "#Phrase"
 CONTEXT = "#Context"
