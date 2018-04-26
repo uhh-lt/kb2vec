@@ -15,7 +15,7 @@ END = "#endIndex"
 CLASS_URI = URIRef("http://www.w3.org/2005/11/its/rdf#taClassRef")
 LINK_URI = URIRef("http://www.w3.org/2005/11/its/rdf#taIdentRef")
 NONE_URI = URIRef("http://dbpedia.org/nonsense")
-
+NONE_URI = URIRef("http://nondbpdia.com/nonsense")
 
 class DatasetBuilder(object):
     def __init__(self, dataset_fpath):
@@ -29,7 +29,15 @@ class DatasetBuilder(object):
             phrases_str = ", ".join(p.text for p in phrases)
             ttl_f.write("{}\t{}\n".format(phrases_str, context))
 
- 
+
+def parse_d2kb_ttl(input_ttl):
+    g = Graph()
+    result = g.parse(data=input_ttl, format="n3")
+    context, phrases = get_phrases(g)
+
+    return g, context, phrases
+
+
 def get_phrases(g):
     """ Collect the context and phrases """
     
@@ -66,14 +74,6 @@ def get_phrases(g):
     return context, phrases
 
 
-def parse_d2kb_ttl(input_ttl):
-    g = Graph()
-    result = g.parse(data=input_ttl, format="n3")
-    context, phrases = get_phrases(g)
-
-    return g, context, phrases
-
-
 def add_nonsense_response(input_ttl):
     graph, context, phrases = parse_d2kb_ttl(input_ttl)
     
@@ -89,23 +89,6 @@ def add_nonsense_response(input_ttl):
     return output_ttl
 
 
-def mfs(input_ttl):
-    graph, context, phrases = parse_d2kb_ttl(input_ttl)
-    
-    # add new triples that correspond to the links of the disambiguation links
-    print("# triples input:", len(graph))
-    for phrase in phrases:
-        # get candidate wikipedia links from the Diffbot KB
-
-        # save the results
-        graph.add( (phrase.subj, CLASS_URI, NONE_URI) )
-        graph.add( (phrase.subj, LINK_URI, NONE_URI) )
-    print("# triples output:", len(graph))
-
-    output_ttl = str(graph.serialize(format='n3', encoding="utf-8"), "utf-8")
-    return output_ttl
-
-
 def remove_classref(text):
     output = []
     for line in text.split("\n"):
@@ -115,5 +98,4 @@ def remove_classref(text):
         output.append(upd_line)
         
     return "\n".join(output)
-
 

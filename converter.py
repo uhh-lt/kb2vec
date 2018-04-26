@@ -1,6 +1,8 @@
 from wikidata.client import Client
 from traceback import format_exc
 from sqlitedict import SqliteDict
+from traceback import format_exc
+
 
 WIKIDATA_DOMAIN = "wikidata.org"
 WIKIPEDIA_DOMAIN = "wikipedia.org"
@@ -56,8 +58,10 @@ class URIConverter(object):
     def wikidataid2wikipedia(self, wikidata_q_id="Q42"):
         try:
             if wikidata_q_id in self._cache:
+                # print(">>>reading from a cache")
                 return self._cache[wikidata_q_id]
             else:
+                # print(">>>getting a new data: {}".format(wikidata_q_id))
                 entity = self._client.get(wikidata_q_id, load=True)
                 can_get = ("sitelinks" in entity.attributes and
                            "enwiki" in entity.attributes["sitelinks"] and
@@ -67,11 +71,25 @@ class URIConverter(object):
                     self._cache[wikidata_q_id] = wikipedia_uri
                     return wikipedia_uri
                 else:
-                    return ""
+                    wiki_links = []
+                    for key in entity.attributes["sitelinks"]:
+                        if key.endswith("wiki"):
+                            if "url" in entity.attributes["sitelinks"][key]:
+                                wiki_links.append(entity.attributes["sitelinks"][key]["url"])
+                    
+                    if len(wiki_links) > 0:
+                        print("Warning: no links to English Wiki found, but found {} links to other Wikis".format(len(wiki_links)))
+                        self._cache[wikidata_q_id] = wiki_links[0]
+                        return wiki_links[0]
+                    else:
+                        self._cache[wikidata_q_id] = ""
+                        return ""
+
         except KeyboardInterrupt:
             raise KeyboardInterrupt()
         except:
-            if verbose: print("Warning: cannot process '{}'".format(wikidata_q_id))
+            print("Warning: cannot process '{}'".format(wikidata_q_id))
+            print(format_exc())
             return ""
 
     def get_wikidata_id(self, wikidata_uri):
@@ -84,7 +102,6 @@ class URIConverter(object):
 
     def wikidata2dbpedia(self, wikidata_uri):
         wikidata_id = self.get_wikidata_id(wikidata_uri)
-
         if wikidata_id != "":
             wikipedia_uri = self.wikidataid2wikipedia(wikidata_id)
             return self.wikipedia2dbpedia(wikipedia_uri)

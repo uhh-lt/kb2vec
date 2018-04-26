@@ -4,9 +4,32 @@ import json
 from utils import truncated_log, overlap
 from candidate import Candidate
 from diffbot_api import CachedQuery, EL_POL_ENTITY_TYPES
+from ttl import parse_d2kb_ttl, CLASS_URI, LINK_URI, NONE_URI
+from rdflib import URIRef
 
 
-class BaselineLinker(object):
+class TTLinker(object):
+    def link_ttl(self, input_ttl):
+        graph, context, phrases = parse_d2kb_ttl(input_ttl)
+        input_len = len(graph)
+
+        for phrase, candidate in self.link(context, phrases):
+            if candidate and candidate.link:
+                graph.add( (phrase.subj, LINK_URI, URIRef(candidate.link)) )
+                graph.add( (phrase.subj, CLASS_URI, URIRef(candidate.link)) )
+            else:
+                print("Warning: no candidates for the phrase {}".format(phrase))
+                graph.add( (phrase.subj, LINK_URI, NONE_URI) )
+                graph.add( (phrase.subj, CLASS_URI, NONE_URI) )
+
+        print("# triples input:", input_len)
+        print("# triples output:", len(graph))
+        output_ttl = str(graph.serialize(format='n3', encoding="utf-8"), "utf-8")
+        
+        return output_ttl
+
+
+class BaselineLinker(TTLinker):
     def __init__(self, use_overlap = True, verbose = True):
         self._cq = CachedQuery()
         self._conv = URIConverter()
@@ -70,6 +93,9 @@ class BaselineLinker(object):
                               hit["allNames"],
                               uris)
                 candidates.append(c)
+
+                print(">>> {}=log({})*{}".format(score, importance, overlap(name,target)), c)
+                print
             else:
                 print("Warning: Skipping a hit without importance value.")
 
@@ -85,22 +111,14 @@ class BaselineLinker(object):
                 candidates += self._link_db_query(phrase.text, db_response, use_overlap=self._use_overlap) 
             candidates = set(candidates)
 
-            linked_phrases.append( (phrase, sorted(candidates, reverse=True)[0]) )
-       
+            if len(candidates) > 0:
+                best = sorted(candidates, reverse=True)[0]
+            else:
+                best = None
+            linked_phrases.append( (phrase, best) )
+
         if len(linked_phrases) != len(phrases):
             print("Warning: length of output is not equal to length of input {} != {}".format(len(best), len(phrases)))
         
         return linked_phrases
-    
-    def link_ttl(self, input_ttl):
-        graph, context, phrases = parse_d2kb_ttl(input_ttl)
-
-        print("# triples input:", len(graph))
-        for linked_phrase in self.link(context, phrases):
-            graph.add( (phrase.subj, CLASS_URI, NONE_URI) )
-            graph.add( (phrase.subj, LINK_URI, NONE_URI) )
-        
-        print("# triples output:", len(graph))
-        output_ttl = str(graph.serialize(format='n3', encoding="utf-8"), "utf-8")
-        return output_ttl
-
+   

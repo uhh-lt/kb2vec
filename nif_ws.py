@@ -27,7 +27,7 @@ def save_data(prefix, req_data, resp_data):
 
     response_fpath = join(data_dir, fid + "-response.ttl") 
     with codecs.open(response_fpath, "w", "utf-8") as res:
-        res.write(resp_data)
+        res.write(str(resp_data, "utf-8"))
 
 
 @app.route("/proxy", methods=['POST'])
@@ -68,18 +68,17 @@ def trivial():
     return resp
 
 
-@app.route("/mfs", methods=['POST'])
-def mfs():
-    h = {key: value for key, value in request.headers}
-    
-    resp_data = mfs(request.data)
+baseline_el = BaselineLinker()
 
-    resp = Response()
-    for header_name, header_value in request.headers.items():
-        resp.headers[header_name] = header_value
-    resp.data = resp_data
-    save_data("mfs", request.data, resp_data)
-    ds.add_to_dataset(request.data)
+@app.route("/baseline", methods=['POST'])
+def baseline():
+    response = Response()
     
-    return resp
+    for header_name, header_value in request.headers.items():
+        response.headers[header_name] = header_value
+    response.data = baseline_el.link_ttl(request.data)
+
+    save_data("baseline", request.data, response.data)
+    
+    return response
 
