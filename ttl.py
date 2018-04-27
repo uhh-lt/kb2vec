@@ -14,8 +14,9 @@ BEG = "#beginIndex"
 END = "#endIndex"
 CLASS_URI = URIRef("http://www.w3.org/2005/11/its/rdf#taClassRef")
 LINK_URI = URIRef("http://www.w3.org/2005/11/its/rdf#taIdentRef")
-NONE_URI = URIRef("http://dbpedia.org/nonsense")
-NONE_URI = URIRef("http://nondbpdia.com/nonsense")
+# NONE_URI = URIRef("http://dbpedia.org/nonsense")
+NONE_URI = URIRef("http://dbpedia.org/page/Thing")
+
 
 class DatasetBuilder(object):
     def __init__(self, dataset_fpath):

@@ -6,6 +6,7 @@ from candidate import Candidate
 from diffbot_api import CachedQuery, EL_POL_ENTITY_TYPES
 from ttl import parse_d2kb_ttl, CLASS_URI, LINK_URI, NONE_URI
 from rdflib import URIRef
+from random import random
 
 
 class TTLinker(object):
@@ -30,10 +31,11 @@ class TTLinker(object):
 
 
 class BaselineLinker(TTLinker):
-    def __init__(self, use_overlap = True, verbose = True):
+    def __init__(self, use_overlap=True, use_importance=True, verbose=True):
         self._cq = CachedQuery()
         self._conv = URIConverter()
         self._use_overlap = use_overlap
+        self._use_importance = use_importance
         self._verbose = verbose
         
     def __del__(self):
@@ -64,7 +66,7 @@ class BaselineLinker(TTLinker):
 
         return dbpedia_uri
 
-    def _link_db_query(self, target, diffbot_query_response, use_overlap=True):
+    def _link_db_query(self, target, diffbot_query_response):
         candidates = []
         if "data" not in diffbot_query_response:
             return candidates
@@ -81,7 +83,15 @@ class BaselineLinker(TTLinker):
             if "importance" in hit:
                 name = hit["name"]
                 importance = float(hit["importance"])
-                score = truncated_log(importance) * overlap(name, target) if use_overlap else importance
+                if self._use_overlap and self._use_importance:
+                    score = truncated_log(importance) * overlap(name, target)
+                elif self._use_overlap:
+                    score = overlap(name, target)
+                elif self._use_importance:
+                    score = importance
+                else:
+                    score = random()
+
                 wiki_uri = self._find_wiki_uri(uris)
                 dbpedia_uri = self._get_dbpedia_uri(wiki_uri, uris)
 
@@ -93,9 +103,6 @@ class BaselineLinker(TTLinker):
                               hit["allNames"],
                               uris)
                 candidates.append(c)
-
-                print(">>> {}=log({})*{}".format(score, importance, overlap(name,target)), c)
-                print
             else:
                 print("Warning: Skipping a hit without importance value.")
 
@@ -108,7 +115,7 @@ class BaselineLinker(TTLinker):
             for entity_type in EL_POL_ENTITY_TYPES:
                 r = self._cq.make_query('type:{} name:"{}"'.format(entity_type, phrase.text))
                 db_response = json.loads(r.content)
-                candidates += self._link_db_query(phrase.text, db_response, use_overlap=self._use_overlap) 
+                candidates += self._link_db_query(phrase.text, db_response) 
             candidates = set(candidates)
 
             if len(candidates) > 0:

@@ -68,17 +68,65 @@ def trivial():
     return resp
 
 
-baseline_el = BaselineLinker()
+overlap_importance_linker = BaselineLinker(use_overlap=True, use_importance=True)
 
-@app.route("/baseline", methods=['POST'])
-def baseline():
+@app.route("/overlap_importance", methods=['POST'])
+def overlap_importance():
     response = Response()
     
     for header_name, header_value in request.headers.items():
         response.headers[header_name] = header_value
-    response.data = baseline_el.link_ttl(request.data)
+    response.data = overlap_importance_linker.link_ttl(request.data)
 
-    save_data("baseline", request.data, response.data)
+    save_data("overlap_importance", request.data, response.data)
     
     return response
 
+
+importance_linker = BaselineLinker(use_overlap=False, use_importance=True)
+
+@app.route("/importance", methods=['POST'])
+def importance():
+    response = Response()
+    
+    for header_name, header_value in request.headers.items():
+        response.headers[header_name] = header_value
+    response.data = importance_linker.link_ttl(request.data)
+
+    save_data("importance", request.data, response.data)
+    
+    return response
+
+
+overlap_linker = BaselineLinker(use_overlap=True, use_importance=False)
+
+@app.route("/overlap", methods=['POST'])
+def overlap():
+    response = Response()
+    
+    for header_name, header_value in request.headers.items():
+        response.headers[header_name] = header_value
+    response.data = overlap_linker.link_ttl(request.data)
+
+    save_data("overlap", request.data, response.data)
+    
+    return response
+
+
+random_linker = BaselineLinker(use_overlap=False, use_importance=False)
+
+@app.route("/random", methods=['POST'])
+def random():
+    response = Response()
+    
+    for header_name, header_value in request.headers.items():
+        response.headers[header_name] = header_value
+    response.data = random_linker.link_ttl(request.data)
+
+    save_data("random", request.data, response.data)
+    
+    return response
+
+
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", threaded=True)
