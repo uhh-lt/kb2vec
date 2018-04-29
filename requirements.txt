@@ -1,3 +1,4 @@
+langid
 wikidata
 sqlitedict
 Flask

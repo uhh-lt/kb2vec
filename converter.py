@@ -58,10 +58,8 @@ class URIConverter(object):
     def wikidataid2wikipedia(self, wikidata_q_id="Q42"):
         try:
             if wikidata_q_id in self._cache:
-                # print(">>>reading from a cache")
                 return self._cache[wikidata_q_id]
             else:
-                # print(">>>getting a new data: {}".format(wikidata_q_id))
                 entity = self._client.get(wikidata_q_id, load=True)
                 can_get = ("sitelinks" in entity.attributes and
                            "enwiki" in entity.attributes["sitelinks"] and
@@ -100,13 +98,16 @@ class URIConverter(object):
         else:
             return wikidata_id
 
-    def wikidata2dbpedia(self, wikidata_uri):
+    def wikidata2wikipedia(self, wikidata_uri):
         wikidata_id = self.get_wikidata_id(wikidata_uri)
         if wikidata_id != "":
             wikipedia_uri = self.wikidataid2wikipedia(wikidata_id)
-            return self.wikipedia2dbpedia(wikipedia_uri)
+            return wikipedia_uri
         else:
             if verbose: print("Warning: cannot extract DBpedia URI from a Wikidata URI")
             return ""
 
+
+    def wikidata2dbpedia(self, wikidata_uri):
+        return self.wikipedia2dbpedia(self.wikidata2wikipedia(wikipedia_uri))
 
