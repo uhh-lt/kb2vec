@@ -47,7 +47,31 @@ class BaselineLinker(TTLinker):
             self._conv.close()
         except:
             print("Warning: trying to close a closed object.") 
-    
+
+    def _get_uris(self, hit):
+        uris = set()
+        
+        if "allUris" in hit: uris.union( set(hit["allUris"]) )
+        if "origins" in hit: uris.union( set(hit["origins"]) )
+        if "origin" in hit: uris.add( hit["origin"] )
+        
+        return uris
+
+    def _get_wikipedia_uri(self, hit, uris):
+        wiki_uri = ""
+        
+        if "wikipediaUri" in hit:
+            wiki_uri = hit["wikipediaUri"]
+            uris.add(wiki_uri)
+        else:
+            # try to find via wikidata link    
+            for uri in uris:
+                wiki_uri = self._conv.wikidata2wikipedia(uri)
+                if wiki_uri != "":
+                    break
+            
+        return wiki_uri
+
     def _find_wiki_uri(self, uris):
         for uri in uris:
             if "wikipedia.org" in uri:
