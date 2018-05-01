@@ -6,6 +6,14 @@ Phrase = namedtuple("Phrase", "text beg end subj")
 
 CandidateBase = namedlist("CandidateBase", "score name link wiki types names uris text")
 
+
+def make_dummy_phrases(str_phrases):
+    """ From a list of strings generates a list of phrases (e.g. for tests)""" 
+
+    return [Phrase(phrase.strip(), 1, len(phrase.strip()), "http://" + phrase.strip())
+                   for phrase in str_phrases]
+
+
 class Candidate(CandidateBase):
     def __init__(self, score=0.0, name="", link="", wiki="", types=[], names=[], uris=[], text=""):
        CandidateBase.__init__(self, score, name, link, wiki, types, names, uris, text)
@@ -30,3 +38,4 @@ class Candidate(CandidateBase):
 
     #def __lt__(self, other):
     #    return self.age < other.age
+
