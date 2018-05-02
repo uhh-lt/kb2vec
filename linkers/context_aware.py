@@ -6,6 +6,7 @@ from candidate import Candidate
 from langid import classify
 from candidate import Phrase
 import re
+from tqdm import tqdm
 
 
 class ContextAwareLinker(BaselineLinker):
@@ -74,7 +75,7 @@ class ContextAwareLinker(BaselineLinker):
     def get_candidates(self, phrases):
         candidates = defaultdict(set)  
         i = 0
-        for phrase in phrases:
+        for phrase in tqdm(phrases):
             for entity_type in EL_POL_ENTITY_TYPES:
                 r = self._cq.make_query('type:{} name:"{}"'.format(entity_type, phrase.text))
                 db_response = json.loads(r.content)

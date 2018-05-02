@@ -4,10 +4,10 @@ from namedlist import namedlist
 
 Phrase = namedtuple("Phrase", "text beg end subj")
 
-CandidateBase = namedlist("CandidateBase", "score name link wiki types names uris text")
+CandidateBase = namedlist("CandidateBase", "score name link wiki types names uris text db_uri")
 
 
-def make_dummy_phrases(str_phrases):
+def make_phrases(str_phrases):
     """ From a list of strings generates a list of phrases (e.g. for tests)""" 
 
     return [Phrase(phrase.strip(), 1, len(phrase.strip()), "http://" + phrase.strip())
@@ -15,8 +15,8 @@ def make_dummy_phrases(str_phrases):
 
 
 class Candidate(CandidateBase):
-    def __init__(self, score=0.0, name="", link="", wiki="", types=[], names=[], uris=[], text=""):
-       CandidateBase.__init__(self, score, name, link, wiki, types, names, uris, text)
+    def __init__(self, score=0.0, name="", link="", wiki="", types=[], names=[], uris=[], text="", db_uri=""):
+       CandidateBase.__init__(self, score, name, link, wiki, types, names, uris, text, db_uri)
 
     def get_hash(self):
         uris = "".join(self.uris) if self.uris is not None else ""
