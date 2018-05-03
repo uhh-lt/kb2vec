@@ -73,7 +73,7 @@ class ContextAwareLinker(BaselineLinker):
         return ""
  
     def get_candidates(self, phrases):
-        candidates = defaultdict(set)  
+        phrase2candidates = defaultdict(set)  
         i = 0
         for phrase in tqdm(phrases):
             for entity_type in EL_POL_ENTITY_TYPES:
@@ -104,7 +104,7 @@ class ContextAwareLinker(BaselineLinker):
                                   uris,
                                   texts)
                     i += 1
-                    candidates[phrase].add(c)
+                    phrase2candidates[phrase].add(c)
         
-        return candidates
+        return phrase2candidates
 
