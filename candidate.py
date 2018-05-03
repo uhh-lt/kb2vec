@@ -1,5 +1,6 @@
 from collections import namedtuple
 from namedlist import namedlist
+import codecs
 
 
 Phrase = namedtuple("Phrase", "text beg end subj")
@@ -39,3 +40,17 @@ class Candidate(CandidateBase):
     #def __lt__(self, other):
     #    return self.age < other.age
 
+
+def save_candidates_text(output_fpath="data/sf-candidates.txt"):
+    re_newlines = re.compile(r"[\n\r]+")
+
+    with codecs.open(output_fpath, "w", "utf-8") as c_f:
+        for phrase in c:
+            for candidate in c[phrase]:
+                text = candidate.text
+                c_f.write("{}\t{}\t{}\n".format(
+                    phrase.text,
+                    candidate.name,
+                    text.strip()))
+                
+    print(output_fpath)
