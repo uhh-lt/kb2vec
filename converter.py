@@ -109,5 +109,5 @@ class URIConverter(object):
 
 
     def wikidata2dbpedia(self, wikidata_uri):
-        return self.wikipedia2dbpedia(self.wikidata2wikipedia(wikipedia_uri))
+        return self.wikipedia2dbpedia(self.wikidata2wikipedia(wikidata_uri))
 

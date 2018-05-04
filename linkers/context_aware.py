@@ -94,7 +94,7 @@ class ContextAwareLinker(BaselineLinker):
                     texts = self._re_newlines.sub(self._sep, texts)
 
                     score = float(hit["importance"])
-                    link = ""
+                    link = self._get_dbpedia_uri(wiki_uri, uris) 
                     c = Candidate(score,
                                   self._get_name(hit),
                                   link,

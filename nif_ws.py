@@ -7,6 +7,7 @@ from time import time
 import re
 from ttl import remove_classref, add_nonsense_response, DatasetBuilder
 from linkers.baseline import BaselineLinker
+from linkers.sparse import SparseLinker
 
 
 endpoint = "http://localhost:8080/spotlight"
@@ -124,6 +125,37 @@ def random():
     response.data = random_linker.link_ttl(request.data)
 
     save_data("random", request.data, response.data)
+    
+    return response
+
+
+sparse_linker = SparseLinker("data/test99", use_overlap=False)
+
+@app.route("/sparse", methods=['POST'])
+def sparse():
+    response = Response()
+    
+    for header_name, header_value in request.headers.items():
+        response.headers[header_name] = header_value
+    response.data = sparse_linker.link_ttl(request.data)
+
+    save_data("sparse", request.data, response.data)
+    
+    return response
+
+
+
+sparse_overlap_linker = SparseLinker("data/test99", use_overlap=True)
+
+@app.route("/sparse_overlap", methods=['POST'])
+def sparse_overlap():
+    response = Response()
+    
+    for header_name, header_value in request.headers.items():
+        response.headers[header_name] = header_value
+    response.data = sparse_overlap_linker.link_ttl(request.data)
+
+    save_data("sparse_overlap", request.data, response.data)
     
     return response
 

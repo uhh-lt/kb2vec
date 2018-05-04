@@ -2,8 +2,20 @@ from collections import namedtuple
 from namedlist import namedlist
 import codecs
 
-
 Phrase = namedtuple("Phrase", "text beg end subj")
+
+#PhraseBase = namedtuple("PhraseBase", "text beg end subj")
+# 
+#class Phrase(PhraseBase):
+#    def get_hash(self):
+#        return hash(self.text)
+#
+#    def __hash__(self):
+#        return self.get_hash()
+#    
+#    def __eq__(self, other):
+#        return self.get_hash() == other.get_hash()
+
 
 CandidateBase = namedlist("CandidateBase", "score name link wiki types names uris text db_uri")
 

@@ -15,11 +15,11 @@ class TTLinker(object):
         input_len = len(graph)
 
         for phrase, candidate in self.link(context, phrases):
-            if candidate and candidate.link:
+            if candidate and candidate.link and candidate.link != "":
                 graph.add( (phrase.subj, LINK_URI, URIRef(candidate.link)) )
                 graph.add( (phrase.subj, CLASS_URI, URIRef(candidate.link)) )
             else:
-                print("Warning: no candidates for the phrase {}".format(phrase))
+                print("Warning: cannot link phrase {}".format(phrase))
                 graph.add( (phrase.subj, LINK_URI, NONE_URI) )
                 graph.add( (phrase.subj, CLASS_URI, NONE_URI) )
 
