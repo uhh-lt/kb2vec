@@ -1,13 +1,12 @@
 import requests
-from pprint import pprint
-import json 
+import json
 import codecs
 import grequests 
 from sqlitedict import SqliteDict
 
 
 endpoint_diffbot = "http://kg.diffbot.com/kg/dql_endpoint"
- 
+
 ENTITY_TYPES = ["AdministrativeArea", "Article", "Corporation",
                     "DegreeEntity", "EducationMajorEntity", "EducationalInstitution",
                    "EmploymentCategory", "Image", "Intangible", "Landmark", "LocalBusiness",
@@ -92,4 +91,8 @@ def save2json(output_fpath, r):
 def query_and_save(query, output_fpath):
     r = make_query(query)
     save2json(output_fpath, r)
+
+
+
+
 

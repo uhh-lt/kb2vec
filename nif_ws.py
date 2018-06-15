@@ -4,7 +4,6 @@ import requests
 import codecs
 from os.path import join
 from time import time
-import re
 from ttl import remove_classref, add_nonsense_response, DatasetBuilder
 from linkers.baseline import BaselineLinker
 from linkers.sparse import SparseLinker

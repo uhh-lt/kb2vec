@@ -21,7 +21,7 @@ CandidateBase = namedlist("CandidateBase", "score name link wiki types names uri
 
 
 def make_phrases(str_phrases):
-    """ From a list of strings generates a list of phrases (e.g. for tests)""" 
+    """ From a list of strings generates a list of phrases (e.g. for tests)"""
 
     return [Phrase(phrase.strip(), 1, len(phrase.strip()), "http://" + phrase.strip())
                    for phrase in str_phrases]
