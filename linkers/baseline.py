@@ -21,7 +21,8 @@ class TTLinker(object):
                 graph.add( (phrase.subj, LINK_URI, URIRef(candidate.link)) )
                 graph.add( (phrase.subj, CLASS_URI, URIRef(candidate.link)) )
             else:
-                print("Warning: cannot link phrase {}".format(phrase))
+                print("Warning: cannot link phrase '{}' at pos. {}-{}.".format(
+                    phrase.text, phrase.beg, phrase.end))
                 graph.add( (phrase.subj, LINK_URI, NONE_URI) )
                 graph.add( (phrase.subj, CLASS_URI, NONE_URI) )
 
