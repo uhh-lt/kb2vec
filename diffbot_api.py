@@ -53,7 +53,7 @@ def get_token():
     if token:
         return token
     else:
-        with open("../dbt", "r") as f:
+        with open("dbt", "r") as f:
             token = f.read().strip()
             return token
 

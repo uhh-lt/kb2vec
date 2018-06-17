@@ -37,7 +37,7 @@ class BaselineLinker(TTLinker):
         self._use_overlap = use_overlap
         self._use_importance = use_importance
         self._verbose = verbose
-        
+
     def __del__(self):
         self.close()
         

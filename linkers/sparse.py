@@ -1,12 +1,10 @@
 import numpy as np
 from utils import overlap
 from linkers.context_aware import ContextAwareLinker 
-from collections import defaultdict
 from candidate import Candidate
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from candidate import Phrase, make_phrases
-import re
-from pandas import read_csv 
+from pandas import read_csv
 from time import time
 from os.path import join
 from utils import ensure_dir
@@ -44,7 +42,10 @@ class SparseLinker(ContextAwareLinker):
         self._phrases_fpath = join(model_dir, phrases_filename)
         self._candidates_fpath = join(model_dir, candidates_filename)
         self._load(model_dir) # using the defined paths
-        
+
+    def set_params(self, params):
+        self._params = params
+
     def _load(self, model_dir):
         tic = time()
         ensure_dir(model_dir) 

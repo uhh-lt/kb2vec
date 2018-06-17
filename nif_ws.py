@@ -128,10 +128,14 @@ def random():
     return response
 
 
-sparse_linker = SparseLinker("data/test99", use_overlap=False)
+sparse_linker = SparseLinker("data/test99")
+
 
 @app.route("/sparse", methods=['POST'])
 def sparse():
+    params = {"tfidf": True, "use_overlap": False}
+    sparse_linker.set_params(params)
+
     response = Response()
     
     for header_name, header_value in request.headers.items():
@@ -143,16 +147,18 @@ def sparse():
     return response
 
 
-
-sparse_overlap_linker = SparseLinker("data/test99", use_overlap=True)
+params = {"tfidf": True, "use_overlap": True}
 
 @app.route("/sparse_overlap", methods=['POST'])
 def sparse_overlap():
+    params = {"tfidf": True, "use_overlap": True}
+    sparse_linker.set_params(params)
+
     response = Response()
     
     for header_name, header_value in request.headers.items():
         response.headers[header_name] = header_value
-    response.data = sparse_overlap_linker.link_ttl(request.data)
+    response.data = sparse_linker.link_ttl(request.data)
 
     save_data("sparse_overlap", request.data, response.data)
     

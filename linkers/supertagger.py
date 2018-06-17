@@ -1,20 +1,6 @@
-import numpy as np
-from utils import overlap
 from linkers.context_aware import ContextAwareLinker
-from collections import defaultdict
 from candidate import Candidate
-from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-from candidate import Phrase, make_phrases
-import re
-from pandas import read_csv
-from time import time
-from os.path import join
-from utils import ensure_dir
-from sklearn.externals import joblib
 import json
-from os.path import exists
-import codecs
-from numpy import dot, argmax
 from collections import namedtuple
 from traceback import format_exc
 import requests
@@ -65,13 +51,37 @@ class SuperTagger(ContextAwareLinker):
         return result
 
     def link(self, context, phrases):
-        linked_phrases = []
+        # link
+        tags = self._entity_link(context)
 
+        # assign tags to phrases
+        linked_phrases = []
         for phrase in phrases:
-            if True:
-                linked_phrases.append((phrase, best_candidate))
-            else:
+
+            # try to assign the phrase from the tagged output
+            assigned_phrase = False
+            for tag in tags:
+                for tag_beg, tag_end in tag.offsets:
+                    if phrase.beg >= tag_end:
+                        intersect = phrase.beg - tag_beg < tag_end - tag_beg
+                    else:
+                        intersect = tag_beg - phrase.beg < phrase.end - phrase.beg
+
+                    if intersect:
+                        wiki_uri = self._find_wiki_uri(tag.uris)
+                        c = Candidate(tag.score,
+                                      tag.text,
+                                      wiki_uri,
+                                      wiki_uri,
+                                      [],[],
+                                      tag.uris,
+                                      tag.text,
+                                      tag.id)
+                        linked_phrases.append((phrase, c))
+                        assigned_phrase = True
+
+            # if nothing found assign to the phrase something still
+            if not assigned_phrase:
                 linked_phrases.append((phrase, Candidate()))
 
         return linked_phrases
-
