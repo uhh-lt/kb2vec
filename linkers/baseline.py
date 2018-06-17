@@ -1,5 +1,4 @@
 from converter import URIConverter
-from math import log
 import json
 from utils import truncated_log, overlap
 from candidate import Candidate
@@ -11,10 +10,13 @@ from random import random
 
 class TTLinker(object):
     def link_ttl(self, input_ttl):
+        """ :param input_ttl a string with turtle (TTL) triples in the NIF format by GERBIL """
+
         graph, context, phrases = parse_d2kb_ttl(input_ttl)
         input_len = len(graph)
 
-        for phrase, candidate in self.link(context, phrases):
+        results = self.link(context, phrases)
+        for phrase, candidate in results:
             if candidate and candidate.link and candidate.link != "":
                 graph.add( (phrase.subj, LINK_URI, URIRef(candidate.link)) )
                 graph.add( (phrase.subj, CLASS_URI, URIRef(candidate.link)) )

@@ -69,9 +69,10 @@ class SuperTagger(ContextAwareLinker):
 
                     if intersect:
                         wiki_uri = self._find_wiki_uri(tag.uris)
+                        link = self._get_dbpedia_uri(wiki_uri, tag.uris)
                         c = Candidate(tag.score,
                                       tag.text,
-                                      wiki_uri,
+                                      link,
                                       wiki_uri,
                                       [],[],
                                       tag.uris,

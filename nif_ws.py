@@ -7,6 +7,7 @@ from time import time
 from ttl import remove_classref, add_nonsense_response, DatasetBuilder
 from linkers.baseline import BaselineLinker
 from linkers.sparse import SparseLinker
+from linkers.supertagger import SuperTagger
 
 
 endpoint = "http://localhost:8080/spotlight"
@@ -147,7 +148,6 @@ def sparse():
     return response
 
 
-params = {"tfidf": True, "use_overlap": True}
 
 @app.route("/sparse_overlap", methods=['POST'])
 def sparse_overlap():
@@ -162,6 +162,20 @@ def sparse_overlap():
 
     save_data("sparse_overlap", request.data, response.data)
     
+    return response
+
+
+super_linker = SuperTagger()
+@app.route("/supertagger", methods=['POST'])
+def supertagger():
+    response = Response()
+
+    for header_name, header_value in request.headers.items():
+        response.headers[header_name] = header_value
+    response.data = super_linker.link_ttl(request.data)
+
+    save_data("supertagger", request.data, response.data)
+
     return response
 
 
