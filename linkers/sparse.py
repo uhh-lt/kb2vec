@@ -44,7 +44,8 @@ class SparseLinker(ContextAwareLinker):
         self._load(model_dir) # using the defined paths
 
     def set_params(self, params):
-        self._params = params
+        for param in params:
+            self._params[param] = params[param]
 
     def _load(self, model_dir):
         tic = time()
@@ -122,8 +123,9 @@ class SparseLinker(ContextAwareLinker):
             json.dump(self._params, fp)
         print("Saved params:", self._params_fpath)
         
-    # to an intermetidate TrainableLinker class?
     def _dataset2phrases(self, dataset_fpaths):
+        """ Given a list of datasets, extract phrases from them. """
+
         voc = set()
         for dataset_fpath in dataset_fpaths:
             df = read_csv(dataset_fpath, sep="\t", encoding="utf-8")
