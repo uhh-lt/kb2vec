@@ -78,7 +78,6 @@ class SparseLinker(ContextAwareLinker):
         print("Training is done in {:.2f} sec.".format(time()-tic))
         
     def _train(self, phrases):
-             
         with codecs.open(self._phrases_fpath, "w", "utf-8") as out:
             for phrase in phrases: out.write("{}\n".format(phrase.text))
         print("Saved phrases:", self._phrases_fpath)                                      

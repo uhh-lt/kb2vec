@@ -4,9 +4,9 @@ from diffbot_api import EL_POL_ENTITY_TYPES
 import json
 from candidate import Candidate
 from langid import classify
-from candidate import Phrase
 import re
 from tqdm import tqdm
+from traceback import format_exc
 
 
 class ContextAwareLinker(BaselineLinker):
@@ -77,34 +77,38 @@ class ContextAwareLinker(BaselineLinker):
         i = 0
         for phrase in tqdm(phrases):
             for entity_type in EL_POL_ENTITY_TYPES:
-                r = self._cq.make_query('type:{} name:"{}"'.format(entity_type, phrase.text))
-                db_response = json.loads(r.content)
-            
-                if "data" not in db_response: continue
-                else: data = db_response["data"]
+                try:
+                    r = self._cq.make_query('type:{} name:"{}"'.format(entity_type, phrase.text))
+                    db_response = json.loads(r.content)
 
-                for hit in data:
-                    uris = self._get_uris(hit)
-                    wiki_uri = self._get_wikipedia_uri(hit, uris)  
-                    
-                    texts_record = self._get_record_texts(hit)
-                    texts_wiki = self._get_wiki_texts(wiki_uri) 
-                    texts_uris = self._get_uri_texts(uris)                    
-                    texts = self._sep.join([texts_record, texts_wiki, texts_uris])
-                    texts = self._re_newlines.sub(self._sep, texts)
+                    if "data" not in db_response: continue
+                    else: data = db_response["data"]
 
-                    score = float(hit["importance"])
-                    link = self._get_dbpedia_uri(wiki_uri, uris) 
-                    c = Candidate(score,
-                                  self._get_name(hit),
-                                  link,
-                                  wiki_uri,
-                                  hit["types"],
-                                  self._get_en_names(hit),
-                                  uris,
-                                  texts)
-                    i += 1
-                    phrase2candidates[phrase].add(c)
-        
+                    for hit in data:
+                        uris = self._get_uris(hit)
+                        wiki_uri = self._get_wikipedia_uri(hit, uris)
+
+                        texts_record = self._get_record_texts(hit)
+                        texts_wiki = self._get_wiki_texts(wiki_uri)
+                        texts_uris = self._get_uri_texts(uris)
+                        texts = self._sep.join([texts_record, texts_wiki, texts_uris])
+                        texts = self._re_newlines.sub(self._sep, texts)
+
+                        score = float(hit["importance"])
+                        link = self._get_dbpedia_uri(wiki_uri, uris)
+                        c = Candidate(score,
+                                      self._get_name(hit),
+                                      link,
+                                      wiki_uri,
+                                      hit["types"],
+                                      self._get_en_names(hit),
+                                      uris,
+                                      texts)
+                        i += 1
+                        phrase2candidates[phrase].add(c)
+                except:
+                    print("Warning: cannot process phrase '{}' of type '{}'".format(phrase.text, entity_type))
+                    print(format_exc())
+
         return phrase2candidates
 
