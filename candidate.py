@@ -46,11 +46,11 @@ class Candidate(CandidateBase):
     def __eq__(self, other):
         return self.get_hash() == other.get_hash()
 
-    #def __gt__(self, other):
-    #    return self.age > other.age
+    def __gt__(self, other):
+       return self.score > other.score
 
-    #def __lt__(self, other):
-    #    return self.age < other.age
+    def __lt__(self, other):
+       return self.score < other.score
 
 
 def save_candidates_text(output_fpath="data/sf-candidates.txt"):

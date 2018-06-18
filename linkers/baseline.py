@@ -21,7 +21,7 @@ class TTLinker(object):
                 graph.add( (phrase.subj, LINK_URI, URIRef(candidate.link)) )
                 graph.add( (phrase.subj, CLASS_URI, URIRef(candidate.link)) )
             else:
-                print("Warning: can't link phrase '{}'@({}-{}): text='', uris='{}'".format(
+                print("Warning: can't link phrase '{}'@({}-{}): text='{}', uris='{}'".format(
                     phrase.text, phrase.beg, phrase.end, candidate.text, "; ".join(candidate.uris)))
                 print("".format(candidate))
                 graph.add( (phrase.subj, LINK_URI, NONE_URI) )
@@ -103,6 +103,7 @@ class BaselineLinker(TTLinker):
             data = diffbot_query_response["data"]
 
         for hit in data:
+            if "allUris" not in hit: continue
             uris = set(hit["allUris"])
             if "origin" in hit: uris.add( hit["origin"] )
             if "origins" in hit: uris.union( set(hit["origins"]) )
