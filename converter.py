@@ -2,6 +2,8 @@ from wikidata.client import Client
 from traceback import format_exc
 from sqlitedict import SqliteDict
 from traceback import format_exc
+from os.path import join
+from utils import ROOT_DIR
 
 
 WIKIDATA_DOMAIN = "wikidata.org"
@@ -9,7 +11,8 @@ WIKIPEDIA_DOMAIN = "wikipedia.org"
 WIKIDATA_PREFIX = "wikidata.org/wiki/"
 DBPEDIA_PREFIX = "http://dbpedia.org/resource/"
 WIKIPEDIA_PREFIX = "wikipedia.org/wiki/"
-CACHED_WIKI2DBPEDIA_DB = "wikidata2dbpedia-cache.sqlite"
+CACHED_WIKI2DBPEDIA_DB = join(join(ROOT_DIR, "cache"), "wikidata2dbpedia-cache.sqlite")
+
 verbose = False
   
 

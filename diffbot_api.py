@@ -3,6 +3,8 @@ import json
 import codecs
 import grequests 
 from sqlitedict import SqliteDict
+from utils import ROOT_DIR
+from os.path import join
 
 
 endpoint_diffbot = "http://kg.diffbot.com/kg/dql_endpoint"
@@ -13,7 +15,6 @@ ENTITY_TYPES = ["AdministrativeArea", "Article", "Corporation",
                    "Miscellaneous", "Organization", "Person", "Place", "Product", "Role",
                    "Skill", "Video"]
 
-
 EL_ENTITY_TYPES = ["AdministrativeArea", "Corporation", "EducationalInstitution",
                    "Landmark", "LocalBusiness", "Miscellaneous", "Organization", 
                    "Person", "Place", "Product"]
@@ -22,7 +23,7 @@ EL_POL_ENTITY_TYPES = ["AdministrativeArea", "Corporation", "EducationalInstitut
                    "Landmark", "LocalBusiness", "Organization", 
                    "Person", "Place", "Product"]
 
-CACHED_QUERY_DB = "diffbot-query-cache.sqlite"
+CACHED_QUERY_DB =  join(join(ROOT_DIR, "cache"), "diffbot-query-cache.sqlite")
 
 
 class CachedQuery(object):
