@@ -78,6 +78,7 @@ class SparseLinker(ContextAwareLinker):
         print("Training is done in {:.2f} sec.".format(time()-tic))
         
     def _train(self, phrases):
+        # get the phrases
         with codecs.open(self._phrases_fpath, "w", "utf-8") as out:
             for phrase in phrases: out.write("{}\n".format(phrase.text))
         print("Saved phrases:", self._phrases_fpath)                                      
@@ -87,6 +88,7 @@ class SparseLinker(ContextAwareLinker):
         
         self._phrase2candidates = self.get_candidates(phrases)
 
+        # get candidates for the phrases
         candidates = set()
         for phrase in self._phrase2candidates:
             for candidate in self._phrase2candidates[phrase]:
@@ -99,6 +101,7 @@ class SparseLinker(ContextAwareLinker):
             for candidate in candidates: out.write("{}\n".format(candidate.name))
         print("Saved candidates:", self._candidates_fpath)
 
+        # save the vector indices for the candidates
         self._candidate2index = {}
         corpus = []
         for index, candidate in enumerate(candidates):
@@ -107,7 +110,8 @@ class SparseLinker(ContextAwareLinker):
 
         joblib.dump(self._candidate2index, self._candidate2index_fpath)
         print("Saved candidate2index:", self._candidate2index_fpath)
-            
+
+        # vectorize the text representations of the candidates
         self._vectorizer = TfidfVectorizer() if self._params["tfidf"] else CountVectorizer()
         self._vectors = self._vectorizer.fit_transform(corpus)
         

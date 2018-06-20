@@ -2,6 +2,10 @@ from math import log
 import os 
 
 
+# This is the project root directory assuming that utils.py is in the root directory
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
 def ensure_dir(dir_path):
     if not os.path.exists(dir_path): os.makedirs(dir_path)
 
