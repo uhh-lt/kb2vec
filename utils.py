@@ -1,5 +1,6 @@
 from math import log
 import os 
+from difflib import SequenceMatcher
 
 
 # This is the project root directory assuming that utils.py is in the root directory
@@ -28,28 +29,26 @@ def dbpedia2wikipedia(url, to_en=True):
     return new_url
 
 
-def longest_common_substring(s1, s2):
-    m = [[0] * (1 + len(s2)) for i in range(1 + len(s1))]
-    longest, x_longest = 0, 0
-    for x in range(1, 1 + len(s1)):
-        for y in range(1, 1 + len(s2)):
-            if s1[x - 1] == s2[y - 1]:
-                m[x][y] = m[x - 1][y - 1] + 1
-                if m[x][y] > longest:
-                    longest = m[x][y]
-                    x_longest = x
-                else:
-                    m[x][y] = 0
-    return s1[x_longest - longest: x_longest]
+def longest_common_substring(s1, s2, lower=True):
+    if lower:
+        s1 = s1.lower()
+        s2 = s2.lower()
+
+    match = SequenceMatcher(None, s1, s2).find_longest_match(0, len(s1), 0, len(s2))
+    substring = s1[match.a: match.a + match.size]
+
+    return substring
 
 
-def overlap(s1, s2):
-    direct = longest_common_substring(s1, s2)
-    inverse = longest_common_substring(s2, s1)
+def overlap(s1, s2, lower=True):
+    direct = longest_common_substring(s1, s2, lower)
+    inverse = longest_common_substring(s2, s1, lower)
     max_overlap = float(max(len(direct), len(inverse)))
-    max_len = float(max(len(s1), len(s2)))
-
-    return max_overlap / max_len
+    if max_overlap < 3:
+        return 0.0
+    else:
+        max_len = float(max(len(s1), len(s2)))
+        return max_overlap / max_len
 
 
 def truncated_log(x):

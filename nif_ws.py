@@ -99,7 +99,7 @@ def importance():
     return response
 
 
-overlap_linker = BaselineLinker(use_overlap=True, use_importance=False)
+overlap_linker = BaselineLinker(use_overlap=True, use_importance=False, lower=True)
 
 @app.route("/overlap", methods=['POST'])
 def overlap():
@@ -111,6 +111,21 @@ def overlap():
 
     save_data("overlap", request.data, response.data)
     
+    return response
+
+
+overlap_linker_case = BaselineLinker(use_overlap=True, use_importance=False, lower=False)
+
+@app.route("/overlap_case", methods=['POST'])
+def overlap_case():
+    response = Response()
+
+    for header_name, header_value in request.headers.items():
+        response.headers[header_name] = header_value
+    response.data = overlap_linker_case.link_ttl(request.data)
+
+    save_data("overlap_case", request.data, response.data)
+
     return response
 
 
@@ -130,6 +145,7 @@ def random():
 
 
 sparse_linker = SparseLinker("data/test99")
+# sparse_linker = SparseLinker("data/sparse_model_2")
 
 
 @app.route("/sparse", methods=['POST'])

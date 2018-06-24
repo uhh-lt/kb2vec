@@ -27,7 +27,6 @@ class TTLinker(object):
                 graph.add( (phrase.subj, LINK_URI, NONE_URI) )
                 graph.add( (phrase.subj, CLASS_URI, NONE_URI) )
 
-
         print("# triples input:", input_len)
         print("# triples output:", len(graph))
         output_ttl = str(graph.serialize(format='n3', encoding="utf-8"), "utf-8")
@@ -36,12 +35,13 @@ class TTLinker(object):
 
 
 class BaselineLinker(TTLinker):
-    def __init__(self, use_overlap=True, use_importance=True, verbose=True):
+    def __init__(self, use_overlap=True, use_importance=True, verbose=True, lower=True):
         self._cq = CachedQuery()
         self._conv = URIConverter()
         self._use_overlap = use_overlap
         self._use_importance = use_importance
         self._verbose = verbose
+        self._lower = lower
 
     def __del__(self):
         self.close()
@@ -114,9 +114,9 @@ class BaselineLinker(TTLinker):
                 name = hit["name"]
                 importance = float(hit["importance"])
                 if self._use_overlap and self._use_importance:
-                    score = truncated_log(importance) * overlap(name, target)
+                    score = truncated_log(importance) * overlap(name, target, self._lower)
                 elif self._use_overlap:
-                    score = overlap(name, target)
+                    score = overlap(name, target, self._lower)
                 elif self._use_importance:
                     score = importance
                 else:
@@ -151,7 +151,7 @@ class BaselineLinker(TTLinker):
             if len(candidates) > 0:
                 best = sorted(candidates, reverse=True)[0]
             else:
-                best = None
+                best = Candidate()
             linked_phrases.append( (phrase, best) )
 
         if len(linked_phrases) != len(phrases):

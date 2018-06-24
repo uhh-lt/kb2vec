@@ -140,7 +140,7 @@ class SparseLinker(ContextAwareLinker):
        
     def _default_phrase(self, phrase):
         text = phrase.text.strip()
-        return Phrase(text, 1, len(text), "http://" + text) 
+        return Phrase(text, 1, len(text), "http://" + text)
 
     def link(self, context, phrases):       
         linked_phrases = []
@@ -148,8 +148,6 @@ class SparseLinker(ContextAwareLinker):
 
         for phrase in phrases:
             try:
-                candidate_indices = []    
-                
                 dphrase = self._default_phrase(phrase)
                 if dphrase in self._phrase2candidates:
                     # get the candidates
@@ -182,7 +180,7 @@ class SparseLinker(ContextAwareLinker):
                     best_candidate.link = self._get_dbpedia_uri(best_candidate.wiki, best_candidate.uris)
                     linked_phrases.append( (phrase, best_candidate) )
                 else:
-                    print("Warning: phrase '{}' is not found".format(phrase))
+                    print("Warning: phrase '{}' is not found in the vocabulary of the model".format(phrase))
 
                     linked_phrases.append( (phrase, Candidate()) )  
             except:

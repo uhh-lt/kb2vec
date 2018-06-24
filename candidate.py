@@ -34,7 +34,7 @@ class Candidate(CandidateBase):
     def get_hash(self):
         uris = "".join(self.uris) if self.uris is not None else ""
         types = "".join(self.types) if self.types is not None else ""
-        hash_str = str(self.score) + self.name + uris + types
+        hash_str = self.name + uris + types
         if hash_str is None:
             print("Warning: hash string is none.")
 
