@@ -144,8 +144,8 @@ def random():
     return response
 
 
-sparse_linker = SparseLinker("data/test99")
-# sparse_linker = SparseLinker("data/sparse_model_2")
+#sparse_linker = SparseLinker("data/test99")
+sparse_linker = SparseLinker("data/sparse_model_2")
 
 
 @app.route("/sparse", methods=['POST'])

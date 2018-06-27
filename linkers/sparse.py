@@ -96,20 +96,25 @@ class SparseLinker(ContextAwareLinker):
         print("Number of candidates:", len(candidates))
         joblib.dump(self._phrase2candidates, self._phrase2candidates_fpath)
         print("Saved phrase2candidate:", self._phrase2candidates_fpath)
-     
-        with codecs.open(self._candidates_fpath, "w", "utf-8") as out:
-            for candidate in candidates: out.write("{}\n".format(candidate.name))
-        print("Saved candidates:", self._candidates_fpath)
 
         # save the vector indices for the candidates
-        self._candidate2index = {}
-        corpus = []
-        for index, candidate in enumerate(candidates):
-            corpus.append(candidate.text)
-            self._candidate2index[candidate] = index
+        with codecs.open(self._candidates_fpath, "w", "utf-8") as out:
+            self._candidate2index = {}
+            corpus = []
+            for index, candidate in enumerate(candidates):
+                corpus.append(candidate.text)
+                self._candidate2index[candidate] = index
 
-        joblib.dump(self._candidate2index, self._candidate2index_fpath)
-        print("Saved candidate2index:", self._candidate2index_fpath)
+                out.write("{}\t{}\t{}\n".format(
+                    index,
+                    candidate.name,
+                    candidate.text,
+                    "; ".join(candidate.uris)
+                ))
+
+            joblib.dump(self._candidate2index, self._candidate2index_fpath)
+            print("Saved candidate2index:", self._candidate2index_fpath)
+            print("Saved candidates:", self._candidates_fpath)
 
         # vectorize the text representations of the candidates
         self._vectorizer = TfidfVectorizer() if self._params["tfidf"] else CountVectorizer()
