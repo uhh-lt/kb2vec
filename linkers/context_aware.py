@@ -7,6 +7,7 @@ from langid import classify
 import re
 from tqdm import tqdm
 from traceback import format_exc
+from patterns import re_newlines
 
 
 class ContextAwareLinker(BaselineLinker):
@@ -61,6 +62,7 @@ class ContextAwareLinker(BaselineLinker):
             texts.append(hit["description"])
 
         texts_str = self._sep.join(texts)
+        texts_str = re_newlines.sub(" ", texts_str)
 
         return texts_str
     

@@ -105,7 +105,7 @@ class SparseLinker(ContextAwareLinker):
                 corpus.append(candidate.text)
                 self._candidate2index[candidate] = index
 
-                out.write("{}\t{}\t{}\n".format(
+                out.write("{}\t{}\t{}\t{}\n".format(
                     index,
                     candidate.name,
                     candidate.text,
