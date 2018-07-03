@@ -27,7 +27,7 @@ class SparseLinker(ContextAwareLinker):
         self._params["description"] = description
         self._params["use_overlap"] = use_overlap
         self._params["stop_words"] = stop_words
-        self._params["count_vectorizer_is_binary"] = True
+        self._params["count_vectorizer_is_binary"] = False
         
         vectorizer_filename = "vectorizer.pkl"
         candidate2index_filename = "candidate2index.pkl"
