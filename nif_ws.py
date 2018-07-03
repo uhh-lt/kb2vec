@@ -146,7 +146,7 @@ def random():
 
 # sparse_linker = SparseLinker("data/all0")
 # sparse_linker = SparseLinker("data/tfidf-stopwords-2")
-sparse_linker = SparseLinker("data/count-keep-stopwords-3-binary")
+sparse_linker = SparseLinker("data/count-stopwords-3")
 
 @app.route("/sparse", methods=['POST'])
 def sparse():
