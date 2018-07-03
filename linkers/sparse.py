@@ -19,12 +19,15 @@ from traceback import format_exc
 # ToDo: save also directly the phrase2index file for faster classifications
 
 class SparseLinker(ContextAwareLinker):
-    def __init__(self, model_dir, tfidf=True, use_overlap=True, description=""):
+    def __init__(self, model_dir, tfidf=True, use_overlap=True, description="", stop_words=True):
         ContextAwareLinker.__init__(self)
+        print("Model directory:", model_dir)
         self._params = {}
         self._params["tfidf"] = tfidf
         self._params["description"] = description
         self._params["use_overlap"] = use_overlap
+        self._params["stop_words"] = stop_words
+        self._params["count_vectorizer_is_binary"] = True
         
         vectorizer_filename = "vectorizer.pkl"
         candidate2index_filename = "candidate2index.pkl"
@@ -117,7 +120,14 @@ class SparseLinker(ContextAwareLinker):
             print("Saved candidates:", self._candidates_fpath)
 
         # vectorize the text representations of the candidates
-        self._vectorizer = TfidfVectorizer() if self._params["tfidf"] else CountVectorizer()
+        stopwords = 'english' if self._params["stop_words"] else None
+        if self._params["tfidf"]:
+            self._vectorizer = TfidfVectorizer(stop_words=stopwords)
+        else:
+            self._vectorizer = CountVectorizer(
+                binary=self._params["count_vectorizer_is_binary"],
+                stop_words=stopwords)
+
         self._vectors = self._vectorizer.fit_transform(corpus)
         
         joblib.dump(self._vectorizer, self._vectorizer_fpath) 
