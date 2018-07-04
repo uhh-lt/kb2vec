@@ -56,7 +56,7 @@ def get_phrases(g):
                     contexts.append(obj_s)
 
         # catch the phrases to disambiguate 
-        if o.endswith(PHRASE):
+        if o.endswith(PHRASE) or p.endswith(ANCOR):
             phrase = ""
             end = -1
             beg = -1
