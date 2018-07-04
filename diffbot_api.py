@@ -46,7 +46,9 @@ class CachedQuery(object):
         
     def close(self):
         self._cache.close()
-        
+
+# https://dev.kg.diffbot.com/kg/dql_endpoint?type=query&token=token&query=id:OIZzlT1rihy
+# https://www.diffbot.com/entity/OIZzlT1rihy
 
 token = None
 def get_token():

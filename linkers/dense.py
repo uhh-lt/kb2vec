@@ -1,5 +1,7 @@
+from linkers.sparse import SparseLinker
 
-class DenseLinker(ContextAwareLinker):
+
+class DenseLinker(SparseLinker):
     def foo(self):
         pass
     
