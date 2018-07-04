@@ -12,8 +12,18 @@ class TTLinker(object):
     def link_ttl(self, input_ttl):
         """ :param input_ttl a string with turtle (TTL) triples in the NIF format by GERBIL """
 
-        graph, context, phrases = parse_d2kb_ttl(input_ttl)
+        graph, contexts, phrases = parse_d2kb_ttl(input_ttl)
         input_len = len(graph)
+
+        if len(contexts) > 1:
+            print("Warning: more than one context is found. Using the first one.")
+            context = contexts[0]
+        elif len(contexts) == 0:
+            print("Warning: no contexts found.")
+            context = ""
+        else:
+            # only one context
+            context = contexts[0]
 
         results = self.link(context, phrases)
         for phrase, candidate in results:

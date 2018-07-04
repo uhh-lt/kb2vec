@@ -33,15 +33,15 @@ class DatasetBuilder(object):
 def parse_d2kb_ttl(input_ttl):
     g = Graph()
     result = g.parse(data=input_ttl, format="n3")
-    context, phrases = get_phrases(g)
+    contexts, phrases = get_phrases(g)
 
-    return g, context, phrases
+    return g, contexts, phrases
 
 
 def get_phrases(g):
     """ Collect the context and phrases """
     
-    context = ""
+    contexts = []
     phrases = []
     
     for subj, pred, obj in g:
@@ -53,7 +53,7 @@ def get_phrases(g):
         if o.endswith(CONTEXT):
             for pred_s, obj_s in g.predicate_objects(subj):
                 if pred_s.strip().endswith(STRING):
-                    context = obj_s
+                    contexts.append(obj_s)
 
         # catch the phrases to disambiguate 
         if o.endswith(PHRASE):
@@ -71,7 +71,7 @@ def get_phrases(g):
             else:
                 phrases.append(Phrase(phrase, beg, end, subj))
 
-    return context, phrases
+    return contexts, phrases
 
 
 def add_nonsense_response(input_ttl):
