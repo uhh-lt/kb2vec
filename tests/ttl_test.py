@@ -9,7 +9,10 @@ for input_ttl_fpath in input_ttl_fpaths:
     contexts_fpath = input_ttl_fpath + ".contexts.tsv"
 
     phrases_ttl = codecs.open(phrases_fpath, "w", "utf-8")
+    phrases_ttl.write("targets\tcontexts\n")
+
     contexts_ttl = codecs.open(contexts_fpath, "w", "utf-8")
+    contexts_ttl.write("targets\tcontexts\n")
 
     input_ttl = in_ttl.read()
     graph, contexts, phrases = parse_d2kb_ttl(input_ttl)
