@@ -1,9 +1,9 @@
 from linkers.sparse import SparseLinker
 from candidate import make_phrases
 
-dataset_fpaths = ["../datasets/dbpedia.ttl.tsv",
-                  "../datasets/kore50.ttl.tsv",
-                  "../datasets/n3-reuters-128.ttl.tsv"]
+dataset_fpaths = ["../datasets/dbpedia.ttl.phrases.tsv",
+                  "../datasets/kore50.ttl.phrases.tsv",
+                  "../datasets/n3-reuters-128.ttl.phrases.tsv"]
 
 sl = SparseLinker("../data/count-stopwords-4", stop_words=True, tfidf=False)
 sl.train(dataset_fpaths)
