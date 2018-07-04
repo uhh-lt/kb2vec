@@ -1,5 +1,4 @@
 import re
-from collections import namedtuple
 from rdflib import URIRef, Graph
 import codecs
 from candidate import Phrase

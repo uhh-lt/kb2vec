@@ -140,7 +140,19 @@ class SparseLinker(ContextAwareLinker):
         with open(self._params_fpath, "w") as fp:
             json.dump(self._params, fp)
         print("Saved params:", self._params_fpath)
-        
+
+    def _ttl2phrases(self, ttl_fpaths):
+        """ Given a list of ttl files, extract phrases from them. """
+
+        voc = set()
+        for dataset_fpath in ttl_fpaths:
+            df = read_csv(dataset_fpath, sep="\t", encoding="utf-8")
+            for i, row in df.iterrows():
+                for target in str(row.targets).split(","):
+                    voc.add(target.strip())
+
+        return make_phrases(list(voc))
+
     def _dataset2phrases(self, dataset_fpaths):
         """ Given a list of datasets, extract phrases from them. """
 
