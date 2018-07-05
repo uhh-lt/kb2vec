@@ -13,6 +13,7 @@ from linkers.supertagger import SuperTagger
 endpoint = "http://localhost:8080/spotlight"
 data_dir = "data/"
 no_classref = False
+save_ttl_data = False
 ds = DatasetBuilder(join(data_dir, "dataset.csv"))
 
 app = Flask(__name__)
@@ -21,14 +22,15 @@ log = logging.getLogger("nif_ws.py")
 
 
 def save_data(prefix, req_data, resp_data):
-    fid = prefix + "-" + str(time()).replace(".","")
-    request_fpath = join(data_dir, fid + "-request.ttl") 
-    with codecs.open(request_fpath, "w", "utf-8") as req:
-        req.write(str(req_data, "utf-8"))
+    if save_ttl_data:
+        fid = prefix + "-" + str(time()).replace(".","")
+        request_fpath = join(data_dir, fid + "-request.ttl")
+        with codecs.open(request_fpath, "w", "utf-8") as req:
+            req.write(str(req_data, "utf-8"))
 
-    response_fpath = join(data_dir, fid + "-response.ttl") 
-    with codecs.open(response_fpath, "w", "utf-8") as res:
-        res.write(str(resp_data, "utf-8"))
+        response_fpath = join(data_dir, fid + "-response.ttl")
+        with codecs.open(response_fpath, "w", "utf-8") as res:
+            res.write(str(resp_data, "utf-8"))
 
 
 @app.route("/proxy", methods=['POST'])
