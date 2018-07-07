@@ -60,15 +60,19 @@ class SparseLinker(ContextAwareLinker):
             print("Parameters:\n- ", "\n- ".join("{}: {}".format(p, self._params[p]) for p in self._params))
          
         if exists(self._phrase2candidates_fpath):
-            self._phrase2candidates = joblib.load(self._phrase2candidates_fpath) 
+            print("Loading:", self._phrase2candidates_fpath)
+            self._phrase2candidates = joblib.load(self._phrase2candidates_fpath)
         
         if exists(self._candidate2index_fpath):
-            self._candidate2index = joblib.load(self._candidate2index_fpath) 
+            print("Loading:", self._candidate2index_fpath)
+            self._candidate2index = joblib.load(self._candidate2index_fpath)
         
         if exists(self._vectorizer_fpath):
+            print("Loading:", self._vectorizer_fpath)
             self._vectorizer = joblib.load(self._vectorizer_fpath) 
         
         if exists(self._vectors_fpath):
+            print("Loading:", self._vectors_fpath)
             self._vectors = joblib.load(self._vectors_fpath)
             
         print("Loaded in {:.2f} sec.".format(time()-tic))
@@ -97,7 +101,6 @@ class SparseLinker(ContextAwareLinker):
             for candidate in self._phrase2candidates[phrase]:
                 candidates.add(candidate)
         print("Number of candidates:", len(candidates))
-        joblib.dump(self._phrase2candidates, self._phrase2candidates_fpath)
         print("Saved phrase2candidate:", self._phrase2candidates_fpath)
 
         # save the vector indices for the candidates

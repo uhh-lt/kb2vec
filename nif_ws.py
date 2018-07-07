@@ -7,6 +7,7 @@ from time import time
 from ttl import remove_classref, add_nonsense_response, DatasetBuilder
 from linkers.baseline import BaselineLinker
 from linkers.sparse import SparseLinker
+from linkers.dense import DenseLinker
 from linkers.supertagger import SuperTagger
 
 
@@ -143,6 +144,24 @@ def random():
 
     save_data("random", request.data, response.data)
     
+    return response
+
+
+dense_linker = DenseLinker("data/count-stopwords-3", "data/wiki-news-300d-1M.vec")
+
+@app.route("/dense_overlap", methods=['POST'])
+def dense_overlap():
+    params = {"tfidf": False, "use_overlap": True}
+    dense_linker.set_params(params)
+
+    response = Response()
+
+    for header_name, header_value in request.headers.items():
+        response.headers[header_name] = header_value
+    response.data = dense_linker.link_ttl(request.data)
+
+    save_data("dense_overlap", request.data, response.data)
+
     return response
 
 
