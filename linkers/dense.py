@@ -99,12 +99,10 @@ class DenseLinker(SparseLinker):
                             print("Warning: candidate '{}' is not indexed".format(candidate))
                             indices.append(0)  # just to make sure lengths are equal
 
-                    candidate_vectors = self._vectors[indices]
+                    dense_candidate_vectors = self._dense_vectors[indices]
                     print("Retrieved {} candidates for '{}'".format(len(indices), phrase.text))
 
-
                     dense_context_vector = self._get_dense_vector(context_vector, dphrase.text)
-                    dense_candidate_vectors = self._get_dense_vectors(candidate_vectors, dphrase.text)
 
                     # rank the candidates
                     sims = dot(dense_candidate_vectors, dense_context_vector.T)
@@ -169,7 +167,8 @@ class DenseLinker(SparseLinker):
             dense_vector += word_weight * word_vector
             weights_sum += word_weight
 
-        dense_vector = dense_vector / (i + 1.)
+
+        dense_vector = dense_vector / (len(sparse_vector.data) + 1.)
         #print("\n>>>>>>>>\n")
         return dense_vector
 

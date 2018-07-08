@@ -42,4 +42,6 @@ which will run at ``http://localhost:8181/spotlight``
 http://localhost:8181/spotlight
 http://localhost:5000/random
 http://localhost:5000/sparse_overlap
+http://localhost:5000/dense_overlap
+
 http://localhost:5000/supertagger
