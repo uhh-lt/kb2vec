@@ -14,7 +14,7 @@ from linkers.supertagger import SuperTagger
 endpoint = "http://localhost:8080/spotlight"
 data_dir = "data/"
 no_classref = False
-save_ttl_data = False
+save_ttl_data = True
 ds = DatasetBuilder(join(data_dir, "dataset.csv"))
 
 app = Flask(__name__)
@@ -167,7 +167,7 @@ def dense_overlap():
 
 # sparse_linker = SparseLinker("data/all0")
 # sparse_linker = SparseLinker("data/tfidf-stopwords-2")
-sparse_linker = SparseLinker("data/count-stopwords-3")
+sparse_linker = dense_linker # SparseLinker("data/count-stopwords-3")
 
 @app.route("/sparse", methods=['POST'])
 def sparse():

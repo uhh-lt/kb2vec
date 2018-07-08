@@ -29,7 +29,7 @@ class DenseLinker(SparseLinker):
 
         if exists(self._dense_vectors_fpath):
             print("Loading:", self._dense_vectors_fpath)
-            self._dense_vectors = joblib.load(self._phrase2candidates_fpath)
+            self._dense_vectors = joblib.load(self._dense_vectors_fpath)
 
     def train(self, dataset_fpaths):
         phrases = self._dataset2phrases(dataset_fpaths)
@@ -49,11 +49,11 @@ class DenseLinker(SparseLinker):
                             print("Warning: candidate '{}' is not indexed".format(candidate))
                             indices.append(0)  # just to make sure lengths are equal
 
-                    candidate_vectors = self._vectors[indices]
+                    #candidate_vectors = self._vectors[indices]
                     print("Retrieved {} candidates for '{}'".format(len(indices), phrase.text))
 
-                    for i in range(candidate_vectors.shape[0]):
-                        self._dense_vectors[i, :] = self._get_dense_vector(candidate_vectors[i, :], dphrase.text)
+                    for index in indices:
+                        self._dense_vectors[index, :] = self._get_dense_vector(self._vectors[index, :], dphrase.text)
             except:
                 print("Warning: error phrase '{}'".format(phrase))
                 print(format_exc())
@@ -100,6 +100,7 @@ class DenseLinker(SparseLinker):
                             indices.append(0)  # just to make sure lengths are equal
 
                     dense_candidate_vectors = self._dense_vectors[indices]
+                    # check if candidates are correct
                     print("Retrieved {} candidates for '{}'".format(len(indices), phrase.text))
 
                     dense_context_vector = self._get_dense_vector(context_vector, dphrase.text)
