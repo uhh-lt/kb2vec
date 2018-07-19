@@ -1,11 +1,9 @@
 from linkers.sparse import SparseLinker
 from traceback import format_exc
 from gensim.models import KeyedVectors
-import numpy as np
 from utils import overlap
 from candidate import Candidate
 from time import time
-from numpy import dot, argmax
 from traceback import format_exc
 from os.path import exists, join
 from nltk.corpus import stopwords
@@ -14,7 +12,7 @@ from sklearn.externals import joblib
 from sklearn.preprocessing import normalize
 from tqdm import tqdm
 from candidate import make_phrases
-from numpy import argsort, argmax
+from numpy import argsort, argmax, dot, zeros, multiply, ones
 
 
 
@@ -75,7 +73,7 @@ class DenseLinker(SparseLinker):
 
     def train(self, dataset_fpaths):
         phrases = self._dataset2phrases(dataset_fpaths)
-        self._dense_vectors = np.zeros((self._vectors.shape[0], self._wv.vector_size))
+        self._dense_vectors = zeros((self._vectors.shape[0], self._wv.vector_size))
 
         for phrase in tqdm(phrases):
             try:
@@ -151,13 +149,13 @@ class DenseLinker(SparseLinker):
                     sims = dot(dense_candidate_vectors, dense_context_vector.T)
 
                     if self._params["use_overlap"]:
-                        overlap_scores = np.zeros(sims.shape)
+                        overlap_scores = zeros(sims.shape)
                         for i, candidate in enumerate(candidates):
                             overlap_scores[i] = overlap(candidate.name, phrase.text)
                     else:
-                        overlap_scores = np.ones(sims.shape)
+                        overlap_scores = ones(sims.shape)
 
-                    scores = np.multiply(sims, overlap_scores)
+                    scores = multiply(sims, overlap_scores)
                     best_index = argmax(scores)
                     best_candidate = candidates[best_index]
                     best_candidate.score = scores[best_index]
@@ -174,7 +172,7 @@ class DenseLinker(SparseLinker):
         return linked_phrases
 
     def _get_dense_vectors(self, sparse_vectors, target):
-        dense_vectors = np.zeros((sparse_vectors.shape[0], self._wv.vector_size))
+        dense_vectors = zeros((sparse_vectors.shape[0], self._wv.vector_size))
 
         for i in range(sparse_vectors.shape[0]):
             sparse_candidate_vector = sparse_vectors[i, :]
@@ -186,7 +184,7 @@ class DenseLinker(SparseLinker):
     def _get_dense_vector(self, sparse_vector, target):
         """ Construct the dense vector """
 
-        dense_vector = np.zeros(self._wv.vector_size)
+        dense_vector = zeros(self._wv.vector_size)
         weights_sum = 0.
         names = self._vectorizer.get_feature_names()
 
