@@ -147,7 +147,7 @@ def random():
     return response
 
 
-dense_linker = DenseLinker("data/count-stopwords-3", "data/wiki-news-300d-1M.vec")
+dense_linker = DenseLinker("data/count-stopwords-3-cc", "data/crawl-300d-2M.vec")
 
 @app.route("/dense_overlap", methods=['POST'])
 def dense_overlap():

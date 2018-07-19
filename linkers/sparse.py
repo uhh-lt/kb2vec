@@ -75,8 +75,13 @@ class SparseLinker(ContextAwareLinker):
             print("Loading:", self._vectors_fpath)
             self._vectors = joblib.load(self._vectors_fpath)
             
-        print("Loaded in {:.2f} sec.".format(time()-tic))
-        
+        print("Loaded in {:.2f} sec.".format(time() - tic))
+
+        print("Building index2candidate lookup table...")
+        tic = time()
+        self._index2candidate = self._build_index2candidate(self._candidate2index)
+        print("Done in {:.2f} sec.".format(time() - tic))
+
     def train(self, dataset_fpaths):
         tic = time()
         print("Training...")

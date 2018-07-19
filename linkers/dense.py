@@ -11,7 +11,11 @@ from os.path import exists, join
 from nltk.corpus import stopwords
 from nltk import pos_tag
 from sklearn.externals import joblib
+from sklearn.preprocessing import normalize
 from tqdm import tqdm
+from candidate import make_phrases
+from numpy import argsort, argmax
+
 
 
 class DenseLinker(SparseLinker):
@@ -20,6 +24,44 @@ class DenseLinker(SparseLinker):
         self._params["word_embeddings"] = embeddings_fpath
         self._wv = self._load_word_embbeddings(embeddings_fpath)
         self._stopwords = set(stopwords.words("english"))
+
+        print("Normalizing dense vectors...")
+        tic = time()
+        self._dense_vectors = normalize(self._dense_vectors)
+        print("Done in {:.2f} sec.".format(time() - tic))
+
+    def _build_index2candidate(self, candidate2index):
+        """ Constructs an index in the opposite direction. """
+
+        index2candidate = {}
+        for candidate in candidate2index:
+            index = candidate2index[candidate]
+            index2candidate[index] = candidate
+
+        return index2candidate
+
+    def print_most_similar(self, n=10, max_candidates=10, test_name="Seal"):
+        test_phrases = make_phrases([test_name])
+
+        for test_phrase in test_phrases:
+            print("=" * 50, "\n", test_phrase)
+            test_candidates = self._phrase2candidates[self._default_phrase(test_phrase)]
+
+            for j, tc in enumerate(test_candidates):
+                if j > max_candidates: break
+
+                print("=" * 50, "\n", tc)
+
+                tc_index = self._candidate2index[tc]
+                tc_dvector = self._dense_vectors[tc_index, :]
+
+                # dot product with all candidates to find the most similar ones
+                tc_sims = self._dense_vectors.dot(tc_dvector)
+                tc_sorted_indices = argsort(-tc_sims)[:n]
+
+                print("-" * 50)
+                for i, nearest_candidate_index in enumerate(tc_sorted_indices):
+                    print(i, tc_sims[nearest_candidate_index], self._index2candidate[nearest_candidate_index], "\n")
 
     def _load(self, model_dir):
         SparseLinker._load(self, model_dir)
