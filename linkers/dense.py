@@ -15,7 +15,6 @@ from candidate import make_phrases
 from numpy import argsort, argmax, dot, zeros, multiply, ones
 
 
-
 class DenseLinker(SparseLinker):
     def __init__(self, model_dir, embeddings_fpath, tfidf=True, use_overlap=True, description="", stop_words=True):
         SparseLinker.__init__(self, model_dir, tfidf, use_overlap, description, stop_words)
