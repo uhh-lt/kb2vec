@@ -211,5 +211,3 @@ class DenseLinker(SparseLinker):
         dense_vector = dense_vector / (len(sparse_vector.data) + 1.)
         #print("\n>>>>>>>>\n")
         return dense_vector
-
- 
