@@ -28,8 +28,10 @@ def make_phrases(str_phrases):
 
 
 class Candidate(CandidateBase):
-    def __init__(self, score=0.0, name="", link="", wiki="", types=[], names=[], uris=[], text="", db_uri=""):
-       CandidateBase.__init__(self, score, name, link, wiki, types, names, uris, text, db_uri)
+    def __init__(self, score=0.0, name="", link="", wiki="", types=[], names=[], uris=[], text="",
+                 db_uri="", importance=1.0, relations={}):
+       CandidateBase.__init__(self, score, name, link, wiki, types, names, uris, text,
+                              db_uri, importance, relations)
 
     def get_hash(self):
         uris = "".join(self.uris) if self.uris is not None else ""

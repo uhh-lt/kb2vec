@@ -10,6 +10,13 @@ from traceback import format_exc
 from patterns import re_newlines
 
 
+# ALL_RELATED_FIELDS = ["founders", "categories", "ceo", "isPartOf",
+#                        "skills", "parents", "children", "parentCompany"]
+RELATED_FIELDS = ["founders", "ceo", "parentCompany", "isPartOf"]
+DEFAULT_IMPORTANCE = 1.0
+DEFAULT_DB_URI = ""
+
+
 class ContextAwareLinker(BaselineLinker):
     """ A base class for linkers that make use of textual representations of entities. """
 
@@ -73,7 +80,38 @@ class ContextAwareLinker(BaselineLinker):
     def _get_uri_texts(self, uris):
         # access the uris
         return ""
- 
+
+    def _extract_importance(self, hit):
+        importance_field = "importance"
+        if importance_field in hit:
+            return float(hit[importance_field])
+        else:
+            return DEFAULT_IMPORTANCE
+
+    def _extract_db_uri(self, hit):
+        db_uri_field = "diffbotUri"
+        if db_uri_field in hit:
+            return hit[db_uri_field]
+        else:
+            return DEFAULT_DB_URI
+
+    def _extract_relations(self, hit):
+        relations = defaultdict(lambda: list())
+
+        for field_name in hit:
+            if field_name not in RELATED_FIELDS: continue
+
+            if isinstance(hit[field_name], dict):
+                if "diffbotUri" in hit[field_name]:
+                    relations[field_name].append(hit[field_name]["diffbotUri"])
+
+            if isinstance(hit[field_name], list):
+                for item in hit[field_name]:
+                    if "diffbotUri" in item:
+                        relations[field_name].append(item["diffbotUri"])
+
+        return relations
+
     def get_candidates(self, phrases):
         phrase2candidates = defaultdict(set)  
         i = 0
@@ -95,6 +133,9 @@ class ContextAwareLinker(BaselineLinker):
                         texts_uris = self._get_uri_texts(uris)
                         texts = self._sep.join([texts_record, texts_wiki, texts_uris])
                         texts = self._re_newlines.sub(self._sep, texts)
+                        relations = self._extract_relations(hit)
+                        importance = self._extract_importance(hit)
+                        db_uri = self._extract_db_uri(hit)
 
                         score = float(hit["importance"])
                         link = self._get_dbpedia_uri(wiki_uri, uris)
@@ -105,7 +146,10 @@ class ContextAwareLinker(BaselineLinker):
                                       hit["types"],
                                       self._get_en_names(hit),
                                       uris,
-                                      texts)
+                                      texts,
+                                      db_uri,
+                                      importance,
+                                      relations)
                         i += 1
                         phrase2candidates[phrase].add(c)
                 except:
