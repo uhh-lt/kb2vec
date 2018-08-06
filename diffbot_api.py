@@ -41,14 +41,42 @@ class CachedQuery(object):
             return self._cache[query]
         else:
             response = make_query(query)
-            self._cache[query] = make_query(query)
+            self._cache[query] = response
             return response
         
     def close(self):
         self._cache.close()
 
+    def response2dict(self, response):
+        return json.loads(response.content)
+
+    def get_entity(self, db_uri):
+        if db_uri in self._cache:
+            return self._cache[db_uri]
+        else:
+            response = self._get_entity(db_uri)
+            self._cache[db_uri] = response
+            return response
+
+    def _get_entity(self, db_uri):
+        """ Takes as input URI like http://www.diffbot.com/entity/CQSNBJBdRL7 and returns
+        and entity. """
+
+        db_uri = db_uri.replace("https:", "http:")
+
+        data = {
+            "token": get_token(),
+            "query": "diffbotUri:{}".format(db_uri),
+            "type": "query"}
+
+        r = requests.get(endpoint_diffbot, params=data)
+
+        return self.response2dict(r)
+
+
 # https://dev.kg.diffbot.com/kg/dql_endpoint?type=query&token=token&query=id:OIZzlT1rihy
 # https://www.diffbot.com/entity/OIZzlT1rihy
+
 
 token = None
 def get_token():
@@ -72,7 +100,6 @@ def make_queries(queries, parallel=32):
         rs.append(grequests.get(endpoint_diffbot, params=data))
     
     return grequests.map(rs, size=parallel)
-
 
 
 def make_query(query):

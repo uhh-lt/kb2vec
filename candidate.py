@@ -17,7 +17,7 @@ Phrase = namedtuple("Phrase", "text beg end subj")
 #        return self.get_hash() == other.get_hash()
 
 
-CandidateBase = namedlist("CandidateBase", "score name link wiki types names uris text db_uri")
+CandidateBase = namedlist("CandidateBase", "score name link wiki types names uris text db_uri importance relations")
 
 
 def make_phrases(str_phrases):

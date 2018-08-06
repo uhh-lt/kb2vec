@@ -26,6 +26,17 @@ class ContextAwareLinker(BaselineLinker):
         self._re_newlines = re.compile(r"[\n\r]+")
         self._sep = " . "
 
+    def _build_index2candidate(self, candidate2index):
+        """ Constructs an index in the opposite direction. """
+
+        index2candidate = {}
+        for candidate in candidate2index:
+            index = candidate2index[candidate]
+            index2candidate[index] = candidate
+
+        return index2candidate
+
+
     def get_db_entry(diffbot_uri):
         """ Gets an entity like https://www.diffbot.com/entity/AcZTRPXDrY9 and 
         returns a json by https://www.diffbot.com/entity/AcZTRPXDrY9.json """
@@ -96,65 +107,90 @@ class ContextAwareLinker(BaselineLinker):
             return DEFAULT_DB_URI
 
     def _extract_relations(self, hit):
-        relations = defaultdict(lambda: list())
+        relations = {}
 
         for field_name in hit:
             if field_name not in RELATED_FIELDS: continue
 
             if isinstance(hit[field_name], dict):
                 if "diffbotUri" in hit[field_name]:
+                    if field_name not in relations: relations[field_name] = list()
                     relations[field_name].append(hit[field_name]["diffbotUri"])
 
             if isinstance(hit[field_name], list):
                 for item in hit[field_name]:
                     if "diffbotUri" in item:
+                        if field_name not in relations: relations[field_name] = list()
                         relations[field_name].append(item["diffbotUri"])
 
         return relations
 
-    def get_candidates(self, phrases):
+    def get_phrase_candidates(self, phrases):
         phrase2candidates = defaultdict(set)  
-        i = 0
+
         for phrase in tqdm(phrases):
             for entity_type in EL_POL_ENTITY_TYPES:
                 try:
-                    r = self._cq.make_query('type:{} name:"{}"'.format(entity_type, phrase.text))
-                    db_response = json.loads(r.content)
+                    response_raw = self._cq.make_query('type:{} name:"{}"'.format(entity_type, phrase.text))
+                    response = json.loads(response_raw.content)
 
-                    if "data" not in db_response: continue
-                    else: data = db_response["data"]
+                    if "data" not in response: continue
+                    else: data = response["data"]
 
                     for hit in data:
-                        uris = self._get_uris(hit)
-                        wiki_uri = self._get_wikipedia_uri(hit, uris)
-
-                        texts_record = self._get_record_texts(hit)
-                        texts_wiki = self._get_wiki_texts(wiki_uri)
-                        texts_uris = self._get_uri_texts(uris)
-                        texts = self._sep.join([texts_record, texts_wiki, texts_uris])
-                        texts = self._re_newlines.sub(self._sep, texts)
-                        relations = self._extract_relations(hit)
-                        importance = self._extract_importance(hit)
-                        db_uri = self._extract_db_uri(hit)
-
-                        score = float(hit["importance"])
-                        link = self._get_dbpedia_uri(wiki_uri, uris)
-                        c = Candidate(score,
-                                      self._get_name(hit),
-                                      link,
-                                      wiki_uri,
-                                      hit["types"],
-                                      self._get_en_names(hit),
-                                      uris,
-                                      texts,
-                                      db_uri,
-                                      importance,
-                                      relations)
-                        i += 1
+                        c = self._build_candidate(hit)
                         phrase2candidates[phrase].add(c)
+
+                        related_num = 0
+                        for relation_type in c.relations:
+                            for related_entity_id in c.relations[relation_type]:
+                                related_response = self._cq.get_entity(related_entity_id)
+
+                                if "data" not in related_response or len(related_response["data"]) == 0:
+                                    print("Warning: can't find related entity: {}.".format(related_entity_id))
+                                    continue
+
+                                for related_hit in related_response["data"]:
+                                    related_num += 1
+                                    related_c = self._build_candidate(related_hit)
+                                    phrase2candidates[related_entity_id].add(related_c)
+                                    print("'{}'#{}: added entity {} which is {} to {}".format(
+                                        phrase.text,
+                                        related_num,
+                                        related_entity_id,
+                                        relation_type,
+                                        c.db_uri))
                 except:
                     print("Warning: cannot process phrase '{}' of type '{}'".format(phrase.text, entity_type))
                     print(format_exc())
 
         return phrase2candidates
+
+    def _build_candidate(self, hit):
+
+        uris = self._get_uris(hit)
+        wiki_uri = self._get_wikipedia_uri(hit, uris)
+        texts_record = self._get_record_texts(hit)
+        texts_wiki = self._get_wiki_texts(wiki_uri)
+        texts_uris = self._get_uri_texts(uris)
+        texts = self._sep.join([texts_record, texts_wiki, texts_uris])
+        texts = self._re_newlines.sub(self._sep, texts)
+        relations = self._extract_relations(hit)
+        importance = self._extract_importance(hit)
+        db_uri = self._extract_db_uri(hit)
+        score = float(hit["importance"])
+        link = self._get_dbpedia_uri(wiki_uri, uris)
+
+        c = Candidate(score,
+                      self._get_name(hit),
+                      link,
+                      wiki_uri,
+                      hit["types"],
+                      self._get_en_names(hit),
+                      uris,
+                      texts,
+                      db_uri,
+                      importance,
+                      relations)
+        return c
 

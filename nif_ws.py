@@ -14,7 +14,7 @@ from linkers.supertagger import SuperTagger
 endpoint = "http://localhost:8080/spotlight"
 data_dir = "data/"
 no_classref = False
-save_ttl_data = True
+save_ttl_data = False
 ds = DatasetBuilder(join(data_dir, "dataset.csv"))
 
 app = Flask(__name__)

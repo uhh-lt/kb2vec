@@ -66,7 +66,12 @@ class SparseLinker(ContextAwareLinker):
         if exists(self._candidate2index_fpath):
             print("Loading:", self._candidate2index_fpath)
             self._candidate2index = joblib.load(self._candidate2index_fpath)
-        
+
+            print("Building index2candidate lookup table...")
+            tic = time()
+            self._index2candidate = self._build_index2candidate(self._candidate2index)
+            print("Done in {:.2f} sec.".format(time() - tic))
+
         if exists(self._vectorizer_fpath):
             print("Loading:", self._vectorizer_fpath)
             self._vectorizer = joblib.load(self._vectorizer_fpath) 
@@ -77,10 +82,6 @@ class SparseLinker(ContextAwareLinker):
             
         print("Loaded in {:.2f} sec.".format(time() - tic))
 
-        print("Building index2candidate lookup table...")
-        tic = time()
-        self._index2candidate = self._build_index2candidate(self._candidate2index)
-        print("Done in {:.2f} sec.".format(time() - tic))
 
     def train(self, dataset_fpaths):
         tic = time()
@@ -98,7 +99,7 @@ class SparseLinker(ContextAwareLinker):
         self._params["num_phrases"] = len(phrases)
         print("Number of phrases:", len(phrases))
         
-        self._phrase2candidates = self.get_candidates(phrases)
+        self._phrase2candidates = self.get_phrase_candidates(phrases)
 
         # get candidates for the phrases
         candidates = set()

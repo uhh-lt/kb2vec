@@ -27,15 +27,6 @@ class DenseLinker(SparseLinker):
         self._dense_vectors = normalize(self._dense_vectors)
         print("Done in {:.2f} sec.".format(time() - tic))
 
-    def _build_index2candidate(self, candidate2index):
-        """ Constructs an index in the opposite direction. """
-
-        index2candidate = {}
-        for candidate in candidate2index:
-            index = candidate2index[candidate]
-            index2candidate[index] = candidate
-
-        return index2candidate
 
     def print_most_similar(self, n=10, max_candidates=10, test_name="Seal"):
         test_phrases = make_phrases([test_name])
