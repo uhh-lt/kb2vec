@@ -125,7 +125,7 @@ class ContextAwareLinker(BaselineLinker):
 
         return relations
 
-    def get_phrase_candidates(self, phrases):
+    def get_phrase_candidates(self, phrases, related_entities=False):
         phrase2candidates = defaultdict(set)  
 
         for phrase in tqdm(phrases):
@@ -141,7 +141,8 @@ class ContextAwareLinker(BaselineLinker):
                         c = self._build_candidate(hit)
                         phrase2candidates[phrase].add(c)
 
-                        # optionall add related
+                        if not related_entities: continue
+
                         related_num = 0
                         for relation_type in c.relations:
                             for related_entity_id in c.relations[relation_type]:

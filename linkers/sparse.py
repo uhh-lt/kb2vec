@@ -19,7 +19,9 @@ from traceback import format_exc
 # ToDo: save also directly the phrase2index file for faster classifications
 
 class SparseLinker(ContextAwareLinker):
-    def __init__(self, model_dir, tfidf=True, use_overlap=True, description="", stop_words=True):
+    def __init__(self, model_dir, tfidf=True, use_overlap=True, description="", stop_words=True,
+                 related_entities=False, binary_count_vectorizer=False):
+
         ContextAwareLinker.__init__(self)
         print("Model directory:", model_dir)
         self._params = {}
@@ -27,8 +29,9 @@ class SparseLinker(ContextAwareLinker):
         self._params["description"] = description
         self._params["use_overlap"] = use_overlap
         self._params["stop_words"] = stop_words
-        self._params["count_vectorizer_is_binary"] = False
-        
+        self._params["binary_count_vectorizer"] = binary_count_vectorizer
+        self._params["related_entities"] = related_entities
+
         vectorizer_filename = "vectorizer.pkl"
         candidate2index_filename = "candidate2index.pkl"
         params_filename = "params.json"
@@ -99,7 +102,7 @@ class SparseLinker(ContextAwareLinker):
         self._params["num_phrases"] = len(phrases)
         print("Number of phrases:", len(phrases))
         
-        self._phrase2candidates = self.get_phrase_candidates(phrases)
+        self._phrase2candidates = self.get_phrase_candidates(phrases, self._params["related_entities"])
 
         # get candidates for the phrases
         candidates = set()
@@ -135,7 +138,7 @@ class SparseLinker(ContextAwareLinker):
             self._vectorizer = TfidfVectorizer(stop_words=stopwords)
         else:
             self._vectorizer = CountVectorizer(
-                binary=self._params["count_vectorizer_is_binary"],
+                binary=self._params["binary_count_vectorizer"],
                 stop_words=stopwords)
 
         self._vectors = self._vectorizer.fit_transform(corpus)
