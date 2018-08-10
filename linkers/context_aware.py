@@ -141,6 +141,7 @@ class ContextAwareLinker(BaselineLinker):
                         c = self._build_candidate(hit)
                         phrase2candidates[phrase].add(c)
 
+                        # optionall add related
                         related_num = 0
                         for relation_type in c.relations:
                             for related_entity_id in c.relations[relation_type]:
@@ -180,12 +181,13 @@ class ContextAwareLinker(BaselineLinker):
         db_uri = self._extract_db_uri(hit)
         score = float(hit["importance"])
         link = self._get_dbpedia_uri(wiki_uri, uris)
+        types = hit["types"] if "types" in hit else []
 
         c = Candidate(score,
                       self._get_name(hit),
                       link,
                       wiki_uri,
-                      hit["types"],
+                      types,
                       self._get_en_names(hit),
                       uris,
                       texts,

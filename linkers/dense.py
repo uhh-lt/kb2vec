@@ -22,11 +22,13 @@ class DenseLinker(SparseLinker):
         self._wv = self._load_word_embbeddings(embeddings_fpath)
         self._stopwords = set(stopwords.words("english"))
 
-        print("Normalizing dense vectors...")
-        tic = time()
-        self._dense_vectors = normalize(self._dense_vectors)
-        print("Done in {:.2f} sec.".format(time() - tic))
-
+        if hasattr(self, '_dense_vectors'):
+            print("Normalizing dense vectors...")
+            tic = time()
+            self._dense_vectors = normalize(self._dense_vectors)
+            print("Done in {:.2f} sec.".format(time() - tic))
+        else:
+            print("Warning: no dense vectors could be found. You need to train the model first.")
 
     def print_most_similar(self, n=10, max_candidates=10, test_name="Seal"):
         test_phrases = make_phrases([test_name])

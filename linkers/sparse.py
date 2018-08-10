@@ -126,6 +126,7 @@ class SparseLinker(ContextAwareLinker):
 
             joblib.dump(self._candidate2index, self._candidate2index_fpath)
             print("Saved candidate2index:", self._candidate2index_fpath)
+            joblib.dump(self._phrase2candidates, self._phrase2candidates_fpath)
             print("Saved candidates:", self._candidates_fpath)
 
         # vectorize the text representations of the candidates
