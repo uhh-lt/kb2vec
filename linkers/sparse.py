@@ -118,6 +118,11 @@ class SparseLinker(ContextAwareLinker):
             corpus = []
             for index, candidate in enumerate(candidates):
                 corpus.append(candidate.text)
+
+                # if related_entityes then also also include text of them as well
+                if self._params["related_entities"]:
+                    pass
+
                 self._candidate2index[candidate] = index
 
                 out.write("{}\t{}\t{}\t{}\n".format(

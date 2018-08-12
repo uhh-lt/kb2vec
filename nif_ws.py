@@ -146,8 +146,9 @@ def random():
     
     return response
 
-dense_linker = DenseLinker("data/count-stopwords-3", "data/wiki-news-300d-1M.vec")
+# dense_linker = DenseLinker("data/count-stopwords-3", "data/wiki-news-300d-1M.vec")
 # dense_linker = DenseLinker("data/count-stopwords-3-cc", "data/crawl-300d-2M.vec")
+dense_linker = DenseLinker("data/count-stopwords-10", "data/crawl-300d-2M.vec")
 
 @app.route("/dense_overlap", methods=['POST'])
 def dense_overlap():
@@ -167,7 +168,8 @@ def dense_overlap():
 
 # sparse_linker = SparseLinker("data/all0")
 # sparse_linker = SparseLinker("data/tfidf-stopwords-2")
-sparse_linker = dense_linker # SparseLinker("data/count-stopwords-3")
+# sparse_linker =  SparseLinker("data/count-stopwords-3")
+sparse_linker =  SparseLinker("data/count-stopwords-10")
 
 @app.route("/sparse", methods=['POST'])
 def sparse():

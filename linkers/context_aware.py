@@ -159,9 +159,9 @@ class ContextAwareLinker(BaselineLinker):
                                     print("'{}'#{}: added entity {} which is {} to {}".format(
                                         phrase.text,
                                         related_num,
-                                        related_entity_id,
+                                        c.db_uri,
                                         relation_type,
-                                        c.db_uri))
+                                        related_entity_id))
                 except:
                     print("Warning: cannot process phrase '{}' of type '{}'".format(phrase.text, entity_type))
                     print(format_exc())
