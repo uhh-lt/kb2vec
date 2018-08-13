@@ -121,7 +121,14 @@ class SparseLinker(ContextAwareLinker):
 
                 # if related_entityes then also also include text of them as well
                 if self._params["related_entities"]:
-                    pass
+                    for relation_type in candidate.relations:
+                        for related_entity_id in candidate.relations[relation_type]:
+                            print(related_entity_id, self._phrase2candidates[related_entity_id])
+
+                            # the missing uris
+                            # http://diffbot.com/entity/ADvRyYeomNhuyZT6AmwdF5Q
+                            # http://diffbot.com/entity/AC9vI81odMNyoFrSH6W2f3Q
+                            # http://diffbot.com/entity/AkmGD0NewMcCvDGPRjOQzLQ
 
                 self._candidate2index[candidate] = index
 

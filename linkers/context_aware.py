@@ -156,7 +156,10 @@ class ContextAwareLinker(BaselineLinker):
                                     related_num += 1
                                     related_c = self._build_candidate(related_hit)
                                     phrase2candidates[related_entity_id].add(related_c)
-                                    print("'{}'#{}: added entity {} which is {} to {}".format(
+                                    if related_c.db_uri != related_entity_id:
+                                        phrase2candidates[related_c.db_uri].add(related_c)
+
+                                    print("'{}'#{}: added entity {} which is '{}' to {}".format(
                                         phrase.text,
                                         related_num,
                                         c.db_uri,
