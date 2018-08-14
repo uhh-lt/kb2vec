@@ -202,7 +202,9 @@ class SparseLinker(ContextAwareLinker):
             if has_link:
                 linked_candidates.append(candidate)
 
-        print("Warning: keeping {} of {} candidates that are Wikipedia-linked.")
+        print("Warning: keeping {} of {} candidates that are Wikipedia-linked.".format(
+            len(linked_candidates), len(candidates)))
+
         return linked_candidates
 
     def link(self, context, phrases):       
