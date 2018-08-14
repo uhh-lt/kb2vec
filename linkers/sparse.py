@@ -20,7 +20,7 @@ from traceback import format_exc
 
 class SparseLinker(ContextAwareLinker):
     def __init__(self, model_dir, tfidf=True, use_overlap=True, description="", stop_words=True,
-                 related_entities=False, binary_count_vectorizer=False):
+                 related_entities=False, binary_count_vectorizer=False, wiki_only=False):
 
         ContextAwareLinker.__init__(self)
         print("Model directory:", model_dir)
@@ -31,6 +31,7 @@ class SparseLinker(ContextAwareLinker):
         self._params["stop_words"] = stop_words
         self._params["binary_count_vectorizer"] = binary_count_vectorizer
         self._params["related_entities"] = related_entities
+        self._params["wiki_only"] = wiki_only
 
         vectorizer_filename = "vectorizer.pkl"
         candidate2index_filename = "candidate2index.pkl"
@@ -194,6 +195,16 @@ class SparseLinker(ContextAwareLinker):
         text = phrase.text.strip()
         return Phrase(text, 1, len(text), "http://" + text)
 
+    def _filter_non_linked(self, candidates):
+        linked_candidates = []
+        for candidate in candidates:
+            has_link = candidate.link != ""
+            if has_link:
+                linked_candidates.append(candidate)
+
+        print("Warning: keeping {} of {} candidates that are Wikipedia-linked.")
+        return linked_candidates
+
     def link(self, context, phrases):       
         linked_phrases = []
         context_vector = self._vectorizer.transform([context])
@@ -203,7 +214,10 @@ class SparseLinker(ContextAwareLinker):
                 dphrase = self._default_phrase(phrase)
                 if dphrase in self._phrase2candidates:
                     # get the candidates
-                    candidates = list(self._phrase2candidates[dphrase]) # to remove
+                    candidates = list(self._phrase2candidates[dphrase])
+                    if self._params["wiki_only"]:
+                        candidates = self._filter_non_linked(candidates)
+
                     indices = []
                     for candidate in candidates:
                         if candidate in self._candidate2index:
