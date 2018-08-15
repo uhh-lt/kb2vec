@@ -31,7 +31,9 @@ class SparseLinker(ContextAwareLinker):
         self._params["stop_words"] = stop_words
         self._params["binary_count_vectorizer"] = binary_count_vectorizer
         self._params["related_entities"] = related_entities
+        self._params["related_entities_factor"] = 3 # text of related entities 3 times less important than the entity text
         self._params["wiki_only"] = wiki_only
+
 
         vectorizer_filename = "vectorizer.pkl"
         candidate2index_filename = "candidate2index.pkl"
@@ -118,18 +120,20 @@ class SparseLinker(ContextAwareLinker):
             self._candidate2index = {}
             corpus = []
             for index, candidate in enumerate(candidates):
-                corpus.append(candidate.text)
+                candidate_texts = [candidate.text]
 
                 # if related_entityes then also also include text of them as well
                 if self._params["related_entities"]:
+                    candidate_texts *= self._params["related_entities_factor"]
+
                     for relation_type in candidate.relations:
                         for related_entity_id in candidate.relations[relation_type]:
-                            print(related_entity_id, self._phrase2candidates[related_entity_id])
+                            related_entity = self._phrase2candidates[related_entity_id]
+                            if len(related_entity) == 0: continue
+                            related_entity = list(related_entity)[0]
 
-                            # the missing uris
-                            # http://diffbot.com/entity/ADvRyYeomNhuyZT6AmwdF5Q
-                            # http://diffbot.com/entity/AC9vI81odMNyoFrSH6W2f3Q
-                            # http://diffbot.com/entity/AkmGD0NewMcCvDGPRjOQzLQ
+                            candidate_texts.append(related_entity.text)
+
 
                 self._candidate2index[candidate] = index
 
@@ -139,6 +143,8 @@ class SparseLinker(ContextAwareLinker):
                     candidate.text,
                     "; ".join(candidate.uris)
                 ))
+
+                corpus.append(" ".join(candidate_texts))
 
             joblib.dump(self._candidate2index, self._candidate2index_fpath)
             print("Saved candidate2index:", self._candidate2index_fpath)
