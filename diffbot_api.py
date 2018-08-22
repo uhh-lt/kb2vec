@@ -5,6 +5,7 @@ import grequests
 from sqlitedict import SqliteDict
 from utils import ROOT_DIR
 from os.path import join
+from time import time
 
 
 endpoint_diffbot = "http://kg.diffbot.com/kg/dql_endpoint"
