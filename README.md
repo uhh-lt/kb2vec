@@ -27,7 +27,7 @@ which will run at ``http://localhost:5000``
 GERBIL NIF-based evaluation server (from the ``gerbil`` directory):
 
 ```
-start.sh
+bash start.sh
 ```
 
 which will run at ``http://localhost:1234/gerbil``
