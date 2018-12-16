@@ -7,7 +7,7 @@ from sqlitedict import SqliteDict
 
 class Graph:
     def __init__(self, logfile='output.log'):
-        self._G = nx.Graph()
+        self._G = nx.DiGraph()
         # create logger
         self._logger = logging.getLogger('construct_graph')
         self._logger.setLevel(logging.DEBUG)
@@ -67,6 +67,10 @@ class Graph:
                 self._logger.info(str(count) + ' nodes are processed..')
 
             count += 1
+
+        longabsdb.close()
+        labelsdb.close()
+        lookupdb.close()
 
     # takes file a parameter:
     # file contains edge at each line, like (1, 2).
