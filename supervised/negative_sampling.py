@@ -118,6 +118,7 @@ def read_negative_samples_with_positive_samples(path):
         splitted = line.split('\t')
         entity, beg, end, true_url, context, negative_samples = splitted[0], int(splitted[1]), int(splitted[2]), \
                                             splitted[3], splitted[4], splitted[5:]
+
         positives_negatives.append([entity, beg, end, true_url, context, negative_samples])
 
     return positives_negatives
@@ -140,10 +141,10 @@ def read_samples(path):
     return contexts, phrases
 
 
-def create_keywords_from_url(urls_db):
+def create_keywords_from_url(url_db):
     url_keywords = dict()
 
-    db = SqliteDict(urls_db, autocommit=False)
+    db = SqliteDict(url_db, autocommit=False)
     urls = db.keys()
     lemmatizer = WordNetLemmatizer()
 
@@ -206,7 +207,14 @@ def create_negative_samples_with_positive_samples(urls_db, contexts, phrases):
 
     urls = url_keywords.keys()
     keys = phrases.keys()
+    count = 0
+
+    print(len(keys))
+
     for key in keys:
+        if count % 100 == 0:
+            print(count)
+        count += 1
         entity, beg, end, true_url = phrases[key]
         negatives = [(entity, beg, end, true_url, contexts[key])]
 
@@ -215,6 +223,12 @@ def create_negative_samples_with_positive_samples(urls_db, contexts, phrases):
             keywords = url_keywords[candidate_url]
 
             words = entity.split()
+
+            if "–" in entity:
+                words = entity.split("–")
+            elif "-" in entity:
+                words = entity.split("-")
+
             for word in words:
                 word = lemmatizer.lemmatize(word.lower())
                 if word in keywords and candidate_url != true_url:
@@ -223,6 +237,8 @@ def create_negative_samples_with_positive_samples(urls_db, contexts, phrases):
                     break
 
         negatives.extend(negative_samples)
+        if len(negative_samples) == 0:
+            print(entity)
         positive_negatives.append(negatives)
 
     return positive_negatives
@@ -246,13 +262,21 @@ def filter_negative_samples_randomly(positives_negatives, url_db, n=10):
             # if not, skip it.
             continue
 
+        addition = list()
+
         # if it does not have negative samples, then completely random samples are created.
-        if len(negative_samples) == 0:
+        length = len(negative_samples)
+        if length == 0:
             negative_samples = urls
+        elif length < n:
+            shuffle(urls)
+            size = n - len(negative_samples)
+            addition = urls[:size]
 
         shuffle(negative_samples)
 
         filtered_sample = [(entity, beg, end, true_url, context)]
+        negative_samples.extend(addition)
         filtered_sample.extend(negative_samples[:n])
         filtered_samples.append(filtered_sample)
 
@@ -295,13 +319,50 @@ def filter_negative_samples_closest(positives_negatives, url_db, pagerank_db, n=
 
         sorted_samples = [url for url in sorted(negativeurl_score, key=negativeurl_score.get, reverse=True)]
 
+        addition = list()
+
         # if it does not have negative samples, then completely random samples are created.
-        if len(negative_samples) == 0:
+        length = len(negative_samples)
+        if length == 0:
             sorted_samples = urls
             shuffle(sorted_samples)
+        elif length < n:
+            shuffle(urls)
+            size = n - len(negative_samples)
+            addition = urls[:size]
 
         filtered_sample = [(entity, beg, end, true_url, context)]
+        sorted_samples.extend(addition)
         filtered_sample.extend(sorted_samples[:n])
         filtered_samples.append(filtered_sample)
 
     return filtered_samples
+
+
+def create_completely_random(urls_db, contexts, phrases, n=10):
+    samples = list()
+
+    db = SqliteDict(urls_db, autocommit=False)
+    url_keys = db.keys()
+    urls = [url for url in url_keys]
+
+    keys = phrases.keys()
+    count = 0
+
+    print(len(keys))
+
+    for key in keys:
+        if count % 100 == 0:
+            print(count)
+        count += 1
+        entity, beg, end, true_url = phrases[key]
+        negatives = [(entity, beg, end, true_url, contexts[key])]
+
+        shuffle(urls)
+
+        negative_samples = urls[:n]
+        negatives.extend(negative_samples)
+        samples.append(negatives)
+
+    return samples
+
