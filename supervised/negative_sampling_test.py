@@ -1,5 +1,4 @@
 from supervised import negative_sampling
-
 import codecs
 
 
@@ -48,20 +47,21 @@ positive_negatives = negative_sampling.\
 filtered_samples = negative_sampling.\
     filter_negative_samples_closest(positives_negatives=positive_negatives,
                                                    url_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db',
-                                                   pagerank_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/pagerank.db', n=3)
+                                                   pagerank_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/pagerank.db', n=10)
 print('starts to write')
 negative_sampling.write_negative_samples_with_positive_samples(positive_negatives=filtered_samples,
-                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_closest_3.tsv')
+                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_closest_10.tsv')
+
 ''' 
 # random sampling
 
 positive_negatives = negative_sampling.read_negative_samples_with_positive_samples(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_with_positives_V2.tsv')
 filtered_samples = negative_sampling.filter_negative_samples_randomly(positives_negatives=positive_negatives,
                                                    url_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db',
-                                                    n=5)
+                                                    n=10)
 print('starts to write')
 negative_sampling.write_negative_samples_with_positive_samples(positive_negatives=filtered_samples,
-                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_randomly_5.tsv')
+                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_randomly_10.tsv')
 
 '''
 #input_ttl_fpaths = ["/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/dbpedia-spotlight-nif.ttl"]

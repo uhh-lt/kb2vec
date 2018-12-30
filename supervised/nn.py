@@ -6,6 +6,7 @@ from nltk.tokenize import RegexpTokenizer
 import numpy as np
 from random import shuffle
 import argparse
+from sklearn.model_selection import KFold
 from tensorflow.contrib.tensorboard.plugins import projector
 
 
@@ -236,21 +237,39 @@ if __name__ == "__main__":
             config = projector.ProjectorConfig()
 
             train_summary_op = tf.summary.merge_all()
-            #summary_writer = tf.summary.FileWriter('nn.log', sess.graph)
-            #projector.visualize_embeddings(summary_writer, config)
+            summary_writer = tf.summary.FileWriter('nn.log', sess.graph)
+            projector.visualize_embeddings(summary_writer, config)
 
             sess.run(tf.global_variables_initializer())
 
-            for epoch in range(training_epochs):
-                _, current_loss = sess.run([optimizer, loss], feed_dict={X: inputs, y: outputs})
+            # adding cross-validation
+            kf = KFold(n_splits=5)
+            k = 0
+            for train_id, val_id in kf.split(inputs, outputs):
+                train_inputs = inputs[train_id]
+                train_outputs = outputs[train_id]
 
-                if epoch % 100==0 and epoch != 0:
-                    print(current_loss)
-                    print("Training Accuracy:", accuracy.eval({X: inputs, y: outputs}))
-                    print("Precision:", precision.eval({X: inputs, y: outputs}),
-                          "Recall:", recall.eval({X: inputs, y: outputs}), "F1:", f1.eval({X: inputs, y: outputs}))
-                    summary_str = sess.run(train_summary_op, feed_dict={X: inputs, y: outputs})
-                    #summary_writer.add_summary(summary_str, epoch)
+                val_inputs = inputs[val_id]
+                val_outputs = outputs[val_id]
+
+                for epoch in range(training_epochs):
+                    _, current_loss = sess.run([optimizer, loss], feed_dict={X: train_inputs, y: train_outputs})
+
+                    if epoch % 500==0 and epoch != 0:
+                        # print(current_loss)
+                        print("K is", k)
+                        print("Training Accuracy:", accuracy.eval({X: train_inputs, y: train_outputs}))
+                        print("Precision:", precision.eval({X: train_inputs, y: train_outputs}),
+                              "Recall:", recall.eval({X: train_inputs, y: train_outputs}),
+                              "F1:", f1.eval({X: train_inputs, y: train_outputs}))
+                        summary_str = sess.run(train_summary_op, feed_dict={X: train_inputs, y: train_outputs})
+                        summary_writer.add_summary(summary_str, epoch)
+
+                k += 1
+                print("Cross-validation results; acc:", accuracy.eval({X: val_inputs, y: val_outputs}),
+                      "precision:", precision.eval({X: val_inputs, y: val_outputs}),
+                      "recall:", recall.eval({X: val_inputs, y: val_outputs}),
+                      "F1:", f1.eval({X: val_inputs, y: val_outputs}))
 
             # Test model
             pred = tf.nn.sigmoid(yhat)
@@ -259,7 +278,7 @@ if __name__ == "__main__":
             accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
             print("Training Accuracy:", accuracy.eval({X: inputs, y: outputs}))
             print("Training Precision:", precision.eval({X: inputs, y: outputs}),
-                  "Training Recall:", recall.eval({X: inputs, y: outputs}), " Training F1:", f1.eval({X: inputs, y: outputs}))
+                  "Training Recall:", recall.eval({X: inputs, y: outputs}), "Training F1:", f1.eval({X: inputs, y: outputs}))
 
             print("Test Accuracy:", accuracy.eval({X: test_inputs, y: test_outputs}))
             print("Test Precision:", precision.eval({X: test_inputs, y: test_outputs}),
