@@ -7,6 +7,7 @@ import numpy as np
 from random import shuffle
 import argparse
 from sklearn.model_selection import KFold
+from sklearn.metrics import classification_report
 from tensorflow.contrib.tensorboard.plugins import projector
 
 
@@ -167,6 +168,28 @@ def get_parameters():
            args.learning_rate, args.training_epochs, args.h1_size, args.h2_size
 
 
+def forward_propagation(x_size, y_size, h1_size, h2_size):
+    # Weight initializations
+    weights = {
+        'w1': tf.Variable(tf.random_normal([x_size, h1_size])),
+        'w2': tf.Variable(tf.random_normal([h1_size, h2_size])),
+        'out': tf.Variable(tf.random_normal([h2_size, y_size]))
+    }
+
+    biases = {
+        'b1': tf.Variable(tf.random_normal([h1_size])),
+        'b2': tf.Variable(tf.random_normal([h2_size])),
+        'out': tf.Variable(tf.random_normal([y_size]))
+    }
+
+    # Forward propagation
+    h1 = tf.add(tf.matmul(X, weights['w1']), biases['b1'])
+    h2 = tf.add(tf.matmul(h1, weights['w2']), biases['b2'])
+    yhat = tf.add(tf.matmul(h2, weights['out']), biases['out'])
+
+    return yhat
+
+
 if __name__ == "__main__":
     training_corpus, path_graphembed, path_doc2vec, path_lookupdb, path_longabsdb, \
     learning_rate, training_epochs, h1_size, h2_size = get_parameters()
@@ -186,24 +209,8 @@ if __name__ == "__main__":
     X = tf.placeholder(tf.float32, shape=[None, x_size])
     y = tf.placeholder(tf.float32, shape=[None, y_size])
 
-    # Weight initializations
-    weights = {
-        'w1': tf.Variable(tf.random_normal([x_size, h1_size])),
-        'w2': tf.Variable(tf.random_normal([h1_size, h2_size])),
-        'out': tf.Variable(tf.random_normal([h2_size, y_size]))
-    }
-
-    biases = {
-        'b1': tf.Variable(tf.random_normal([h1_size])),
-        'b2': tf.Variable(tf.random_normal([h2_size])),
-        'out': tf.Variable(tf.random_normal([y_size]))
-    }
-
-
     # Forward propagation
-    h1 = tf.add(tf.matmul(X, weights['w1']), biases['b1'])
-    h2 = tf.add(tf.matmul(h1, weights['w2']), biases['b2'])
-    yhat = tf.add(tf.matmul(h2, weights['out']), biases['out'])
+    yhat = forward_propagation(x_size, y_size, h1_size, h2_size)
 
     # Backward propagation
     loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=yhat, targets=y))
@@ -216,7 +223,6 @@ if __name__ == "__main__":
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
     # Precision, Recall, F1
-
     TP = tf.count_nonzero(tf.round(pred) * y)
     TN = tf.count_nonzero((tf.round(pred) - 1) * (y - 1))
     FP = tf.count_nonzero(tf.round(pred) * (y - 1))
@@ -274,6 +280,10 @@ if __name__ == "__main__":
             # Test model
             pred = tf.nn.sigmoid(yhat)
             correct_prediction = tf.equal(tf.round(pred), y)
+
+            report = classification_report(y_true=outputs, y_pred=tf.round(pred).eval({X: inputs, y: outputs}))
+
+            print("Report", report)
 
             accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
             print("Training Accuracy:", accuracy.eval({X: inputs, y: outputs}))
