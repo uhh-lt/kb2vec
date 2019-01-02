@@ -131,7 +131,7 @@ def get_parameters():
                              " in the format -- positive sample, starting location of the ambigous word, "
                              "endinglocation of the ambigous word , true_url, context, negative_samples_urls -- "
                              "seperated by the tabs in text form.",
-                        default='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_randomly_10.tsv')
+                        default='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_randomly_3.tsv')
 
     parser.add_argument('-graph_embedding', help="Path for the pretrained embeddings of a graph "
                                                  "there is an embedding for each node in the entity graph.",
@@ -150,11 +150,11 @@ def get_parameters():
                                                    "and values contain the long abstracts of each entity.",
                         default='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/long_abstracts.db')
 
-    parser.add_argument('-learning_rate', help="Learning rate for the optimizer in neural network (default 0.00005).",
+    parser.add_argument('-learning_rate', help="Learning rate for the optimizer in neural network (default 0.005).",
                         default=0.005, type=float)
 
-    parser.add_argument('-training_epochs', help="The number of epochs to train the neural network (default 900).",
-                        default=150000, type=int)
+    parser.add_argument('-training_epochs', help="The number of epochs to train the neural network (default 15000).",
+                        default=15000, type=int)
 
     parser.add_argument('-h1_size', help="The size of the first hidden layer the neural network (default 100).",
                         default=100, type=int)
@@ -162,37 +162,50 @@ def get_parameters():
     parser.add_argument('-h2_size', help="The size of the second hidden layer the neural network (default 100).",
                         default=100, type=int)
 
+    parser.add_argument('-h3_size', help="The size of the third hidden layer the neural network "
+                                         "(default 0, means no third hidden layer!).",
+                        default=0, type=int)
+
     args = parser.parse_args()
 
     return args.training_corpus, args.graph_embedding, args.doc2vec, args.lookup_db, args.long_abstracts_db, \
-           args.learning_rate, args.training_epochs, args.h1_size, args.h2_size
+           args.learning_rate, args.training_epochs, args.h1_size, args.h2_size, args.h3_size
 
 
-def forward_propagation(x_size, y_size, h1_size, h2_size):
+def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size):
     # Weight initializations
     weights = {
         'w1': tf.Variable(tf.random_normal([x_size, h1_size])),
         'w2': tf.Variable(tf.random_normal([h1_size, h2_size])),
-        'out': tf.Variable(tf.random_normal([h2_size, y_size]))
+        'w3': tf.Variable(tf.random_normal([h2_size, h3_size]))
     }
 
     biases = {
         'b1': tf.Variable(tf.random_normal([h1_size])),
         'b2': tf.Variable(tf.random_normal([h2_size])),
+        'b3': tf.Variable(tf.random_normal([h3_size])),
         'out': tf.Variable(tf.random_normal([y_size]))
     }
 
     # Forward propagation
     h1 = tf.add(tf.matmul(X, weights['w1']), biases['b1'])
     h2 = tf.add(tf.matmul(h1, weights['w2']), biases['b2'])
-    yhat = tf.add(tf.matmul(h2, weights['out']), biases['out'])
+    h3 = tf.nn.tanh(tf.add(tf.matmul(h2, weights['w3']), biases['b3']))
+
+    # if h3 is specified
+    if h3_size:
+        weights['out'] = tf.Variable(tf.random_normal([h3_size, y_size]))
+        yhat = tf.add(tf.matmul(h3, weights['out']), biases['out'])
+    else:
+        weights['out'] = tf.Variable(tf.random_normal([h2_size, y_size]))
+        yhat = tf.add(tf.matmul(h2, weights['out']), biases['out'])
 
     return yhat
 
 
 if __name__ == "__main__":
     training_corpus, path_graphembed, path_doc2vec, path_lookupdb, path_longabsdb, \
-    learning_rate, training_epochs, h1_size, h2_size = get_parameters()
+    learning_rate, training_epochs, h1_size, h2_size, h3_size = get_parameters()
 
     graph_embeds, doc2vec = load_embeds(path_graphembed, path_doc2vec)
     lookupdb, longabsdb = load_db(path_lookupdb, path_longabsdb)
@@ -201,7 +214,7 @@ if __name__ == "__main__":
 
     print(inputs.shape, outputs.shape)
 
-    # Layer's sizes
+    # Input-output layers sizes
     x_size = inputs.shape[1]
     y_size = outputs.shape[1]
 
@@ -210,7 +223,7 @@ if __name__ == "__main__":
     y = tf.placeholder(tf.float32, shape=[None, y_size])
 
     # Forward propagation
-    yhat = forward_propagation(x_size, y_size, h1_size, h2_size)
+    yhat = forward_propagation(x_size, y_size, h1_size, h2_size, h3_size)
 
     # Backward propagation
     loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=yhat, targets=y))
@@ -262,7 +275,7 @@ if __name__ == "__main__":
                     _, current_loss = sess.run([optimizer, loss], feed_dict={X: train_inputs, y: train_outputs})
 
                     if epoch % 500==0 and epoch != 0:
-                        # print(current_loss)
+                        #print(current_loss)
                         print("K is", k)
                         print("Training Accuracy:", accuracy.eval({X: train_inputs, y: train_outputs}))
                         print("Precision:", precision.eval({X: train_inputs, y: train_outputs}),
@@ -281,9 +294,11 @@ if __name__ == "__main__":
             pred = tf.nn.sigmoid(yhat)
             correct_prediction = tf.equal(tf.round(pred), y)
 
-            report = classification_report(y_true=outputs, y_pred=tf.round(pred).eval({X: inputs, y: outputs}))
+            print("Training Report", classification_report(y_true=outputs,
+                                                           y_pred=tf.round(pred).eval({X: inputs, y: outputs})))
 
-            print("Report", report)
+            print("Test Report", classification_report(y_true=test_outputs,
+                                                       y_pred=tf.round(pred).eval({X: test_inputs, y: test_outputs})))
 
             accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
             print("Training Accuracy:", accuracy.eval({X: inputs, y: outputs}))
