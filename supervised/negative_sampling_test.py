@@ -1,4 +1,5 @@
 from supervised import negative_sampling
+import ttl
 import codecs
 
 
@@ -21,9 +22,9 @@ def check_written_file(contexts_r, phrases_r, contexts, phrases):
 
     return is_equal
 
-'''
+''' 
 # creating negative samples 
-contexts_r, phrases_r = negative_sampling.read_samples('/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/positive_samples.tsv')
+contexts_r, phrases_r = negative_sampling.read_samples('/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/positive_samples_new.tsv')
 print('positive samples are read..')
 negative_samples = negative_sampling.create_negative_samples_with_positive_samples(urls_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db',
                                            contexts=contexts_r, phrases=phrases_r)
@@ -31,58 +32,71 @@ negative_samples = negative_sampling.create_negative_samples_with_positive_sampl
 print(len(negative_samples))
 print('Writing started..')
 negative_sampling.write_negative_samples_with_positive_samples(positive_negatives=negative_samples,
-                       path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_with_positives_V2.tsv')
-
+                       path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_with_positives_new.tsv')
 '''
+
 # check samples
 #positive_negatives, count = negative_sampling.\
 #    read_negative_samples_with_positive_samples(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_with_positives.tsv')
 
 #print(len(positive_negatives), count)
-''' '''
+''' 
 
 # closest sampling
 positive_negatives = negative_sampling.\
-    read_negative_samples_with_positive_samples(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_with_positives_V2.tsv')
-filtered_samples = negative_sampling.\
-    filter_negative_samples_closest(positives_negatives=positive_negatives,
+    read_negative_samples_with_positive_samples(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_with_positives.tsv')
+filtered_samples = negative_sampling. \
+    filter_negative_samples_closest_with_scores(positives_negatives=positive_negatives,
                                                    url_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db',
                                                    pagerank_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/pagerank.db', n=10)
 print('starts to write')
-negative_sampling.write_negative_samples_with_positive_samples(positive_negatives=filtered_samples,
-                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_closest_10.tsv')
-
+negative_sampling.write_negative_samples_with_positive_samples_with_scores(positive_negatives=filtered_samples,
+                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/with_scores/negative_samples_filtered_closest_10.tsv')
+'''
 ''' 
 # random sampling
 
-positive_negatives = negative_sampling.read_negative_samples_with_positive_samples(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_with_positives_V2.tsv')
+positive_negatives = negative_sampling.read_negative_samples_with_positive_samples(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_with_positives_new.tsv')
 filtered_samples = negative_sampling.filter_negative_samples_randomly(positives_negatives=positive_negatives,
                                                    url_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db',
                                                     n=10)
 print('starts to write')
 negative_sampling.write_negative_samples_with_positive_samples(positive_negatives=filtered_samples,
-                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_randomly_10.tsv')
+                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_randomly_10_big.tsv')
 
 '''
-#input_ttl_fpaths = ["/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/dbpedia-spotlight-nif.ttl"]
-#input_ttl_fpaths = ["/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/kore50-nif.ttl"]
-#input_ttl_fpaths = ["/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/Reuters-128.ttl"]
+''' '''
+# completely random
+contexts_r, phrases_r = negative_sampling.read_samples('/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/positive_samples.tsv')
+samples = negative_sampling.create_completely_random(urls_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db',
+                                           contexts=contexts_r, phrases=phrases_r, n=10)
 
-'''
+print('starts to write')
+negative_sampling.write_negative_samples_with_positive_samples(positive_negatives=samples,
+                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_completely_random_10_big.tsv')
+
+
+def ttl2csv(list_of_paths, write_path):
+    for input_ttl_fpath in list_of_paths:
+        in_ttl = codecs.open(input_ttl_fpath, "r", "utf-8")
+
+        input_ttl = in_ttl.read()
+        graph, contexts, phrases = negative_sampling.parse_d2kb_ttl(input_ttl)
+
+        print(phrases)
+        print(contexts)
+
+        negative_sampling.write_positive_samples(contexts=contexts, phrases=phrases,
+                                                 path=write_path)
+
+
 input_ttl_fpaths = ["/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/dbpedia-spotlight-nif.ttl",
                     "/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/kore50-nif.ttl",
                     "/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/Reuters-128.ttl"]
 
-for input_ttl_fpath in input_ttl_fpaths:
-    in_ttl = codecs.open(input_ttl_fpath, "r", "utf-8")
+new_input_ttl_fpaths = ["/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/RSS-500.ttl",
+                    "/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/News-100.ttl"]
 
-    input_ttl = in_ttl.read()
-    graph, contexts, phrases = parse_d2kb_ttl(input_ttl)
-
-    print(phrases)
-    print(contexts)
-
-    #write_positive_samples(contexts=contexts, phrases=phrases,
-    #                       path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/positive_samples.tsv')
-'''
+#ttl2csv(new_input_ttl_fpaths,
+#        write_path="/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/positive_samples_new.tsv")
 
