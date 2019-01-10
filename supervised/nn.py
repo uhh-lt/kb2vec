@@ -171,28 +171,60 @@ def get_parameters():
                                          "(default 0, means no third hidden layer!).",
                         default=0, type=int)
 
+    parser.add_argument('-h4_size', help="The size of the fourth hidden layer the neural network "
+                                         "(default 0, means no fourth hidden layer!). (Note: if you specify this "
+                                         "layer but not previous ones, then all previous layers size become 100)",
+                        default=0, type=int)
+
+    parser.add_argument('-h5_size', help="The size of the fifth hidden layer the neural network "
+                                         "(default 0, means no fifth hidden layer!). (Note: if you specify this "
+                                         "layer but not previous ones, then all previous layers size become 100)",
+                        default=0, type=int)
+
+    parser.add_argument('-h6_size', help="The size of the sixth hidden layer the neural network "
+                                         "(default 0, means no sixth hidden layer!). (Note: if you specify this "
+                                         "layer but not previous ones, then all previous layers size become 100)",
+                        default=0, type=int)
+
     args = parser.parse_args()
 
     device = args.gpu
     if device != '/cpu':
         device = '/device:GPU:' + device
 
+    h3_size, h4_size, h5_size = args.h3_size, args.h4_size, args.h5_size
+    if args.h6_size != 0 and h5_size == 0:
+        h5_size = 100
+
+    if h5_size != 0 and h4_size == 0:
+        h4_size = 100
+
+    if h4_size != 0 and h3_size == 0:
+        h3_size = 100
+
     return args.training_corpus, args.graph_embedding, args.doc2vec, args.lookup_db, args.long_abstracts_db, \
-           args.learning_rate, args.training_epochs, args.h1_size, args.h2_size, args.h3_size, device
+           args.learning_rate, args.training_epochs, args.h1_size, args.h2_size, h3_size, h4_size, h5_size,\
+           args.h6_size, device
 
 
-def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size):
+def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size):
     # Weight initializations
     weights = {
         'w1': tf.Variable(tf.random_normal([x_size, h1_size])),
         'w2': tf.Variable(tf.random_normal([h1_size, h2_size])),
-        'w3': tf.Variable(tf.random_normal([h2_size, h3_size]))
+        'w3': tf.Variable(tf.random_normal([h2_size, h3_size])),
+        'w4': tf.Variable(tf.random_normal([h3_size, h4_size])),
+        'w5': tf.Variable(tf.random_normal([h4_size, h5_size])),
+        'w6': tf.Variable(tf.random_normal([h5_size, h6_size]))
     }
 
     biases = {
         'b1': tf.Variable(tf.random_normal([h1_size])),
         'b2': tf.Variable(tf.random_normal([h2_size])),
         'b3': tf.Variable(tf.random_normal([h3_size])),
+        'b4': tf.Variable(tf.random_normal([h4_size])),
+        'b5': tf.Variable(tf.random_normal([h5_size])),
+        'b6': tf.Variable(tf.random_normal([h6_size])),
         'out': tf.Variable(tf.random_normal([y_size]))
     }
 
@@ -200,9 +232,27 @@ def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size):
     h1 = tf.add(tf.matmul(X, weights['w1']), biases['b1'])
     h2 = tf.add(tf.matmul(h1, weights['w2']), biases['b2'])
     h3 = tf.nn.tanh(tf.add(tf.matmul(h2, weights['w3']), biases['b3']))
+    h4 = tf.nn.tanh(tf.add(tf.matmul(h3, weights['w4']), biases['b4']))
+    h5 = tf.nn.tanh(tf.add(tf.matmul(h4, weights['w5']), biases['b5']))
+    h6 = tf.nn.tanh(tf.add(tf.matmul(h5, weights['w6']), biases['b6']))
+
+    # if h6 is specified
+    if h6_size:
+        weights['out'] = tf.Variable(tf.random_normal([h6_size, y_size]))
+        yhat = tf.add(tf.matmul(h6, weights['out']), biases['out'])
+
+    # if h5 is specified
+    elif h5_size:
+        weights['out'] = tf.Variable(tf.random_normal([h5_size, y_size]))
+        yhat = tf.add(tf.matmul(h5, weights['out']), biases['out'])
+
+    # if h4 is specified
+    elif h4_size:
+        weights['out'] = tf.Variable(tf.random_normal([h4_size, y_size]))
+        yhat = tf.add(tf.matmul(h4, weights['out']), biases['out'])
 
     # if h3 is specified
-    if h3_size:
+    elif h3_size:
         weights['out'] = tf.Variable(tf.random_normal([h3_size, y_size]))
         yhat = tf.add(tf.matmul(h3, weights['out']), biases['out'])
     else:
@@ -214,7 +264,9 @@ def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size):
 
 if __name__ == "__main__":
     training_corpus, path_graphembed, path_doc2vec, path_lookupdb, path_longabsdb, \
-    learning_rate, training_epochs, h1_size, h2_size, h3_size, device = get_parameters()
+    learning_rate, training_epochs, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, device = get_parameters()
+
+    print('hidden sizes:', h1_size, h2_size, h3_size, h4_size, h5_size, h6_size)
 
     graph_embeds, doc2vec = load_embeds(path_graphembed, path_doc2vec)
     lookupdb, longabsdb = load_db(path_lookupdb, path_longabsdb)
@@ -232,7 +284,7 @@ if __name__ == "__main__":
     y = tf.placeholder(tf.float32, shape=[None, y_size])
 
     # Forward propagation
-    yhat = forward_propagation(x_size, y_size, h1_size, h2_size, h3_size)
+    yhat = forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size)
 
     # Backward propagation
     loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=yhat, targets=y))
