@@ -3,6 +3,7 @@ import codecs
 from sqlitedict import SqliteDict
 from nltk.stem import WordNetLemmatizer
 from random import shuffle
+from gensim.models import KeyedVectors
 
 A = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
 PHRASE = "#Phrase"
@@ -116,7 +117,10 @@ def write_negative_samples_with_positive_samples_with_scores(positive_negatives,
 
             str2write = entity + '\t' + str(beg) + '\t' + str(end) + '\t' + true_url + '\t' + context.strip()
             for negative_url in negatives:
-                if len(negative_url) > 1:
+                if len(negative_url) > 2:
+                    url, similarity, score = negative_url[0], negative_url[1], negative_url[2]
+                    str2write += '\t' + url.strip() + '\t' + str(similarity) + '\t' + str(score)
+                elif len(negative_url) > 1:
                     url, score = negative_url[0], negative_url[1]
                     str2write += '\t' + url.strip() + '\t' + str(score)
                 else:
@@ -138,6 +142,31 @@ def read_negative_samples_with_positive_samples(path):
                                             splitted[3], splitted[4], splitted[5:]
 
         positives_negatives.append([entity, beg, end, true_url, context, negative_samples])
+
+    return positives_negatives
+
+
+def read_negative_samples_with_positive_samples_with_scores(path):
+    positives_negatives = list()
+
+    with codecs.open(path, "r", "utf-8") as file:
+        lines = file.readlines()
+
+    for line in lines:
+        splitted = line.split('\t')
+        entity, beg, end, true_url, context, negative_samples = splitted[0], int(splitted[1]), int(splitted[2]), \
+                                                                splitted[3], splitted[4], splitted[5:]
+
+        negative_samples_scores = list()
+
+        index = 0
+        length = len(negative_samples)
+        while index < length:
+            negative_samples_scores.append((negative_samples[index].strip(), float(negative_samples[index+1].strip()),
+                                            float(negative_samples[index+2].strip())))
+            index += 3
+
+        positives_negatives.append([entity, beg, end, true_url, context, negative_samples_scores])
 
     return positives_negatives
 
@@ -357,6 +386,85 @@ def filter_negative_samples_closest(positives_negatives, url_db, pagerank_db, n=
         filtered_samples.append(filtered_sample)
 
     return filtered_samples
+
+
+def get_negative_samples_similarity_and_scores(positives_negatives, url_db, graphembed, pagerank_db):
+    filtered_samples = list()
+    url_keywords = create_keywords_from_url(url_db)
+    url_pagerank = SqliteDict(pagerank_db, autocommit=False)
+    db = SqliteDict(url_db, autocommit=False)
+
+    graph_embeds = KeyedVectors.load_word2vec_format(graphembed, binary=False)
+    print('graph_embeds are loaded')
+
+    for positive_negative in positives_negatives:
+        negativeurl_score = dict()
+        negativeurl_similarity = dict()
+        entity, beg, end, true_url, context, negative_samples = positive_negative[0], int(positive_negative[1]), int(positive_negative[2]),\
+                                                                positive_negative[3], positive_negative[4], positive_negative[5:][0]
+        try:
+            true_keywords = url_keywords[true_url]
+        except KeyError:
+            continue
+
+        union = set(entity.split()).union(set(true_keywords))
+
+        for negative_url in negative_samples:
+            negative_url = negative_url.strip()
+            try:
+                keywords = url_keywords[negative_url]
+            except KeyError:
+                continue
+
+            number_intersection = len(union.intersection(set(keywords)))
+            length = len(keywords)
+
+            page_rank = url_pagerank[negative_url]
+
+            negativeurl_score[negative_url] = number_intersection * page_rank / length
+
+            try:
+                negativeurl_similarity[negative_url] = graph_embeds.similarity(str(db[true_url]), str(db[negative_url]))
+            except:
+                continue
+        sorted_samples = [url for url in sorted(negativeurl_score, key=negativeurl_score.get, reverse=True)]
+
+        samples = list()
+        for sample in sorted_samples:
+            try:
+                samples.append((sample, negativeurl_similarity[sample], negativeurl_score[sample]))
+            except:
+                continue
+
+        filtered_sample = [(entity, beg, end, true_url, context)]
+        filtered_sample.extend(samples)
+        filtered_samples.append(filtered_sample)
+
+    return filtered_samples
+
+
+def prune_most_closest(positives_negatives, treshold=0.8, n=10):
+    pruned_samples = list()
+
+    for positive_negative in positives_negatives:
+        entity, beg, end, true_url, context, negative_samples = positive_negative[0], int(positive_negative[1]), int(positive_negative[2]), \
+                                                                positive_negative[3], positive_negative[4], positive_negative[5:][0]
+
+        samples = list()
+
+        for negative_sample in negative_samples:
+            if len(samples) < n:
+                sample, sim, score = negative_sample[0], negative_sample[1], negative_sample[2]
+                if sim < treshold:
+                    samples.append(sample)
+            else:
+                break
+
+        pruned_sample = [(entity, beg, end, true_url, context)]
+        pruned_sample.extend(samples)
+        pruned_samples.append(pruned_sample)
+
+    return pruned_samples
 
 
 def filter_negative_samples_closest_with_scores(positives_negatives, url_db, pagerank_db, n=10):

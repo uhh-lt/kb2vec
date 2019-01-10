@@ -41,7 +41,6 @@ negative_sampling.write_negative_samples_with_positive_samples(positive_negative
 
 #print(len(positive_negatives), count)
 ''' 
-
 # closest sampling
 positive_negatives = negative_sampling.\
     read_negative_samples_with_positive_samples(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_with_positives.tsv')
@@ -65,7 +64,7 @@ negative_sampling.write_negative_samples_with_positive_samples(positive_negative
                                              path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_randomly_10_big.tsv')
 
 '''
-''' '''
+''' 
 # completely random
 contexts_r, phrases_r = negative_sampling.read_samples('/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/positive_samples.tsv')
 samples = negative_sampling.create_completely_random(urls_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db',
@@ -74,6 +73,29 @@ samples = negative_sampling.create_completely_random(urls_db='/Users/sevgili/Ozg
 print('starts to write')
 negative_sampling.write_negative_samples_with_positive_samples(positive_negatives=samples,
                                              path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_completely_random_10_big.tsv')
+'''
+''' 
+# closest sampling with scores and similarity
+positive_negatives = negative_sampling.\
+    read_negative_samples_with_positive_samples(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_with_positives.tsv')
+
+sims_scores = negative_sampling.get_negative_samples_similarity_and_scores(positives_negatives=positive_negatives,
+                                                                           url_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db',
+                                                                           graphembed='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/nodes.embeddings',
+                                                                           pagerank_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/pagerank.db')
+
+print('starts to write')
+negative_sampling.write_negative_samples_with_positive_samples_with_scores(positive_negatives=sims_scores,
+                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/with_scores/negative_samples_sims_scores.tsv')
+'''
+# prune closest
+
+positive_negatives = negative_sampling.read_negative_samples_with_positive_samples_with_scores(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/with_scores/negative_samples_sims_scores.tsv')
+print('positive_negatives is read')
+pruned_samples = negative_sampling.prune_most_closest(positives_negatives=positive_negatives, n=3)
+print('samples is pruned')
+negative_sampling.write_negative_samples_with_positive_samples(positive_negatives=pruned_samples,
+                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_closest_pruned_3.tsv')
 
 
 def ttl2csv(list_of_paths, write_path):
