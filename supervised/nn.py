@@ -41,7 +41,8 @@ def create_input_from_sample_efficient(path, graph_embeds, doc2vec, lookupdb, lo
             try:
                 graph_embed = graph_embeds[str(lookupdb[true_url])]
             except KeyError:
-                continue
+                graph_embed = np.zeros(graph_embeds.vector_size)
+
             longabvec = doc2vec.infer_vector(tokenizer.tokenize(longab))
 
             inputvec = np.concatenate((np.array(wordvec), np.array(graph_embed),
@@ -59,7 +60,7 @@ def create_input_from_sample_efficient(path, graph_embeds, doc2vec, lookupdb, lo
                 try:
                     graph_embed = graph_embeds[str(lookupdb[negative_url])]
                 except KeyError:
-                    continue
+                    graph_embed = np.zeros(graph_embeds.vector_size)
 
                 longabvec = doc2vec.infer_vector(tokenizer.tokenize(longab))
 
