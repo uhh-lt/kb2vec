@@ -150,6 +150,10 @@ def get_parameters():
                                                    "and values contain the long abstracts of each entity.",
                         default='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/long_abstracts.db')
 
+    parser.add_argument('-gpu', help="The decision of cpu and gpu, if you would like to use gpu please give only number, e.g. -gpu 0"
+                                     "(default cpu).",
+                        default='/cpu')
+
     parser.add_argument('-learning_rate', help="Learning rate for the optimizer in neural network (default 0.005).",
                         default=0.005, type=float)
 
@@ -168,8 +172,12 @@ def get_parameters():
 
     args = parser.parse_args()
 
+    device = args.gpu
+    if device != '/cpu':
+        device = '/device:GPU:' + device
+
     return args.training_corpus, args.graph_embedding, args.doc2vec, args.lookup_db, args.long_abstracts_db, \
-           args.learning_rate, args.training_epochs, args.h1_size, args.h2_size, args.h3_size
+           args.learning_rate, args.training_epochs, args.h1_size, args.h2_size, args.h3_size, device
 
 
 def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size):
@@ -205,7 +213,7 @@ def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size):
 
 if __name__ == "__main__":
     training_corpus, path_graphembed, path_doc2vec, path_lookupdb, path_longabsdb, \
-    learning_rate, training_epochs, h1_size, h2_size, h3_size = get_parameters()
+    learning_rate, training_epochs, h1_size, h2_size, h3_size, device = get_parameters()
 
     graph_embeds, doc2vec = load_embeds(path_graphembed, path_doc2vec)
     lookupdb, longabsdb = load_db(path_lookupdb, path_longabsdb)
@@ -227,7 +235,7 @@ if __name__ == "__main__":
 
     # Backward propagation
     loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=yhat, targets=y))
-    optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss)
+    optimizer = tf.train.AdamOptimizer(learning_rate).minimize(loss)
 
     # -- metrics --
     # Accuracy
@@ -245,8 +253,8 @@ if __name__ == "__main__":
     recall = TP / (TP + FN)
     f1 = 2 * precision * recall / (precision + recall)
 
-    with tf.device('/cpu'):
-        with tf.Session() as sess:
+    with tf.device(device):
+        with tf.Session(config=tf.ConfigProto(allow_soft_placement=True, log_device_placement=True)) as sess:
             loss_summary = tf.summary.scalar('loss', loss)
             accuracy_summary = tf.summary.scalar('accuracy', accuracy)
             precision_summary = tf.summary.scalar('precision', precision)
@@ -276,11 +284,11 @@ if __name__ == "__main__":
 
                     if epoch % 500==0 and epoch != 0:
                         #print(current_loss)
-                        print("K is", k)
-                        print("Training Accuracy:", accuracy.eval({X: train_inputs, y: train_outputs}))
-                        print("Precision:", precision.eval({X: train_inputs, y: train_outputs}),
-                              "Recall:", recall.eval({X: train_inputs, y: train_outputs}),
-                              "F1:", f1.eval({X: train_inputs, y: train_outputs}))
+                        #print("K is", k)
+                        #print("Training Accuracy:", accuracy.eval({X: train_inputs, y: train_outputs}))
+                        #print("Precision:", precision.eval({X: train_inputs, y: train_outputs}),
+                        #      "Recall:", recall.eval({X: train_inputs, y: train_outputs}),
+                        #      "F1:", f1.eval({X: train_inputs, y: train_outputs}))
                         summary_str = sess.run(train_summary_op, feed_dict={X: train_inputs, y: train_outputs})
                         summary_writer.add_summary(summary_str, epoch)
 
