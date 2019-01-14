@@ -231,35 +231,50 @@ def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_s
     # Forward propagation
     h1 = tf.add(tf.matmul(X, weights['w1']), biases['b1'])
     h2 = tf.add(tf.matmul(h1, weights['w2']), biases['b2'])
-    h3 = tf.nn.tanh(tf.add(tf.matmul(h2, weights['w3']), biases['b3']))
-    h4 = tf.nn.tanh(tf.add(tf.matmul(h3, weights['w4']), biases['b4']))
-    h5 = tf.nn.tanh(tf.add(tf.matmul(h4, weights['w5']), biases['b5']))
-    h6 = tf.nn.tanh(tf.add(tf.matmul(h5, weights['w6']), biases['b6']))
+    h3 = tf.add(tf.matmul(h2, weights['w3']), biases['b3'])
+    h4 = tf.add(tf.matmul(h3, weights['w4']), biases['b4'])
+    h5 = tf.add(tf.matmul(h4, weights['w5']), biases['b5'])
+    h6 = tf.add(tf.matmul(h5, weights['w6']), biases['b6'])
 
     # if h6 is specified
     if h6_size:
         weights['out'] = tf.Variable(tf.random_normal([h6_size, y_size]))
+        h6 = tf.nn.tanh(h6)
+
         yhat = tf.add(tf.matmul(h6, weights['out']), biases['out'])
 
     # if h5 is specified
     elif h5_size:
         weights['out'] = tf.Variable(tf.random_normal([h5_size, y_size]))
+        h5 = tf.nn.tanh(h5)
+
         yhat = tf.add(tf.matmul(h5, weights['out']), biases['out'])
 
     # if h4 is specified
     elif h4_size:
         weights['out'] = tf.Variable(tf.random_normal([h4_size, y_size]))
+        h4 = tf.nn.tanh(h4)
+
         yhat = tf.add(tf.matmul(h4, weights['out']), biases['out'])
 
     # if h3 is specified
     elif h3_size:
         weights['out'] = tf.Variable(tf.random_normal([h3_size, y_size]))
+        h3 = tf.nn.tanh(h3)
+
         yhat = tf.add(tf.matmul(h3, weights['out']), biases['out'])
     else:
         weights['out'] = tf.Variable(tf.random_normal([h2_size, y_size]))
         yhat = tf.add(tf.matmul(h2, weights['out']), biases['out'])
 
     return yhat
+
+
+def train(sess, optimizer, loss, train_inputs, train_outputs, training_epochs):
+    sess.run(tf.global_variables_initializer())
+
+    for epoch in range(training_epochs):
+        _, current_loss = sess.run([optimizer, loss], feed_dict={X: train_inputs, y: train_outputs})
 
 
 if __name__ == "__main__":
@@ -320,7 +335,7 @@ if __name__ == "__main__":
             summary_writer = tf.summary.FileWriter('nn.log', sess.graph)
             projector.visualize_embeddings(summary_writer, config)
 
-            sess.run(tf.global_variables_initializer())
+            #sess.run(tf.global_variables_initializer())
 
             # adding cross-validation
             kf = KFold(n_splits=5)
@@ -332,6 +347,10 @@ if __name__ == "__main__":
                 val_inputs = inputs[val_id]
                 val_outputs = outputs[val_id]
 
+                train(sess=sess, optimizer=optimizer, loss=loss, train_inputs=train_inputs,
+                      train_outputs=train_outputs, training_epochs=training_epochs)
+
+                ''' 
                 for epoch in range(training_epochs):
                     _, current_loss = sess.run([optimizer, loss], feed_dict={X: train_inputs, y: train_outputs})
 
@@ -344,12 +363,16 @@ if __name__ == "__main__":
                         #      "F1:", f1.eval({X: train_inputs, y: train_outputs}))
                         summary_str = sess.run(train_summary_op, feed_dict={X: train_inputs, y: train_outputs})
                         summary_writer.add_summary(summary_str, epoch)
-
+                '''
                 k += 1
                 print("Cross-validation results; acc:", accuracy.eval({X: val_inputs, y: val_outputs}),
                       "precision:", precision.eval({X: val_inputs, y: val_outputs}),
                       "recall:", recall.eval({X: val_inputs, y: val_outputs}),
                       "F1:", f1.eval({X: val_inputs, y: val_outputs}))
+
+            # Train model
+            train(sess=sess, optimizer=optimizer, loss=loss, train_inputs=inputs,
+                  train_outputs=outputs, training_epochs=training_epochs)
 
             # Test model
             pred = tf.nn.sigmoid(yhat)
@@ -370,5 +393,3 @@ if __name__ == "__main__":
             print("Test Precision:", precision.eval({X: test_inputs, y: test_outputs}),
                   "Test Recall:", recall.eval({X: test_inputs, y: test_outputs}), " Test F1:",
                   f1.eval({X: test_inputs, y: test_outputs}))
-
-
