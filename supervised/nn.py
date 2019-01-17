@@ -186,6 +186,9 @@ def get_parameters():
                                          "layer but not previous ones, then all previous layers size become 100)",
                         default=0, type=int)
 
+    parser.add_argument('-l2_beta', help="The beta parameter of L2 loss (default 0, means no L2 loss!)",
+                        default=0.0, type=float)
+
     args = parser.parse_args()
 
     device = args.gpu
@@ -204,10 +207,10 @@ def get_parameters():
 
     return args.training_corpus, args.graph_embedding, args.doc2vec, args.lookup_db, args.long_abstracts_db, \
            args.learning_rate, args.training_epochs, args.h1_size, args.h2_size, h3_size, h4_size, h5_size,\
-           args.h6_size, device
+           args.h6_size, device, args.l2_beta
 
 
-def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size):
+def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, l2_beta):
     # Weight initializations
     weights = {
         'w1': tf.Variable(tf.random_normal([x_size, h1_size])),
@@ -246,14 +249,14 @@ def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_s
     # if h5 is specified
     elif h5_size:
         weights['out'] = tf.Variable(tf.random_normal([h5_size, y_size]))
-        h5 = tf.nn.tanh(h5)
+        h5 = tf.nn.sigmoid(h5)
 
         yhat = tf.add(tf.matmul(h5, weights['out']), biases['out'])
 
     # if h4 is specified
     elif h4_size:
         weights['out'] = tf.Variable(tf.random_normal([h4_size, y_size]))
-        h4 = tf.nn.tanh(h4)
+        h4 = tf.nn.sigmoid(h4)
 
         yhat = tf.add(tf.matmul(h4, weights['out']), biases['out'])
 
@@ -267,7 +270,20 @@ def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_s
         weights['out'] = tf.Variable(tf.random_normal([h2_size, y_size]))
         yhat = tf.add(tf.matmul(h2, weights['out']), biases['out'])
 
-    return yhat
+    l2_loss = 0.0
+    if l2_beta:
+        l2_loss = tf.nn.l2_loss(weights['w1']) + tf.nn.l2_loss(weights['w2'])
+        if h3_size:
+            l2_loss += tf.nn.l2_loss(weights['w3'])
+        if h4_size:
+            l2_loss += tf.nn.l2_loss(weights['w4'])
+        if h5_size:
+            l2_loss += tf.nn.l2_loss(weights['w5'])
+        if h6_size:
+            l2_loss += tf.nn.l2_loss(weights['w6'])
+        l2_loss = l2_beta * l2_loss
+
+    return yhat, l2_loss
 
 
 def train(sess, optimizer, loss, train_inputs, train_outputs, training_epochs):
@@ -279,7 +295,8 @@ def train(sess, optimizer, loss, train_inputs, train_outputs, training_epochs):
 
 if __name__ == "__main__":
     training_corpus, path_graphembed, path_doc2vec, path_lookupdb, path_longabsdb, \
-    learning_rate, training_epochs, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, device = get_parameters()
+    learning_rate, training_epochs, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, \
+    device, l2_beta = get_parameters()
 
     print('hidden sizes:', h1_size, h2_size, h3_size, h4_size, h5_size, h6_size)
 
@@ -299,10 +316,10 @@ if __name__ == "__main__":
     y = tf.placeholder(tf.float32, shape=[None, y_size])
 
     # Forward propagation
-    yhat = forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size)
+    yhat, l2_loss = forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, l2_beta)
 
     # Backward propagation
-    loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=yhat, targets=y))
+    loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=yhat, targets=y)+l2_loss)
     optimizer = tf.train.AdamOptimizer(learning_rate).minimize(loss)
 
     # -- metrics --
@@ -322,7 +339,8 @@ if __name__ == "__main__":
     f1 = 2 * precision * recall / (precision + recall)
 
     with tf.device(device):
-        with tf.Session(config=tf.ConfigProto(allow_soft_placement=True, log_device_placement=True)) as sess:
+        #with tf.Session(config=tf.ConfigProto(allow_soft_placement=True, log_device_placement=True)) as sess:
+        with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as sess:
             loss_summary = tf.summary.scalar('loss', loss)
             accuracy_summary = tf.summary.scalar('accuracy', accuracy)
             precision_summary = tf.summary.scalar('precision', precision)
@@ -338,8 +356,12 @@ if __name__ == "__main__":
             #sess.run(tf.global_variables_initializer())
 
             # adding cross-validation
+            cv_accuracies = list()
+            cv_precisions = list()
+            cv_recalls = list()
+            cv_f1s = list()
+
             kf = KFold(n_splits=5)
-            k = 0
             for train_id, val_id in kf.split(inputs, outputs):
                 train_inputs = inputs[train_id]
                 train_outputs = outputs[train_id]
@@ -356,7 +378,6 @@ if __name__ == "__main__":
 
                     if epoch % 500==0 and epoch != 0:
                         #print(current_loss)
-                        #print("K is", k)
                         #print("Training Accuracy:", accuracy.eval({X: train_inputs, y: train_outputs}))
                         #print("Precision:", precision.eval({X: train_inputs, y: train_outputs}),
                         #      "Recall:", recall.eval({X: train_inputs, y: train_outputs}),
@@ -364,11 +385,19 @@ if __name__ == "__main__":
                         summary_str = sess.run(train_summary_op, feed_dict={X: train_inputs, y: train_outputs})
                         summary_writer.add_summary(summary_str, epoch)
                 '''
-                k += 1
-                print("Cross-validation results; acc:", accuracy.eval({X: val_inputs, y: val_outputs}),
-                      "precision:", precision.eval({X: val_inputs, y: val_outputs}),
-                      "recall:", recall.eval({X: val_inputs, y: val_outputs}),
-                      "F1:", f1.eval({X: val_inputs, y: val_outputs}))
+                cv_accuracy, cv_precision, cv_recall, cv_f1 = accuracy.eval({X: val_inputs, y: val_outputs}), \
+                                                              precision.eval({X: val_inputs, y: val_outputs}), \
+                                                              recall.eval({X: val_inputs, y: val_outputs}), \
+                                                              f1.eval({X: val_inputs, y: val_outputs})
+                cv_accuracies.append(cv_accuracy)
+                cv_precisions.append(cv_precision)
+                cv_recalls.append(cv_recall)
+                cv_f1s.append(cv_f1)
+
+            print("Cross-validation results; acc:", cv_accuracies, "avg", np.average(cv_accuracies), "std", np.std(cv_accuracies),
+                  "precision:", cv_precisions, "avg", np.average(cv_precisions), "std", np.std(cv_precisions),
+                  "recall:", cv_recalls, "avg", np.average(cv_recalls), "std", np.std(cv_recalls),
+                  "F1:", cv_f1s, "avg", np.average(cv_f1s), "std", np.std(cv_f1s))
 
             # Train model
             train(sess=sess, optimizer=optimizer, loss=loss, train_inputs=inputs,
