@@ -128,9 +128,9 @@ def get_parameters():
                                                  'graph embeddings and doc2vec.')
 
     parser.add_argument('-training_corpus',
-                        help="Path to a training corpus contaning both positive and negative examples"
-                             " in the format -- positive sample, starting location of the ambigous word, "
-                             "endinglocation of the ambigous word , true_url, context, negative_samples_urls -- "
+                        help="Path for a training corpus containing both positive and negative examples"
+                             " in the format -- positive sample, starting location of the ambiguous word, "
+                             "ending location of the ambiguous word , true_url, context, negative_samples_urls -- "
                              "seperated by the tabs in text form.",
                         default='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_randomly_3.tsv')
 
@@ -151,8 +151,8 @@ def get_parameters():
                                                    "and values contain the long abstracts of each entity.",
                         default='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/long_abstracts.db')
 
-    parser.add_argument('-gpu', help="The decision of cpu and gpu, if you would like to use gpu please give only number, e.g. -gpu 0"
-                                     "(default cpu).",
+    parser.add_argument('-gpu', help="The decision of cpu and gpu, if you would like to use gpu please "
+                                     "give only number, e.g. -gpu 0 (default cpu).",
                         default='/cpu')
 
     parser.add_argument('-learning_rate', help="Learning rate for the optimizer in neural network (default 0.005).",
@@ -189,6 +189,9 @@ def get_parameters():
     parser.add_argument('-l2_beta', help="The beta parameter of L2 loss (default 0, means no L2 loss!)",
                         default=0.0, type=float)
 
+    parser.add_argument('-dropout', help="The keep probability of dropout (default 1.0, means dropout!)",
+                        default=1.0, type=float)
+
     args = parser.parse_args()
 
     device = args.gpu
@@ -207,7 +210,7 @@ def get_parameters():
 
     return args.training_corpus, args.graph_embedding, args.doc2vec, args.lookup_db, args.long_abstracts_db, \
            args.learning_rate, args.training_epochs, args.h1_size, args.h2_size, h3_size, h4_size, h5_size,\
-           args.h6_size, device, args.l2_beta
+           args.h6_size, device, args.l2_beta, args.dropout
 
 
 def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, l2_beta):
@@ -232,12 +235,12 @@ def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_s
     }
 
     # Forward propagation
-    h1 = tf.add(tf.matmul(X, weights['w1']), biases['b1'])
-    h2 = tf.add(tf.matmul(h1, weights['w2']), biases['b2'])
-    h3 = tf.add(tf.matmul(h2, weights['w3']), biases['b3'])
-    h4 = tf.add(tf.matmul(h3, weights['w4']), biases['b4'])
-    h5 = tf.add(tf.matmul(h4, weights['w5']), biases['b5'])
-    h6 = tf.add(tf.matmul(h5, weights['w6']), biases['b6'])
+    h1 = tf.nn.dropout(tf.add(tf.matmul(X, weights['w1']), biases['b1']), keep_prob)
+    h2 = tf.nn.dropout(tf.add(tf.matmul(h1, weights['w2']), biases['b2']), keep_prob)
+    h3 = tf.nn.dropout(tf.add(tf.matmul(h2, weights['w3']), biases['b3']), keep_prob)
+    h4 = tf.nn.dropout(tf.add(tf.matmul(h3, weights['w4']), biases['b4']), keep_prob)
+    h5 = tf.nn.dropout(tf.add(tf.matmul(h4, weights['w5']), biases['b5']), keep_prob)
+    h6 = tf.nn.dropout(tf.add(tf.matmul(h5, weights['w6']), biases['b6']), keep_prob)
 
     # if h6 is specified
     if h6_size:
@@ -286,17 +289,18 @@ def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_s
     return yhat, l2_loss
 
 
-def train(sess, optimizer, loss, train_inputs, train_outputs, training_epochs):
+def train(sess, optimizer, loss, train_inputs, train_outputs, training_epochs, keep_probability):
     sess.run(tf.global_variables_initializer())
 
     for epoch in range(training_epochs):
-        _, current_loss = sess.run([optimizer, loss], feed_dict={X: train_inputs, y: train_outputs})
+        _, current_loss = sess.run([optimizer, loss], feed_dict={X: train_inputs,
+                                                                 y: train_outputs, keep_prob:keep_probability})
 
 
 if __name__ == "__main__":
     training_corpus, path_graphembed, path_doc2vec, path_lookupdb, path_longabsdb, \
     learning_rate, training_epochs, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, \
-    device, l2_beta = get_parameters()
+    device, l2_beta, dropout = get_parameters()
 
     print('hidden sizes:', h1_size, h2_size, h3_size, h4_size, h5_size, h6_size)
 
@@ -314,6 +318,7 @@ if __name__ == "__main__":
     # Symbols
     X = tf.placeholder(tf.float32, shape=[None, x_size])
     y = tf.placeholder(tf.float32, shape=[None, y_size])
+    keep_prob = tf.placeholder(tf.float32)
 
     # Forward propagation
     yhat, l2_loss = forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, l2_beta)
@@ -370,7 +375,7 @@ if __name__ == "__main__":
                 val_outputs = outputs[val_id]
 
                 train(sess=sess, optimizer=optimizer, loss=loss, train_inputs=train_inputs,
-                      train_outputs=train_outputs, training_epochs=training_epochs)
+                      train_outputs=train_outputs, training_epochs=training_epochs, keep_probability=dropout)
 
                 ''' 
                 for epoch in range(training_epochs):
@@ -385,10 +390,10 @@ if __name__ == "__main__":
                         summary_str = sess.run(train_summary_op, feed_dict={X: train_inputs, y: train_outputs})
                         summary_writer.add_summary(summary_str, epoch)
                 '''
-                cv_accuracy, cv_precision, cv_recall, cv_f1 = accuracy.eval({X: val_inputs, y: val_outputs}), \
-                                                              precision.eval({X: val_inputs, y: val_outputs}), \
-                                                              recall.eval({X: val_inputs, y: val_outputs}), \
-                                                              f1.eval({X: val_inputs, y: val_outputs})
+                cv_accuracy, cv_precision, cv_recall, cv_f1 = accuracy.eval({X: val_inputs, y: val_outputs, keep_prob:1}), \
+                                                              precision.eval({X: val_inputs, y: val_outputs, keep_prob:1}), \
+                                                              recall.eval({X: val_inputs, y: val_outputs, keep_prob:1}), \
+                                                              f1.eval({X: val_inputs, y: val_outputs, keep_prob:1})
                 cv_accuracies.append(cv_accuracy)
                 cv_precisions.append(cv_precision)
                 cv_recalls.append(cv_recall)
@@ -401,24 +406,25 @@ if __name__ == "__main__":
 
             # Train model
             train(sess=sess, optimizer=optimizer, loss=loss, train_inputs=inputs,
-                  train_outputs=outputs, training_epochs=training_epochs)
+                  train_outputs=outputs, training_epochs=training_epochs, keep_probability=dropout)
 
             # Test model
             pred = tf.nn.sigmoid(yhat)
             correct_prediction = tf.equal(tf.round(pred), y)
 
             print("Training Report", classification_report(y_true=outputs,
-                                                           y_pred=tf.round(pred).eval({X: inputs, y: outputs})))
+                                                           y_pred=tf.round(pred).eval({X: inputs, y: outputs, keep_prob:dropout})))
 
             print("Test Report", classification_report(y_true=test_outputs,
-                                                       y_pred=tf.round(pred).eval({X: test_inputs, y: test_outputs})))
+                                                       y_pred=tf.round(pred).eval({X: test_inputs, y: test_outputs, keep_prob:1})))
 
             accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-            print("Training Accuracy:", accuracy.eval({X: inputs, y: outputs}))
-            print("Training Precision:", precision.eval({X: inputs, y: outputs}),
-                  "Training Recall:", recall.eval({X: inputs, y: outputs}), "Training F1:", f1.eval({X: inputs, y: outputs}))
+            print("Training Accuracy:", accuracy.eval({X: inputs, y: outputs, keep_prob:dropout}))
+            print("Training Precision:", precision.eval({X: inputs, y: outputs, keep_prob:dropout}),
+                  "Training Recall:", recall.eval({X: inputs, y: outputs, keep_prob:dropout}),
+                  "Training F1:", f1.eval({X: inputs, y: outputs, keep_prob:dropout}))
 
-            print("Test Accuracy:", accuracy.eval({X: test_inputs, y: test_outputs}))
-            print("Test Precision:", precision.eval({X: test_inputs, y: test_outputs}),
-                  "Test Recall:", recall.eval({X: test_inputs, y: test_outputs}), " Test F1:",
-                  f1.eval({X: test_inputs, y: test_outputs}))
+            print("Test Accuracy:", accuracy.eval({X: test_inputs, y: test_outputs, keep_prob:1}))
+            print("Test Precision:", precision.eval({X: test_inputs, y: test_outputs, keep_prob:1}),
+                  "Test Recall:", recall.eval({X: test_inputs, y: test_outputs, keep_prob:1}), " Test F1:",
+                  f1.eval({X: test_inputs, y: test_outputs, keep_prob:1}))
