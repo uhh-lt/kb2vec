@@ -192,6 +192,13 @@ def get_parameters():
     parser.add_argument('-dropout', help="The keep probability of dropout (default 1.0, means dropout!)",
                         default=1.0, type=float)
 
+    parser.add_argument('-num_filters', help="The number of filters for the first CNN layer (default 150)",
+                        default=150, type=int)
+
+    parser.add_argument('-cnn', help="The decision whether CNN is included to the architecture or not"
+                                     " (default False)",
+                        default=False, type=bool)
+
     args = parser.parse_args()
 
     device = args.gpu
@@ -210,10 +217,21 @@ def get_parameters():
 
     return args.training_corpus, args.graph_embedding, args.doc2vec, args.lookup_db, args.long_abstracts_db, \
            args.learning_rate, args.training_epochs, args.h1_size, args.h2_size, h3_size, h4_size, h5_size,\
-           args.h6_size, device, args.l2_beta, args.dropout
+           args.h6_size, device, args.l2_beta, args.dropout, args.num_filters, args.cnn
 
 
-def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, l2_beta):
+def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, l2_beta,
+                        cnn, num_filters):
+    if cnn:
+        # Convolution layer
+        filter = tf.Variable(tf.random_normal([num_filters, 1,1]))
+        input = tf.expand_dims(X, -1)
+        conv = tf.nn.conv1d(input, filter, stride=1, padding='SAME')
+
+        feedforward_input = tf.squeeze(conv, -1)
+    else:
+        feedforward_input = X
+
     # Weight initializations
     weights = {
         'w1': tf.Variable(tf.random_normal([x_size, h1_size])),
@@ -235,7 +253,7 @@ def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_s
     }
 
     # Forward propagation
-    h1 = tf.nn.dropout(tf.add(tf.matmul(X, weights['w1']), biases['b1']), keep_prob)
+    h1 = tf.nn.dropout(tf.add(tf.matmul(feedforward_input, weights['w1']), biases['b1']), keep_prob)
     h2 = tf.nn.dropout(tf.add(tf.matmul(h1, weights['w2']), biases['b2']), keep_prob)
     h3 = tf.nn.dropout(tf.add(tf.matmul(h2, weights['w3']), biases['b3']), keep_prob)
     h4 = tf.nn.dropout(tf.add(tf.matmul(h3, weights['w4']), biases['b4']), keep_prob)
@@ -300,7 +318,7 @@ def train(sess, optimizer, loss, train_inputs, train_outputs, training_epochs, k
 if __name__ == "__main__":
     training_corpus, path_graphembed, path_doc2vec, path_lookupdb, path_longabsdb, \
     learning_rate, training_epochs, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, \
-    device, l2_beta, dropout = get_parameters()
+    device, l2_beta, dropout, num_filters, cnn = get_parameters()
 
     print('hidden sizes:', h1_size, h2_size, h3_size, h4_size, h5_size, h6_size)
 
@@ -321,7 +339,8 @@ if __name__ == "__main__":
     keep_prob = tf.placeholder(tf.float32)
 
     # Forward propagation
-    yhat, l2_loss = forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, l2_beta)
+    yhat, l2_loss = forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size,
+                                        h5_size, h6_size, l2_beta, cnn, num_filters)
 
     # Backward propagation
     loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=yhat, targets=y)+l2_loss)
