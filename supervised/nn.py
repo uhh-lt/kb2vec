@@ -9,6 +9,7 @@ import argparse
 from sklearn.model_selection import KFold
 from sklearn.metrics import classification_report
 from tensorflow.contrib.tensorboard.plugins import projector
+import codecs
 
 
 def create_input_from_sample_efficient(path, graph_embeds, doc2vec, lookupdb, longabsdb):
@@ -192,12 +193,15 @@ def get_parameters():
     parser.add_argument('-dropout', help="The keep probability of dropout (default 1.0, means dropout!)",
                         default=1.0, type=float)
 
-    parser.add_argument('-num_filters', help="The number of filters for the first CNN layer (default 150)",
-                        default=150, type=int)
+    parser.add_argument('-num_filters', help="The number of filters for the first CNN layer (default 75)",
+                        default=75, type=int)
 
     parser.add_argument('-cnn', help="The decision whether CNN is included to the architecture or not"
                                      " (default False)",
                         default=False, type=bool)
+
+    parser.add_argument('-file2write', help="Path to write the results (default output.txt)",
+                        default='output.txt')
 
     args = parser.parse_args()
 
@@ -217,7 +221,7 @@ def get_parameters():
 
     return args.training_corpus, args.graph_embedding, args.doc2vec, args.lookup_db, args.long_abstracts_db, \
            args.learning_rate, args.training_epochs, args.h1_size, args.h2_size, h3_size, h4_size, h5_size,\
-           args.h6_size, device, args.l2_beta, args.dropout, args.num_filters, args.cnn
+           args.h6_size, device, args.l2_beta, args.dropout, args.num_filters, args.cnn, args.file2write
 
 
 def forward_propagation(x_size, y_size, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, l2_beta,
@@ -318,7 +322,14 @@ def train(sess, optimizer, loss, train_inputs, train_outputs, training_epochs, k
 if __name__ == "__main__":
     training_corpus, path_graphembed, path_doc2vec, path_lookupdb, path_longabsdb, \
     learning_rate, training_epochs, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size, \
-    device, l2_beta, dropout, num_filters, cnn = get_parameters()
+    device, l2_beta, dropout, num_filters, cnn, file2write = get_parameters()
+
+    f2write = codecs.open(file2write,  "a", "utf-8")
+    f2write.write('NEW RUN \n')
+    f2write.write('training_corpus ' + training_corpus + ' learning_rate ' + str(learning_rate) + ' training_epochs ' +
+                  str(training_epochs) + ' h1 ' + str(h1_size) + ' h2 ' + str(h2_size) + ' h3 ' + str(h3_size) + ' h4 ' +
+                  str(h4_size) + ' h5 ' + str(h5_size) + ' h6 ' + str(h6_size) + ' l2 ' + str(l2_beta) + ' dropout ' +
+                  str(dropout) + ' num filters ' + str(num_filters) + '\n')
 
     print('hidden sizes:', h1_size, h2_size, h3_size, h4_size, h5_size, h6_size)
 
@@ -423,6 +434,12 @@ if __name__ == "__main__":
                   "recall:", cv_recalls, "avg", np.average(cv_recalls), "std", np.std(cv_recalls),
                   "F1:", cv_f1s, "avg", np.average(cv_f1s), "std", np.std(cv_f1s))
 
+            f2write.write("Cross-validation results; acc: " + str(cv_accuracies) + " avg " + str(np.average(cv_accuracies)) +
+                          " std " + str(np.std(cv_accuracies)) + " precision: " + str(cv_precisions) + " avg " +
+                          str(np.average(cv_precisions)) + " std " + str(np.std(cv_precisions)) + " recall: " +
+                          str(cv_recalls) + " avg " + str(np.average(cv_recalls)) + " std " + str(np.std(cv_recalls)) +
+                          " F1: " + str(cv_f1s) + " avg " + str(np.average(cv_f1s)) + " std " + str(np.std(cv_f1s)) + '\n')
+
             # Train model
             train(sess=sess, optimizer=optimizer, loss=loss, train_inputs=inputs,
                   train_outputs=outputs, training_epochs=training_epochs, keep_probability=dropout)
@@ -430,20 +447,32 @@ if __name__ == "__main__":
             # Test model
             pred = tf.nn.sigmoid(yhat)
             correct_prediction = tf.equal(tf.round(pred), y)
+            training_report = classification_report(y_true=outputs,
+                                                           y_pred=tf.round(pred).eval({X: inputs, y: outputs, keep_prob:dropout}))
 
-            print("Training Report", classification_report(y_true=outputs,
-                                                           y_pred=tf.round(pred).eval({X: inputs, y: outputs, keep_prob:dropout})))
-
-            print("Test Report", classification_report(y_true=test_outputs,
-                                                       y_pred=tf.round(pred).eval({X: test_inputs, y: test_outputs, keep_prob:1})))
+            print("Training Report", training_report)
+            f2write.write("Training Report " + str(training_report))
+            test_report = classification_report(y_true=test_outputs,
+                                                       y_pred=tf.round(pred).eval({X: test_inputs, y: test_outputs, keep_prob:1}))
+            f2write.write(" Test Report " + str(test_report) + '\n')
+            print("Test Report", test_report)
 
             accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-            print("Training Accuracy:", accuracy.eval({X: inputs, y: outputs, keep_prob:dropout}))
-            print("Training Precision:", precision.eval({X: inputs, y: outputs, keep_prob:dropout}),
-                  "Training Recall:", recall.eval({X: inputs, y: outputs, keep_prob:dropout}),
-                  "Training F1:", f1.eval({X: inputs, y: outputs, keep_prob:dropout}))
+            training_acc = accuracy.eval({X: inputs, y: outputs, keep_prob:dropout})
+            print("Training Accuracy:", training_acc)
+            training_precision = precision.eval({X: inputs, y: outputs, keep_prob:dropout})
+            training_recall = recall.eval({X: inputs, y: outputs, keep_prob: dropout})
+            training_f1 = f1.eval({X: inputs, y: outputs, keep_prob:dropout})
+            print("Training Precision:", training_precision, "Training Recall:", training_recall, "Training F1:", training_f1)
+            f2write.write("Training Accuracy: " + str(training_acc) + " Training Precision:" + str(training_precision) +
+                  " Training Recall: " + str(training_recall)+ " Training F1: " + str(training_f1) + '\n')
 
-            print("Test Accuracy:", accuracy.eval({X: test_inputs, y: test_outputs, keep_prob:1}))
-            print("Test Precision:", precision.eval({X: test_inputs, y: test_outputs, keep_prob:1}),
-                  "Test Recall:", recall.eval({X: test_inputs, y: test_outputs, keep_prob:1}), " Test F1:",
-                  f1.eval({X: test_inputs, y: test_outputs, keep_prob:1}))
+            test_acc = accuracy.eval({X: test_inputs, y: test_outputs, keep_prob:1})
+            print("Test Accuracy:", test_acc)
+            test_precision = precision.eval({X: test_inputs, y: test_outputs, keep_prob:1})
+            test_recall = recall.eval({X: test_inputs, y: test_outputs, keep_prob: 1})
+            test_f1 = f1.eval({X: test_inputs, y: test_outputs, keep_prob:1})
+            print("Test Precision:", test_precision, "Test Recall:", test_recall, "Test F1:", test_f1)
+            f2write.write("Test Accuracy: " + str(test_acc) + " Test Precision:" + str(test_precision) +
+                          " Test Recall: " + str(test_recall) + " Test F1: " + str(test_f1) + '\n')
+            f2write.close()
