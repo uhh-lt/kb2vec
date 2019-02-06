@@ -12,6 +12,12 @@ python -m nltk.downloader punkt
 python -m nltk.downloader averaged_perceptron_tagger
 ```
 
+Download the `data` folder and and unzip it:
+
+```
+wget http://ltdata1.informatik.uni-hamburg.de/kb2vec/data.zip
+unzip data.zip
+```
 
 Start the web service:
 ---------------------
