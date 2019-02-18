@@ -1,7 +1,7 @@
 from supervised import negative_sampling
 import ttl
 import codecs
-
+from sqlitedict import SqliteDict
 
 def check_written_file(contexts_r, phrases_r, contexts, phrases):
     is_equal = True
@@ -22,6 +22,38 @@ def check_written_file(contexts_r, phrases_r, contexts, phrases):
 
     return is_equal
 
+
+def get_statistics_true_url(positives_negatives, urls_db):
+    db = SqliteDict(urls_db, autocommit=False)
+    urls = list(db.keys())
+
+    file = codecs.open('candidates_without_true_name1_.tsv', 'a')
+    count_exist = 0
+    count_all = 0
+    count_not_included = 0
+
+    for positive_negative in positives_negatives:
+        entity, beg, end, true_url, context, negative_samples = positive_negative
+
+        samples = list()
+        for negative_sample in negative_samples:
+            samples.append(negative_sample.strip())
+
+        if true_url in samples:
+            count_exist += 1
+        elif true_url in urls:
+            file.write(str(entity) + '\t' + str(true_url) + '\n')
+        else:
+            count_not_included += 1
+
+        count_all += 1
+
+    print(count_exist)
+    print(count_all)
+    print(count_not_included)
+    return float(count_exist)/count_all
+
+
 ''' 
 # creating negative samples 
 contexts_r, phrases_r = negative_sampling.read_samples('/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/positive_samples_new.tsv')
@@ -33,6 +65,25 @@ print(len(negative_samples))
 print('Writing started..')
 negative_sampling.write_negative_samples_with_positive_samples(positive_negatives=negative_samples,
                        path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_with_positives_new.tsv')
+'''
+''' '''
+# creating candidates
+contexts_r, phrases_r = negative_sampling.read_samples('/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/positive_samples_new.tsv')
+print('positive samples are read..')
+negative_samples = negative_sampling.create_candidates(urls_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db',
+                                           contexts=contexts_r, phrases=phrases_r)
+
+print(len(negative_samples))
+print('Writing started..')
+negative_sampling.write_negative_samples_with_positive_samples(positive_negatives=negative_samples,
+                       path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/candidates/candidate1_big.tsv')
+
+
+''' 
+# get statistics
+positive_negatives = negative_sampling.\
+    read_negative_samples_with_positive_samples(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/candidates/candidate1.tsv')
+print(get_statistics_true_url(positive_negatives, urls_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db'))
 '''
 
 # check samples
@@ -68,16 +119,16 @@ negative_sampling.write_negative_samples_with_positive_samples(positive_negative
 # completely random
 contexts_r, phrases_r = negative_sampling.read_samples('/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/positive_samples.tsv')
 samples = negative_sampling.create_completely_random(urls_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db',
-                                           contexts=contexts_r, phrases=phrases_r, n=10)
+                                           contexts=contexts_r, phrases=phrases_r, n=5)
 
 print('starts to write')
 negative_sampling.write_negative_samples_with_positive_samples(positive_negatives=samples,
-                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_completely_random_10_big.tsv')
+                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_completely_random_5.tsv')
 '''
 ''' 
 # closest sampling with scores and similarity
 positive_negatives = negative_sampling.\
-    read_negative_samples_with_positive_samples(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_with_positives.tsv')
+    read_negative_samples_with_positive_samples(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_with_positives_new.tsv')
 
 sims_scores = negative_sampling.get_negative_samples_similarity_and_scores(positives_negatives=positive_negatives,
                                                                            url_db='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db',
@@ -86,16 +137,18 @@ sims_scores = negative_sampling.get_negative_samples_similarity_and_scores(posit
 
 print('starts to write')
 negative_sampling.write_negative_samples_with_positive_samples_with_scores(positive_negatives=sims_scores,
-                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/with_scores/negative_samples_sims_scores.tsv')
+                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/with_scores/negative_samples_sims_scores_new.tsv')
 '''
+''' 
 # prune closest
 
-positive_negatives = negative_sampling.read_negative_samples_with_positive_samples_with_scores(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/with_scores/negative_samples_sims_scores.tsv')
+positive_negatives = negative_sampling.read_negative_samples_with_positive_samples_with_scores(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/with_scores/negative_samples_sims_scores_new.tsv')
 print('positive_negatives is read')
-pruned_samples = negative_sampling.prune_most_closest(positives_negatives=positive_negatives, n=3)
+pruned_samples = negative_sampling.prune_most_closest(positives_negatives=positive_negatives, n=10)
 print('samples is pruned')
 negative_sampling.write_negative_samples_with_positive_samples(positive_negatives=pruned_samples,
-                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_closest_pruned_3.tsv')
+                                             path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/csv/negative_samples_filtered_closest_pruned_10_big.tsv')
+'''
 
 
 def ttl2csv(list_of_paths, write_path):

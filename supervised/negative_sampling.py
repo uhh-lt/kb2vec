@@ -216,7 +216,7 @@ def create_keywords_from_url(url_db):
         keywords = set()
         for word in words:
             prepro = word.strip(',').strip('.').strip('(').strip(')').lower()
-            # keywords.add(prepro)
+            #keywords.add(prepro)
             keywords.add(lemmatizer.lemmatize(prepro))
 
         url_keywords[url] = keywords
@@ -282,6 +282,51 @@ def create_negative_samples_with_positive_samples(urls_db, contexts, phrases):
                 word = lemmatizer.lemmatize(word.lower())
                 if word in keywords and candidate_url != true_url:
 
+                    negative_samples.append(candidate_url)
+                    break
+
+        negatives.extend(negative_samples)
+        if len(negative_samples) == 0:
+            print(entity)
+        positive_negatives.append(negatives)
+
+    return positive_negatives
+
+
+def create_candidates(urls_db, contexts, phrases):
+    url_keywords = create_keywords_from_url(urls_db)
+    positive_negatives = list()
+    lemmatizer = WordNetLemmatizer()
+
+    urls = url_keywords.keys()
+    keys = phrases.keys()
+    count = 0
+
+    print(len(keys))
+
+    for key in keys:
+        if count % 100 == 0:
+            print(count)
+        count += 1
+        entity, beg, end, true_url = phrases[key]
+        negatives = [(entity, beg, end, true_url, contexts[key])]
+
+        negative_samples = list()
+        for candidate_url in urls:
+            keywords = url_keywords[candidate_url]
+
+            words = entity.split()
+
+            if "–" in entity:
+                words = entity.split("–")
+            elif "-" in entity:
+                words = entity.split("-")
+
+            for word in words:
+                word = word.lower()
+                word_ = lemmatizer.lemmatize(word)
+                #if word in keywords or word_ in keywords:
+                if word_ in keywords:
                     negative_samples.append(candidate_url)
                     break
 
