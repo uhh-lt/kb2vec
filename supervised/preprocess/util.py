@@ -2,10 +2,47 @@ from collections import defaultdict
 import time
 import sys
 import os
+from sqlitedict import SqliteDict
 
 
 def load_graphid2entityname():
     pass
+
+
+def load_url2graphid(path=
+                     '/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db'):
+    return SqliteDict(path, autocommit=False)
+
+
+def load_wiki2graph(path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/wikiid2nnid/wikiid2graphid.txt'):
+    wiki2graphmap = dict()
+
+    with open(path) as fin:
+        for line in fin:
+            id1, id2 = line.split('\t')
+            wiki2graphmap[int(id1)] = int(id2)
+
+    return wiki2graphmap
+
+
+def load_graph2wiki(path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/wikiid2nnid/graphid2wikiid.txt'):
+    graph2wikimap = dict()
+    count = 0
+    multiple_references = set()
+    with open(path) as fin:
+        for line in fin:
+            id1, id2 = line.split('\t')
+            id1, id2 = int(id1), int(id2)
+            try:
+                graph2wikimap[id1].add(id2)
+                multiple_references.add(id1)
+                count += 1
+            except:
+                graph2wikimap[id1] = set()
+                graph2wikimap[id1].add(id2)
+
+    print(count, len(multiple_references))
+    return graph2wikimap, multiple_references
 
 
 # original https://github.com/dalab/end2end_neural_el
@@ -155,6 +192,93 @@ def custom_p_e_m(cand_ent_num=30, allowed_entities_set=None,
     print(p_e_m_lowercased_trim)
     return p_e_m, p_e_m_lowercased_trim, mention_total_freq
 
+
+class FetchCandidateEntities(object):
+    """takes as input a string or a list of words and checks if it is inside p_e_m
+    if yes it returns the candidate entities otherwise it returns None.
+    it also checks if string.lower() inside p_e_m and if string.lower() inside p_e_m_low"""
+    def __init__(self):
+        self.lowercase_spans = 30
+        self.lowercase_p_e_m = False
+        self.p_e_m, self.p_e_m_low, self.mention_total_freq = custom_p_e_m(
+            cand_ent_num=30,
+            lowercase_p_e_m=False)
+
+
+    def process(self, span):
+        """span can be either a string or a list of words"""
+        if isinstance(span, list):
+            span = ' '.join(span)
+        title = span.title()
+        # 'obama 44th president of united states'.title() # 'Obama 44Th President Of United States'
+        title_freq = self.mention_total_freq[title] if title in self.mention_total_freq else 0
+        span_freq = self.mention_total_freq[span] if span in self.mention_total_freq else 0
+
+        if title_freq == 0 and span_freq == 0:
+            if self.lowercase_spans and span.lower() in self.p_e_m:
+
+                return map(list, zip(*self.p_e_m[span.lower()]))
+            elif self.lowercase_p_e_m and span.lower() in self.p_e_m_low:
+                return map(list, zip(*self.p_e_m_low[span.lower()]))
+            else:
+                return None, None
+
+        else:
+            if span_freq > title_freq:
+                return map(list, zip(*self.p_e_m[span]))
+            else:
+                return map(list, zip(*self.p_e_m[title]))
+
+                # from [('ent1', 0.4), ('ent2', 0.3), ('ent3', 0.3)] to
+                # ('ent1', 'ent2', 'ent3')  and (0.4, 0.3, 0.3)
+                # after map we have lists i.e. ['ent1', 'ent2', 'ent3']   , [0.4, 0.3, 0.3]
+
+
+class FetchFilteredCoreferencedCandEntities(object):
+    def __init__(self):
+        self.fetchCandidateEntities = FetchCandidateEntities()
+        self.wiki2graph = load_wiki2graph()
+
+    # takes all context (chunk_words) and location of the span (begining(left) - ending(right) indexes of span)
+    def process(self, left, right, chunk_words):
+        span_text = ' '.join(chunk_words[left:right])
+        cand_ent, scores = self.fetchCandidateEntities.process(span_text)
+        # changing wiki to graph
+        #cand_ent_ = list()
+        #for cand in cand_ent:
+        #    try:
+        #        cand_ent_.append(self.wiki2graph[cand])
+        #    except:
+        #        print('EXCEPT')
+        #        continue
+        return cand_ent, scores
+
+    '''
+    def find_corefence_person(self, span_text, left_right_words):
+        """if span_text is substring of another person's mention found before. it should be
+        substring of words. so check next and previous characters to be non alphanumeric"""
+        if len(span_text) < 3:
+            return None
+        if left_right_words:  # this check is only for allspans mode not for gmonly.
+            if left_right_words[0] and left_right_words[0][0].isupper() or \
+                            left_right_words[1] and left_right_words[1][0].isupper():
+                # if the left or the right word has uppercased its first letter then do not search for coreference
+                # since most likely it is a subspan of a mention.
+                # This condition gives no improvement to Gerbil results even a very slight decrease (0.02%)
+                return None
+        for mention in reversed(self.persons_mentions_seen):
+            idx = mention.find(span_text)
+            if idx != -1:
+                if len(mention) == len(span_text):
+                    continue   # they are identical so no point in substituting them
+                if idx > 0 and mention[idx-1].isalpha():
+                    continue
+                if idx + len(span_text) < len(mention) and mention[idx+len(span_text)].isalpha():
+                    continue
+                #print("persons coreference, before:", span_text, "after:", mention)
+                return mention
+        return None
+    '''
 
 if __name__ == "__main__":
     p_e_m, p_e_m_lowercased_trim, mention_total_freq = custom_p_e_m()
