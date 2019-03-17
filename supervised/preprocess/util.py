@@ -244,14 +244,16 @@ class FetchFilteredCoreferencedCandEntities(object):
         span_text = ' '.join(chunk_words[left:right])
         cand_ent, scores = self.fetchCandidateEntities.process(span_text)
         # changing wiki to graph
-        #cand_ent_ = list()
-        #for cand in cand_ent:
-        #    try:
-        #        cand_ent_.append(self.wiki2graph[cand])
-        #    except:
-        #        print('EXCEPT')
-        #        continue
-        return cand_ent, scores
+        cand_ent_ = None
+        if cand_ent is not None:
+            cand_ent_ = list()
+            for cand in cand_ent:
+                try:
+                    cand_ent_.append(self.wiki2graph[int(cand)])
+                except:
+                    print('EXCEPT')
+                    continue
+        return cand_ent_, scores
 
     '''
     def find_corefence_person(self, span_text, left_right_words):

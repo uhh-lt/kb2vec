@@ -91,9 +91,14 @@ class Chunker(object):
                     self.chunk_words.append(line)
                 elif line.startswith('MMSTART_'):
                     ent_id = line[8:]   # assert that ent_id in wiki_name_id_map
-                    # convert ent_id to graph_id
-                    #self.ground_truth.append(self.wiki2graph[ent_id])
-                    self.ground_truth.append(ent_id)
+                    # convert ent_id to graph_id, if no graph_id, -1 is assigned
+                    # self.ground_truth.append(ent_id)
+                    try:
+                        self.ground_truth.append(self.wiki2graph[int(ent_id)])
+                    except:
+                        print('EXCEPT ground truth')
+                        self.ground_truth.append(-1)
+
                     self.begin_gm.append(len(self.chunk_words))
                 elif line == 'MMEND':
                     self.end_gm.append(len(self.chunk_words))
@@ -166,28 +171,36 @@ class Chunker(object):
         in_ttl = codecs.open(path, "r", "utf-8")
         input_ttl = in_ttl.read()
         _, contexts, phrases = self.parse_d2kb_ttl(input_ttl)
-
+        # TODO: look at the keys and see the reason of the difference
+        #print(contexts.keys(), phrases.keys())
+        #print(set(contexts.keys()) == set(phrases.keys()))
+        #return 0
         self.new_chunk()
         count_except = 0
+        count_except_url = 0
 
         context_urls = contexts.keys()
         for context_url in context_urls:
             context = contexts[context_url]
             self.chunk_words = word_tokenize(context)
-            context_phrases = phrases[context_url]
+            try:
+                context_phrases = phrases[context_url]
 
-            for phrase in context_phrases:
-                span, beg, end, ind_ref = phrase
-                try:
-                    graph_id = url2graphid[ind_ref]
-                    self.ground_truth.append(graph_id)
-                    self.begin_gm.append(len(word_tokenize(context[:beg])))
-                    self.end_gm.append(len(word_tokenize(context[:end])))
-                except KeyError:
-                    count_except += 1
-                    continue
+                for phrase in context_phrases:
+                    span, beg, end, ind_ref = phrase
+                    try:
+                        graph_id = url2graphid[ind_ref]
+                        self.ground_truth.append(graph_id)
+                        self.begin_gm.append(len(word_tokenize(context[:beg])))
+                        self.end_gm.append(len(word_tokenize(context[:end])))
+                    except KeyError:
+                        count_except += 1
+                        continue
+            except KeyError:
+                count_except_url += 1
+                continue
             yield (context_url, self.chunk_words, self.begin_gm, self.end_gm, self.ground_truth)
-        print('count except', count_except)
+        print('count except', count_except, 'not found url', count_except_url)
 
 
 Sample = namedtuple("Sample",
@@ -200,17 +213,16 @@ class InputSamplesGenerator(object):
         self.chunker = Chunker()
         self.fetchFilteredCoreferencedCandEntities = util.FetchFilteredCoreferencedCandEntities()
         self.url2graphid = util.load_url2graphid()
+        self.wiki2graph = util.load_wiki2graph()
 
     def process(self, path):
-        count = 0
+        #samples = list()
+
         for chunk in self.chunker.process_ttl(path, self.url2graphid):
         #for chunk in self.chunker.process(path):
             cand_entities = []  # list of lists     candidate entities
             cand_entities_scores = []
             chunk_id, chunk_words, begin_gm, end_gm, ground_truth = chunk
-            print(chunk_id, chunk_words, begin_gm, end_gm, ground_truth)
-
-            count += 1
 
             for left, right, gt in zip(begin_gm, end_gm, ground_truth):
                 cand_ent, scores = self.fetchFilteredCoreferencedCandEntities.process(left, right, chunk_words)
@@ -224,8 +236,12 @@ class InputSamplesGenerator(object):
             if begin_gm:  #not emtpy
                 yield Sample(chunk_id, chunk_words, begin_gm, end_gm, ground_truth,
                                    cand_entities, cand_entities_scores)
+                #samples.append((chunk_id, chunk_words, begin_gm, end_gm, ground_truth,
+                #                   cand_entities, cand_entities_scores))
+                #context_excepts[chunk_id] = except_cands
+                #context_candidates[chunk_id] = cand_entities
 
-        print(count)
+        #return samples
 
 
 
@@ -233,6 +249,13 @@ if __name__ == "__main__":
     generator = InputSamplesGenerator()
     #samples = generator.process('/Users/sevgili/PycharmProjects/end2end_neural_el/data/new_datasets/ace2004.txt')
     samples = generator.process('/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/dbpedia-spotlight-nif.ttl')
+    #print(len(samples), len(context_excepts.keys()))
+
+    #contexts = context_excepts.keys()
+    #for context in contexts:
+    #    print(context, len(context_excepts[context]), len(context_cands[context]))
+    count = 0
     for sample in samples:
         print('***** AAAAAAAA****', sample)
-        break
+        count += 1
+    print(count)
