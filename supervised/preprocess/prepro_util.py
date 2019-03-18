@@ -1,4 +1,4 @@
-import util as util  # replace import preprocess.util as util
+import preprocess.util as util
 from collections import namedtuple
 import codecs
 from rdflib import URIRef, Graph
@@ -215,40 +215,46 @@ class InputSamplesGenerator(object):
         self.url2graphid = util.load_url2graphid()
         self.wiki2graph = util.load_wiki2graph()
 
-    def process(self, path):
-        #samples = list()
+    def chunk2sample(self, chunk):
+        cand_entities = []  # list of lists     candidate entities
+        cand_entities_scores = []
+        chunk_id, chunk_words, begin_gm, end_gm, ground_truth = chunk
 
-        for chunk in self.chunker.process_ttl(path, self.url2graphid):
-        #for chunk in self.chunker.process(path):
-            cand_entities = []  # list of lists     candidate entities
-            cand_entities_scores = []
-            chunk_id, chunk_words, begin_gm, end_gm, ground_truth = chunk
+        for left, right, gt in zip(begin_gm, end_gm, ground_truth):
+            cand_ent, scores = self.fetchFilteredCoreferencedCandEntities.process(left, right, chunk_words)
 
-            for left, right, gt in zip(begin_gm, end_gm, ground_truth):
-                cand_ent, scores = self.fetchFilteredCoreferencedCandEntities.process(left, right, chunk_words)
+            if cand_ent is None:
+                cand_ent, scores = [], []
 
-                if cand_ent is None:
-                    cand_ent, scores = [], []
+            cand_entities.append(cand_ent)
+            cand_entities_scores.append(scores)
 
-                cand_entities.append(cand_ent)
-                cand_entities_scores.append(scores)
+        return chunk_id, chunk_words, begin_gm, end_gm, ground_truth, cand_entities, cand_entities_scores
 
-            if begin_gm:  #not emtpy
-                yield Sample(chunk_id, chunk_words, begin_gm, end_gm, ground_truth,
-                                   cand_entities, cand_entities_scores)
-                #samples.append((chunk_id, chunk_words, begin_gm, end_gm, ground_truth,
-                #                   cand_entities, cand_entities_scores))
-                #context_excepts[chunk_id] = except_cands
-                #context_candidates[chunk_id] = cand_entities
+    def process(self, path, ttl=False):
+        if ttl:
+            for chunk in self.chunker.process_ttl(path, self.url2graphid):
+                chunk_id, chunk_words, begin_gm, end_gm, ground_truth, \
+                                        cand_entities, cand_entities_scores = self.chunk2sample(chunk)
 
-        #return samples
+                if begin_gm:  #not emtpy
+                    yield Sample(chunk_id, chunk_words, begin_gm, end_gm, ground_truth,
+                                       cand_entities, cand_entities_scores)
+        else:
+            for chunk in self.chunker.process(path):
+                chunk_id, chunk_words, begin_gm, end_gm, ground_truth, \
+                        cand_entities, cand_entities_scores = self.chunk2sample(chunk)
 
+                if begin_gm:  # not emtpy
+                    yield Sample(chunk_id, chunk_words, begin_gm, end_gm, ground_truth,
+                                 cand_entities, cand_entities_scores)
 
 
 if __name__ == "__main__":
     generator = InputSamplesGenerator()
     #samples = generator.process('/Users/sevgili/PycharmProjects/end2end_neural_el/data/new_datasets/ace2004.txt')
-    samples = generator.process('/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/dbpedia-spotlight-nif.ttl')
+    samples = generator.process('/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/RSS-500.ttl',
+                                ttl=True)
     #print(len(samples), len(context_excepts.keys()))
 
     #contexts = context_excepts.keys()
