@@ -29,6 +29,7 @@ class Chunker(object):
             self.chunk_ending.add('.')
             self.chunk_ending.add('*NL*')
         self.parsing_errors = 0
+        self.ground_truth_errors = 0
         self.wiki2graph = util.load_wiki2graph(None)
 
     def new_chunk(self):
@@ -96,8 +97,8 @@ class Chunker(object):
                     try:
                         self.ground_truth.append(self.wiki2graph[int(ent_id)])
                     except:
-                        print('EXCEPT ground truth')
                         self.ground_truth.append(-1)
+                        self.ground_truth_errors += 1
 
                     self.begin_gm.append(len(self.chunk_words))
                 elif line == 'MMEND':
@@ -109,8 +110,9 @@ class Chunker(object):
                 else:
                     self.chunk_words.append(line)
 
-        print(path, " chunker parsing errors: ", self.parsing_errors)
+        print(path, " chunker parsing errors: ", self.parsing_errors, "ground truth errors:", self.ground_truth_errors)
         self.parsing_errors = 0
+        self.ground_truth_errors = 0
 
     def parse_d2kb_ttl(self, input_ttl):
         g = Graph()
@@ -194,13 +196,17 @@ class Chunker(object):
                         self.begin_gm.append(len(word_tokenize(context[:beg])))
                         self.end_gm.append(len(word_tokenize(context[:end])))
                     except KeyError:
-                        count_except += 1
+                        self.ground_truth_errors += 1
                         continue
             except KeyError:
                 count_except_url += 1
                 continue
             yield (context_url, self.chunk_words, self.begin_gm, self.end_gm, self.ground_truth)
-        print('count except', count_except, 'not found url', count_except_url)
+
+        print(path, " chunker parsing errors: ", self.parsing_errors, "ground truth errors:", self.ground_truth_errors,
+              'not found url', count_except_url)
+        self.parsing_errors = 0
+        self.ground_truth_errors = 0
 
 
 Sample = namedtuple("Sample",
@@ -252,9 +258,9 @@ class InputSamplesGenerator(object):
 
 if __name__ == "__main__":
     generator = InputSamplesGenerator()
-    #samples = generator.process('/Users/sevgili/PycharmProjects/end2end_neural_el/data/new_datasets/ace2004.txt')
-    samples = generator.process('/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/RSS-500.ttl',
-                                ttl=True)
+    samples = generator.process('/Users/sevgili/PycharmProjects/end2end_neural_el/data/new_datasets/ace2004.txt')
+    #samples = generator.process('/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/RSS-500.ttl',
+    #                            ttl=True)
     #print(len(samples), len(context_excepts.keys()))
 
     #contexts = context_excepts.keys()
@@ -262,6 +268,6 @@ if __name__ == "__main__":
     #    print(context, len(context_excepts[context]), len(context_cands[context]))
     count = 0
     for sample in samples:
-        print('***** AAAAAAAA****', sample)
+        #print('***** AAAAAAAA****', sample)
         count += 1
     print(count)

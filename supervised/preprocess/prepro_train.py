@@ -6,7 +6,7 @@ from nltk.tokenize import word_tokenize
 from random import shuffle
 
 
-def load_chunkid2contextid(path):
+def load_chunkid2contextid(path=None):
     if path is None:
         path='/Users/sevgili/PycharmProjects/group/kb2vec/supervised/preprocess/idmaps/chunkid2contextid.txt'
     chunk2contextmap = dict()
@@ -19,25 +19,25 @@ def load_chunkid2contextid(path):
     return chunk2contextmap
 
 
-def load_context_vec(path):
+def load_context_vec(path=None):
     if path is None:
         path = '/Users/sevgili/PycharmProjects/group/kb2vec/supervised/preprocess/vectors/context_vecs.npy'
     return np.load(path)
 
 
-def load_doc2vec(path):
+def load_doc2vec(path=None):
     if path is None:
         path = '/Users/sevgili/Ozge-PhD/wikipedia-doc2vec/all-dim100/wikipedia_document_dim100_with_wikicorpus.doc2vec'
     return Doc2Vec.load(path, mmap='r')
 
 
-def load_longabs(path):
+def load_longabs(path=None):
     if path is None:
         path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/long_abstracts.db'
     return SqliteDict(path, autocommit=False)
 
 
-def load_graphid2url(path):
+def load_graphid2url(path=None):
     if path is None:
         path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup_inv.db'
     return SqliteDict(path, autocommit=False)
@@ -77,15 +77,15 @@ def load_entity_extension(wikiid2nnid, extension_name):
     print("original entities: ", max_nnid + 1, " extension entities: ", len(wikiid2nnid) - (max_nnid+1))
 
 
-def load_graph_vec(path):
+def load_graph_vec(path=None):
     if path is None:
         path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/ent_vecs/ent_vecs_graph.npy'
     return np.load(path)
 
 
-def load_graph2wiki(path):
+def load_graph2wiki(path=None):
     if path is None:
-        path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/wikiid2nnid/graphid2wikiid.txt'
+        path='preprocess/idmaps/graphid2wikiid.txt'
     id2idmap = dict()
     multiple_references = set()
     with open(path) as fin:
@@ -117,12 +117,10 @@ class InputVecGenerator(object):
 
     def create_input_vec(self, sample):
         chunk_id, chunk_words, begin_gm, end_gm, ground_truth, cand_entities, cand_entities_scores = sample
-        count_except = 0
         for index in range(len(begin_gm)):
             candidate_entities_, ground_truth_id, begin, end = cand_entities[index],\
                                                                ground_truth[index], begin_gm[index], end_gm[index]
             #print(ground_truth_id, begin, end)
-
             if ground_truth != -1 or len(candidate_entities_) > 0: # for the one we have the correct result
                 context_vec = self.context_vecs[self.chunkid2contextid[chunk_id]]
                 span_text = ' '.join(chunk_words[begin:end])
@@ -133,18 +131,11 @@ class InputVecGenerator(object):
 
                 for cand in candidate_entities_:
 
-                    try:
-                        longab = self.url2longabs[self.graphid2url[cand]]
-                        longab_vec = self.doc2vec.infer_vector(word_tokenize(longab))
-                    except:
-                        count_except += 1
-                        continue
-                        #return -1
-                    try:
-                        wiki_id = self.graphid2wikiid[int(cand)].pop()
-                    except:
-                        count_except += 1
-                        continue
+                    longab = self.url2longabs[self.graphid2url[cand]]
+                    longab_vec = self.doc2vec.infer_vector(word_tokenize(longab))
+
+                    wiki_ids = list(self.graphid2wikiid[int(cand)])
+                    wiki_id = wiki_ids[0]
 
                     nn_id = self.wiki2nn[str(wiki_id)]
                     graph_vec = self.graph_vecs[int(nn_id)]
@@ -158,7 +149,6 @@ class InputVecGenerator(object):
                     else:
                         # 0 means negative
                         yield (inputvec, np.array([0]))
-        #print(count_except)
 
     def format(self, list_sample):
         inputs, outputs = list(), list()
@@ -174,14 +164,18 @@ class InputVecGenerator(object):
     # path of dataset
     def process(self, path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/new_datasets/ace2004.txt', ttl=False):
         samples = list()
+        count = 0
         for sample in self.sample_generator.process(path, ttl=ttl):
 
             #chunk_id, chunk_words, begin_gm, end_gm, ground_truth, cand_entities, cand_entities_scores = sample
             #print(chunk_words, begin_gm, end_gm, cand_entities)
             #print('lengths', len(begin_gm), len(end_gm), len(cand_entities))
             for input_vec in self.create_input_vec(sample):
+                if input_vec == -1:
+                    return -1
                 samples.append(input_vec)
-
+            count += 1
+        print('# of context', count)
         print('finished creating input files', len(samples))
         shuffle(samples)
         print('finished shuffling samples')
@@ -192,5 +186,5 @@ class InputVecGenerator(object):
 
 if __name__ == "__main__":
     inputvecgenerator = InputVecGenerator()
-    inputvecgenerator.process()
+    inputvecgenerator.process(path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/new_datasets/msnbc.txt')
 

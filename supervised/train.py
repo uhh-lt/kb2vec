@@ -190,10 +190,8 @@ if __name__ == "__main__":
     h6_size, device, l2_beta, dropout, num_filters, cnn, file2write = get_parameters()
 
     input_generator = InputVecGenerator()
-    train_inputs, train_outputs = input_generator.process(
-                        path=training_corpus)
-    test_inputs, test_outputs = input_generator.process(
-                        path=test_corpus)
+    train_inputs, train_outputs = input_generator.process(path=training_corpus)
+    test_inputs, test_outputs = input_generator.process(path=test_corpus)
 
     print('train size', len(train_inputs), 'test size', len(test_inputs))
 

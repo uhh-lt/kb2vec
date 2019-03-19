@@ -5,13 +5,13 @@ import os
 from sqlitedict import SqliteDict
 
 
-def load_url2graphid(path):
+def load_url2graphid(path=None):
     if path is None:
         path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db'
     return SqliteDict(path, autocommit=False)
 
 
-def load_wiki2graph(path):
+def load_wiki2graph(path=None):
     if path is None:
         path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/wikiid2nnid/wikiid2graphid.txt'
     wiki2graphmap = dict()
@@ -24,7 +24,9 @@ def load_wiki2graph(path):
     return wiki2graphmap
 
 
-def load_graph2wiki(path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/wikiid2nnid/graphid2wikiid.txt'):
+def load_graph2wiki(path=None):
+    if path is None:
+        path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/wikiid2nnid/graphid2wikiid.txt'
     graph2wikimap = dict()
     count = 0
     multiple_references = set()
@@ -241,6 +243,7 @@ class FetchFilteredCoreferencedCandEntities(object):
     def __init__(self):
         self.fetchCandidateEntities = FetchCandidateEntities()
         self.wiki2graph = load_wiki2graph(None)
+        #self.keyerror = 0
 
     # takes all context (chunk_words) and location of the span (begining(left) - ending(right) indexes of span)
     def process(self, left, right, chunk_words):
@@ -254,8 +257,12 @@ class FetchFilteredCoreferencedCandEntities(object):
                 try:
                     cand_ent_.append(self.wiki2graph[int(cand)])
                 except:
-                    print('EXCEPT')
+                    #self.keyerror += 1
                     continue
+
+        #if self.keyerror:
+        #    print('candidate entities map, key error: ', self.keyerror, ' span_text: ', span_text)
+        #    self.keyerror = 0
         return cand_ent_, scores
 
     '''
