@@ -6,7 +6,9 @@ from nltk.tokenize import word_tokenize
 from random import shuffle
 
 
-def load_chunkid2contextid(path='/Users/sevgili/PycharmProjects/group/kb2vec/supervised/preprocess/idmaps/chunkid2contextid.txt'):
+def load_chunkid2contextid(path):
+    if path is None:
+        path='/Users/sevgili/PycharmProjects/group/kb2vec/supervised/preprocess/idmaps/chunkid2contextid.txt'
     chunk2contextmap = dict()
 
     with open(path) as fin:
@@ -17,19 +19,27 @@ def load_chunkid2contextid(path='/Users/sevgili/PycharmProjects/group/kb2vec/sup
     return chunk2contextmap
 
 
-def load_context_vec(path='/Users/sevgili/PycharmProjects/group/kb2vec/supervised/preprocess/vectors/context_vecs.npy'):
+def load_context_vec(path):
+    if path is None:
+        path = '/Users/sevgili/PycharmProjects/group/kb2vec/supervised/preprocess/vectors/context_vecs.npy'
     return np.load(path)
 
 
-def load_doc2vec(path = '/Users/sevgili/Ozge-PhD/wikipedia-doc2vec/all-dim100/wikipedia_document_dim100_with_wikicorpus.doc2vec'):
+def load_doc2vec(path):
+    if path is None:
+        path = '/Users/sevgili/Ozge-PhD/wikipedia-doc2vec/all-dim100/wikipedia_document_dim100_with_wikicorpus.doc2vec'
     return Doc2Vec.load(path, mmap='r')
 
 
-def load_longabs(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/long_abstracts.db'):
+def load_longabs(path):
+    if path is None:
+        path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/long_abstracts.db'
     return SqliteDict(path, autocommit=False)
 
 
-def load_graphid2url(path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup_inv.db'):
+def load_graphid2url(path):
+    if path is None:
+        path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup_inv.db'
     return SqliteDict(path, autocommit=False)
 
 
@@ -67,11 +77,15 @@ def load_entity_extension(wikiid2nnid, extension_name):
     print("original entities: ", max_nnid + 1, " extension entities: ", len(wikiid2nnid) - (max_nnid+1))
 
 
-def load_graph_vec(path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/ent_vecs/ent_vecs_graph.npy'):
+def load_graph_vec(path):
+    if path is None:
+        path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/ent_vecs/ent_vecs_graph.npy'
     return np.load(path)
 
 
-def load_graph2wiki(path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/wikiid2nnid/graphid2wikiid.txt'):
+def load_graph2wiki(path):
+    if path is None:
+        path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/wikiid2nnid/graphid2wikiid.txt'
     id2idmap = dict()
     multiple_references = set()
     with open(path) as fin:
@@ -90,19 +104,18 @@ def load_graph2wiki(path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/
 
 
 class InputVecGenerator(object):
-    def __init__(self):
+    def __init__(self, graph_embedding_path=None, doc2vec_path=None, graphid2url_db=None, url2longabs_db=None):
         self.sample_generator = prepro_util.InputSamplesGenerator()
-        self.chunkid2contextid = load_chunkid2contextid()
-        self.context_vecs = load_context_vec()
-        self.doc2vec = load_doc2vec()
+        self.chunkid2contextid = load_chunkid2contextid(None)
+        self.context_vecs = load_context_vec(None)
+        self.doc2vec = load_doc2vec(doc2vec_path)
         self.wiki2nn = load_wikiid2nnid(extension_name='extension_entities')
-        self.url2longabs = load_longabs()
-        self.graph_vecs = load_graph_vec()
-        self.graphid2wikiid,_ = load_graph2wiki()
-        self.graphid2url = load_graphid2url()
+        self.url2longabs = load_longabs(url2longabs_db)
+        self.graph_vecs = load_graph_vec(graph_embedding_path)
+        self.graphid2wikiid,_ = load_graph2wiki(None)
+        self.graphid2url = load_graphid2url(graphid2url_db)
 
     def create_input_vec(self, sample):
-
         chunk_id, chunk_words, begin_gm, end_gm, ground_truth, cand_entities, cand_entities_scores = sample
         count_except = 0
         for index in range(len(begin_gm)):

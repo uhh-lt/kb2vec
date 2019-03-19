@@ -29,7 +29,7 @@ class Chunker(object):
             self.chunk_ending.add('.')
             self.chunk_ending.add('*NL*')
         self.parsing_errors = 0
-        self.wiki2graph = util.load_wiki2graph()
+        self.wiki2graph = util.load_wiki2graph(None)
 
     def new_chunk(self):
         self.chunk_words = []
@@ -212,8 +212,8 @@ class InputSamplesGenerator(object):
     def __init__(self):
         self.chunker = Chunker()
         self.fetchFilteredCoreferencedCandEntities = util.FetchFilteredCoreferencedCandEntities()
-        self.url2graphid = util.load_url2graphid()
-        self.wiki2graph = util.load_wiki2graph()
+        self.url2graphid = util.load_url2graphid(None)
+        self.wiki2graph = util.load_wiki2graph(None)
 
     def chunk2sample(self, chunk):
         cand_entities = []  # list of lists     candidate entities

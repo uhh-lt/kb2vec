@@ -5,16 +5,15 @@ import os
 from sqlitedict import SqliteDict
 
 
-def load_graphid2entityname():
-    pass
-
-
-def load_url2graphid(path=
-                     '/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db'):
+def load_url2graphid(path):
+    if path is None:
+        path='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/databases/intersection_nodes_lookup.db'
     return SqliteDict(path, autocommit=False)
 
 
-def load_wiki2graph(path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/wikiid2nnid/wikiid2graphid.txt'):
+def load_wiki2graph(path):
+    if path is None:
+        path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/wikiid2nnid/wikiid2graphid.txt'
     wiki2graphmap = dict()
 
     with open(path) as fin:
@@ -47,7 +46,9 @@ def load_graph2wiki(path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/
 
 # original https://github.com/dalab/end2end_neural_el
 def load_wiki_name_id_map(lowercase=False,
-                          filepath="/Users/sevgili/PycharmProjects/end2end_neural_el/data/basic_data/wiki_name_id_map.txt"):
+                          filepath=None):
+    if filepath is None:
+        filepath="/Users/sevgili/PycharmProjects/end2end_neural_el/data/basic_data/wiki_name_id_map.txt"
     wall_start = time.time()
     wiki_name_id_map = dict()
     wiki_id_name_map = dict()
@@ -95,12 +96,14 @@ class WikiNameIdMap(object):
 
 # original https://github.com/dalab/end2end_neural_el
 def custom_p_e_m(cand_ent_num=30, allowed_entities_set=None,
-                 lowercase_p_e_m=False):
+                 lowercase_p_e_m=False, filedict=None):
     """Args:
     cand_ent_num: how many candidate entities to keep for each mention
     allowed_entities_set: restrict the candidate entities to only this set. for example
     the most frequent 1M entities. First this restiction applies and then the cand_ent_num."""
     wall_start = time.time()
+    if filedict is None:
+        filedict='/Users/sevgili/PycharmProjects/end2end_neural_el/data/basic_data/prob_yago_crosswikis_wikipedia_p_e_m.txt'
     p_e_m = dict()  # for each mention we have a list of tuples (wiki_id, score)
     mention_total_freq = dict() # for each mention of the p_e_m we store the total freq
                                 # this will help us decide which cand entities to take
@@ -110,7 +113,7 @@ def custom_p_e_m(cand_ent_num=30, allowed_entities_set=None,
     wikiNameIdMap.init_compatible_ent_id()
 
     incompatible_ent_ids = 0
-    with open('/Users/sevgili/PycharmProjects/end2end_neural_el/data/basic_data/prob_yago_crosswikis_wikipedia_p_e_m.txt') as fin:
+    with open(filedict) as fin:
         duplicate_mentions_cnt = 0
         clear_conflict_winner = 0  # both higher absolute frequency and longer cand list
         not_clear_conflict_winner = 0  # higher absolute freq but shorter cand list
@@ -237,7 +240,7 @@ class FetchCandidateEntities(object):
 class FetchFilteredCoreferencedCandEntities(object):
     def __init__(self):
         self.fetchCandidateEntities = FetchCandidateEntities()
-        self.wiki2graph = load_wiki2graph()
+        self.wiki2graph = load_wiki2graph(None)
 
     # takes all context (chunk_words) and location of the span (begining(left) - ending(right) indexes of span)
     def process(self, left, right, chunk_words):
