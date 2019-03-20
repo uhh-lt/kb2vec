@@ -93,6 +93,10 @@ def get_parameters():
                                                  "there is an embedding for each node in the entity graph.",
                         default='/Users/sevgili/Ozge-PhD/DBpedia-datasets/outputs/nodes.embeddings')
 
+    parser.add_argument('-graph_entity_vec', help="Path for the subset embeddings of a graph, containing each "
+                                                  "candidate graph embeddings.",
+                        default='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/ent_vecs/ent_vecs_graph.npy')
+
     parser.add_argument('-doc2vec', help="Path for pretrained doc2vec.",
                         default='/Users/sevgili/Ozge-PhD/wikipedia-doc2vec/all-dim100/wikipedia_document_dim100_with_wikicorpus.doc2vec')
 
@@ -130,12 +134,12 @@ def get_parameters():
 
     parser.add_argument('-h3_size', help="The size of the third hidden layer the neural network "
                                          "(default 0, means no third hidden layer!).",
-                        default=0, type=int)
+                        default=100, type=int)
 
     parser.add_argument('-h4_size', help="The size of the fourth hidden layer the neural network "
                                          "(default 0, means no fourth hidden layer!). (Note: if you specify this "
                                          "layer but not previous ones, then all previous layers size become 100)",
-                        default=0, type=int)
+                        default=100, type=int)
 
     parser.add_argument('-h5_size', help="The size of the fifth hidden layer the neural network "
                                          "(default 0, means no fifth hidden layer!). (Note: if you specify this "
@@ -148,7 +152,7 @@ def get_parameters():
                         default=0, type=int)
 
     parser.add_argument('-l2_beta', help="The beta parameter of L2 loss (default 0, means no L2 loss!)",
-                        default=0.0, type=float)
+                        default=0.0001, type=float)
 
     parser.add_argument('-dropout', help="The keep probability of dropout (default 0.5, means dropout!)",
                         default=0.5, type=float)
@@ -179,17 +183,19 @@ def get_parameters():
     if h4_size != 0 and h3_size == 0:
         h3_size = 100
 
-    return args.training_corpus, args.test_corpus, args.graph_embedding, args.doc2vec, args.url2graphid_db, args.url2longabs_db, \
-           args.learning_rate, args.training_epochs, args.h1_size, args.h2_size, h3_size, h4_size, h5_size, \
-           args.h6_size, device, args.l2_beta, args.dropout, args.num_filters, args.cnn, args.file2write
+    return args.training_corpus, args.test_corpus, args.graph_embedding, args.doc2vec, args.graphid2url_db, \
+           args.url2graphid_db, args.url2longabs_db, args.learning_rate, args.training_epochs, args.h1_size, \
+           args.h2_size, h3_size, h4_size, h5_size, args.h6_size, device, args.l2_beta, args.dropout, \
+           args.num_filters, args.cnn, args.file2write, args.graph_entity_vec
 
 
 if __name__ == "__main__":
-    training_corpus, test_corpus, graph_embedding, doc2vec, url2graphid_db, url2longabs_db, \
+    training_corpus, test_corpus, graph_embedding, doc2vec, graphid2url_db, url2graphid_db, url2longabs_db, \
     learning_rate, training_epochs, h1_size, h2_size, h3_size, h4_size, h5_size, \
-    h6_size, device, l2_beta, dropout, num_filters, cnn, file2write = get_parameters()
+    h6_size, device, l2_beta, dropout, num_filters, cnn, file2write, graph_entity_vec = get_parameters()
 
-    input_generator = InputVecGenerator()
+    input_generator = InputVecGenerator(graph_entity_path=graph_entity_vec, doc2vec_path=doc2vec,
+                 url2graphid_db=url2graphid_db, graphid2url_db=graphid2url_db, url2longabs_db=url2longabs_db)
     train_inputs, train_outputs = input_generator.process(path=training_corpus)
     test_inputs, test_outputs = input_generator.process(path=test_corpus)
 

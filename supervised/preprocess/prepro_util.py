@@ -215,10 +215,10 @@ Sample = namedtuple("Sample",
 
 
 class InputSamplesGenerator(object):
-    def __init__(self):
+    def __init__(self, url2graphid_db=None):
         self.chunker = Chunker()
         self.fetchFilteredCoreferencedCandEntities = util.FetchFilteredCoreferencedCandEntities()
-        self.url2graphid = util.load_url2graphid(None)
+        self.url2graphid = util.load_url2graphid(url2graphid_db)
         self.wiki2graph = util.load_wiki2graph(None)
 
     def chunk2sample(self, chunk):

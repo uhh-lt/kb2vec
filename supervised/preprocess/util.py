@@ -1,7 +1,7 @@
 from collections import defaultdict
 import time
 import sys
-import os
+import os, codecs
 from sqlitedict import SqliteDict
 
 
@@ -13,7 +13,7 @@ def load_url2graphid(path=None):
 
 def load_wiki2graph(path=None):
     if path is None:
-        path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/wikiid2nnid/wikiid2graphid.txt'
+        path='preprocess/idmaps/wikiid2graphid.txt'
     wiki2graphmap = dict()
 
     with open(path) as fin:
@@ -26,7 +26,7 @@ def load_wiki2graph(path=None):
 
 def load_graph2wiki(path=None):
     if path is None:
-        path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/wikiid2nnid/graphid2wikiid.txt'
+        path='preprocess/idmaps/graphid2wikiid.txt'
     graph2wikimap = dict()
     count = 0
     multiple_references = set()
@@ -58,7 +58,7 @@ def load_wiki_name_id_map(lowercase=False,
     duplicate_names = 0    # different lines in the doc with the same title
     duplicate_ids = 0      # with the same id
 
-    with open(filepath) as fin:
+    with codecs.open(filepath, 'r', encoding='utf8') as fin:
         for line in fin:
             line = line.rstrip()
             try:
@@ -115,7 +115,7 @@ def custom_p_e_m(cand_ent_num=30, allowed_entities_set=None,
     wikiNameIdMap.init_compatible_ent_id()
 
     incompatible_ent_ids = 0
-    with open(filedict) as fin:
+    with codecs.open(filedict, 'r', encoding='utf8') as fin:
         duplicate_mentions_cnt = 0
         clear_conflict_winner = 0  # both higher absolute frequency and longer cand list
         not_clear_conflict_winner = 0  # higher absolute freq but shorter cand list
