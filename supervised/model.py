@@ -20,11 +20,12 @@ class Model(object):
         self.yhat = None
         self.loss = None
         self.optimizer = None
+        self.pred = None
 
     def create_placeholders(self, x_size, y_size):
-        self.X = tf.placeholder(tf.float32, shape=[None, x_size])
-        self.y = tf.placeholder(tf.float32, shape=[None, y_size])
-        self.keep_prob = tf.placeholder(tf.float32)
+        self.X = tf.placeholder(tf.float32, shape=[None, x_size], name='X')
+        self.y = tf.placeholder(tf.float32, shape=[None, y_size], name='y')
+        self.keep_prob = tf.placeholder(tf.float32, name='keep_prob')
 
     def forward_propagation(self, x_size, y_size):
         if self.cnn:
@@ -39,22 +40,22 @@ class Model(object):
 
         # Weight initializations
         weights = {
-            'w1': tf.Variable(tf.random_normal([x_size, self.h1_size])),
-            'w2': tf.Variable(tf.random_normal([self.h1_size, self.h2_size])),
-            'w3': tf.Variable(tf.random_normal([self.h2_size, self.h3_size])),
-            'w4': tf.Variable(tf.random_normal([self.h3_size, self.h4_size])),
-            'w5': tf.Variable(tf.random_normal([self.h4_size, self.h5_size])),
-            'w6': tf.Variable(tf.random_normal([self.h5_size, self.h6_size]))
+            'w1': tf.Variable(tf.random_normal([x_size, self.h1_size]), name='w1'),
+            'w2': tf.Variable(tf.random_normal([self.h1_size, self.h2_size]), name='w2'),
+            'w3': tf.Variable(tf.random_normal([self.h2_size, self.h3_size]), name='w3'),
+            'w4': tf.Variable(tf.random_normal([self.h3_size, self.h4_size]), name='w4'),
+            'w5': tf.Variable(tf.random_normal([self.h4_size, self.h5_size]), name='w5'),
+            'w6': tf.Variable(tf.random_normal([self.h5_size, self.h6_size]), name='w6')
         }
 
         biases = {
-            'b1': tf.Variable(tf.random_normal([self.h1_size])),
-            'b2': tf.Variable(tf.random_normal([self.h2_size])),
-            'b3': tf.Variable(tf.random_normal([self.h3_size])),
-            'b4': tf.Variable(tf.random_normal([self.h4_size])),
-            'b5': tf.Variable(tf.random_normal([self.h5_size])),
-            'b6': tf.Variable(tf.random_normal([self.h6_size])),
-            'out': tf.Variable(tf.random_normal([y_size]))
+            'b1': tf.Variable(tf.random_normal([self.h1_size]), name='b1'),
+            'b2': tf.Variable(tf.random_normal([self.h2_size]), name='b2'),
+            'b3': tf.Variable(tf.random_normal([self.h3_size]), name='b3'),
+            'b4': tf.Variable(tf.random_normal([self.h4_size]), name='b4'),
+            'b5': tf.Variable(tf.random_normal([self.h5_size]), name='b5'),
+            'b6': tf.Variable(tf.random_normal([self.h6_size]), name='b6'),
+            'out': tf.Variable(tf.random_normal([y_size]), name='bout')
         }
 
         # Forward propagation
@@ -67,33 +68,33 @@ class Model(object):
 
         # if h6 is specified
         if self.h6_size:
-            weights['out'] = tf.Variable(tf.random_normal([self.h6_size, y_size]))
+            weights['out'] = tf.Variable(tf.random_normal([self.h6_size, y_size]), name='wout')
             h6 = tf.nn.tanh(h6)
 
             yhat = tf.add(tf.matmul(h6, weights['out']), biases['out'])
 
         # if h5 is specified
         elif self.h5_size:
-            weights['out'] = tf.Variable(tf.random_normal([self.h5_size, y_size]))
+            weights['out'] = tf.Variable(tf.random_normal([self.h5_size, y_size]), name='wout')
             h5 = tf.nn.sigmoid(h5)
 
             yhat = tf.add(tf.matmul(h5, weights['out']), biases['out'])
 
         # if h4 is specified
         elif self.h4_size:
-            weights['out'] = tf.Variable(tf.random_normal([self.h4_size, y_size]))
+            weights['out'] = tf.Variable(tf.random_normal([self.h4_size, y_size]), name='wout')
             h4 = tf.nn.sigmoid(h4)
 
             yhat = tf.add(tf.matmul(h4, weights['out']), biases['out'])
 
         # if h3 is specified
         elif self.h3_size:
-            weights['out'] = tf.Variable(tf.random_normal([self.h3_size, y_size]))
+            weights['out'] = tf.Variable(tf.random_normal([self.h3_size, y_size]), name='wout')
             h3 = tf.nn.tanh(h3)
 
             yhat = tf.add(tf.matmul(h3, weights['out']), biases['out'])
         else:
-            weights['out'] = tf.Variable(tf.random_normal([self.h2_size, y_size]))
+            weights['out'] = tf.Variable(tf.random_normal([self.h2_size, y_size]), name='wout')
             yhat = tf.add(tf.matmul(h2, weights['out']), biases['out'])
 
         l2_loss = 0.0
@@ -121,3 +122,5 @@ class Model(object):
         # Backward propagation
         self.loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=self.yhat, targets=self.y) + l2_loss)
         self.optimizer = tf.train.AdamOptimizer(self.lr).minimize(self.loss)
+
+        self.pred = tf.nn.sigmoid(self.yhat, name='prediction')

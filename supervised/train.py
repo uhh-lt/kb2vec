@@ -5,9 +5,10 @@ import argparse
 
 
 class Trainer(object):
-    def __init__(self, learning_rate, h1_size, h2_size, h3_size, h4_size, h5_size, h6_size,
-                 l2_beta, num_filters, cnn, device, training_epochs, dropout,
-                 train_inputs, train_outputs, test_inputs, test_outputs):
+    def __init__(self, learning_rate=None, h1_size=None, h2_size=None, h3_size=None, h4_size=None,
+                 h5_size=None, h6_size=None, l2_beta=None, num_filters=None, cnn=None,
+                 device=None, training_epochs=None, dropout=None,
+                 train_inputs=None, train_outputs=None, test_inputs=None, test_outputs=None):
         self.model = Model(learning_rate, h1_size, h2_size, h3_size, h4_size,
                            h5_size, h6_size, l2_beta, num_filters, cnn)
         self.device = device
@@ -33,35 +34,61 @@ class Trainer(object):
                                                            self.model.y: self.train_outputs,
                                                            self.model.keep_prob: self.keep_probability})
 
+    def save_sess(self, path):
+        saver = tf.train.Saver()
+        if self.sess:
+            saver.save(self.sess, path)
+        else:
+            print('no open session!')
+
+    def close_sess(self):
+        self.sess.close()
+
+    def restore_sess(self, path=None):
+        if path is None:
+            path='trained_models/model_msnbc.meta'
+
+        sess = tf.Session()
+        trained_model = tf.train.import_meta_graph(path)
+        trained_model.restore(sess, tf.train.latest_checkpoint('trained_models/'))
+
+        self.sess = sess
+        graph = tf.get_default_graph()
+
+        self.model.pred = graph.get_tensor_by_name('prediction:0')
+        self.model.X = graph.get_tensor_by_name('X:0')
+        self.model.y = graph.get_tensor_by_name('y:0')
+        self.model.keep_prob = graph.get_tensor_by_name('keep_prob:0')
+
     def test(self):
-        pred = tf.nn.sigmoid(self.model.yhat)
-        correct_prediction = tf.equal(tf.round(pred), self.model.y)
+        correct_prediction = tf.equal(tf.round(self.model.pred), self.model.y)
         accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
         # Precision, Recall, F1
-        TP = tf.count_nonzero(tf.round(pred) * self.model.y)
-        FP = tf.count_nonzero(tf.round(pred) * (self.model.y - 1))
-        FN = tf.count_nonzero((tf.round(pred) - 1) * self.model.y)
+        TP = tf.count_nonzero(tf.round(self.model.pred) * self.model.y)
+        FP = tf.count_nonzero(tf.round(self.model.pred) * (self.model.y - 1))
+        FN = tf.count_nonzero((tf.round(self.model.pred) - 1) * self.model.y)
 
         precision = TP / (TP + FP)
         recall = TP / (TP + FN)
         f1 = 2 * precision * recall / (precision + recall)
 
-        training_acc = accuracy.eval(session=self.sess, feed_dict={self.model.X: self.train_inputs,
-                                                                   self.model.y: self.train_outputs,
-                                                                   self.model.keep_prob: self.keep_probability})
-        print("Training Accuracy:", training_acc)
-        training_precision = precision.eval(session=self.sess, feed_dict={self.model.X: self.train_inputs,
-                                            self.model.y: self.train_outputs,
-                                            self.model.keep_prob: self.keep_probability})
-        training_recall = recall.eval(session=self.sess, feed_dict={self.model.X: self.train_inputs,
-                                       self.model.y: self.train_outputs,
-                                       self.model.keep_prob: self.keep_probability})
-        training_f1 = f1.eval(session=self.sess, feed_dict={self.model.X: self.train_inputs,
-                                self.model.y: self.train_outputs,
-                                self.model.keep_prob: self.keep_probability})
-        print("Training Precision:", training_precision, "Training Recall:", training_recall, "Training F1:",
-              training_f1)
+        if train_inputs is not None:
+            training_acc = accuracy.eval(session=self.sess, feed_dict={self.model.X: self.train_inputs,
+                                                                       self.model.y: self.train_outputs,
+                                                                       self.model.keep_prob: self.keep_probability})
+            print("Training Accuracy:", training_acc)
+            training_precision = precision.eval(session=self.sess, feed_dict={self.model.X: self.train_inputs,
+                                                self.model.y: self.train_outputs,
+                                                self.model.keep_prob: self.keep_probability})
+            training_recall = recall.eval(session=self.sess, feed_dict={self.model.X: self.train_inputs,
+                                           self.model.y: self.train_outputs,
+                                           self.model.keep_prob: self.keep_probability})
+            training_f1 = f1.eval(session=self.sess, feed_dict={self.model.X: self.train_inputs,
+                                    self.model.y: self.train_outputs,
+                                    self.model.keep_prob: self.keep_probability})
+            print("Training Precision:", training_precision, "Training Recall:", training_recall, "Training F1:",
+                  training_f1)
 
         test_acc = accuracy.eval(session=self.sess, feed_dict={self.model.X: self.test_inputs,
                                   self.model.y: self.test_outputs, self.model.keep_prob: 1})
@@ -197,6 +224,7 @@ if __name__ == "__main__":
     input_generator = InputVecGenerator(graph_entity_path=graph_entity_vec, doc2vec_path=doc2vec,
                  url2graphid_db=url2graphid_db, graphid2url_db=graphid2url_db, url2longabs_db=url2longabs_db)
     train_inputs, train_outputs = input_generator.process(path=training_corpus)
+    #train_inputs, train_outputs = None, None
     test_inputs, test_outputs = input_generator.process(path=test_corpus)
 
     print('train size', len(train_inputs), 'test size', len(test_inputs))
@@ -211,5 +239,7 @@ if __name__ == "__main__":
                       test_inputs=test_inputs, test_outputs=test_outputs)
 
     trainer.train()
+    trainer.save_sess(path='trained_models/model_msnbc')
+    #trainer.restore_sess()
     trainer.test()
 
