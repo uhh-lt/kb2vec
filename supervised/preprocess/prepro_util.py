@@ -1,4 +1,4 @@
-import preprocess.util as util
+import supervised.preprocess.util as util
 from collections import namedtuple
 import codecs
 from rdflib import URIRef, Graph

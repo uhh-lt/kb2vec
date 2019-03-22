@@ -13,7 +13,7 @@ def load_url2graphid(path=None):
 
 def load_wiki2graph(path=None):
     if path is None:
-        path='preprocess/idmaps/wikiid2graphid.txt'
+        path='/Users/sevgili/PycharmProjects/group/kb2vec/supervised/preprocess/idmaps/wikiid2graphid.txt'
     wiki2graphmap = dict()
 
     with open(path) as fin:
@@ -26,7 +26,7 @@ def load_wiki2graph(path=None):
 
 def load_graph2wiki(path=None):
     if path is None:
-        path='preprocess/idmaps/graphid2wikiid.txt'
+        path='/Users/sevgili/PycharmProjects/group/kb2vec/supervised/preprocess/idmaps/graphid2wikiid.txt'
     graph2wikimap = dict()
     count = 0
     multiple_references = set()

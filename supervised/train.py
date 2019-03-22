@@ -1,6 +1,7 @@
-from model import Model
+#from model import Model
+from supervised.model import Model
 import tensorflow as tf
-from preprocess.prepro_train import InputVecGenerator
+from supervised.preprocess.prepro_train import InputVecGenerator
 import argparse
 
 
@@ -46,11 +47,11 @@ class Trainer(object):
 
     def restore_sess(self, path=None):
         if path is None:
-            path='trained_models/model_msnbc.meta'
+            path='/Users/sevgili/PycharmProjects/group/kb2vec/supervised/trained_models/model_msnbc.meta'
 
         sess = tf.Session()
         trained_model = tf.train.import_meta_graph(path)
-        trained_model.restore(sess, tf.train.latest_checkpoint('trained_models/'))
+        trained_model.restore(sess, tf.train.latest_checkpoint('/Users/sevgili/PycharmProjects/group/kb2vec/supervised/trained_models/'))
 
         self.sess = sess
         graph = tf.get_default_graph()

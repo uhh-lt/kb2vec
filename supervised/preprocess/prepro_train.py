@@ -1,4 +1,4 @@
-import preprocess.prepro_util as prepro_util
+import supervised.preprocess.prepro_util as prepro_util
 import numpy as np
 from gensim.models import Doc2Vec
 from sqlitedict import SqliteDict
@@ -8,7 +8,7 @@ from random import shuffle
 
 def load_chunkid2contextid(path=None):
     if path is None:
-        path='preprocess/idmaps/chunkid2contextid.txt'
+        path='/Users/sevgili/PycharmProjects/group/kb2vec/supervised/preprocess/idmaps/chunkid2contextid.txt'
     chunk2contextmap = dict()
 
     with open(path) as fin:
@@ -21,7 +21,7 @@ def load_chunkid2contextid(path=None):
 
 def load_context_vec(path=None):
     if path is None:
-        path = 'preprocess/vectors/context_vecs.npy'
+        path = '/Users/sevgili/PycharmProjects/group/kb2vec/supervised/preprocess/vectors/context_vecs.npy'
     return np.load(path)
 
 
@@ -46,7 +46,7 @@ def load_graphid2url(path=None):
 def load_wikiid2nnid(extension_name=None):
     """returns a map from wiki id to neural network id (for the entity embeddings)"""
     wikiid2nnid = dict()   # wikiid is string,   nnid is integer
-    with open("preprocess/idmaps/wikiid2nnid.txt") as fin:
+    with open("/Users/sevgili/PycharmProjects/group/kb2vec/supervised/preprocess/idmaps/wikiid2nnid.txt") as fin:
         for line in fin:
             ent_id, nnid = line.split('\t')
             wikiid2nnid[ent_id] = int(nnid) - 1  # torch starts from 1 instead of zero
@@ -62,7 +62,7 @@ def load_wikiid2nnid(extension_name=None):
 
 
 def load_entity_extension(wikiid2nnid, extension_name):
-    filepath = "preprocess/idmaps/additional_wikiids.txt"
+    filepath = "/Users/sevgili/PycharmProjects/group/kb2vec/supervised/preprocess/idmaps/additional_wikiids.txt"
     max_nnid = max(wikiid2nnid.values())
     assert(len(wikiid2nnid) - 1 == max_nnid)
     with open(filepath) as fin:
@@ -79,13 +79,14 @@ def load_entity_extension(wikiid2nnid, extension_name):
 
 def load_graph_vec(path=None):
     if path is None:
-        path='preprocess/vectors/ent_vecs_graph.npy'
+        #path='preprocess/vectors/ent_vecs_graph.npy'
+        path='/Users/sevgili/PycharmProjects/end2end_neural_el/data/entities/ent_vecs/ent_vecs_graph.npy'
     return np.load(path)
 
 
 def load_graph2wiki(path=None):
     if path is None:
-        path='preprocess/idmaps/graphid2wikiid.txt'
+        path='/Users/sevgili/PycharmProjects/group/kb2vec/supervised/preprocess/idmaps/graphid2wikiid.txt'
     id2idmap = dict()
     multiple_references = set()
     with open(path) as fin:
@@ -150,6 +151,35 @@ class InputVecGenerator(object):
                     else:
                         # 0 means negative
                         yield (inputvec, np.array([0]))
+
+    def create_input_vec_for_evaluation(self, sample):
+        chunk_id, chunk_words, begin, end, ground_truth, candidate_entities, cand_entities_scores = sample
+
+        #print(chunk_words, candidate_entities, begin, end)
+        if len(candidate_entities) > 0:
+            context_vec = self.doc2vec.infer_vector(chunk_words)
+            span_text = ' '.join(chunk_words[begin:end])
+            #print('span', span_text)
+            try:
+                word_vec = self.doc2vec[span_text]
+            except KeyError:
+                word_vec = self.doc2vec.infer_vector(span_text)
+
+            for cand in candidate_entities:
+
+                longab = self.url2longabs[self.graphid2url[cand]]
+                longab_vec = self.doc2vec.infer_vector(word_tokenize(longab))
+
+                wiki_ids = list(self.graphid2wikiid[int(cand)])
+                wiki_id = wiki_ids[0]
+
+                nn_id = self.wiki2nn[str(wiki_id)]
+                graph_vec = self.graph_vecs[int(nn_id)]
+
+                inputvec = np.concatenate((np.array(word_vec), np.array(graph_vec),
+                                    np.array(context_vec), np.array(longab_vec)), axis=0)
+
+                yield (np.array([inputvec]), cand)
 
     def format(self, list_sample):
         inputs, outputs = list(), list()
