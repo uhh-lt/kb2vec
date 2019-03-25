@@ -173,18 +173,18 @@ class Chunker(object):
         in_ttl = codecs.open(path, "r", "utf-8")
         input_ttl = in_ttl.read()
         _, contexts, phrases = self.parse_d2kb_ttl(input_ttl)
-        # TODO: look at the keys and see the reason of the difference
-        #print(contexts.keys(), phrases.keys())
-        #print(set(contexts.keys()) == set(phrases.keys()))
-        #return 0
-        self.new_chunk()
+        print(len(set(contexts.keys())), len(set(phrases.keys())))
+
         count_except = 0
         count_except_url = 0
 
         context_urls = contexts.keys()
         for context_url in context_urls:
+            self.new_chunk()
+
             context = contexts[context_url]
             self.chunk_words = word_tokenize(context)
+
             try:
                 context_phrases = phrases[context_url]
 
@@ -193,14 +193,22 @@ class Chunker(object):
                     try:
                         graph_id = url2graphid[ind_ref]
                         self.ground_truth.append(graph_id)
-                        self.begin_gm.append(len(word_tokenize(context[:beg])))
-                        self.end_gm.append(len(word_tokenize(context[:end])))
+                        try:
+                            left = self.chunk_words.index(span)
+                            right = left + len(word_tokenize(span))
+                        except ValueError:
+                            left = len(word_tokenize(context[:beg]))
+                            right = len(word_tokenize(context[:end]))
+                        self.begin_gm.append(left)
+                        self.end_gm.append(right)
                     except KeyError:
                         self.ground_truth_errors += 1
-                        continue
+
             except KeyError:
+                # only one context ref in spotlight, the problem in the dataset!
+                # http://www.nytimes.com/2010/10/11/arts/design/11chaos.html?ref=arts_sentence2
                 count_except_url += 1
-                continue
+
             yield (context_url, self.chunk_words, self.begin_gm, self.end_gm, self.ground_truth)
 
         print(path, " chunker parsing errors: ", self.parsing_errors, "ground truth errors:", self.ground_truth_errors,
