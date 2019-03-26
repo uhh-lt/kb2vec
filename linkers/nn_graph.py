@@ -20,3 +20,21 @@ class NNLinker(BaselineLinker):
             linked_phrases.append((phrase, c))
 
         return linked_phrases
+
+
+class CandidateRandom(NNLinker):
+    def __init__(self):
+        NNLinker.__init__(self)
+
+    def link(self, context, phrases):
+
+        linked_phrases = list()
+
+        for phrase in phrases:
+            score, predicted_url = self.evaluator.get_random_pred(context, phrase)
+
+            c = Candidate(score=score, link=predicted_url)
+
+            linked_phrases.append((phrase, c))
+
+        return linked_phrases

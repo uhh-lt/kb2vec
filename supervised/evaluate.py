@@ -4,6 +4,7 @@ from nltk.tokenize import word_tokenize
 from supervised.preprocess.prepro_util import Sample
 from collections import namedtuple
 from operator import itemgetter
+import random
 
 
 Phrase = namedtuple("Phrase", "text beg end subj")
@@ -50,6 +51,25 @@ class Evaluator(object):
 
         return -1, ""
 
+    def get_random_pred(self, context, phrase):
+        chunk_words = word_tokenize(context)
+        span = phrase.text
+
+        try:
+            left = chunk_words.index(span)
+            right = left + len(word_tokenize(span))
+        except ValueError:
+            left = len(word_tokenize(context[:phrase.beg]))
+            right = len(word_tokenize(context[:phrase.end]))
+
+        candidates, scores = self.fetchFilteredCoreferencedCandEntities.process(left, right, chunk_words)
+
+        if candidates is not None:
+            upper_bound = len(candidates)-1
+            index = random.randint(0, upper_bound)
+            return scores[index], self.graphid2url[candidates[index]]
+
+        return - 1, ""
 
 
 if __name__ == "__main__":
