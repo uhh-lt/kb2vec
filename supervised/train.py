@@ -47,11 +47,11 @@ class Trainer(object):
 
     def restore_sess(self, path=None):
         if path is None:
-            path='/Users/sevgili/PycharmProjects/group/kb2vec/supervised/trained_models/model_msnbc.meta'
+            path='/Users/sevgili/Desktop/trained_models/model_aida_train.meta'
 
-        sess = tf.Session()
-        trained_model = tf.train.import_meta_graph(path)
-        trained_model.restore(sess, tf.train.latest_checkpoint('/Users/sevgili/PycharmProjects/group/kb2vec/supervised/trained_models/'))
+        sess = tf.Session(config=tf.ConfigProto(allow_soft_placement=True, log_device_placement=True))
+        trained_model = tf.train.import_meta_graph(path, clear_devices=True)
+        trained_model.restore(sess, tf.train.latest_checkpoint('/Users/sevgili/Desktop/trained_models/'))
 
         self.sess = sess
         graph = tf.get_default_graph()

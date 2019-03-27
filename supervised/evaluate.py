@@ -12,15 +12,15 @@ Phrase = namedtuple("Phrase", "text beg end subj")
 
 class Evaluator(object):
     def __init__(self):
-        self.input_generator = InputVecGenerator()
-        self.fetchFilteredCoreferencedCandEntities = self.input_generator.sample_generator.fetchFilteredCoreferencedCandEntities
-        self.graphid2url = self.input_generator.graphid2url
         trainer = Trainer()
         trainer.restore_sess()
         self.sess = trainer.sess
         self.pred = trainer.model.pred
         self.X = trainer.model.X
         self.keep_prob = trainer.model.keep_prob
+        self.input_generator = InputVecGenerator()
+        self.fetchFilteredCoreferencedCandEntities = self.input_generator.sample_generator.fetchFilteredCoreferencedCandEntities
+        self.graphid2url = self.input_generator.graphid2url
 
     def derive_prediction_scores(self, context, phrase):
         chunk_words = word_tokenize(context)
