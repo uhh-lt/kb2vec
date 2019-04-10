@@ -41,13 +41,18 @@ class Evaluator(object):
             pred = self.pred.eval(session=self.sess, feed_dict={self.X:input_vec, self.keep_prob:1})
             predictions.append((pred[0][0], cand))
 
+        #candidates_print = list()
+        #for prediction in predictions:
+        #    candidates_print.append((prediction[0], self.graphid2url[prediction[1]]))
+        #print(candidates_print)
+
         return predictions
 
     def get_best_pred(self, context, phrase):
         predictions = self.derive_prediction_scores(context, phrase)
         if len(predictions) > 0:
-            sorted(predictions, key=itemgetter(0), reverse=True)
-            return predictions[0][0], self.graphid2url[predictions[0][1]]
+            sorted_predictions = sorted(predictions, key=itemgetter(0), reverse=True)
+            return sorted_predictions[0][0], self.graphid2url[sorted_predictions[0][1]]
 
         return -1, ""
 
@@ -85,4 +90,13 @@ if __name__ == "__main__":
 
     #print(evaluator.derive_prediction_scores(context=default_context, phrase=phrase))
     print(evaluator.get_best_pred(context=default_context, phrase=phrase))
+
+    lines = open('/Users/sevgili/Desktop/context-phrase-nif.txt', 'r').readlines()
+
+    for line in lines:
+        context, phrase_text, beg, end = line.split('\t')
+
+        phrase = Phrase(phrase_text, int(beg), int(end), "")
+        print(context, phrase)
+        print(evaluator.get_best_pred(context=context, phrase=phrase))
 

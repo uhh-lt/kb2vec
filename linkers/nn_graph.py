@@ -12,9 +12,12 @@ class NNLinker(BaselineLinker):
 
         linked_phrases = list()
 
-        for phrase in phrases:
-            score, predicted_url = self.evaluator.get_best_pred(context, phrase)
+        #file = open('/Users/sevgili/Desktop/context-phrase-nif.txt', 'a')
 
+        for phrase in phrases:
+            #file.write(str(context) + '\t' + str(phrase.text) + '\t' + str(phrase.beg) + '\t' + str(phrase.end) + '\n')
+            score, predicted_url = self.evaluator.get_best_pred(context, phrase)
+            print('******', context, phrase, score, predicted_url)
             c = Candidate(score=score, link=predicted_url)
 
             linked_phrases.append((phrase, c))

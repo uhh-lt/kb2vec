@@ -7,9 +7,8 @@ host = "127.0.0.1"
 app = Flask(__name__)
 app.debug = False
 
-#nn_linker = NNLinker()
-nn_random = CandidateRandom()
-'''
+nn_linker = NNLinker()
+
 @app.route("/nngraph", methods=['POST'])
 def nngraph():
     response = Response()
@@ -20,7 +19,7 @@ def nngraph():
 
     return response
 '''
-
+nn_random = CandidateRandom()
 @app.route("/nnrandom", methods=['POST'])
 def nnrandom():
     response = Response()
@@ -30,7 +29,7 @@ def nnrandom():
     response.data = nn_random.link_ttl(request.data)
 
     return response
-
+'''
 
 if __name__ == "__main__":
     app.run(host=host, threaded=False)
