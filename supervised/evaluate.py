@@ -4,7 +4,7 @@ from nltk.tokenize import word_tokenize
 from supervised.preprocess.prepro_util import Sample
 from collections import namedtuple
 from operator import itemgetter
-import random
+import random, codecs
 
 
 Phrase = namedtuple("Phrase", "text beg end subj")
@@ -76,6 +76,31 @@ class Evaluator(object):
 
         return - 1, ""
 
+    def check_ground_truth(self, context, phrase, ind_ref):
+        chunk_words = word_tokenize(context)
+        span = phrase.text
+
+        try:
+            left = chunk_words.index(span)
+            right = left + len(word_tokenize(span))
+        except ValueError:
+            left = len(word_tokenize(context[:phrase.beg]))
+            right = len(word_tokenize(context[:phrase.end]))
+
+        candidates, scores = self.fetchFilteredCoreferencedCandEntities.process(left, right, chunk_words)
+
+        if candidates is not None:
+            candidates_url = list()
+            for candidate in candidates:
+                candidates_url.append(self.graphid2url[candidate])
+
+            if ind_ref in candidates_url:
+                return 1
+            else:
+                print('True url', ind_ref, 'candidates', candidates_url)
+                return 0
+        return -1
+
 
 if __name__ == "__main__":
 
@@ -87,16 +112,42 @@ if __name__ == "__main__":
 
     evaluator = Evaluator()
 
-
     #print(evaluator.derive_prediction_scores(context=default_context, phrase=phrase))
     print(evaluator.get_best_pred(context=default_context, phrase=phrase))
 
+    in_ttl = codecs.open('/Users/sevgili/Ozge-PhD/DBpedia-datasets/training-datasets/ttl/dbpedia-spotlight-nif.ttl', "r", "utf-8")
+    input_ttl = in_ttl.read()
+    g, contexts_, phrases = evaluator.input_generator.sample_generator.chunker.parse_d2kb_ttl(input_ttl=input_ttl)
+    contexts = dict(map(reversed, contexts_.items()))
     lines = open('/Users/sevgili/Desktop/context-phrase-nif.txt', 'r').readlines()
 
+    count_include = 0
+    count_none = 0
+    count_notfound = 0
+    count_notinclude = 0
     for line in lines:
         context, phrase_text, beg, end = line.split('\t')
 
         phrase = Phrase(phrase_text, int(beg), int(end), "")
-        print(context, phrase)
-        print(evaluator.get_best_pred(context=context, phrase=phrase))
+
+        ttl_phrases = set(phrases[contexts[context]])
+        found = False
+        for ttl_phrase in ttl_phrases:
+            phrase_, beg, end, ind_ref = ttl_phrase
+            if phrase_ == phrase_text and beg == phrase.beg and end == phrase.end:
+                found = True
+                result = evaluator.check_ground_truth(context=context, phrase=phrase, ind_ref=ind_ref)
+                if result == 1:
+                    count_include += 1
+                elif result == -1:
+                    count_none += 1
+                elif result == 0:
+                    count_notinclude += 1
+        if not found:
+            count_notfound += 1
+            print('not found', context, phrase)
+
+        #print(context, phrase)
+        #print(evaluator.get_best_pred(context=context, phrase=phrase))
+    print(count_notfound, count_include, count_notinclude, count_none, len(lines))
 
