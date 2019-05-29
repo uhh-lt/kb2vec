@@ -90,16 +90,25 @@ def prepare_training_test_set_efficient(path_samples, graph_embeds, doc2vec, loo
 
     shuffle(samples)
 
-    training_size = int(len(samples) * 0.8)
+    sample_size = len(samples)
+    training_size = int(sample_size * 0.8)
+    dev_size = int(sample_size * 0.1)
     training_set = samples[:training_size]
-    test_set = samples[training_size:]
+    dev_set = samples[training_size:training_size+dev_size]
+    test_set = samples[training_size+dev_size:]
     del samples
+
+    print(sample_size, training_size, dev_size)
+    #print(len(training_set), len(dev_set), len(test_set))
 
     training_inputs, training_outputs = format(training_set)
     del training_set
+    dev_inputs, dev_outputs = format(dev_set)
+    del dev_set
     test_inputs, test_outputs = format(test_set)
     del test_set
-    return training_inputs, training_outputs, test_inputs, test_outputs
+    #print(dev_inputs == dev_inputs)
+    return training_inputs, training_outputs, dev_inputs, dev_outputs, test_inputs, test_outputs
 
 
 def load_embeds(path_graphembed, path_doc2vec):
@@ -336,7 +345,8 @@ if __name__ == "__main__":
     graph_embeds, doc2vec = load_embeds(path_graphembed, path_doc2vec)
     lookupdb, longabsdb = load_db(path_lookupdb, path_longabsdb)
 
-    inputs, outputs, test_inputs, test_outputs = prepare_training_test_set_efficient(training_corpus, graph_embeds, doc2vec, lookupdb, longabsdb)
+    inputs, outputs, dev_inputs, dev_outputs, test_inputs, test_outputs = \
+        prepare_training_test_set_efficient(training_corpus, graph_embeds, doc2vec, lookupdb, longabsdb)
 
     print(inputs.shape, outputs.shape)
 
@@ -396,6 +406,7 @@ if __name__ == "__main__":
             cv_recalls = list()
             cv_f1s = list()
 
+            '''
             kf = KFold(n_splits=5)
             for train_id, val_id in kf.split(inputs, outputs):
                 train_inputs = inputs[train_id]
@@ -407,19 +418,19 @@ if __name__ == "__main__":
                 train(sess=sess, optimizer=optimizer, loss=loss, train_inputs=train_inputs,
                       train_outputs=train_outputs, training_epochs=training_epochs, keep_probability=dropout)
 
-                ''' 
-                for epoch in range(training_epochs):
-                    _, current_loss = sess.run([optimizer, loss], feed_dict={X: train_inputs, y: train_outputs})
+                
+                #for epoch in range(training_epochs):
+                #    _, current_loss = sess.run([optimizer, loss], feed_dict={X: train_inputs, y: train_outputs})
 
-                    if epoch % 500==0 and epoch != 0:
+                #    if epoch % 500==0 and epoch != 0:
                         #print(current_loss)
                         #print("Training Accuracy:", accuracy.eval({X: train_inputs, y: train_outputs}))
                         #print("Precision:", precision.eval({X: train_inputs, y: train_outputs}),
                         #      "Recall:", recall.eval({X: train_inputs, y: train_outputs}),
                         #      "F1:", f1.eval({X: train_inputs, y: train_outputs}))
-                        summary_str = sess.run(train_summary_op, feed_dict={X: train_inputs, y: train_outputs})
-                        summary_writer.add_summary(summary_str, epoch)
-                '''
+                #       summary_str = sess.run(train_summary_op, feed_dict={X: train_inputs, y: train_outputs})
+                #        summary_writer.add_summary(summary_str, epoch)
+                
                 cv_accuracy, cv_precision, cv_recall, cv_f1 = accuracy.eval({X: val_inputs, y: val_outputs, keep_prob:1}), \
                                                               precision.eval({X: val_inputs, y: val_outputs, keep_prob:1}), \
                                                               recall.eval({X: val_inputs, y: val_outputs, keep_prob:1}), \
@@ -439,7 +450,7 @@ if __name__ == "__main__":
                           str(np.average(cv_precisions)) + " std " + str(np.std(cv_precisions)) + " recall: " +
                           str(cv_recalls) + " avg " + str(np.average(cv_recalls)) + " std " + str(np.std(cv_recalls)) +
                           " F1: " + str(cv_f1s) + " avg " + str(np.average(cv_f1s)) + " std " + str(np.std(cv_f1s)) + '\n')
-
+            '''
             # Train model
             train(sess=sess, optimizer=optimizer, loss=loss, train_inputs=inputs,
                   train_outputs=outputs, training_epochs=training_epochs, keep_probability=dropout)
@@ -452,6 +463,13 @@ if __name__ == "__main__":
 
             print("Training Report", training_report)
             f2write.write("Training Report " + str(training_report))
+
+            dev_report = classification_report(y_true=dev_outputs,
+                                                y_pred=tf.round(pred).eval(
+                                                    {X: dev_inputs, y: dev_outputs, keep_prob: 1}))
+            f2write.write(" Dev Report " + str(dev_report) + '\n')
+            print("Dev Report", dev_report)
+
             test_report = classification_report(y_true=test_outputs,
                                                        y_pred=tf.round(pred).eval({X: test_inputs, y: test_outputs, keep_prob:1}))
             f2write.write(" Test Report " + str(test_report) + '\n')
@@ -466,6 +484,15 @@ if __name__ == "__main__":
             print("Training Precision:", training_precision, "Training Recall:", training_recall, "Training F1:", training_f1)
             f2write.write("Training Accuracy: " + str(training_acc) + " Training Precision:" + str(training_precision) +
                   " Training Recall: " + str(training_recall)+ " Training F1: " + str(training_f1) + '\n')
+
+            dev_acc = accuracy.eval({X: dev_inputs, y: dev_outputs, keep_prob: 1})
+            print("Dev Accuracy:", dev_acc)
+            dev_precision = precision.eval({X: dev_inputs, y: dev_outputs, keep_prob: 1})
+            dev_recall = recall.eval({X: dev_inputs, y: dev_outputs, keep_prob: 1})
+            dev_f1 = f1.eval({X: dev_inputs, y: dev_outputs, keep_prob: 1})
+            print("Dev Precision:", dev_precision, "Dev Recall:", dev_recall, "Dev F1:", dev_f1)
+            f2write.write("Dev Accuracy: " + str(dev_acc) + " Dev Precision:" + str(dev_precision) +
+                          " Dev Recall: " + str(dev_recall) + " Dev F1: " + str(dev_f1) + '\n')
 
             test_acc = accuracy.eval({X: test_inputs, y: test_outputs, keep_prob:1})
             print("Test Accuracy:", test_acc)
