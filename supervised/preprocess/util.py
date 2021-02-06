@@ -4,6 +4,7 @@ import sys
 import os, codecs
 from sqlitedict import SqliteDict
 
+# modified https://github.com/dalab/end2end_neural_el
 
 def load_url2graphid(path=None):
     if path is None:

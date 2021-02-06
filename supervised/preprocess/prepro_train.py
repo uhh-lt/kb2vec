@@ -5,6 +5,7 @@ from sqlitedict import SqliteDict
 from nltk.tokenize import word_tokenize
 from random import shuffle
 
+# modified https://github.com/dalab/end2end_neural_el
 
 def load_chunkid2contextid(path=None):
     if path is None:

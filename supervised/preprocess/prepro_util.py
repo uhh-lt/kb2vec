@@ -4,6 +4,8 @@ import codecs
 from rdflib import URIRef, Graph
 from nltk.tokenize import word_tokenize
 
+# modified https://github.com/dalab/end2end_neural_el
+
 A = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
 PHRASE = "#Phrase"
 CONTEXT = "#Context"
